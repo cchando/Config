@@ -1,0 +1,308 @@
+# C file for i3 window manager
+#   
+# Read `man i3` for a complete reference.
+# exec redshift -l 32.96:-96.67 -t 6500:2500
+exec xbanish
+exec compton
+exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg
+# exec nitrogen --head=-1 --set-zoom-fill ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg
+# exec nitrogen --head=-1 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg
+# exec nitrogen --restore
+exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
+exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
+default_border none
+
+
+### Variables
+#
+# Logo key is Mod4. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term kitty  #konsole  #termite  #konsole  #kitty
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to i3-msg
+set $menu dmenu_path | dmenu | xargs i3-msg exec
+# Your preferred file browser
+set $fbrowser dolphin 
+# Your preferred internet browser
+set $ibrowser google-chrome-stable 
+
+
+### Output configuration
+#
+# Default wallpaper
+#output * bg ~/.config/sway/backgrounds/Sway_Wallpaper_Blue_1920x1080.png fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+bindsym $mod+d exec xrandr --output eDP-1 --off
+bindsym $mod+Shift+d exec xrandr --output eDP-1 --auto
+
+#bindsym $mod+n exec i3-msg move workspace 1 && i3-msg workspace 1
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' \
+#               resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+
+### Key bindings
+#
+# Basics:
+#
+    bindsym $mod+Shift+p exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 && i3-msg workspace 3 && i3-msg workspace 1
+    
+    bindsym $mod+bracketleft exec xrandr --output HDMI-1 --rotate normal
+
+    bindsym $mod+bracketright exec xrandr --output HDMI-1 --rotate right
+
+    bindsym Mod1+$mod+bracketleft exec xrandr --output DP-1-3 --rotate left
+
+    bindsym Mod1+$mod+bracketright exec xrandr --output DP-1-3 --rotate normal
+
+    # start a terminal
+    bindsym $mod+t exec kitty #-1 --listen-on unix:/tmp/kitty  #$term  #konsole --hide-menubar
+
+    # kill focused window
+    bindsym Ctrl+Shift+q kill
+    
+    # start your launcher
+    bindsym $mod+o exec $menu
+
+    # start file browser
+    bindsym Ctrl+b exec $fbrowser
+
+    # start internet browser
+    bindsym $mod+i exec $ibrowser
+    
+    # start encryptr
+    bindsym $mod+e exec encryptr
+
+    # start notepadqq 
+    bindsym $mod+n exec nitrogen 
+    
+    # start vlc 
+    bindsym $mod+Shift+v exec vlc
+
+    # start spacemacs
+    bindsym $mod+v exec pavucontrol-qt
+    
+    # start kcolorchooser 
+    bindsym $mod+Shift+z exec kcolorchooser
+    
+    # start stretchly   
+    bindsym $mod+b exec stretchly
+
+    # reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # exit i3 (logs you out of your X session)
+    bindsym $mod+Shift+e exit
+    
+    # restart i3  
+    bindsym $mod+Shift+r restart
+
+    # start spacemacs
+    bindsym $mod+s exec emacs
+
+    # redshift 1
+    bindsym $mod+7 exec redshift -x
+
+    # redshift 2
+    bindsym $mod+8 exec redshift -x && redshift -O 5000
+
+    # redshift 3
+    bindsym $mod+9 exec redshift -x && redshift -O 4500
+
+    # redshift 4
+    bindsym $mod+0 exec redshift -x && redshift -O 4000
+
+    # redshift 3
+    bindsym $mod+5 exec redshift -x && redshift -O 3500
+
+    # redshift 4
+    bindsym $mod+6 exec redshift -x && redshift -O 3000
+
+
+    # suspend system
+    bindsym Mod1+Shift+s exec systemctl suspend
+
+    # reboot system
+    bindsym Mod1+Shift+r exec systemctl reboot
+
+    # enable touchpad 
+    bindsym Mod1+Shift+m exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1
+
+    # disable touchpad 
+    bindsym Mod1+Ctrl+m exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0
+
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym Ctrl+Shift+$left focus left
+    bindsym Ctrl+Shift+$down focus down
+    bindsym Ctrl+Shift+$up focus up
+    bindsym Ctrl+Shift+$right focus right
+
+    # _move_ the focused window 
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+    # move your focus using arrow keys
+    # bindsym $mod+left focus left
+    # bindsym $mod+down focus down
+    # bindsym $mod+up focus up
+    # bindsym $mod+right focus right
+
+    # _move_ the focused window with arrow keys
+    # bindsym Ctrl+Shift+Left move left
+    # bindsym Ctrl+Shift+Down move down
+    # bindsym Ctrl+Shift+Up move up
+    # bindsym Ctrl+Shift+Right move right
+#
+# Workspaces:
+#
+    # switch to workspace
+    bindsym Ctrl+1 workspace 1
+    bindsym Ctrl+2 workspace 2
+    bindsym Ctrl+3 workspace 3
+    bindsym Ctrl+4 workspace 4
+    bindsym Ctrl+5 workspace 5
+    bindsym Ctrl+6 workspace 6
+    bindsym Ctrl+7 workspace 7
+    bindsym Ctrl+8 workspace 8
+    bindsym Ctrl+9 workspace 9
+    # move focused container to workspace
+    bindsym Ctrl+Shift+1 move container to workspace 1
+    bindsym Ctrl+Shift+2 move container to workspace 2
+    bindsym Ctrl+Shift+3 move container to workspace 3
+    bindsym Ctrl+Shift+4 move container to workspace 4
+    bindsym Ctrl+Shift+5 move container to workspace 5
+    bindsym Ctrl+Shift+6 move container to workspace 6
+    bindsym Ctrl+Shift+7 move container to workspace 7
+    bindsym Ctrl+Shift+8 move container to workspace 8
+    bindsym Ctrl+Shift+9 move container to workspace 9
+    bindsym Ctrl+Shift+0 move container to workspace " "
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    #bindsym $mod+b splith
+    #bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    #bindsym $mod+s layout stacking
+    #bindsym $mod+w layout tabbed
+    #bindsym $mod+x layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym Ctrl+space fullscreen
+    bindsym Ctrl+Shift+space fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+f floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+Shift+f focus mode_toggle
+
+    # move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym Ctrl+Shift+minus move scratchpad
+
+    bindsym Ctrl+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize shrink height 10px
+    bindsym $up resize grow height 10px
+    bindsym $right resize grow width 10px
+
+    # # ditto, with arrow keys
+    # bindsym Left resize shrink width 10px
+    # bindsym Down resize shrink height 10px
+    # bindsym Up resize grow height 10px
+    # bindsym Right resize grow width 10px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+mouse_warping none
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    #tray_output none
+    position top
+    separator_symbol "   "  
+    # disable clicking on workspace buttons
+    #bindsym button1 nop
+    #status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
+    status_command i3status #--config ~/.i3status.conf
+    colors {
+        #---- night-owl ----
+        statusline #888888   ###text   ###addb67 --green
+        background #011627  
+        
+        #---- default ----
+        #statusline #ffffff
+        #background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}

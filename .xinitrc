@@ -1,0 +1,4 @@
+xsetroot -cursor_name arrow
+# exec "$HOME/.xmonad/xmonad"
+exec i3
+#nitrogen --restore

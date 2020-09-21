@@ -1,0 +1,30 @@
+{
+  "settingsVersion": "1.66",
+  "exclusionRules": [
+    {
+      "pattern": "https?://mail.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://docs.google.com/*",
+      "passKeys": ""
+    }
+  ],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "\" map <space> <command>\nmapkey <c-m> <c-[>\nunmap t\nunmap i\nunmap ` \nmap tt createTab\nmap tw moveTabToNewWindow\nmap I enterInsertMode\nmap cc visitPreviousTab\nmap h previousTab\nmap l nextTab\nmap u moveTabLeft\nmap d moveTabRight\nmap U moveTabLeft count=99\nmap D moveTabRight count=99\nmap s scrollLeft\nmap S scrollRight\nmap qh closeTabsOnLeft\nmap ql closeTabsOnRight\nmap H goBack\nmap L goForward\nmap J scrollPageDown\nmap K scrollPageUp\nmap ga firstTab\nmap gh firstTab\nmap gl lastTab\nunmap m\nmap ma Marks.activateCreateMode swap\nmap ' Marks.activateGotoMode swap\nmap p Marks.activateCreateMode\nmap P Marks.activateGotoMode\nmap F LinkHints.activateModeWithQueue\nmap R reload hard\nmap W Vomnibar.activate keyword=w\nmap w Vomnibar.activateInNewTab keyword=w\nmap gO Vomnibar.activate keyword=go\nmap go Vomnibar.activateInNewTab keyword=go\nmap yO Vomnibar.activate keyword=yo\nmap yo Vomnibar.activateInNewTab keyword=yo\nmap aZ Vomnibar.activate keyword=az\nmap az Vomnibar.activateInNewTab keyword=az\nmap gM Vomnibar.activate keyword=gm\nmap gm Vomnibar.activateInNewTab keyword=gm\nmap M toggleMuteTab\nmap \\ passNextKey normal\nmap <c-l> <anyOldJunk>\nmap <c-/> createTab chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html",
+  "linkHintCharacters": "sadfjklewcmpgh",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 100,
+  "smoothScroll": true,
+  "grabBackFocus": false,
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\ngo: https://www.google.com/search?q=%s Google\nyo: https://www.youtube.com/results?search_query=%s Youtube\ngm: https://www.google.com/maps?q=%s Google maps\naz: https://www.amazon.com/s/?field-keywords=%s Amazon\n# l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# b: https://www.bing.com/search?q=%s Bing\n# d: https://duckduckgo.com/?q=%s DuckDuckGo\n# qw: https://www.qwant.com/?q=%s Qwant",
+  "searchUrl": "https://www.google.com/search?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}

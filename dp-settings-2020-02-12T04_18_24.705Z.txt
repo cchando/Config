@@ -1,0 +1,34 @@
+collapseimage|false
+opacity2|0.8
+iconTitle|Decreased Productivity
+font|Arial
+fontsize|14
+showIcon|false
+s_link|c792ea
+enable|true
+blackList|[]
+showUpdateNotifications|false
+paranoidhotkey|ALT P
+hotkey|SHIFT F1
+maxwidth|0
+showUnderline|false
+sfwmode|SFW
+savedsfwmode|
+newPages|Uncloak
+maxheight|0
+disableFavicons|true
+s_bg|011627
+enableStickiness|false
+customcss|
+pageTitleText|Google Chrome
+whiteList|["books.google.com","docs.google.com","drive.google.com","calendar.google.com"]
+showContext|true
+opacity1|0.3
+iconType|coffee
+s_text|bbbbbb
+s_table|444444
+hidePageTitles|false
+enableToggle|true
+removeBold|false
+customfont|
+global|true
