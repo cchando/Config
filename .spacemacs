@@ -136,8 +136,46 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light)
+   dotspacemacs-themes '(
+												 ;; --- Colored themes ---
+												 ;; underwater
+                         ;; alect-light
+												 ;; ample-light
+												 ;; occidental
+												 ;; word-perfect
+												 ;; base16-greenscreen
+												 ;; heroku
+												 ;; kingsajz
+												 ;; shaman
+												 ;; bharadwaj
+												 ;; bharadwaj-slate
+												 ;; solarized-dark
+
+												 ;; --- Light themes ---
+												 intellij
+												 ;; ritchie
+												 ;; flucui-light ;; based off of lab-light
+												 ;; flatui ;; colorful
+												 ;; whiteboard
+												 moe-light ;; colorful
+												 ;; default
+												 ;; adwaita
+												 ;; apropospriate-light
+
+												 ;; --- Dark themes ---
+												 base16-atelier-cave ;; rabi-ribi
+												 ;; base16-atelier-plateau ;; similar to cave
+												 ;; base16-atelier-savanna ;; dark brown, orange, med green, ocean blue
+												 ;; base16-bespin ;; dark brown, light brown, green, blue
+												 ;; estuary ;;dark brown
+												 ;; flucui-dark ;; based off of lab-dark
+												 ;; misterioso
+												 ;; tango-dark ;; yellow bar
+												 ;; night-owl
+												 ;; fogus
+												 ;; graham ;; dark-blue w/ bright orange-gold
+												 ;; spacemacs-dark
+												 )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state nil
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -322,11 +360,13 @@ you should place your code here."
 
 (global-git-commit-mode t)
 
-  ;; NB: word boundary regex may need some tweaking
+;; Disable mouse and arrow keys (not working... research how to do this)
 (define-key evil-normal-state-map (kbd "<up>") nil)
 (define-key evil-normal-state-map (kbd "<down>") nil)
 (define-key evil-normal-state-map (kbd "<left>") nil)
 (define-key evil-normal-state-map (kbd "<right>") nil)
+;; Disable mouse globally
+(global-disable-mouse-mode)
 (define-key global-map (kbd "<mouse-1>") nil)
 (global-unset-key (kbd "<mouse-1>"))
 (define-key evil-normal-state-map (kbd "<mouse-2>") nil)
@@ -398,6 +438,10 @@ you should place your code here."
   (vile-goto-word-by-first-letter (- (or count 1)) char)
   (forward-char 1))
 
+(defun shrink-window ()
+	"Shrink the selected window by one line vertically."
+	(interactive (enlarge-window -1)))
+
 
 ;; (defun vile-goto-word-by-first-letter-unbounded (&optional count)
 ;;   "Move to the next COUNT'th word beginning with CHAR.
@@ -426,12 +470,11 @@ you should place your code here."
 ;;   (forward-char 1))
 
 
-;; vile-replace-paste-from-register
 ;; (evil-define-motion vile-replace-from-register-0 ()
-  ;; "Replace word under cursor with previously yanked or deleted word." ciw <C-r> 0 b
-  ;; :type exclusive
-  ;; (interactive "<c><C>")
-  ;; (forward-char 1))
+;;   "Replace word under cursor with previously yanked or deleted word." ; ciw <C-r> 0 b
+;;   :type exclusive
+;;   (interactive "<c><C>")
+;;   (forward-char 1))
 
 
 (evil-define-motion vile-backward-paragraph (count)
@@ -473,19 +516,23 @@ you should place your code here."
 ;; (define-key evil-visual-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
 ;; (define-key evil-normal-state-map (kbd "<SPC>oe") 'evil-backward-paragraph)
 ;; (define-key evil-normal-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
+
+;; TODO: write vile motion-command similar to "ds(" that, when executed inside a set of parenthesis, deletes everything
+;;     in the immediately-surrounding set of parentheses. Just like with evil-surround, have two options,
+;;     one of which keeps the surrounding parentheses themselves, and one of which discards them.
+;;     This is very helpful when you add e.g. a cast statement like
+;;         (cast (hash-ref stockmap stock) (Listof Candle))
+;;     except it's a longer expression that wraps to the next line, and you later want to remove the surrounding
+;;     cast expression while keeping the hash-ref expression.
+;;     Might be possible to add this to the evil-surround variable 'evil-surround-operator-alist'...
+
+;; (global-set-key (kbd "C-n") 'keyboard-quit)
 (define-key evil-normal-state-map (kbd "\\") 'isearch-forward-word)
 (define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
 (define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro)
 (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
-(define-key evil-visual-state-map (kbd "C-i") 'evil-jump-forward)
 (define-key evil-visual-state-map (kbd "(") 'evil-backward-paragraph)
 (define-key evil-visual-state-map (kbd ")") 'evil-forward-paragraph)
-(define-key evil-normal-state-map (kbd "(") 'evil-backward-paragraph)
-(define-key evil-normal-state-map (kbd ")") 'evil-forward-paragraph)
-(define-key evil-normal-state-map (kbd "t") 'evil-find-char)
-(define-key evil-normal-state-map (kbd "T") 'evil-find-char-backward)
-(define-key evil-normal-state-map (kbd "f") 'vile-goto-word-by-first-letter)
-(define-key evil-normal-state-map (kbd "F") 'vile-goto-word-by-first-letter-backward)
 (define-key evil-visual-state-map (kbd "t") 'evil-find-char)
 (define-key evil-visual-state-map (kbd "T") 'evil-find-char-backward)
 (define-key evil-visual-state-map (kbd "f") 'vile-goto-word-by-first-letter)
@@ -499,28 +546,29 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "C-k") 'spacemacs/evil-smart-doc-lookup)
 (define-key evil-normal-state-map (kbd "J") 'vile-scroll-down)
 (define-key evil-normal-state-map (kbd "K") 'vile-scroll-up)
-(define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-normal-state-map (kbd "ga") 'evil-digit-argument-or-evil-beginning-of-line)
 (define-key evil-normal-state-map (kbd "gl") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "gL") 'evil-append-line)
 (define-key evil-normal-state-map (kbd "gm") 'evil-jump-item)
-(define-key evil-visual-state-map (kbd "gm") 'evil-jump-item)
 (define-key evil-normal-state-map (kbd "gn") 'spacemacs/enter-ahs-forward)
-(define-key evil-normal-state-map (kbd "gN") 'spacemacs/enter-ahs-backward)
 (define-key evil-normal-state-map (kbd "ZQ") 'kill-current-buffer)
 (define-key evil-normal-state-map (kbd "C-,") 'evil-indent)
+(define-key evil-normal-state-map (kbd "w") 'evil-forward-WORD-begin)
+(define-key evil-normal-state-map (kbd "b") 'evil-backward-WORD-begin)
+(define-key evil-normal-state-map (kbd "W") 'evil-forward-word-begin)
+(define-key evil-normal-state-map (kbd "B") 'evil-backward-word-begin)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-paste-pop-next)
-(define-key evil-normal-state-map (kbd "C-n") 'keyboard-quit)
-(define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
-(define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
-(spacemacs/set-leader-keys (kbd "gm") 'magit-dispatch)
+(define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
+(spacemacs/set-leader-keys (kbd "gm") 'magit-dispatch) ;; replace obsolete magit-dispatch-popup
 (spacemacs/set-leader-keys (kbd "wg") 'enlarge-window)
-(spacemacs/set-leader-keys (kbd "wG") (lambda () (interactive (enlarge-window -1))))
-;; (spacemacs/set-leader-keys (kbd "rw") 'window-configuration-to-register)
-;; (spacemacs/set-leader-keys (kbd "rj") 'jump-to-register)
+(spacemacs/set-leader-keys (kbd "wG") 'shrink-window)
+;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
+;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
+;; (define-key evil-normal-state-map (kbd "M-d") nil) ;; disable kill-word
+;; (define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
+;; (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 ;; (evil-define-key evil-magit-state magit-mode-map "?" 'evil-search-backward)
 ;; (define-key evil-normal-state-map (kbd "C-f") nil)
 ;; (define-key evil-normal-state-map (kbd "C-b") nil)
@@ -588,6 +636,7 @@ you should place your code here."
   ;; (setq evil-snipe-override-local-mode nil)
   ;; (evil-snipe-override-mode 1)
 
+	;; Disable evil search persistent highlighting
   (global-evil-search-highlight-persist 0)
 
   ;; Disable evil-snipe-override for , and ; keys (doing "(define-key evil-snipe-mode-map (kbd ",") nil)" does not work )
@@ -653,59 +702,48 @@ you should place your code here."
 
 
 
-
-
-;; Disable mouse globally
-(global-disable-mouse-mode)
-
-
 ;; Fix conflicts between snipe and Magit buffers
   (add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)
 
 
 
-;; NIGHT OWL THEME
-;; To style the non-selected ivy items:
-  (defun night-owl/ivy-format-function-line (cands)
-    "Transform CANDS into a string for minibuffer."
-    (let ((str (ivy-format-function-line cands)))
-      (font-lock-append-text-property 0 (length str) 'face 'ivy-not-current str)
-      str))
-
-  (setq ivy-format-function #'night-owl/ivy-format-function-line)
-
-;; To style spacemacs cursors:
-(setq night-owl-evil-cursors
-      '(("normal" night-owl-orange box)
-        ("insert" night-owl-cursor (bar . 2))
-        ("emacs" night-owl-cursor (bar . 2))
-        ("hybrid" night-owl-cursor (bar . 2))
-        ("replace" night-owl-gray (hbar . 2))
-        ("evilified" night-owl-yellow box)
-        ("visual" night-owl-gray (hbar . 2))
-        ("motion" night-owl-violet box)
-        ("lisp" night-owl-red box)
-        ("iedit" night-owl-magenta box)
-        ("iedit-insert" night-owl-magenta (bar . 2))))
-
-(defun night-owl-set-evil-cursor (state color shape)
-  (set (intern (format "evil-%s-state-cursor" state))
-       (list color shape)))
-
-(defun night-owl-update-evil-cursors ()
-  (let ((current-theme (symbol-name (car custom-enabled-themes))))
-    (if (string-prefix-p "night-owl" current-theme)
-        (cl-loop for (state color style) in night-owl-evil-cursors
-                 do
-                 (night-owl-set-evil-cursor state (symbol-value color) style))
-      ;; not night-owl theme, restore default spacemacs cursors
-      (if (functionp 'spacemacs/add-evil-cursor)
-          (cl-loop for (state color shape) in spacemacs-evil-cursors
-                   do (spacemacs/add-evil-cursor state color shape))))))
-
-(add-hook 'after-init-hook #'night-owl-update-evil-cursors)
-;; For spacemacs (comment this out if not using spacemacs):
-(add-hook 'spacemacs-post-theme-change-hook #'night-owl-update-evil-cursors)
+;; ;; NIGHT OWL THEME
+;; ;; To style the non-selected ivy items:
+;;   (defun night-owl/ivy-format-function-line (cands)
+;;     "Transform CANDS into a string for minibuffer."
+;;     (let ((str (ivy-format-function-line cands)))
+;;       (font-lock-append-text-property 0 (length str) 'face 'ivy-not-current str)
+;;       str))
+;;   (setq ivy-format-function #'night-owl/ivy-format-function-line)
+;; ;; To style spacemacs cursors:
+;; (setq night-owl-evil-cursors
+;;       '(("normal" night-owl-cursor box)
+;;         ("insert" night-owl-cursor (bar . 2))
+;;         ("emacs" night-owl-cursor (bar . 2))
+;;         ("hybrid" night-owl-cursor (bar . 2))
+;;         ("replace" night-owl-gray (hbar . 2))
+;;         ("evilified" night-owl-yellow box)
+;;         ("visual" night-owl-gray (hbar . 2))
+;;         ("motion" night-owl-violet box)
+;;         ("lisp" night-owl-red box)
+;;         ("iedit" night-owl-magenta box)
+;;         ("iedit-insert" night-owl-magenta (bar . 2))))
+;; (defun night-owl-set-evil-cursor (state color shape)
+;;   (set (intern (format "evil-%s-state-cursor" state))
+;;        (list color shape)))
+;; (defun night-owl-update-evil-cursors ()
+;;   (let ((current-theme (symbol-name (car custom-enabled-themes))))
+;;     (if (string-prefix-p "night-owl" current-theme)
+;;         (cl-loop for (state color style) in night-owl-evil-cursors
+;;                  do
+;;                  (night-owl-set-evil-cursor state (symbol-value color) style))
+;;       ;; not night-owl theme, restore default spacemacs cursors
+;;       (if (functionp 'spacemacs/add-evil-cursor)
+;;           (cl-loop for (state color shape) in spacemacs-evil-cursors
+;;                    do (spacemacs/add-evil-cursor state color shape))))))
+;; (add-hook 'after-init-hook #'night-owl-update-evil-cursors)
+;; ;; For spacemacs (comment this out if not using spacemacs):
+;; (add-hook 'spacemacs-post-theme-change-hook #'night-owl-update-evil-cursors)
 
   ;; (setq clojure-enable-fancify-symbols t)
   ;; (define-key evil-motion-state-map (down-mouse-1) 'silence)
