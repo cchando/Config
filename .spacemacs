@@ -1,0 +1,1005 @@
+;; -*- mode: emacs-lisp -*-
+;; This file is loaded by Spacemacs at startup.
+;; It must be stored in your home directory.
+
+(defun dotspacemacs/layers ()
+  "Configuration Layers declaration.
+You should not put any user code in this function besides modifying the variable
+values."
+  (setq-default
+   ;; Base distribution to use. This is a layer contained in the directory
+   ;; `+distribution'. For now available distributions are `spacemacs-base'
+   ;; or `spacemacs'. (default 'spacemacs)
+   dotspacemacs-distribution 'spacemacs
+   ;; Lazy installation of layers (i.e. layers are installed only when a file
+   ;; with a supported type is opened). Possible values are `all', `unused'
+   ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
+   ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
+   ;; lazy install any layer that support lazy installation even the layers
+   ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
+   ;; installation feature and you have to explicitly list a layer in the
+   ;; variable `dotspacemacs-configuration-layers' to install it.
+   ;; (default 'unused)
+   dotspacemacs-enable-lazy-installation 'unused
+   ;; If non-nil then Spacemacs will ask for confirmation before installing
+   ;; a layer lazily. (default t)
+   dotspacemacs-ask-for-lazy-installation t
+   ;; If non-nil layers with lazy install support are lazy installed.
+   ;; List of additional paths where to look for configuration layers.
+   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+   dotspacemacs-configuration-layer-path '()
+   ;; List of configuration layers to load.
+   dotspacemacs-configuration-layers
+   '(
+		 racket
+		 python
+		 asciidoc
+     javascript
+     purescript
+     clojure
+		 ;; themes-megapack
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+     ;; <M-m f e R> (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     helm
+     evil-snipe
+     auto-completion
+     ;; better-defaults
+     emacs-lisp
+     git
+     ;; markdown
+     ;; org
+     (shell :variables
+						shell-default-shell 'eshell ; eshell shell term ansi-term (default on Linux/macOS) multi-term vterm
+						close-window-with-terminal t
+            shell-default-height 20
+            shell-default-position 'bottom)
+     ;; spell-checking
+     ;; syntax-checking
+     ;; version-control
+     )
+   ;; List of additional packages that will be installed without being
+   ;; wrapped in a layer. If you need some configuration for these
+   ;; packages, then consider creating a layer. You can also put the
+   ;; configuration in `dotspacemacs/user-config'.
+   dotspacemacs-additional-packages '(fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode
+   ;; A list of packages that cannot be updated.
+   dotspacemacs-frozen-packages '()
+   ;; A list of packages that will not be installed and loaded.
+   dotspacemacs-excluded-packages '()
+   ;; Defines the behaviour of Spacemacs when installing packages.
+   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
+   ;; `used-only' installs only explicitly used packages and uninstall any
+   ;; unused packages as well as their unused dependencies.
+   ;; `used-but-keep-unused' installs only the used packages but won't uninstall
+   ;; them if they become unused. `all' installs *all* packages supported by
+   ;; Spacemacs and never uninstall them. (default is `used-only')
+   dotspacemacs-install-packages 'used-only))
+
+(defun dotspacemacs/init ()
+  "Initialization function.
+This function is called at the very startup of Spacemacs initialization
+before layers configuration.
+You should not put any user code in there besides modifying the variable
+values."
+  ;; This setq-default sexp is an exhaustive list of all the supported
+  ;; spacemacs settings.
+  (setq-default
+   ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
+   ;; possible. Set it to nil if you have no way to use HTTPS in your
+   ;; environment, otherwise it is strongly recommended to let it set to t.
+   ;; This variable has no effect if Emacs is launched with the parameter
+   ;; `--insecure' which forces the value of this variable to nil.
+   ;; (default t)
+   dotspacemacs-elpa-https t
+   ;; Maximum allowed time in seconds to contact an ELPA repository.
+   dotspacemacs-elpa-timeout 5
+   ;; If non nil then spacemacs will check for updates at startup
+   ;; when the current branch is not `develop'. Note that checking for
+   ;; new versions works via git commands, thus it calls GitHub services
+   ;; whenever you start Emacs. (default nil)
+   dotspacemacs-check-for-update nil
+   ;; If non-nil, a form that evaluates to a package directory. For example, to
+   ;; use different package directories for different Emacs versions, set this
+   ;; to `emacs-version'.
+   dotspacemacs-elpa-subdirectory nil
+   ;; One of `vim', `emacs' or `hybrid'.
+   ;; `hybrid' is like `vim' except that `insert state' is replaced by the
+   ;; `hybrid state' with `emacs' key bindings. The value can also be a list
+   ;; with `:variables' keyword (similar to layers). Check the editing styles
+   ;; section of the documentation for details on available variables.
+   ;; (default 'vim)
+   dotspacemacs-editing-style 'vim
+   ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
+   dotspacemacs-verbose-loading nil
+   ;; Specify the startup banner. Default value is `official', it displays
+   ;; the official spacemacs logo. An integer value is the index of text
+   ;; banner, `random' chooses a random text banner in `core/banners'
+   ;; directory. A string value must be a path to an image format supported
+   ;; by your Emacs build.
+   ;; If the value is nil then no banner is displayed. (default 'official)
+   dotspacemacs-startup-banner nil
+   ;; List of items to show in startup buffer or an association list of
+   ;; the form `(list-type . list-size)`. If nil then it is disabled.
+   ;; Possible values for list-type are:
+   ;; `recents' `bookmarks' `projects' `agenda' `todos'."
+   ;; List sizes may be nil, in which case
+   ;; `spacemacs-buffer-startup-lists-length' takes effect.
+   dotspacemacs-startup-lists '((recents . 5)
+                                (projects . 7))
+   ;; True if the home buffer should respond to resize events.
+   dotspacemacs-startup-buffer-responsive t
+   ;; Default major mode of the scratch buffer (default `text-mode')
+   dotspacemacs-scratch-mode 'text-mode
+   ;; List of themes, the first of the list is loaded when spacemacs starts.
+   ;; Press <SPC> T n to cycle to the next theme in the list (works great
+   ;; with 2 themes variants, one dark and one light)
+   dotspacemacs-themes '(
+												 ;; --- Colored themes ---
+												 ;; underwater
+                         ;; alect-light
+												 ;; ample-light
+												 ;; occidental
+												 ;; word-perfect
+												 ;; base16-greenscreen
+												 ;; heroku
+												 ;; kingsajz
+												 ;; shaman
+												 ;; bharadwaj
+												 ;; bharadwaj-slate
+												 ;; solarized-dark
+
+												 ;; --- Light themes ---
+												 intellij
+												 ;; ritchie
+												 ;; flucui-light ;; based off of lab-light
+												 ;; flatui ;; colorful
+												 ;; whiteboard
+												 moe-light ;; colorful
+												 ;; default
+												 ;; adwaita
+												 ;; apropospriate-light
+
+												 ;; --- Dark themes ---
+												 base16-atelier-cave ;; rabi-ribi
+												 ;; base16-atelier-plateau ;; similar to cave
+												 ;; base16-atelier-savanna ;; dark brown, orange, med green, ocean blue
+												 ;; base16-bespin ;; dark brown, light brown, green, blue
+												 ;; estuary ;;dark brown
+												 ;; flucui-dark ;; based off of lab-dark
+												 ;; misterioso
+												 ;; tango-dark ;; yellow bar
+												 ;; night-owl
+												 ;; fogus
+												 ;; graham ;; dark-blue w/ bright orange-gold
+												 ;; spacemacs-dark
+												 )
+   ;; If non nil the cursor color matches the state color in GUI Emacs.
+   dotspacemacs-colorize-cursor-according-to-state nil
+   ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
+   ;; quickly tweak the mode-line size to make separators look not too crappy.
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 13
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1.1)
+   ;; The leader key
+   dotspacemacs-leader-key "SPC"
+   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
+   ;; (default "SPC")
+   dotspacemacs-emacs-command-key "SPC"
+   ;; The key used for Vim Ex commands (default ":")
+   dotspacemacs-ex-command-key ":"
+   ;; The leader key accessible in `emacs state' and `insert state'
+   ;; (default "M-m")
+   dotspacemacs-emacs-leader-key "M-m"
+   ;; Major mode leader key is a shortcut key which is the equivalent of
+   ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
+   dotspacemacs-major-mode-leader-key ","
+   ;; Major mode leader key accessible in `emacs state' and `insert state'.
+   ;; (default "C-M-m")
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   ;; These variables control whether separate commands are bound in the GUI to
+   ;; the key pairs C-i, TAB and C-m, RET.
+   ;; Setting it to a non-nil value, allows for separate commands under <C-i>
+   ;; and TAB or <C-m> and RET.
+   ;; In the terminal, these pairs are generally indistinguishable, so this only
+   ;; works in the GUI. (default nil)
+   dotspacemacs-distinguish-gui-tab nil
+   ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
+   dotspacemacs-remap-Y-to-y$ nil
+   ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
+   ;; there. (default t)
+   dotspacemacs-retain-visual-state-on-shift t
+   ;; If non-nil, J and K move lines up and down when in visual mode.
+   ;; (default nil)
+   dotspacemacs-visual-line-move-text nil
+   ;; If non nil, inverse the meaning of `g' in `:substitute' Evil ex-command.
+   ;; (default nil)
+   dotspacemacs-ex-substitute-global nil
+   ;; Name of the default layout (default "Default")
+   dotspacemacs-default-layout-name "Default"
+   ;; If non nil the default layout name is displayed in the mode-line.
+   ;; (default nil)
+   dotspacemacs-display-default-layout nil
+   ;; If non nil then the last auto saved layouts are resume automatically upon
+   ;; start. (default nil)
+   dotspacemacs-auto-resume-layouts nil
+   ;; Size (in MB) above which spacemacs will prompt to open the large file
+   ;; literally to avoid performance issues. Opening a file literally means that
+   ;; no major mode or minor modes are active. (default is 1)
+   dotspacemacs-large-file-size 1
+   ;; Location where to auto-save files. Possible values are `original' to
+   ;; auto-save the file in-place, `cache' to auto-save the file to another
+   ;; file stored in the cache directory and `nil' to disable auto-saving.
+   ;; (default 'cache)
+   dotspacemacs-auto-save-file-location 'cache
+   ;; Maximum number of rollback slots to keep in the cache. (default 5)
+   dotspacemacs-max-rollback-slots 5
+   ;; If non nil, `helm' will try to minimize the space it uses. (default nil)
+   dotspacemacs-helm-resize nil
+   ;; if non nil, the helm header is hidden when there is only one source.
+   ;; (default nil)
+   dotspacemacs-helm-no-header nil
+   ;; define the position to display `helm', options are `bottom', `top',
+   ;; `left', or `right'. (default 'bottom)
+   dotspacemacs-helm-position 'bottom
+   ;; Controls fuzzy matching in helm. If set to `always', force fuzzy matching
+   ;; in all non-asynchronous sources. If set to `source', preserve individual
+   ;; source settings. Else, disable fuzzy matching in all sources.
+   ;; (default 'always)
+   dotspacemacs-helm-use-fuzzy 'always
+   ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
+   ;; several times cycle between the kill ring content. (default nil)
+   dotspacemacs-enable-paste-transient-state nil
+   ;; Which-key delay in seconds. The which-key buffer is the popup listing
+   ;; the commands bound to the current keystroke sequence. (default 0.4)
+   dotspacemacs-which-key-delay 0.4
+   ;; Which-key frame position. Possible values are `right', `bottom' and
+   ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
+   ;; right; if there is insufficient space it displays it at the bottom.
+   ;; (default 'bottom)
+   dotspacemacs-which-key-position 'bottom
+   ;; If non nil a progress bar is displayed when spacemacs is loading. This
+   ;; may increase the boot time on some systems and emacs builds, set it to
+   ;; nil to boost the loading time. (default t)
+   dotspacemacs-loading-progress-bar t
+   ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
+   ;; (Emacs 24.4+ only)
+   dotspacemacs-fullscreen-at-startup nil
+   ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
+   ;; Use to disable fullscreen animations in OSX. (default nil)
+   dotspacemacs-fullscreen-use-non-native nil
+   ;; If non nil the frame is maximized when Emacs starts up.
+   ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
+   ;; (default nil) (Emacs 24.4+ only)
+   dotspacemacs-maximized-at-startup nil
+   ;; A value from the range (0..100), in increasing opacity, which describes
+   ;; the transparency level of a frame when it's active or selected.
+   ;; Transparency can be toggled through `toggle-transparency'. (default 90)
+   dotspacemacs-active-transparency 90
+   ;; A value from the range (0..100), in increasing opacity, which describes
+   ;; the transparency level of a frame when it's inactive or deselected.
+   ;; Transparency can be toggled through `toggle-transparency'. (default 90)
+   dotspacemacs-inactive-transparency 90
+   ;; If non nil show the titles of transient states. (default t)
+   dotspacemacs-show-transient-state-title t
+   ;; If non nil show the color guide hint for transient state keys. (default t)
+   dotspacemacs-show-transient-state-color-guide t
+   ;; If non nil unicode symbols are displayed in the mode line. (default t)
+   dotspacemacs-mode-line-unicode-symbols t
+   ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
+   ;; scrolling overrides the default behavior of Emacs which recenters point
+   ;; when it reaches the top or bottom of the screen. (default t)
+   dotspacemacs-smooth-scrolling t
+   ;; Control line numbers activation.
+   ;; If set to `t' or `relative' line numbers are turned on in all `prog-mode' and
+   ;; `text-mode' derivatives. If set to `relative', line numbers are relative.
+   ;; This variable can also be set to a property list for finer control:
+   ;; '(:relative nil
+   ;;   :disabled-for-modes dired-mode
+   ;;                       doc-view-mode
+   ;;                       markdown-mode
+   ;;                       org-mode
+   ;;                       pdf-view-mode
+   ;;                       text-mode
+   ;;   :size-limit-kb 1000)
+   ;; (default nil)
+   dotspacemacs-line-numbers nil
+   ;; Code folding method. Possible values are `evil' and `origami'.
+   ;; (default 'evil)
+   dotspacemacs-folding-method 'evil
+   ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
+   ;; (default nil)
+   dotspacemacs-smartparens-strict-mode nil
+   ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
+   ;; over any automatically added closing parenthesis, bracket, quote, etc…
+   ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
+   dotspacemacs-smart-closing-parenthesis nil
+   ;; Select a scope to highlight delimiters. Possible values are `any',
+   ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
+   ;; emphasis the current one). (default 'all)
+   dotspacemacs-highlight-delimiters 'all
+   ;; If non nil, advise quit functions to keep server open when quitting.
+   ;; (default nil)
+   dotspacemacs-persistent-server nil
+   ;; List of search tool executable names. Spacemacs uses the first installed
+   ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
+   ;; (default '("ag" "pt" "ack" "grep"))
+   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   ;; The default package repository used if no explicit repository has been
+   ;; specified with an installed package.
+   ;; Not used for now. (default nil)
+   dotspacemacs-default-package-repository nil
+   ;; Delete whitespace while saving buffer. Possible values are `all'
+   ;; to aggressively delete empty line and long sequences of whitespace,
+   ;; `trailing' to delete only the whitespace at end of lines, `changed'to
+   ;; delete only whitespace for changed lines or `nil' to disable cleanup.
+   ;; (default nil)
+   dotspacemacs-whitespace-cleanup nil
+   ))
+
+(defun dotspacemacs/user-init ()
+  "Initialization function for user code.
+It is called immediately after `dotspacemacs/init', before layer configuration
+executes.
+ This function is mostly useful for variables that need to be set
+before packages are loaded. If you are unsure, you should try in setting them in
+`dotspacemacs/user-config' first."
+	(setq-default spacemacs-theme-comment-bg nil)
+
+	;; (setq theming-modifications
+	;; 			'((intellij (cursor :foreground "#ffffff" :background "#5974ab"))
+	;; 				;; (moe-light (cursor :foreground moe-light-fg :background moe-light-fg)) ;#5f5f5f
+	;; 				;; (base16-atelier-cave (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
+	;; 				))
+  ;; (set-terminal-parameter nil 'background-mode 'light)
+  ;; (set-frame-parameter nil 'background-mode 'light)
+	;; (spacemacs/load-theme 'intellij)
+
+	)
+
+
+(defun dotspacemacs/user-config ()
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+  (global-git-commit-mode t)
+
+  ;; NB: word boundary regex may need some tweaking
+(define-key evil-normal-state-map (kbd "<up>") nil)
+(define-key evil-normal-state-map (kbd "<down>") nil)
+(define-key evil-normal-state-map (kbd "<left>") nil)
+(define-key evil-normal-state-map (kbd "<right>") nil)
+(define-key global-map (kbd "<mouse-1>") nil)
+(global-unset-key (kbd "<mouse-1>"))
+(define-key evil-normal-state-map (kbd "<mouse-2>") nil)
+(define-key evil-normal-state-map (kbd "<down-mouse-2>") nil)
+(define-key evil-normal-state-map (kbd "<mouse-3>") nil)
+(define-key evil-normal-state-map (kbd "<down-mouse-3>") nil)
+  (global-unset-key (kbd "<up>"))
+  (global-unset-key (kbd "<right>"))
+  (global-unset-key (kbd "<up>"))
+  (global-unset-key (kbd "<down>"))
+  (global-unset-key (kbd "<C-left>"))
+  (global-unset-key (kbd "<C-right>"))
+  (global-unset-key (kbd "<C-up>"))
+  (global-unset-key (kbd "<C-down>"))
+  (global-unset-key (kbd "<M-left>"))
+  (global-unset-key (kbd "<M-right>"))
+  (global-unset-key (kbd "<M-up>"))
+  (global-unset-key (kbd "<M-down>"))
+
+
+	(evil-define-motion vile-scroll-down ()
+    "Scroll down 10 lines."
+		(evil-next-line 10))
+
+
+	(evil-define-motion vile-scroll-up ()
+		"Scroll up 10 lines."
+		(evil-previous-line 10))
+
+
+	(evil-define-motion vile-goto-word-by-first-letter (count char)
+		"Move to the next COUNT'th word beginning with CHAR.
+		movement is restricted to the current line unless `evil-cross-lines' is non-nil.
+		slightly modified version of evil-find-char."
+		:type inclusive
+		(interactive "<c><C>")
+		(setq count (or count 1))
+		(let ((fwd (> count 0))
+					(visual (and evil-respect-visual-line-mode
+											visual-line-mode)))
+			(setq evil-last-find (list #'evil-find-char char fwd))
+			(when fwd (forward-char))
+			(let ((case-fold-search nil))
+				(unless (prog1
+										(re-search-forward (concat "[^[:alnum:]]" (char-to-string char)) ; modified this line
+																		(cond (evil-cross-lines
+																					nil)
+																					((and fwd visual)
+																					(save-excursion
+																						(end-of-visual-line)
+																						(point)))
+																					(fwd
+																					(line-end-position))
+																					(visual
+																					(save-excursion
+																						(beginning-of-visual-line)
+																						(point)))
+																					(t
+																					(line-beginning-position)))
+																		t count)
+									(when fwd (backward-char)))
+					(user-error "Can't find %c" char)))))
+
+;; backwards version
+(evil-define-motion vile-goto-word-by-first-letter-backward (count char)
+  "Move to the previous COUNT'th word beginning with CHAR."
+  :type exclusive
+  (interactive "<c><C>")
+  (vile-goto-word-by-first-letter (- (or count 1)) char)
+  (forward-char 1))
+
+
+;; (defun vile-goto-word-by-first-letter-unbounded (&optional count)
+;;   "Move to the next COUNT'th word beginning with CHAR.
+;; Slightly modified version of evil-find-char."
+;;   (interactive)
+;;   (setq count (or count 1))
+;;   (let ((fwd (> count 0))
+;;         (visual (and evil-respect-visual-line-mode
+;;                      visual-line-mode)))
+;;     (when fwd (forward-char))
+;;     (let ((case-fold-search nil)
+;; 					(ks (evil-snipe--collect-keys 2)))
+;;       (unless (prog1
+;;                   (re-search-forward (concat "[^[:alnum:]]" ks) ; modified this line
+;;                                   nil
+;;                                   t count)
+;;                 (when fwd (backward-char)))
+;;         (user-error "Can't find %c" char)))))
+
+;; ;; backwards version
+;; (evil-define-motion vile-goto-word-by-first-letter-backward-unbounded (count char1 char2)
+;;   "Move to the previous COUNT'th word beginning with CHAR."
+;;   :type exclusive
+;;   (interactive "<c><C>")
+;;   (vile-goto-word-by-first-letter-unbounded (- (or count 1)) char1 char2)
+;;   (forward-char 1))
+
+
+;; vile-replace-paste-from-register
+;; (evil-define-motion vile-replace-from-register-0 ()
+  ;; "Replace word under cursor with previously yanked or deleted word." ciw <C-r> 0 b
+  ;; :type exclusive
+  ;; (interactive "<c><C>")
+  ;; (forward-char 1))
+
+
+(evil-define-motion vile-backward-paragraph (count)
+  "Move to the beginning of the COUNT-th previous paragraph."
+  :jump t
+  (evil-backward-paragraph)
+	(evil-next-line))
+
+(evil-define-motion vile-forward-paragraph (count)
+  "Move to the beginning of the COUNT-th previous paragraph."
+  :jump t
+  (evil-forward-paragraph)
+	(evil-previous-line))
+
+;; (defun cac-undo-tree-redo (&optional arg)
+;;   "Redo changes. A numeric ARG serves as a repeat count.
+;; In Transient Mark mode when the mark is active, only redo changes
+;; within the current region. Similarly, when not in Transient Mark
+;; mode, just \\[universal-argument] as an argument limits redo to
+;; changes within the current region."
+;;   (interactive)
+;;   ;; TODO: implement <ciw> using lisp
+;;   (unless undo-tree-mode
+;;     (user-error "Undo-tree mode not enabled in buffer"))
+;;   ;; throw error if undo is disabled in buffer
+;;   (when (eq buffer-undo-list t)
+;;     (user-error "No undo information in this buffer"))
+;;   (undo-tree-redo-1 0)
+;;   ;; inform user if at branch point
+;;   (when (> (undo-tree-num-branches) 1) (message "Undo branch point!")))
+
+
+;; (define-key key-translation-map [f1] (kbd "["))
+;; (define-key evil-visual-state-map (kbd "{") 'vile-backward-paragraph)
+;; (define-key evil-visual-state-map (kbd "}") 'vile-forward-paragraph)
+;; (define-key evil-normal-state-map (kbd "{") 'vile-backward-paragraph)
+;; (define-key evil-normal-state-map (kbd "}") 'vile-forward-paragraph)
+;; (define-key evil-visual-state-map (kbd "<SPC>oe") 'evil-backward-paragraph)
+;; (define-key evil-visual-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
+;; (define-key evil-normal-state-map (kbd "<SPC>oe") 'evil-backward-paragraph)
+;; (define-key evil-normal-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
+
+;; TODO: write vile motion-command similar to "ds(" that, when executed inside a set of parenthesis, deletes everything
+;;     in the immediately-surrounding set of parentheses. Just like with evil-surround, have two options,
+;;     one of which keeps the surrounding parentheses themselves, and one of which discards them.
+;;     This is very helpful when you add e.g. a cast statement like
+;;         (cast (hash-ref stockmap stock) (Listof Candle))
+;;     except it's a longer expression that wraps to the next line, and you later want to remove the surrounding
+;;     cast expression while keeping the hash-ref expression.
+;;     Might be possible to add this to the evil-surround variable 'evil-surround-operator-alist'...
+
+;; (global-set-key (kbd "C-n") 'keyboard-quit)
+(define-key evil-normal-state-map (kbd "\\") 'isearch-forward-word)
+(define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
+(define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro)
+(define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
+(define-key evil-visual-state-map (kbd "(") 'evil-backward-paragraph)
+(define-key evil-visual-state-map (kbd ")") 'evil-forward-paragraph)
+(define-key evil-visual-state-map (kbd "t") 'evil-find-char)
+(define-key evil-visual-state-map (kbd "T") 'evil-find-char-backward)
+(define-key evil-visual-state-map (kbd "f") 'vile-goto-word-by-first-letter)
+(define-key evil-visual-state-map (kbd "F") 'vile-goto-word-by-first-letter-backward)
+(define-key evil-normal-state-map (kbd "Q") 'electric-newline-and-maybe-indent) ;; split-line
+(define-key evil-normal-state-map (kbd "A") 'evil-insert-line)
+(define-key evil-normal-state-map (kbd "I") 'evil-append)
+(define-key evil-normal-state-map (kbd "a") 'evil-first-non-blank)
+(define-key evil-normal-state-map (kbd "gh") 'evil-first-non-blank) ;; for use with d,c,y, etc
+(define-key evil-normal-state-map (kbd "C-j") 'evil-join)
+(define-key evil-normal-state-map (kbd "C-k") 'spacemacs/evil-smart-doc-lookup)
+(define-key evil-normal-state-map (kbd "J") 'vile-scroll-down)
+(define-key evil-normal-state-map (kbd "K") 'vile-scroll-up)
+(define-key evil-normal-state-map (kbd "ga") 'evil-digit-argument-or-evil-beginning-of-line)
+(define-key evil-normal-state-map (kbd "gl") 'evil-end-of-line)
+(define-key evil-normal-state-map (kbd "gL") 'evil-append-line)
+(define-key evil-normal-state-map (kbd "gm") 'evil-jump-item)
+(define-key evil-normal-state-map (kbd "gn") 'spacemacs/enter-ahs-forward)
+(define-key evil-normal-state-map (kbd "ZQ") 'kill-current-buffer)
+(define-key evil-normal-state-map (kbd "C-,") 'evil-indent)
+(define-key evil-normal-state-map (kbd "w") 'evil-forward-WORD-begin)
+(define-key evil-normal-state-map (kbd "b") 'evil-backward-WORD-begin)
+(define-key evil-normal-state-map (kbd "W") 'evil-forward-word-begin)
+(define-key evil-normal-state-map (kbd "B") 'evil-backward-word-begin)
+(define-key evil-normal-state-map (kbd "C-p") 'evil-paste-pop-next)
+(define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
+(define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
+(define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
+(spacemacs/set-leader-keys (kbd "rw") 'window-configuration-to-register)
+(spacemacs/set-leader-keys (kbd "rj") 'jump-to-register)
+(spacemacs/set-leader-keys (kbd "wg") 'enlarge-window)
+(spacemacs/set-leader-keys (kbd "gm") 'magit-dispatch)
+(spacemacs/set-leader-keys (kbd "wG") (lambda () (interactive (enlarge-window -1))))
+;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
+;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
+;; (define-key evil-normal-state-map (kbd "M-d") nil) ;; disable kill-word
+;; (define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
+;; (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+;; (evil-define-key evil-magit-state magit-mode-map "?" 'evil-search-backward)
+;; (define-key evil-normal-state-map (kbd "C-f") nil)
+;; (define-key evil-normal-state-map (kbd "C-b") nil)
+;; (define-key evil-normal-state-map (kbd "C-p") 'replace-from-register-0)
+
+(setq-default evil-escape-key-sequence "fd") ;; key sequence to go from insert to normal mode, etc
+(setq-default evil-escape-delay 0.3)
+(define-prefix-command 'cm) ;; prefix key map, "cac's m"
+(define-key evil-normal-state-map (kbd "m") cm)
+(define-key cm (kbd "a") 'evil-set-marker)
+(define-key cm (kbd "m") 'evil-scroll-line-to-center)
+(define-key cm (kbd "t") 'evil-scroll-line-to-top)
+(define-key cm (kbd "b") 'evil-scroll-line-to-bottom)
+(define-key cm (kbd "e") 'vile-backward-paragraph)
+(define-key cm (kbd "r") 'vile-forward-paragraph)
+(define-key cm (kbd "n") 'org-timer-set-timer)
+(define-key cm (kbd "N") 'toggle-timer-bell)
+
+(setq org-timer-default-timer 1)
+
+(defun timer-bell () (call-process (car (file-expand-wildcards "/nix/store/6slsms782x2rzik7xa9fiyr39kg3jnkb-system-path/bin/cvlc")) nil nil nil "--play-and-exit" "/home/cameron/Music/takagi-ost/38 - Donyori.mp3"))
+
+(defun toggle-timer-bell nil
+	(interactive)
+	(if (boundp 'org-timer-done-hook)
+			(if (memql 'timer-bell org-timer-done-hook)
+					(progn (message "removed \"timer done\" bell") (remove-hook 'org-timer-done-hook 'timer-bell))
+				(progn (message "added \"timer done\" bell") (add-hook 'org-timer-done-hook 'timer-bell)))
+		(error "org-timer-done-hook does not exist. you need to start a timer first")))
+
+
+
+(defmacro cmd (&rest c) "make a function a command by (interactive)" `(lambda () (interactive) ,@c))
+(define-key evil-normal-state-map (kbd "ZZ")
+	(cmd (when (buffer-modified-p)
+				 (save-buffer))
+			 (funcall 'kill-current-buffer)))
+
+
+  (defadvice ido-find-file (after find-file-sudo activate) ;; doesn't work for counsel-find-file somewhy
+    ;; so use C-x C-f for ido-find-file
+    "open file as root as needed."
+    (unless (and buffer-file-name
+                 (file-writable-p buffer-file-name))
+      (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+
+  ;; ido everywhere
+  ;; (setq ido-enable-flex-matching t)
+  ;; (setq ido-everywhere t)
+
+  ;; (ido-mode 1)
+
+	(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+	(setq highlight-indent-guides-method 'character)
+
+
+
+	;; Disable evil-snipe repeat keys s and S
+  (setq evil-snipe-repeat-keys nil)
+
+;; Disable evil-snipe highlighting
+  (setq evil-snipe-enable-highlight nil)
+  (setq evil-snipe-enable-incremental-highlight nil)
+  ;; (setq evil-snipe-override-local-mode nil)
+  ;; (evil-snipe-override-mode 1)
+
+  (global-evil-search-highlight-persist 0)
+
+  ;; Disable evil-snipe-override for , and ; keys (doing "(define-key evil-snipe-mode-map (kbd ",") nil)" does not work )
+
+  (setq evil-snipe-override-evil-repeat-keys nil)
+  (setq evil-snipe-override-local-mode-map
+				(let ((map (make-sparse-keymap)))
+					(evil-define-key* 'motion map
+														"s" #'evil-snipe-s
+														"S" #'evil-snipe-S)
+					map))
+  (setq evil-snipe-parent-transient-map
+				(let ((map (make-sparse-keymap)))
+					(define-key map ";" #'evil-snipe-repeat)
+					(define-key map "," #'evil-snipe-repeat-reverse)
+					map))
+
+
+	;; Enable evil-snipe to do a longer n-char search using TAB
+	(setq evil-snipe-tab-increment t)
+
+
+	(setq-default evil-snipe--match-count 3)
+
+
+	;; Disable evil-snipe
+	;; (evil-snipe-mode 0)
+
+
+	;; (defun cac-toggle-fold ()
+	;; 	"Toggle fold all lines larger than indentation on current line"
+	;; 	(interactive)
+	;; 	(let ((col 1))
+	;; 		(save-excursion
+	;; 			(back-to-indentation)
+	;; 			(setq col (+ 1 (current-column)))
+	;; 			(set-selective-display
+	;; 			 (if selective-display nil (or col 1))))))
+	;; (global-set-key (kbd "M-C-i") 'cac-toggle-fold)
+
+
+
+  (setq tab-width 2)
+	(setq-default indent-tabs-mode t)
+	(setq standard-indent 2)
+
+
+;; Set indent levels
+  (defun my-setup-indent (n)
+    ;; java/c/c++
+    (setq c-basic-offset n)
+    ;; web development
+    (setq coffee-tab-width n) ; coffeescript
+    (setq javascript-indent-level n) ; javascript-mode
+    (setq js-indent-level n) ; js-mode
+    (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+    (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+    (setq css-indent-offset n) ; css-mode
+    )
+  (my-setup-indent 2) ;
+
+
+
+
+
+;; Disable mouse globally
+;; (global-disable-mouse-mode)
+
+
+;; Fix conflicts between snipe and Magit buffers
+  (add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)
+
+
+
+;; ;; INTELLIJ THEME
+;; ;; To style the non-selected ivy items:
+;;   (defun intellij/ivy-format-function-line (cands)
+;;     "Transform CANDS into a string for minibuffer."
+;;     (let ((str (ivy-format-function-line cands)))
+;;       (font-lock-append-text-property 0 (length str) 'face 'ivy-not-current str)
+;;       str))
+;;   (setq ivy-format-function #'intellij/ivy-format-function-line)
+;; ;; To style spacemacs cursors:
+;; (setq intellij-evil-cursors
+;;       '(("normal" "#5974ab" box) ;"#5974ab"
+;;         ("insert" "#d50000" (bar . 2)) ;"#d50000"
+;;         ("emacs" "#d50000" (bar . 2)) ;"#d50000"
+;;         ("hybrid" night-owl-cursor (bar . 2))
+;;         ("replace" night-owl-gray (hbar . 2))
+;;         ("evilified" night-owl-yellow box)
+;;         ("visual" night-owl-gray (hbar . 2))
+;;         ("motion" night-owl-violet box)
+;;         ("lisp" "#ff6eb4" box)
+;;         ("iedit" night-owl-magenta box)
+;;         ("iedit-insert" night-owl-magenta (bar . 2))))
+;; (defun intellij-set-evil-cursor (state color shape)
+;;   (set (intern (format "evil-%s-state-cursor" state))
+;;        (list color shape)))
+;; (defun intellij-update-evil-cursors ()
+;;   (let ((current-theme (symbol-name (car custom-enabled-themes))))
+;;     (if (string-prefix-p "intellij" current-theme)
+;;         (cl-loop for (state color style) in intellij-evil-cursors
+;;                  do
+;;                  (intellij-set-evil-cursor state (symbol-value color) style))
+;;       ;; not intellij theme, restore default spacemacs cursors
+;;       (if (functionp 'spacemacs/add-evil-cursor)
+;;           (cl-loop for (state color shape) in spacemacs-evil-cursors
+;;                    do (spacemacs/add-evil-cursor state color shape))))))
+;; (add-hook 'after-init-hook #'intellij-update-evil-cursors)
+;; ;; For spacemacs (comment this out if not using spacemacs):
+;; (add-hook 'spacemacs-post-theme-change-hook #'intellij-update-evil-cursors)
+
+;; NIGHT OWL THEME
+;; To style the non-selected ivy items:
+  (defun night-owl/ivy-format-function-line (cands)
+    "Transform CANDS into a string for minibuffer."
+    (let ((str (ivy-format-function-line cands)))
+      (font-lock-append-text-property 0 (length str) 'face 'ivy-not-current str)
+      str))
+
+  (setq ivy-format-function #'night-owl/ivy-format-function-line)
+
+;; To style spacemacs cursors:
+(setq night-owl-evil-cursors
+      '(("normal" night-owl-cursor box)
+        ("insert" night-owl-cursor (bar . 2))
+        ("emacs" night-owl-cursor (bar . 2))
+        ("hybrid" night-owl-cursor (bar . 2))
+        ("replace" night-owl-gray (hbar . 2))
+        ("evilified" night-owl-yellow box)
+        ("visual" night-owl-gray (hbar . 2))
+        ("motion" night-owl-violet box)
+        ("lisp" night-owl-red box)
+        ("iedit" night-owl-magenta box)
+        ("iedit-insert" night-owl-magenta (bar . 2))))
+
+(defun night-owl-set-evil-cursor (state color shape)
+  (set (intern (format "evil-%s-state-cursor" state))
+       (list color shape)))
+
+(defun night-owl-update-evil-cursors ()
+  (let ((current-theme (symbol-name (car custom-enabled-themes))))
+    (if (string-prefix-p "night-owl" current-theme)
+        (cl-loop for (state color style) in night-owl-evil-cursors
+                 do
+                 (night-owl-set-evil-cursor state (symbol-value color) style))
+      ;; not night-owl theme, restore default spacemacs cursors
+      (if (functionp 'spacemacs/add-evil-cursor)
+          (cl-loop for (state color shape) in spacemacs-evil-cursors
+                   do (spacemacs/add-evil-cursor state color shape))))))
+
+(add-hook 'after-init-hook #'night-owl-update-evil-cursors)
+;; For spacemacs (comment this out if not using spacemacs):
+(add-hook 'spacemacs-post-theme-change-hook #'night-owl-update-evil-cursors)
+
+  ;; (setq clojure-enable-fancify-symbols t)
+  ;; (define-key evil-motion-state-map (down-mouse-1) 'silence)
+  )
+;; Do not write anything past this comment. This is where Emacs will
+;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   ["#ecf0f1" "#e74c3c" "#2ecc71" "#f1c40f" "#2492db" "#9b59b6" "#1abc9c" "#2c3e50"])
+ '(ansi-term-color-vector
+   ["#0d73cc" "#FFFFFF" "#d15120" "#5f9411" "#d2ad00" "#6b82a7" "#a66bab" "#6b82a7" "#505050"] t)
+ '(background-color "#202020")
+ '(background-mode dark)
+ '(beacon-color "#F8BBD0")
+ '(company-quickhelp-color-background "#4F4F4F")
+ '(company-quickhelp-color-foreground "#DCDCCC")
+ '(compilation-message-face (quote default))
+ '(cua-global-mark-cursor-color "#2aa198")
+ '(cua-normal-cursor-color "#839496")
+ '(cua-overwrite-cursor-color "#b58900")
+ '(cua-read-only-cursor-color "#859900")
+ '(cursor-color "#cccccc")
+ '(cursor-type (quote bar))
+ '(diary-entry-marker (quote font-lock-variable-name-face))
+ '(emms-mode-line-icon-color "#358d8d")
+ '(evil-emacs-state-cursor (quote ("#D50000" hbar)) t)
+ '(evil-insert-state-cursor (quote ("#D50000" bar)) t)
+ '(evil-normal-state-cursor (quote ("#F57F17" box)) t)
+ '(evil-snipe-enable-highlight nil)
+ '(evil-snipe-enable-incremental-highlight nil)
+ '(evil-surround-pairs-alist
+   (quote
+    ((40 "( " . " )")
+     (91 "[ " . " ]")
+     (123 "{ " . " }")
+     (41 "(" . ")")
+     (93 "[" . "]")
+     (125 "{" . "}")
+     (35 "#{" . "}")
+     (98 "(" . ")")
+     (66 "(" . "}")
+     (62 "<" . ">")
+     (116 . evil-surround-read-tag)
+     (60 . evil-surround-read-tag)
+     (111 "[" . "]")
+     (105 "(" . ")")
+     (102 . evil-surround-function))))
+ '(evil-visual-state-cursor (quote ("#66BB6A" box)) t)
+ '(evil-want-Y-yank-to-eol nil)
+ '(fci-rule-character-color "#d9d9d9")
+ '(fci-rule-color "#010F1D" t)
+ '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
+ '(foreground-color "#cccccc")
+ '(frame-background-mode (quote light))
+ '(frame-brackground-mode (quote dark))
+ '(fringe-mode 10 nil (fringe))
+ '(global-evil-search-highlight-persist nil)
+ '(gnus-logo-colors (quote ("#0d7b72" "#adadad")) t)
+ '(gnus-mode-line-image-cache
+   (quote
+    (image :type xpm :ascent center :data "/* XPM */
+static char *gnus-pointer[] = {
+/* width height num_colors chars_per_pixel */
+\"    18    13        2            1\",
+/* colors */
+\". c #358d8d\",
+\"# c None s None\",
+/* pixels */
+\"##################\",
+\"######..##..######\",
+\"#####........#####\",
+\"#.##.##..##...####\",
+\"#...####.###...##.\",
+\"#..###.######.....\",
+\"#####.########...#\",
+\"###########.######\",
+\"####.###.#..######\",
+\"######..###.######\",
+\"###....####.######\",
+\"###..######.######\",
+\"###########.######\" };")) t)
+ '(highlight-changes-colors (quote ("#EF5350" "#7E57C2")))
+ '(highlight-indent-guides-auto-enabled nil)
+ '(highlight-symbol-colors
+   (quote
+    ("#F57F17" "#66BB6A" "#0097A7" "#42A5F5" "#7E57C2" "#D84315")))
+ '(highlight-symbol-foreground-color "#546E7A")
+ '(highlight-tail-colors
+   (quote
+    (("#010F1D" . 0)
+     ("#B44322" . 20)
+     ("#34A18C" . 30)
+     ("#3172FC" . 50)
+     ("#B49C34" . 60)
+     ("#B44322" . 70)
+     ("#8C46BC" . 85)
+     ("#010F1D" . 100))))
+ '(hl-bg-colors
+   (quote
+    ("#866300" "#992700" "#a7020a" "#a00559" "#243e9b" "#0061a8" "#007d76" "#5b7300")))
+ '(hl-fg-colors
+   (quote
+    ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
+ '(hl-paren-background-colors (quote ("#2492db" "#95a5a6" nil)))
+ '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
+ '(hl-sexp-background-color "#efebe9")
+ '(linum-format " %3i ")
+ '(lsp-ui-doc-border "#93a1a1")
+ '(magit-diff-use-overlays nil)
+ '(main-line-color1 "#222232")
+ '(main-line-color2 "#333343")
+ '(notmuch-search-line-faces
+   (quote
+    (("unread" :foreground "#aeee00")
+     ("flagged" :foreground "#0a9dff")
+     ("deleted" :foreground "#ff2c4b" :bold t))))
+ '(nrepl-message-colors
+   (quote
+    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(org-src-block-faces
+   (quote
+    (("emacs-lisp"
+      (:background "#F0FFF0"))
+     ("dot"
+      (:foreground "gray50")))))
+ '(package-selected-packages
+   (quote
+    (fira-code-mode flucui-light-theme lab-themes flucui-themes borland-blue-theme base16-theme intellij-theme color-theme-modern zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme racket-mode pos-tip faceup yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+ '(pos-tip-background-color "#FFF9DC")
+ '(pos-tip-foreground-color "#011627")
+ '(powerline-color1 "#222232")
+ '(powerline-color2 "#333343")
+ '(psc-ide-add-import-on-completion t t)
+ '(psc-ide-rebuild-on-save nil t)
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
+ '(sml/active-background-color "#34495e")
+ '(sml/active-foreground-color "#ecf0f1")
+ '(sml/inactive-background-color "#dfe4ea")
+ '(sml/inactive-foreground-color "#34495e")
+ '(spacemacs-theme-comment-bg nil t)
+ '(tabbar-background-color "#ffffffffffff")
+ '(term-default-bg-color "#002b36")
+ '(term-default-fg-color "#839496")
+ '(tetris-x-colors
+   [[229 192 123]
+    [97 175 239]
+    [209 154 102]
+    [224 108 117]
+    [152 195 121]
+    [198 120 221]
+    [86 182 194]])
+ '(vc-annotate-background nil)
+ '(vc-annotate-background-mode nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#C792EA")
+     (40 . "#CF4F1F")
+     (60 . "#C26C0F")
+     (80 . "#FFEB95")
+     (100 . "#AB8C00")
+     (120 . "#A18F00")
+     (140 . "#989200")
+     (160 . "#8E9500")
+     (180 . "#F78C6C")
+     (200 . "#729A1E")
+     (220 . "#609C3C")
+     (240 . "#4E9D5B")
+     (260 . "#3C9F79")
+     (280 . "#7FDBCA")
+     (300 . "#299BA6")
+     (320 . "#2896B5")
+     (340 . "#2790C3")
+     (360 . "#82AAFF"))))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list
+   (quote
+    (unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF")))
+ '(window-divider-mode nil)
+ '(xterm-color-names
+   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
+ '(xterm-color-names-bright
+   ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight normal :height 98 :width normal)))))

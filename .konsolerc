@@ -1,0 +1,32 @@
+[Desktop Entry]
+DefaultProfile=Night Owl.profile
+
+[DownloadDialog Settings]
+Height 1080=408
+Width 1920=700
+
+[Favorite Profiles]
+Favorites=Linux.profile,Night Owl.profile
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
+[MainWindow]
+Height 1080=1061
+Height 800=781
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAAoAAAAMNAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+Width 1280=1280
+Width 1920=960
+Window-Maximized 1080x3200=true
+Window-Maximized 768x1024=true
+
+[Profile Shortcuts]
+Ctrl+Shift+F11=
+Ctrl+Shift+F12=
+
+[TabBar]
+NewTabBehavior=PutNewTabAfterCurrentTab
+TabBarPosition=Top
+TabBarVisibility=AlwaysHideTabBar
