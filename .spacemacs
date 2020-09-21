@@ -551,6 +551,7 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "gL") 'evil-append-line)
 (define-key evil-normal-state-map (kbd "gm") 'evil-jump-item)
 (define-key evil-normal-state-map (kbd "gn") 'spacemacs/enter-ahs-forward)
+(define-key evil-normal-state-map (kbd "gN") 'spacemacs/enter-ahs-backward)
 (define-key evil-normal-state-map (kbd "ZQ") 'kill-current-buffer)
 (define-key evil-normal-state-map (kbd "C-,") 'evil-indent)
 (define-key evil-normal-state-map (kbd "w") 'evil-forward-WORD-begin)
