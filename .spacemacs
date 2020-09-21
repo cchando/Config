@@ -31,13 +31,10 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-		 racket
-		 python
 		 asciidoc
      javascript
      purescript
      clojure
-		 ;; themes-megapack
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -52,9 +49,7 @@ values."
      ;; markdown
      ;; org
      (shell :variables
-						shell-default-shell 'eshell ; eshell shell term ansi-term (default on Linux/macOS) multi-term vterm
-						close-window-with-terminal t
-            shell-default-height 20
+            shell-default-height 30
             shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
@@ -64,7 +59,8 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode
+   dotspacemacs-additional-packages '(underwater-theme night-owl-theme atom-one-dark-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation)
+   ;; solarized-dark-theme tomorrow-blue-theme pheonix-dark-mono-theme apropospriate-light-theme adwaita-theme alect-light-theme
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -120,7 +116,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner nil
+   dotspacemacs-startup-banner 'official
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
@@ -136,46 +132,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(
-												 ;; --- Colored themes ---
-												 ;; underwater
-                         ;; alect-light
-												 ;; ample-light
-												 ;; occidental
-												 ;; word-perfect
-												 ;; base16-greenscreen
-												 ;; heroku
-												 ;; kingsajz
-												 ;; shaman
-												 ;; bharadwaj
-												 ;; bharadwaj-slate
-												 ;; solarized-dark
-
-												 ;; --- Light themes ---
-												 intellij
-												 ;; ritchie
-												 ;; flucui-light ;; based off of lab-light
-												 ;; flatui ;; colorful
-												 ;; whiteboard
-												 moe-light ;; colorful
-												 ;; default
-												 ;; adwaita
-												 ;; apropospriate-light
-
-												 ;; --- Dark themes ---
-												 base16-atelier-cave ;; rabi-ribi
-												 ;; base16-atelier-plateau ;; similar to cave
-												 ;; base16-atelier-savanna ;; dark brown, orange, med green, ocean blue
-												 ;; base16-bespin ;; dark brown, light brown, green, blue
-												 ;; estuary ;;dark brown
-												 ;; flucui-dark ;; based off of lab-dark
-												 ;; misterioso
-												 ;; tango-dark ;; yellow bar
-												 ;; night-owl
-												 ;; fogus
-												 ;; graham ;; dark-blue w/ bright orange-gold
-												 ;; spacemacs-dark
-												 )
+   dotspacemacs-themes '(spacemacs-dark
+                         spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state nil
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -348,27 +306,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-	(setq-default spacemacs-theme-comment-bg nil)
-
-	;; (setq theming-modifications
-	;; 			'((intellij (cursor :foreground "#ffffff" :background "#5974ab"))
-	;; 				;; (moe-light (cursor :foreground moe-light-fg :background moe-light-fg)) ;#5f5f5f
-	;; 				;; (base16-atelier-cave (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				;; (moe-light (cursor :foreground "#ffffff" :background moe-light-fg))
-	;; 				))
-  ;; (set-terminal-parameter nil 'background-mode 'light)
-  ;; (set-frame-parameter nil 'background-mode 'light)
-	;; (spacemacs/load-theme 'intellij)
-
-	)
-
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -377,7 +315,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (global-git-commit-mode t)
+
+(global-git-commit-mode t)
 
   ;; NB: word boundary regex may need some tweaking
 (define-key evil-normal-state-map (kbd "<up>") nil)
@@ -530,23 +469,19 @@ you should place your code here."
 ;; (define-key evil-visual-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
 ;; (define-key evil-normal-state-map (kbd "<SPC>oe") 'evil-backward-paragraph)
 ;; (define-key evil-normal-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
-
-;; TODO: write vile motion-command similar to "ds(" that, when executed inside a set of parenthesis, deletes everything
-;;     in the immediately-surrounding set of parentheses. Just like with evil-surround, have two options,
-;;     one of which keeps the surrounding parentheses themselves, and one of which discards them.
-;;     This is very helpful when you add e.g. a cast statement like
-;;         (cast (hash-ref stockmap stock) (Listof Candle))
-;;     except it's a longer expression that wraps to the next line, and you later want to remove the surrounding
-;;     cast expression while keeping the hash-ref expression.
-;;     Might be possible to add this to the evil-surround variable 'evil-surround-operator-alist'...
-
-;; (global-set-key (kbd "C-n") 'keyboard-quit)
 (define-key evil-normal-state-map (kbd "\\") 'isearch-forward-word)
 (define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
 (define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro)
 (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
+(define-key evil-visual-state-map (kbd "C-i") 'evil-jump-forward)
 (define-key evil-visual-state-map (kbd "(") 'evil-backward-paragraph)
 (define-key evil-visual-state-map (kbd ")") 'evil-forward-paragraph)
+(define-key evil-normal-state-map (kbd "(") 'evil-backward-paragraph)
+(define-key evil-normal-state-map (kbd ")") 'evil-forward-paragraph)
+(define-key evil-normal-state-map (kbd "t") 'evil-find-char)
+(define-key evil-normal-state-map (kbd "T") 'evil-find-char-backward)
+(define-key evil-normal-state-map (kbd "f") 'vile-goto-word-by-first-letter)
+(define-key evil-normal-state-map (kbd "F") 'vile-goto-word-by-first-letter-backward)
 (define-key evil-visual-state-map (kbd "t") 'evil-find-char)
 (define-key evil-visual-state-map (kbd "T") 'evil-find-char-backward)
 (define-key evil-visual-state-map (kbd "f") 'vile-goto-word-by-first-letter)
@@ -560,31 +495,23 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "C-k") 'spacemacs/evil-smart-doc-lookup)
 (define-key evil-normal-state-map (kbd "J") 'vile-scroll-down)
 (define-key evil-normal-state-map (kbd "K") 'vile-scroll-up)
+(define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-normal-state-map (kbd "ga") 'evil-digit-argument-or-evil-beginning-of-line)
 (define-key evil-normal-state-map (kbd "gl") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "gL") 'evil-append-line)
 (define-key evil-normal-state-map (kbd "gm") 'evil-jump-item)
+(define-key evil-visual-state-map (kbd "gm") 'evil-jump-item)
 (define-key evil-normal-state-map (kbd "gn") 'spacemacs/enter-ahs-forward)
+(define-key evil-normal-state-map (kbd "gN") 'spacemacs/enter-ahs-backward)
 (define-key evil-normal-state-map (kbd "ZQ") 'kill-current-buffer)
 (define-key evil-normal-state-map (kbd "C-,") 'evil-indent)
-(define-key evil-normal-state-map (kbd "w") 'evil-forward-WORD-begin)
-(define-key evil-normal-state-map (kbd "b") 'evil-backward-WORD-begin)
-(define-key evil-normal-state-map (kbd "W") 'evil-forward-word-begin)
-(define-key evil-normal-state-map (kbd "B") 'evil-backward-word-begin)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-paste-pop-next)
+(define-key evil-normal-state-map (kbd "C-n") 'keyboard-quit)
+(define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
+(define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
-(define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
-(spacemacs/set-leader-keys (kbd "rw") 'window-configuration-to-register)
-(spacemacs/set-leader-keys (kbd "rj") 'jump-to-register)
-(spacemacs/set-leader-keys (kbd "wg") 'enlarge-window)
-(spacemacs/set-leader-keys (kbd "gm") 'magit-dispatch)
-(spacemacs/set-leader-keys (kbd "wG") (lambda () (interactive (enlarge-window -1))))
-;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
-;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
-;; (define-key evil-normal-state-map (kbd "M-d") nil) ;; disable kill-word
-;; (define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
-;; (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 ;; (evil-define-key evil-magit-state magit-mode-map "?" 'evil-search-backward)
 ;; (define-key evil-normal-state-map (kbd "C-f") nil)
 ;; (define-key evil-normal-state-map (kbd "C-b") nil)
@@ -611,7 +538,7 @@ you should place your code here."
 	(interactive)
 	(if (boundp 'org-timer-done-hook)
 			(if (memql 'timer-bell org-timer-done-hook)
-					(progn (message "removed \"timer done\" bell") (remove-hook 'org-timer-done-hook 'timer-bell))
+          (progn (message "removed \"timer done\" bell") (remove-hook 'org-timer-done-hook 'timer-bell))
 				(progn (message "added \"timer done\" bell") (add-hook 'org-timer-done-hook 'timer-bell)))
 		(error "org-timer-done-hook does not exist. you need to start a timer first")))
 
@@ -720,51 +647,13 @@ you should place your code here."
 
 
 ;; Disable mouse globally
-;; (global-disable-mouse-mode)
+(global-disable-mouse-mode)
 
 
 ;; Fix conflicts between snipe and Magit buffers
   (add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)
 
 
-
-;; ;; INTELLIJ THEME
-;; ;; To style the non-selected ivy items:
-;;   (defun intellij/ivy-format-function-line (cands)
-;;     "Transform CANDS into a string for minibuffer."
-;;     (let ((str (ivy-format-function-line cands)))
-;;       (font-lock-append-text-property 0 (length str) 'face 'ivy-not-current str)
-;;       str))
-;;   (setq ivy-format-function #'intellij/ivy-format-function-line)
-;; ;; To style spacemacs cursors:
-;; (setq intellij-evil-cursors
-;;       '(("normal" "#5974ab" box) ;"#5974ab"
-;;         ("insert" "#d50000" (bar . 2)) ;"#d50000"
-;;         ("emacs" "#d50000" (bar . 2)) ;"#d50000"
-;;         ("hybrid" night-owl-cursor (bar . 2))
-;;         ("replace" night-owl-gray (hbar . 2))
-;;         ("evilified" night-owl-yellow box)
-;;         ("visual" night-owl-gray (hbar . 2))
-;;         ("motion" night-owl-violet box)
-;;         ("lisp" "#ff6eb4" box)
-;;         ("iedit" night-owl-magenta box)
-;;         ("iedit-insert" night-owl-magenta (bar . 2))))
-;; (defun intellij-set-evil-cursor (state color shape)
-;;   (set (intern (format "evil-%s-state-cursor" state))
-;;        (list color shape)))
-;; (defun intellij-update-evil-cursors ()
-;;   (let ((current-theme (symbol-name (car custom-enabled-themes))))
-;;     (if (string-prefix-p "intellij" current-theme)
-;;         (cl-loop for (state color style) in intellij-evil-cursors
-;;                  do
-;;                  (intellij-set-evil-cursor state (symbol-value color) style))
-;;       ;; not intellij theme, restore default spacemacs cursors
-;;       (if (functionp 'spacemacs/add-evil-cursor)
-;;           (cl-loop for (state color shape) in spacemacs-evil-cursors
-;;                    do (spacemacs/add-evil-cursor state color shape))))))
-;; (add-hook 'after-init-hook #'intellij-update-evil-cursors)
-;; ;; For spacemacs (comment this out if not using spacemacs):
-;; (add-hook 'spacemacs-post-theme-change-hook #'intellij-update-evil-cursors)
 
 ;; NIGHT OWL THEME
 ;; To style the non-selected ivy items:
@@ -778,7 +667,7 @@ you should place your code here."
 
 ;; To style spacemacs cursors:
 (setq night-owl-evil-cursors
-      '(("normal" night-owl-cursor box)
+      '(("normal" night-owl-orange box)
         ("insert" night-owl-cursor (bar . 2))
         ("emacs" night-owl-cursor (bar . 2))
         ("hybrid" night-owl-cursor (bar . 2))
@@ -819,88 +708,13 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   ["#ecf0f1" "#e74c3c" "#2ecc71" "#f1c40f" "#2492db" "#9b59b6" "#1abc9c" "#2c3e50"])
- '(ansi-term-color-vector
-   ["#0d73cc" "#FFFFFF" "#d15120" "#5f9411" "#d2ad00" "#6b82a7" "#a66bab" "#6b82a7" "#505050"] t)
- '(background-color "#202020")
- '(background-mode dark)
- '(beacon-color "#F8BBD0")
- '(company-quickhelp-color-background "#4F4F4F")
- '(company-quickhelp-color-foreground "#DCDCCC")
  '(compilation-message-face (quote default))
- '(cua-global-mark-cursor-color "#2aa198")
- '(cua-normal-cursor-color "#839496")
- '(cua-overwrite-cursor-color "#b58900")
- '(cua-read-only-cursor-color "#859900")
- '(cursor-color "#cccccc")
- '(cursor-type (quote bar))
- '(diary-entry-marker (quote font-lock-variable-name-face))
- '(emms-mode-line-icon-color "#358d8d")
- '(evil-emacs-state-cursor (quote ("#D50000" hbar)) t)
- '(evil-insert-state-cursor (quote ("#D50000" bar)) t)
- '(evil-normal-state-cursor (quote ("#F57F17" box)) t)
  '(evil-snipe-enable-highlight nil)
  '(evil-snipe-enable-incremental-highlight nil)
- '(evil-surround-pairs-alist
-   (quote
-    ((40 "( " . " )")
-     (91 "[ " . " ]")
-     (123 "{ " . " }")
-     (41 "(" . ")")
-     (93 "[" . "]")
-     (125 "{" . "}")
-     (35 "#{" . "}")
-     (98 "(" . ")")
-     (66 "(" . "}")
-     (62 "<" . ">")
-     (116 . evil-surround-read-tag)
-     (60 . evil-surround-read-tag)
-     (111 "[" . "]")
-     (105 "(" . ")")
-     (102 . evil-surround-function))))
- '(evil-visual-state-cursor (quote ("#66BB6A" box)) t)
  '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-character-color "#d9d9d9")
  '(fci-rule-color "#010F1D" t)
- '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
- '(foreground-color "#cccccc")
- '(frame-background-mode (quote light))
- '(frame-brackground-mode (quote dark))
- '(fringe-mode 10 nil (fringe))
  '(global-evil-search-highlight-persist nil)
- '(gnus-logo-colors (quote ("#0d7b72" "#adadad")) t)
- '(gnus-mode-line-image-cache
-   (quote
-    (image :type xpm :ascent center :data "/* XPM */
-static char *gnus-pointer[] = {
-/* width height num_colors chars_per_pixel */
-\"    18    13        2            1\",
-/* colors */
-\". c #358d8d\",
-\"# c None s None\",
-/* pixels */
-\"##################\",
-\"######..##..######\",
-\"#####........#####\",
-\"#.##.##..##...####\",
-\"#...####.###...##.\",
-\"#..###.######.....\",
-\"#####.########...#\",
-\"###########.######\",
-\"####.###.#..######\",
-\"######..###.######\",
-\"###....####.######\",
-\"###..######.######\",
-\"###########.######\" };")) t)
  '(highlight-changes-colors (quote ("#EF5350" "#7E57C2")))
- '(highlight-indent-guides-auto-enabled nil)
- '(highlight-symbol-colors
-   (quote
-    ("#F57F17" "#66BB6A" "#0097A7" "#42A5F5" "#7E57C2" "#D84315")))
- '(highlight-symbol-foreground-color "#546E7A")
  '(highlight-tail-colors
    (quote
     (("#010F1D" . 0)
@@ -911,63 +725,15 @@ static char *gnus-pointer[] = {
      ("#B44322" . 70)
      ("#8C46BC" . 85)
      ("#010F1D" . 100))))
- '(hl-bg-colors
-   (quote
-    ("#866300" "#992700" "#a7020a" "#a00559" "#243e9b" "#0061a8" "#007d76" "#5b7300")))
- '(hl-fg-colors
-   (quote
-    ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
- '(hl-paren-background-colors (quote ("#2492db" "#95a5a6" nil)))
- '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
- '(hl-sexp-background-color "#efebe9")
- '(linum-format " %3i ")
- '(lsp-ui-doc-border "#93a1a1")
  '(magit-diff-use-overlays nil)
- '(main-line-color1 "#222232")
- '(main-line-color2 "#333343")
- '(notmuch-search-line-faces
-   (quote
-    (("unread" :foreground "#aeee00")
-     ("flagged" :foreground "#0a9dff")
-     ("deleted" :foreground "#ff2c4b" :bold t))))
- '(nrepl-message-colors
-   (quote
-    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
- '(org-src-block-faces
-   (quote
-    (("emacs-lisp"
-      (:background "#F0FFF0"))
-     ("dot"
-      (:foreground "gray50")))))
  '(package-selected-packages
    (quote
-    (fira-code-mode flucui-light-theme lab-themes flucui-themes borland-blue-theme base16-theme intellij-theme color-theme-modern zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme racket-mode pos-tip faceup yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
- '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+    (adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
- '(powerline-color1 "#222232")
- '(powerline-color2 "#333343")
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
- '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
- '(sml/active-background-color "#34495e")
- '(sml/active-foreground-color "#ecf0f1")
- '(sml/inactive-background-color "#dfe4ea")
- '(sml/inactive-foreground-color "#34495e")
- '(spacemacs-theme-comment-bg nil t)
- '(tabbar-background-color "#ffffffffffff")
- '(term-default-bg-color "#002b36")
- '(term-default-fg-color "#839496")
- '(tetris-x-colors
-   [[229 192 123]
-    [97 175 239]
-    [209 154 102]
-    [224 108 117]
-    [152 195 121]
-    [198 120 221]
-    [86 182 194]])
  '(vc-annotate-background nil)
- '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
    (quote
     ((20 . "#C792EA")
@@ -991,15 +757,10 @@ static char *gnus-pointer[] = {
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
    (quote
-    (unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF")))
- '(window-divider-mode nil)
- '(xterm-color-names
-   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
- '(xterm-color-names-bright
-   ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
+    (unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight normal :height 98 :width normal)))))
+ )
