@@ -446,6 +446,7 @@ you should place your code here."
 						 ("not" .      #x2757)
 						 ("in" .       #x2208)
 						 ("not in" .   #x2209)
+						 ("compose" .   "∘")
 						 ("composition" .   "∘")
 						 ("return" .   #x27fc)
 						 ("yield" .    #x27fb)
@@ -679,6 +680,8 @@ you should place your code here."
 (spacemacs/set-leader-keys (kbd "gm") 'magit-dispatch) ;; replace obsolete magit-dispatch-popup
 (spacemacs/set-leader-keys (kbd "wg") 'enlarge-window)
 (spacemacs/set-leader-keys (kbd "wG") 'shrink-window)
+(spacemacs/set-leader-keys (kbd "sd") 'evil-ex-show-digraphs)
+(spacemacs/set-leader-keys (kbd "ic") 'insert-char)
 ;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
 ;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
 ;; (define-key evil-normal-state-map (kbd "M-d") nil) ;; disable kill-word
