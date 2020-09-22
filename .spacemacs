@@ -137,7 +137,23 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+
+												 ;; --- Dark themes ---
+												 base16-atelier-cave ;; rabi-ribi
+												 ;; base16-atelier-plateau ;; similar to cave
+												 ;; base16-atelier-savanna ;; dark brown, orange, med green, ocean blue
+												 ;; base16-bespin ;; dark brown, light brown, green, blue
+												 ;; estuary ;;dark brown
+												 ;; flucui-dark ;; based off of lab-dark
+												 ;; misterioso
+												 ;; tango-dark ;; yellow bar
+												 ;; night-owl
+												 ;; fogus
+												 ;; graham ;; dark-blue w/ bright orange-gold
+												 ;; spacemacs-dark
+
 												 ;; --- Colored themes ---
+												 moe-light ;; colorful
 												 ;; underwater
                          ;; alect-light
 												 ;; ample-light
@@ -157,25 +173,12 @@ values."
 												 ;; flucui-light ;; based off of lab-light
 												 ;; flatui ;; colorful
 												 ;; whiteboard
-												 moe-light ;; colorful
 												 ;; default
 												 ;; adwaita
 												 ;; apropospriate-light
 
-												 ;; --- Dark themes ---
-												 base16-atelier-cave ;; rabi-ribi
-												 ;; base16-atelier-plateau ;; similar to cave
-												 ;; base16-atelier-savanna ;; dark brown, orange, med green, ocean blue
-												 ;; base16-bespin ;; dark brown, light brown, green, blue
-												 ;; estuary ;;dark brown
-												 ;; flucui-dark ;; based off of lab-dark
-												 ;; misterioso
-												 ;; tango-dark ;; yellow bar
-												 ;; night-owl
-												 ;; fogus
-												 ;; graham ;; dark-blue w/ bright orange-gold
-												 ;; spacemacs-dark
 												 )
+
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state nil
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -526,17 +529,23 @@ you should place your code here."
 ;;     cast expression while keeping the hash-ref expression.
 ;;     Might be possible to add this to the evil-surround variable 'evil-surround-operator-alist'...
 
+;; visual-state mappings
+(define-key evil-visual-state-map (kbd "(") 'evil-backward-paragraph)
+(define-key evil-visual-state-map (kbd ")") 'evil-forward-paragraph)
+
+
+;; normal-state mappings
 ;; (global-set-key (kbd "C-n") 'keyboard-quit)
 (define-key evil-normal-state-map (kbd "\\") 'isearch-forward-word)
 (define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
 (define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro)
 (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
-(define-key evil-visual-state-map (kbd "(") 'evil-backward-paragraph)
-(define-key evil-visual-state-map (kbd ")") 'evil-forward-paragraph)
-(define-key evil-visual-state-map (kbd "t") 'evil-find-char)
-(define-key evil-visual-state-map (kbd "T") 'evil-find-char-backward)
-(define-key evil-visual-state-map (kbd "f") 'vile-goto-word-by-first-letter)
-(define-key evil-visual-state-map (kbd "F") 'vile-goto-word-by-first-letter-backward)
+(define-key evil-normal-state-map (kbd "(") 'evil-backward-paragraph)
+(define-key evil-normal-state-map (kbd ")") 'evil-forward-paragraph)
+(define-key evil-normal-state-map (kbd "t") 'evil-find-char)
+(define-key evil-normal-state-map (kbd "T") 'evil-find-char-backward)
+(define-key evil-normal-state-map (kbd "f") 'vile-goto-word-by-first-letter)
+(define-key evil-normal-state-map (kbd "F") 'vile-goto-word-by-first-letter-backward)
 (define-key evil-normal-state-map (kbd "Q") 'electric-newline-and-maybe-indent) ;; split-line
 (define-key evil-normal-state-map (kbd "A") 'evil-insert-line)
 (define-key evil-normal-state-map (kbd "I") 'evil-append)
