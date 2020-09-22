@@ -63,7 +63,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(pretty-mode fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode
+   dotspacemacs-additional-packages '(hasklig-mode pretty-mode fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode
    ;; solarized-dark-theme tomorrow-blue-theme pheonix-dark-mono-theme apropospriate-light-theme adwaita-theme alect-light-theme
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -191,17 +191,17 @@ values."
 															 	:width normal
 															 	:powerline-scale 1.1)
 
-															 ("Fira Code"
-                               :size 13
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+															 ;; ("Fira Code"
+                               ;; :size 13
+                               ;; :weight normal
+                               ;; :width normal
+                               ;; :powerline-scale 1.1)
 
-															 ("Source Code Pro"
-																:size 13
-																:weight normal
-																:width normal
-																:powerline-scale 1.1)
+															 ;; ("Source Code Pro"
+															 ;; 	:size 13
+															 ;; 	:weight normal
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -377,50 +377,95 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-
 	(global-prettify-symbols-mode 1)
-
 
 	(remove-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'line-number-mode)
 
+;; Font Ligatures
+  (defun my-correct-symbol-bounds (pretty-alist)
+      "Prepend a TAB character to each symbol in this alist,
+  this way compose-region called by prettify-symbols-mode
+  will use the correct width of the symbols
+  instead of the width measured by char-width."
+      (mapcar (lambda (el)
+                (setcdr el (string ?\t (cdr el)))
+                el)
+              pretty-alist))
 
-	(add-hook
-	 'prog-mode-hook
-	 (lambda ()
-		 (mapc (lambda (pair) (push pair prettify-symbols-alist))
-					 '(;; Syntax
-						 ("def" .      #x2131)
-						 ("define" .      #x2131)
-						 ("defun" .      #x2131)
-						 ("not" .      #x2757)
-						 ("in" .       #x2208)
-						 ("not in" .   #x2209)
-						 ("return" .   #x27fc)
-						 ("yield" .    #x27fb)
-						 ("for" .      #x2200)
-						 ;; Base Types
-						 ("int" .      #x2124)
-						 ("Integer" .      #x2124)
-						 ("float" .    #x211d)
-						 ("Float" .    #x211d)
-						 ("str" .      #x1d54a)
-						 ("String" .      #x1d54a)
-						 ("True" .     #x1d54b)
-						 ("#t" .     #x1d54b)
-						 ("#true" .     #x1d54b)
-						 ("False" .    #x1d53d)
-						 ("#f" .    #x1d53d)
-						 ("#false" .    #x1d53d)
-						 ;; Mypy
-						 ("Dict" .     #x1d507)
-						 ("List" .     #x2112)
-						 ("Tuple" .    #x2a02)
-						 ("Set" .      #x2126)
-						 ("Iterable" . #x1d50a)
-						 ("Any" .      #x2754)
-						 ("Union" .    #x22c3)))))
+  ;; (defun my-ligature-list (ligatures codepoint-start)
+  ;;     "Create an alist of strings to replace with
+  ;; codepoints starting from codepoint-start."
+  ;;     (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
+  ;;       (-zip-pair ligatures codepoints)))
+  ;; (setq my-fira-code-ligatures
+  ;;     (let* ((ligs '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
+  ;;                   "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
+  ;;                   "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
+  ;;                   "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
+  ;;                   ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
+  ;;                   "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
+  ;;                   "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
+  ;;                   "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
+  ;;                   ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
+  ;;                   "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
+  ;;                   "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
+  ;;                   "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
+  ;;                   "x" ":" "+" "+" "*")))
+  ;;       (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
+  ;; (defun my-set-fira-code-ligatures ()
+  ;;     "Add fira code ligatures for use with prettify-symbols-mode."
+  ;;     (setq prettify-symbols-alist
+  ;;           (append my-fira-code-ligatures prettify-symbols-alist))
+  ;;     (prettify-symbols-mode))
+  ;; (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
+
+
+
+	;; (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")))
+	;; (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")
+	;; (add-hook 'prog-mode-hook
+	;; 					#'ligatures-fira-code-setup)
+	;; (global-prettify-symbols-mode +1)
+
+
+	;; (add-hook 'prog-mode-hook 'prettify-symbols-mode)
+	;; (add-hook
+	;;  'prog-mode-hook
+	;;  (lambda ()
+	;; 	 (mapc (lambda (pair) (push pair prettify-symbols-alist))
+	;; 				 '(;; Syntax
+	;; 					 ("def" .      #x2131)
+	;; 					 ("define" .      #x2131)
+	;; 					 ("defun" .      #x2131)
+	;; 					 ("not" .      #x2757)
+	;; 					 ("in" .       #x2208)
+	;; 					 ("not in" .   #x2209)
+	;; 					 ("return" .   #x27fc)
+	;; 					 ("yield" .    #x27fb)
+	;; 					 ("for" .      #x2200)
+	;; 					 ;; Base Types
+	;; 					 ("int" .      #x2124)
+	;; 					 ("Integer" .      #x2124)
+	;; 					 ("float" .    #x211d)
+	;; 					 ("Float" .    #x211d)
+	;; 					 ("str" .      #x1d54a)
+	;; 					 ("String" .      #x1d54a)
+	;; 					 ("True" .     #x1d54b)
+	;; 					 ("#t" .     #x1d54b)
+	;; 					 ("#true" .     #x1d54b)
+	;; 					 ("False" .    #x1d53d)
+	;; 					 ("#f" .    #x1d53d)
+	;; 					 ("#false" .    #x1d53d)
+	;; 					 ;; Mypy
+	;; 					 ("Dict" .     #x1d507)
+	;; 					 ("List" .     #x2112)
+	;; 					 ("Tuple" .    #x2a02)
+	;; 					 ("Set" .      #x2126)
+	;; 					 ("Iterable" . #x1d50a)
+	;; 					 ("Any" .      #x2754)
+	;; 					 ("Union" .    #x22c3)))))
 
 
 
@@ -851,7 +896,7 @@ you should place your code here."
  '(evil-snipe-enable-highlight nil)
  '(evil-snipe-enable-incremental-highlight nil)
  '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#010F1D")
+ '(fci-rule-color "#010F1D" t)
  '(global-evil-search-highlight-persist nil)
  '(highlight-changes-colors (quote ("#EF5350" "#7E57C2")))
  '(highlight-tail-colors
@@ -867,7 +912,7 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+    (hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
