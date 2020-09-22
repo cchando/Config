@@ -362,6 +362,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
 
+	(global-prettify-symbols-mode 1)
 
 	(add-hook
 	 'prog-mode-hook
