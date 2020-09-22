@@ -197,6 +197,12 @@ values."
                                ;; :width normal
                                ;; :powerline-scale 1.1)
 
+															 ;; ("Fira Code"
+                               ;; :size 13
+                               ;; :weight normal
+                               ;; :width normal
+                               ;; :powerline-scale 1.1)
+
 															 ;; ("Source Code Pro"
 															 ;; 	:size 13
 															 ;; 	:weight normal
@@ -377,8 +383,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-	(global-prettify-symbols-mode 1)
-
 	(remove-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'line-number-mode)
@@ -425,47 +429,54 @@ you should place your code here."
 
 	;; (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")))
 	;; (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")
-	;; (add-hook 'prog-mode-hook
-	;; 					#'ligatures-fira-code-setup)
-	;; (global-prettify-symbols-mode +1)
+	;; (add-hook 'prog-mode-hook #'ligatures-fira-code-setup)
+	(add-hook 'prog-mode-hook 'global-prettify-symbols-mode +1)
+	(add-hook 'prog-mode-hook 'hasklig-mode +1)
+
+	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
+	(add-hook
+	 'prog-mode-hook
+	 (lambda ()
+		 (mapc (lambda (pair) (push pair prettify-symbols-alist))
+					 '(;; Syntax
+						 ;; Functional
+						 ("def" .      #x2131)
+						 ("define" .      #x2131)
+						 ("defun" .      #x2131)
+						 ("not" .      #x2757)
+						 ("in" .       #x2208)
+						 ("not in" .   #x2209)
+						 ("composition" .   "∘")
+						 ("return" .   #x27fc)
+						 ("yield" .    #x27fb)
+						 ("for" .      #x2200)
+						 ;; Base Types
+						 ("Any" .      #x1d538)
+						 ("All" .      #x2200)
+						 ("int" .      #x2124)
+						 ("Integer" .      #x2124)
+						 ("float" .    #x211d)
+						 ("Float" .    #x211d)
+						 ("str" .      #x1d54a)
+						 ("String" .      #x1d54a)
+						 ("True" .     #x1d54b)
+						 ("#t" .     #x1d54b)
+						 ("#true" .     #x1d54b)
+						 ("False" .    #x1d53d)
+						 ("#f" .    #x1d53d)
+						 ("#false" .    #x1d53d)
+						 ;; Set Logic
 
 
-	;; (add-hook 'prog-mode-hook 'prettify-symbols-mode)
-	;; (add-hook
-	;;  'prog-mode-hook
-	;;  (lambda ()
-	;; 	 (mapc (lambda (pair) (push pair prettify-symbols-alist))
-	;; 				 '(;; Syntax
-	;; 					 ("def" .      #x2131)
-	;; 					 ("define" .      #x2131)
-	;; 					 ("defun" .      #x2131)
-	;; 					 ("not" .      #x2757)
-	;; 					 ("in" .       #x2208)
-	;; 					 ("not in" .   #x2209)
-	;; 					 ("return" .   #x27fc)
-	;; 					 ("yield" .    #x27fb)
-	;; 					 ("for" .      #x2200)
-	;; 					 ;; Base Types
-	;; 					 ("int" .      #x2124)
-	;; 					 ("Integer" .      #x2124)
-	;; 					 ("float" .    #x211d)
-	;; 					 ("Float" .    #x211d)
-	;; 					 ("str" .      #x1d54a)
-	;; 					 ("String" .      #x1d54a)
-	;; 					 ("True" .     #x1d54b)
-	;; 					 ("#t" .     #x1d54b)
-	;; 					 ("#true" .     #x1d54b)
-	;; 					 ("False" .    #x1d53d)
-	;; 					 ("#f" .    #x1d53d)
-	;; 					 ("#false" .    #x1d53d)
-	;; 					 ;; Mypy
-	;; 					 ("Dict" .     #x1d507)
-	;; 					 ("List" .     #x2112)
-	;; 					 ("Tuple" .    #x2a02)
-	;; 					 ("Set" .      #x2126)
-	;; 					 ("Iterable" . #x1d50a)
-	;; 					 ("Any" .      #x2754)
-	;; 					 ("Union" .    #x22c3)))))
+
+						 ;; Mypy
+						 ("Dict" .     #x1d507)
+						 ("List" .     #x2112)
+						 ("Tuple" .    #x2a02)
+						 ("Set" .      #x2126)
+						 ("Iterable" . #x1d50a)
+						 ("Any" .      #x2754)
+						 ("Union" .    #x22c3)))))
 
 
 
@@ -600,31 +611,17 @@ you should place your code here."
   (evil-forward-paragraph)
 	(evil-previous-line))
 
-;; (defun cac-undo-tree-redo (&optional arg)
-;;   "Redo changes. A numeric ARG serves as a repeat count.
-;; In Transient Mark mode when the mark is active, only redo changes
-;; within the current region. Similarly, when not in Transient Mark
-;; mode, just \\[universal-argument] as an argument limits redo to
-;; changes within the current region."
-;;   (interactive)
-;;   ;; TODO: implement <ciw> using lisp
-;;   (unless undo-tree-mode
-;;     (user-error "Undo-tree mode not enabled in buffer"))
-;;   ;; throw error if undo is disabled in buffer
-;;   (when (eq buffer-undo-list t)
-;;     (user-error "No undo information in this buffer"))
-;;   (undo-tree-redo-1 0)
-;;   ;; inform user if at branch point
-;;   (when (> (undo-tree-num-branches) 1) (message "Undo branch point!")))
-
 
 ;; (define-key key-translation-map [f1] (kbd "["))
+
 ;; (define-key evil-visual-state-map (kbd "{") 'vile-backward-paragraph)
 ;; (define-key evil-visual-state-map (kbd "}") 'vile-forward-paragraph)
-;; (define-key evil-normal-state-map (kbd "{") 'vile-backward-paragraph)
-;; (define-key evil-normal-state-map (kbd "}") 'vile-forward-paragraph)
 ;; (define-key evil-visual-state-map (kbd "<SPC>oe") 'evil-backward-paragraph)
 ;; (define-key evil-visual-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
+
+
+;; (define-key evil-normal-state-map (kbd "{") 'vile-backward-paragraph)
+;; (define-key evil-normal-state-map (kbd "}") 'vile-forward-paragraph)
 ;; (define-key evil-normal-state-map (kbd "<SPC>oe") 'evil-backward-paragraph)
 ;; (define-key evil-normal-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
 
