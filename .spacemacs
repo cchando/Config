@@ -380,6 +380,12 @@ you should place your code here."
 
 	(global-prettify-symbols-mode 1)
 
+
+	(remove-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
+	(remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
+	(remove-hook 'prog-mode-hook 'line-number-mode)
+
+
 	(add-hook
 	 'prog-mode-hook
 	 (lambda ()
