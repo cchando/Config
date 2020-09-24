@@ -470,22 +470,22 @@ you should place your code here."
 						 ("let" .      "∴")
 						 ("let*" .     "∴")
 						 ("letrec" .   "∴")
-						 ;; ("::"    .    "∷") ;covered by Hasklig
+						 ;; ("::"    .    ∷") ;covered by Hasklig
 						 ;; --- Functional ---
 						 ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
 						 ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
 						 ("map" .    "⮉") ;⬆ ↥ ⍐ ⮉    ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
 						 ("fmap" .   "⮉") ;⤊ ↥ ⍐ ⮉   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
-						 ;; cons ⍠
+						 ("cons" .     "⍠")
 						 ;; ("<*>" .   "⊛")
-						 ;; ("<>" .   "⊕")   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("mappend" .   "⊕")
-						 ("`mappend`" .   "⊕")
+						 ;; ("<>" .   "⊕") ;⊕ ⨁  ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("mappend" .   "⊕") ;⊕ ⨁
+						 ("`mappend`" .   "⊕") ;⊕ ⨁
 						 ("compose" .   "∘") ;∘ ○ ◯
 						 ("compose1" .   "∘") ;∘ ○ ◯
 						 ;; ("."  .   "∘") ; infix use
 						 ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
-						 ;; ("join" .   "µ")
+						 ("join" .   "µ") ;µ ⨝
 						 ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
 						 ("for" .      "∀")
 						 ("take" .     "↑") ; APL
@@ -514,7 +514,7 @@ you should place your code here."
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ("Bottom" .      "⟘")
 						 ("forall" .      "∀")
-						 ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
 						 ("Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
@@ -524,8 +524,6 @@ you should place your code here."
 						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
 						 ("Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ("str" .      "𝐒") ;𝕊 𝐒 𝗦 𝑺
-						 ("string" .      "𝐒") ;𝕊 𝐒 𝗦 𝑺
 						 ("String" .      "𝐒") ;𝕊 𝐒 𝗦 𝑺
 						 ("Top" .      "⟙")
 						 ("Tuple" .    "⨂")
@@ -560,8 +558,8 @@ you should place your code here."
 						 ("some" .      "∃")
 						 ("none" .      "∄")
 						 ("not" .      "¬") ;❗ ￢ ¬ 〜 ～ ~
-						 ("and" .      "⋀") ;⋀ ∧ ⟎
-						 ("or" .      "⋁") ;⋁ ∨ ⟏
+						 ("and" .      "∧") ;∧ ⋀ ⟎
+						 ("or" .      "∨") ;∨ ⋁ ⟏
 						 ("xor" .      "⊻")
 						 ("nor" .      "⊽") ;⊽ ⩝ ⍱
 						 ("nand" .      "⊼") ;⊼ ⩜ ⍲
@@ -576,8 +574,9 @@ you should place your code here."
 						 ("element" .      "∈") ;∈ 𝞊
 						 ("notElem" .   #x2209)
 						 ("member" .      "∈") ;∈ 𝞊
-						 ("union" .      "⋃") ;⋃ ∪
+						 ;; ("union" .      "⋃") ;⋃ ∪
 						 ("Union" .      "⋃") ;⋃ ∪
+						 ("U" .      "⋃") ;⋃ ∪
 						 ("intersection" .      "⋂") ;⋂ ∩
 						 ("Intersection" .      "⋂") ;⋂ ∩
 						 ("complement" .      "∁")
