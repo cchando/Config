@@ -454,55 +454,56 @@ you should place your code here."
 	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	(add-hook 'prog-mode-hook 'hasklig-mode)
 
-	;; (add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	(add-hook
 	 'prog-mode-hook
 	 (lambda ()
 		 (mapc (lambda (pair) (push pair prettify-symbols-alist))
 					 '(
 						 ;; --- Syntax ---
-						 ("def" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
+						 ;; ("def" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("define" .   "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("defun" .    "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("define-type" . "Ƒ") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ("fn" .    "λ")
-						 ("where" .    "∵")
+						 ;; ("fn" .    "λ")
+						 ;; ("where" .    "∵")
 						 ("let" .      "∴")
 						 ("let*" .     "∴")
 						 ("letrec" .   "∴")
-						 ;; ("::"    .    ∷") ;covered by Hasklig
+						 ("::"    .    "∷") ;covered by Hasklig
 						 ;; --- Functional ---
-						 ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
-						 ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
-						 ("map" .    "⮉") ;⬆ ↥ ⍐ ⮉    ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
-						 ("fmap" .   "⮉") ;⤊ ↥ ⍐ ⮉   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
+						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
+						 ;; ("map" .    "⮉") ;⬆ ↥ ⍐ ⮉    ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+						 ;; ("fmap" .   "⮉") ;⤊ ↥ ⍐ ⮉   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
 						 ("cons" .     "⍠")
 						 ;; ("<*>" .   "⊛")
 						 ;; ("<>" .   "⊕") ;⊕ ⨁  ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("mappend" .   "⊕") ;⊕ ⨁
-						 ("`mappend`" .   "⊕") ;⊕ ⨁
+						 ;; ("mappend" .   "⊕") ;⊕ ⨁
+						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
 						 ("compose" .   "∘") ;∘ ○ ◯
 						 ("compose1" .   "∘") ;∘ ○ ◯
+						 ("apply" .   "⬆") ;⬆ ↥ ⍐ ⮉
 						 ;; ("."  .   "∘") ; infix use
 						 ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
-						 ("join" .   "µ") ;µ ⨝
-						 ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
+						 ;; ("join" .   "µ") ;µ ⨝
+						 ;; ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
 						 ("for" .      "∀")
 						 ("take" .     "↑") ; APL
 						 ("drop" .     "↓") ; APL
 						 ("sub" .      "-")
-						 ("subtract" .     "-")
+						 ;; ("subtract" .     "-")
 						 ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨉
-						 ("coproduct" .    "∐")
-						 ("divide" .    "÷")
+						 ;; ("coproduct" .    "∐")
+						 ("/" .    "÷")
+						 ;; ("divide" .    "÷")
 						 ("sqrt" .    "√")
-						 ("powerset" .  "℘")
-						 ("-o" .  "⊸")
+						 ;; ("powerset" .  "℘")
+						 ;; ("-o" .  "⊸")
 						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("concatenate" .   "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ;; ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ;; ("concatenate" .   "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ("append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ("append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ("string-append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
@@ -512,8 +513,8 @@ you should place your code here."
 						 ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
-						 ("Bottom" .      "⟘")
-						 ("forall" .      "∀")
+						 ;; ("Bottom" .      "⟘")
+						 ;; ("forall" .      "∀")
 						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Negative-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Nonpositive-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
@@ -552,8 +553,8 @@ you should place your code here."
 						 ("String" .      "𝕊") ;𝕊 𝐒 𝗦 𝑺
 						 ("Symbol" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
 						 ;; ("Set" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
-						 ("Top" .      "⟙")
-						 ("Tuple" .    "⨂")
+						 ;; ("Top" .      "⟙")
+						 ;; ("Tuple" .    "⨂")
 						 ("True" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
 						 ("#true" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
 						 ("#t" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑻 𝑇
@@ -600,16 +601,18 @@ you should place your code here."
 						 ("mempty" .      "∅")
 						 ("null" .      "∅")
 						 ("elem" .      "∈") ;∈ 𝞊
-						 ("element" .      "∈") ;∈ 𝞊
+						 ;; ("element" .      "∈") ;∈ 𝞊
 						 ("notElem" .   #x2209)
 						 ("member" .      "∈") ;∈ 𝞊
-						 ;; ("union" .      "⋃") ;⋃ ∪
+						 ("union" .      "⋃") ;⋃ ∪
 						 ("Union" .      "⋃") ;⋃ ∪
 						 ("U" .      "⋃") ;⋃ ∪
-						 ("intersection" .      "⋂") ;⋂ ∩
-						 ("Intersection" .      "⋂") ;⋂ ∩
-						 ("complement" .      "∁")
-						 ("Complement" .      "∁")
+						 ;; ("∪" .      "⋃") ;⋃ ∪
+						 ;; ("intersection" .      "⋂") ;⋂ ∩
+						 ;; ("Intersection" .      "⋂") ;⋂ ∩
+						 ("∩" .      "⋂") ;⋂ ∩
+						 ;; ("complement" .      "∁")
+						 ;; ("Complement" .      "∁")
 						 ))))  ;ends add-hook for prettify-symbols-alist
 
 
