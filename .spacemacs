@@ -515,16 +515,43 @@ you should place your code here."
 						 ("Bottom" .      "⟘")
 						 ("forall" .      "∀")
 						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ("Negative-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ("Nonpositive-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonnegative-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ("Positive-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ("Negative-Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonpositive-Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
 						 ("Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonnegative-Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Positive-Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Negative-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonpositive-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
 						 ("Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonnegative-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Positive-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Negative-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ("Nonpositive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
 						 ("Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ("Nonnegative-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ("Positive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
 						 ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
 						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
+						 ("Exact-Nonnegative-Integer"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
+						 ("Index"  .  "𝐈")
+						 ("Negative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonpositive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonnegative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
+						 ("Positive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
+						 ("Negative-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ("Nonpositive-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
 						 ("Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ("String" .      "𝐒") ;𝕊 𝐒 𝗦 𝑺
+						 ("Nonnegative-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ("Positive-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ("String" .      "𝕊") ;𝕊 𝐒 𝗦 𝑺
+						 ("Symbol" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
+						 ;; ("Set" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
 						 ("Top" .      "⟙")
 						 ("Tuple" .    "⨂")
 						 ("True" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
