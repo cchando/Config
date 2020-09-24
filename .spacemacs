@@ -562,8 +562,8 @@ you should place your code here."
 						 ("#f" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("Void" .   "⦱") ;⦱ ◯ ⭕ ⬤ #x20dd #x20e0
 						 ;; --- ADTs ---
-						 ("Maybe"  .  "𝐌") ;𝕄 𝐌 𝗠 𝑴
-						 ("Option"  .  "𝐌") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
+						 ("Maybe"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴
+						 ("Option"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
 						 ("Just"  .  "𝐽")
 						 ("Nothing"  .  "𝑁") ;⟘
 						 ("Either"  .  "𝐄") ;𝔼 𝐄 𝑬
@@ -573,7 +573,9 @@ you should place your code here."
 						 ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
 						 ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
 						 ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
-						 ;; ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ("Immutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ("Mutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("Hash" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("HashMap" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; --- Equality ---
