@@ -191,6 +191,10 @@ values."
 															 	:width normal
 															 	:powerline-scale 1.1)
 
+															 ;; /= ->>  *** <<< >>> <*> >>> >>- -<< ==> .. ... <$> <*> <+> <* *> |> <| <-> >- -< :: ::: && =<<
+															 ;; <=> >>= <=< >=>
+
+
 															 ;; ("Fira Code"
                                ;; :size 13
                                ;; :weight normal
@@ -425,6 +429,17 @@ you should place your code here."
   ;;     (prettify-symbols-mode))
   ;; (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
 
+	(global-pretty-mode t)
+	(pretty-deactivate-groups
+	 ; operator, equality and arrow groups interfere with Fira COde operators
+	; logic group interferes with prettify-symbols
+	 '(:equality :ordering :ordering-double :ordering-triple
+							 :arrows :arrows-twoheaded :punctuation
+							 :logic :sets))
+	(pretty-activate-groups
+	 '(:sub-and-superscripts :greek :arithmetic-nary))
+
+
 
 
 	;; (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")))
@@ -445,77 +460,77 @@ you should place your code here."
 						 ("defun" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯 𝓕 ℱ
 						 ("fn" .      "λ")
 						 ;; ("::"    .    "∷") ;covered by Hasklig
-
 						 ;; --- Functional ---
-						 ("compose" .   "(∘)")
-						 ("compose1" .   "(∘)")
+						 ("compose" .   "∘")
+						 ("compose1" .   "∘")
 						 ;; ("."  .   "∘") ; infix use
-						 ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟼
-						 ("yield" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟼
-						 ("for" .      #x2200) ;∀
+						 ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
+						 ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
+						 ("for" .      "∀")
 						 ("take" .     "↑") ; APL
 						 ("drop" .     "↓") ; APL
-						 ("not equal" .     "≠")
-						 ("!=" .     "≠")
-						 ("<=" .      "≤") ;≤ ⩽
-						 (">=" .      "≥") ;≥ ⩾
+						 ("sub" .      "-")
+						 ("subtract" .      "-")
+						 ("add" .      "𝝨") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ("sum" .      "𝝨") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ("product" .      "𝝥") ;ℿ 𝝥 𝞟 ∏
 						 ("divide" .      "÷")
 						 ("sqrt" .      "√")
-						 ;; ("++" .      "<>⧺") ;⧺ <> ◇  ;covered by Hasklig
-						 ("concat" .      "<>") ;⧺
-						 ("concatenate" .      "<>") ;⧺
-						 ("append" .      "<>") ;⧺
-						 ("append*" .      "<>*") ;⧺
-						 ("string-append" .      "<>") ;⧺
-						 ("string-append*" .      "<>*") ;⧺
-
+						 ;; ("++" .      "◇") ;⧺ <> ◇ #x20df  ;covered by Hasklig
+						 ("concat" .      "◇") ;⧺ ◇ #x20df
+						 ("concatenate" .      "◇") ;⧺ ◇ #x20df
+						 ("append" .      "◇") ;⧺ ◇ #x20df
+						 ("append*" .      "◇") ;⧺ ◇ #x20df
+						 ("string-append" .      "◇") ;⧺ ◇ #x20df
+						 ("string-append*" .      "◇") ;⧺ ◇ #x20df
 						 ;; --- Types ---
-						 ("Any" .      "𝔸") ;𝐀 𝔸 𝗔 𝐴
-						 ("All" .      #x2200) ;∀
+						 ("Any" .      "𝐀") ;𝐀 𝔸 𝗔 𝐴
+						 ("All" .      "∀")
+						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
+						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ("Bottom" .      "⟘")
-						 ("forall" .      #x2200)
+						 ("forall" .      "∀")
 						 ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("float"  .  "ℝ") ;ℝ 𝗥 𝐑 𝑹
-						 ("Float"  .  "ℝ") ;ℝ 𝗥 𝐑 𝑹
-						 ("Flonum"  .  "ℝ") ;ℝ 𝗥 𝐑 𝑹
-						 ("Number"  .   "ℂ") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ("Complex"  .   "ℂ") ;ℂ 𝐂 𝗖 𝐶
-						 ("Natural"  .  "ℕ") ;ℕ 𝝢 𝐍 𝙉
-						 ("Real"  .  "ℝ") ;ℝ 𝗥 𝐑 𝑹
-						 ("Rational"  .  "ℚ") ;ℚ 𝗤 𝐐 𝙌
-						 ("str" .      "𝕊") ;𝕊 𝐒 𝗦 𝑺
-						 ("string" .      "𝕊") ;𝕊 𝐒 𝗦 𝑺
-						 ("String" .      "𝕊") ;𝕊 𝐒 𝗦 𝑺
+						 ("float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
+						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
+						 ("Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
+						 ("Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ("str" .      "𝐒") ;𝕊 𝐒 𝗦 𝑺
+						 ("string" .      "𝐒") ;𝕊 𝐒 𝗦 𝑺
+						 ("String" .      "𝐒") ;𝕊 𝐒 𝗦 𝑺
 						 ("Top" .      "⟙")
-						 ("True" .     "𝗧") ;𝕋 𝗧 𝐓 𝙏
-						 ("#true" .     "𝗧") ;𝕋 𝗧 𝐓 𝙏
-						 ("#t" .     "𝗧") ;𝕋 𝗧 𝐓 𝙏
-						 ("False" .    "𝗙") ;𝔽 𝗙 𝐅 𝑭
-						 ("#false" .    "𝗙") ;𝔽 𝗙 𝐅 𝑭
-						 ("#f" .    "𝗙") ;𝔽 𝗙 𝐅 𝑭
-
+						 ("Tuple" .    "⨂")
+						 ("True" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏
+						 ("#true" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏
+						 ("#t" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑻
+						 ("False" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭
+						 ("#false" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭
+						 ("#f" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭
 						 ;; --- ADTs ---
-						 ("Maybe"  .  "𝗠") ;𝐌 𝗠 𝑴 𝕄
-						 ("Option"  .  "𝗠") ;𝐌 𝗠 𝑴 𝕄  ;same as Maybe
-						 ;; ("Just"  .  "𝐽")
-						 ;; ("Nothing"  .  "𝑁")
+						 ("Maybe"  .  "𝐌") ;𝐌 𝗠 𝑴 𝕄
+						 ("Option"  .  "𝐌") ;𝐌 𝗠 𝑴 𝕄  ;same as Maybe
+						 ("Just"  .  "𝐽")
+						 ("Nothing"  .  "𝑁") ;⟘
 						 ("Either"  .  "𝐄")
 						 ("Right"  .  "𝑅")
 						 ("Left"  .  "𝐿")
-						 ;; ("Listof" .    "𝐋") ;𝕃 𝐋 𝗟 𝐿
-						 ;; ("List" .    "𝐋") ;𝕃 𝐋 𝗟 𝐿
-						 ;; ("Vectorof" .    "𝐕") ;𝕍 𝐕 𝗩 𝑽
-						 ;; ("Vector" .    "𝐕") ;𝕍 𝐕 𝗩 𝑽
-						 ;; ("HashTable" .    "𝐇") ;ℍ 𝐇 𝗛 𝑯
-						 ;; ("Hash" .    "𝐇") ;ℍ 𝐇 𝗛 𝑯
-						 ;; ("HashMap" .    "𝐇") ;ℍ 𝐇 𝗛 𝑯
-						 ;; Values
-						 ;; Equality
-						 ;; ("NAME" .      "")
-
+						 ;; ("Listof" .    "𝑳") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
+						 ;; ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
+						 ;; ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
+						 ;; ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
+						 ;; ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ;; ("Hash" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ;; ("HashMap" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ;; --- Equality ---
+						 ("!=" .     "≠") ;TODO: replace with Hasklig ligature in Unicode reserved space
+						 ("<=" .      "⩽") ;≤ ⩽
+						 (">=" .      "⩾") ;≥ ⩾
+						 ;; ("not equal" . "≠")
 						 ;; --- Predicate Logic ---
 						 ("some" .      "∃")
 						 ("none" .      "∄")
@@ -524,7 +539,6 @@ you should place your code here."
 						 ("or" .      "⋁") ;⋁ ∨
 						 ("nor" .      "⊽") ;⊽ ⍱ (APL)
 						 ("nand" .      "⊼") ;⊼ ⍲ (APL)
-
 						 ;; --- Set Logic ---
 						 ("in" .       #x2208)
 						 ("not in" .   #x2209)
@@ -537,17 +551,8 @@ you should place your code here."
 						 ("Union" .      "⋃") ;⋃ ∪
 						 ("intersection" .      "⋂") ;⋂ ∩
 						 ("Intersection" .      "⋂") ;⋂ ∩
-						 ;; ("NAME" .      "")
-
-						 ;; Mypy
-						 ("Dict" .     #x1d507)
-						 ("List" .     #x2112)
-						 ("Tuple" .    #x2a02)
-						 ("Set" .      #x2126)
-						 ("Iterable" . #x1d50a)
-						 ("Any" .      #x2754)
-						 ("Union" .    #x22c3)
-
+						 ("complement" .      "∁")
+						 ("Complement" .      "∁")
 						 ))))  ;ends add-hook for prettify-symbols-alist
 
 
