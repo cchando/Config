@@ -185,33 +185,33 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '(
 
-															 ("Hasklig"
-															 	:size 13
-															 	:weight normal
-															 	:width normal
-															 	:powerline-scale 1.1)
-
-															 ;; /= ->>  *** <<< >>> <*> >>> >>- -<< ==> .. ... <$> <*> <+> <* *> |> <| <-> >- -< :: ::: &&
-															 ;; <=> =<< >>= <=< >=>
-
-
-															 ;; ("Fira Code"
-                               ;; :size 13
-                               ;; :weight normal
-                               ;; :width normal
-                               ;; :powerline-scale 1.1)
-
-															 ;; ("Fira Code"
-                               ;; :size 13
-                               ;; :weight normal
-                               ;; :width normal
-                               ;; :powerline-scale 1.1)
-
-															 ;; ("Source Code Pro"
+															 ;; ("Hasklig"
 															 ;; 	:size 13
 															 ;; 	:weight normal
 															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
+
+															 ;; /= ->> *** <<< >>> <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: ::: &&
+															 ;; <=> =<< >>= <=< >=> <>
+
+
+															 ;; ("Fira Code"
+                               ;; :size 13
+                               ;; :weight normal
+                               ;; :width normal
+                               ;; :powerline-scale 1.1)
+
+															 ;; ("Fira Code Symbol"
+                               ;; :size 13
+                               ;; :weight normal
+                               ;; :width normal
+                               ;; :powerline-scale 1.1)
+
+															 ("Source Code Pro"
+															 	:size 13
+															 	:weight normal
+															 	:width normal
+															 	:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -462,33 +462,50 @@ you should place your code here."
 					 '(
 						 ;; --- Syntax ---
 						 ("def" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ("define" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ("defun" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ("fn" .      "λ")
+						 ("define" .   "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
+						 ("defun" .    "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
+						 ("define-type" . "Ƒ") ;𝑓 𝒇 Ƒ ƒ 𝓯
+						 ("fn" .    "λ")
+						 ("where" .    "∵")
+						 ("let" .      "∴")
+						 ("let*" .     "∴")
+						 ("letrec" .   "∴")
 						 ;; ("::"    .    "∷") ;covered by Hasklig
 						 ;; --- Functional ---
-						 ("compose" .   "∘")
-						 ("compose1" .   "∘")
+						 ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
+						 ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
+						 ("map" .    "⮉") ;⬆ ↥ ⍐ ⮉    ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+						 ("fmap" .   "⮉") ;⤊ ↥ ⍐ ⮉   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+						 ;; cons ⍠
+						 ;; ("<*>" .   "⊛")
+						 ;; ("<>" .   "⊕")   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("mappend" .   "++")
+						 ("`mappend`" .   "⊕")
+						 ("compose" .   "∘") ;∘ ○ ◯
+						 ("compose1" .   "∘") ;∘ ○ ◯
 						 ;; ("."  .   "∘") ; infix use
-						 ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
+						 ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
+						 ;; ("join" .   "µ")
 						 ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
 						 ("for" .      "∀")
 						 ("take" .     "↑") ; APL
 						 ("drop" .     "↓") ; APL
 						 ("sub" .      "-")
 						 ("subtract" .     "-")
-						 ("add" .    "𝝨") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("sum" .   "𝝨") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("product" .    "𝝥") ;ℿ 𝝥 𝞟 ∏
+						 ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨉
+						 ("coproduct" .    "∐")
 						 ("divide" .    "÷")
 						 ("sqrt" .    "√")
-						 ;; ("++" .      "◇") ;⧺ ◇ #x20df   ; ⧺ covered by Hasklig
-						 ("concat" .    "◇") ;⧺ ◇ #x20df
-						 ("concatenate" .   "◇") ;⧺ ◇ #x20df
-						 ("append" .      "◇") ;⧺ ◇ #x20df
-						 ("append*" .      "◇") ;⧺ ◇ #x20df
-						 ("string-append" .      "◇") ;⧺ ◇ #x20df
-						 ("string-append*" .      "◇") ;⧺ ◇ #x20df
+						 ("powerset" .    "℘")
+						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("concatenate" .   "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("string-append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("string-append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; --- Types ---
 						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴
 						 ("All" .      "∀")
@@ -511,12 +528,13 @@ you should place your code here."
 						 ("String" .      "𝐒") ;𝕊 𝐒 𝗦 𝑺
 						 ("Top" .      "⟙")
 						 ("Tuple" .    "⨂")
-						 ("True" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏
-						 ("#true" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏
-						 ("#t" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑻
-						 ("False" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭
-						 ("#false" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭
-						 ("#f" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭
+						 ("True" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
+						 ("#true" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
+						 ("#t" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑻 𝑇
+						 ("False" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
+						 ("#false" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
+						 ("#f" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
+						 ("Void" .   "⦱") ;⦱ ◯ ⭕ ⬤ #x20dd #x20e0
 						 ;; --- ADTs ---
 						 ("Maybe"  .  "𝐌") ;𝕄 𝐌 𝗠 𝑴
 						 ("Option"  .  "𝐌") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
@@ -533,7 +551,7 @@ you should place your code here."
 						 ;; ("Hash" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("HashMap" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; --- Equality ---
-						 ("!=" .     "≠") ;TODO: replace with Hasklig ligature in Unicode reserved space
+						 ("!=" .     "≠") ;TODO: replace with Hasklig ligature /= in Unicode reserved space
 						 ("<=" .      "⩽") ;≤ ⩽
 						 (">=" .      "⩾") ;≥ ⩾
 						 ;; ("not equal" . "≠")
@@ -541,14 +559,17 @@ you should place your code here."
 						 ("some" .      "∃")
 						 ("none" .      "∄")
 						 ("not" .      "¬") ;❗ ￢ ¬ 〜 ～
-						 ("and" .      "⋀") ;⋀ ∧
-						 ("or" .      "⋁") ;⋁ ∨
-						 ("nor" .      "⊽") ;⊽ ⍱ (APL)
-						 ("nand" .      "⊼") ;⊼ ⍲ (APL)
+						 ("and" .      "⋀") ;⋀ ∧ ⟎
+						 ("or" .      "⋁") ;⋁ ∨ ⟏
+						 ("xor" .      "⊻")
+						 ("nor" .      "⊽") ;⊽ ⩝ ⍱
+						 ("nand" .      "⊼") ;⊼ ⩜ ⍲
 						 ;; --- Set Logic ---
 						 ("in" .       #x2208)
 						 ("not in" .   #x2209)
 						 ("empty" .      "∅")
+						 ("mzero" .      "∅")
+						 ("mempty" .      "∅")
 						 ("null" .      "∅")
 						 ("elem" .      "∈") ;∈ 𝞊
 						 ("element" .      "∈") ;∈ 𝞊
