@@ -191,8 +191,8 @@ values."
 															 	:width normal
 															 	:powerline-scale 1.1)
 
-															 ;; /= ->>  *** <<< >>> <*> >>> >>- -<< ==> .. ... <$> <*> <+> <* *> |> <| <-> >- -< :: ::: && =<<
-															 ;; <=> >>= <=< >=>
+															 ;; /= ->>  *** <<< >>> <*> >>> >>- -<< ==> .. ... <$> <*> <+> <* *> |> <| <-> >- -< :: ::: &&
+															 ;; <=> =<< >>= <=< >=>
 
 
 															 ;; ("Fira Code"
@@ -304,7 +304,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -390,6 +390,7 @@ you should place your code here."
 	(remove-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'line-number-mode)
+	(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Font Ligatures
   (defun my-correct-symbol-bounds (pretty-alist)
@@ -429,15 +430,15 @@ you should place your code here."
   ;;     (prettify-symbols-mode))
   ;; (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
 
-	(global-pretty-mode t)
-	(pretty-deactivate-groups
-	 ; operator, equality and arrow groups interfere with Fira COde operators
-	; logic group interferes with prettify-symbols
-	 '(:equality :ordering :ordering-double :ordering-triple
-							 :arrows :arrows-twoheaded :punctuation
-							 :logic :sets))
-	(pretty-activate-groups
-	 '(:sub-and-superscripts :greek :arithmetic-nary))
+	;; (global-pretty-mode t)
+	;; (pretty-deactivate-groups
+	;;  ; operator, equality and arrow groups interfere with Fira COde operators
+	;; ; logic group interferes with prettify-symbols
+	;;  '(:equality :ordering :ordering-double :ordering-triple
+	;; 						 :arrows :arrows-twoheaded :punctuation
+	;; 						 :logic :sets))
+	;; (pretty-activate-groups
+	;;  '(:sub-and-superscripts :greek :arithmetic-nary))
 
 
 
@@ -445,19 +446,24 @@ you should place your code here."
 	;; (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")))
 	;; (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")
 	;; (add-hook 'prog-mode-hook #'ligatures-fira-code-setup)
-	(add-hook 'prog-mode-hook 'global-prettify-symbols-mode +1)
-	(add-hook 'prog-mode-hook 'hasklig-mode +1)
-
+	;; (add-hook 'prog-mode-hook 'global-prettify-symbols-mode)
 	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
+	(remove-hook 'prog-mode-hook 'global-prettify-symbols-mode)
+	(remove-hook 'prog-mode-hook 'global-pretty-mode)
+	(remove-hook 'prog-mode-hook 'pretty-mode)
+	;; (remove-hook 'prog-mode-hook 'prettify-symbols-mode)
+	(add-hook 'prog-mode-hook 'hasklig-mode)
+
+	;; (add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	(add-hook
 	 'prog-mode-hook
 	 (lambda ()
 		 (mapc (lambda (pair) (push pair prettify-symbols-alist))
 					 '(
 						 ;; --- Syntax ---
-						 ("def" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯 𝓕 ℱ
-						 ("define" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯 𝓕 ℱ
-						 ("defun" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯 𝓕 ℱ
+						 ("def" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
+						 ("define" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
+						 ("defun" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("fn" .      "λ")
 						 ;; ("::"    .    "∷") ;covered by Hasklig
 						 ;; --- Functional ---
@@ -470,21 +476,21 @@ you should place your code here."
 						 ("take" .     "↑") ; APL
 						 ("drop" .     "↓") ; APL
 						 ("sub" .      "-")
-						 ("subtract" .      "-")
-						 ("add" .      "𝝨") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("sum" .      "𝝨") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("product" .      "𝝥") ;ℿ 𝝥 𝞟 ∏
-						 ("divide" .      "÷")
-						 ("sqrt" .      "√")
-						 ;; ("++" .      "◇") ;⧺ <> ◇ #x20df  ;covered by Hasklig
-						 ("concat" .      "◇") ;⧺ ◇ #x20df
-						 ("concatenate" .      "◇") ;⧺ ◇ #x20df
+						 ("subtract" .     "-")
+						 ("add" .    "𝝨") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ("sum" .   "𝝨") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ("product" .    "𝝥") ;ℿ 𝝥 𝞟 ∏
+						 ("divide" .    "÷")
+						 ("sqrt" .    "√")
+						 ;; ("++" .      "◇") ;⧺ ◇ #x20df   ; ⧺ covered by Hasklig
+						 ("concat" .    "◇") ;⧺ ◇ #x20df
+						 ("concatenate" .   "◇") ;⧺ ◇ #x20df
 						 ("append" .      "◇") ;⧺ ◇ #x20df
 						 ("append*" .      "◇") ;⧺ ◇ #x20df
 						 ("string-append" .      "◇") ;⧺ ◇ #x20df
 						 ("string-append*" .      "◇") ;⧺ ◇ #x20df
 						 ;; --- Types ---
-						 ("Any" .      "𝐀") ;𝐀 𝔸 𝗔 𝐴
+						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴
 						 ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
@@ -512,17 +518,17 @@ you should place your code here."
 						 ("#false" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭
 						 ("#f" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭
 						 ;; --- ADTs ---
-						 ("Maybe"  .  "𝐌") ;𝐌 𝗠 𝑴 𝕄
-						 ("Option"  .  "𝐌") ;𝐌 𝗠 𝑴 𝕄  ;same as Maybe
+						 ("Maybe"  .  "𝐌") ;𝕄 𝐌 𝗠 𝑴
+						 ("Option"  .  "𝐌") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
 						 ("Just"  .  "𝐽")
 						 ("Nothing"  .  "𝑁") ;⟘
-						 ("Either"  .  "𝐄")
+						 ("Either"  .  "𝐄") ;𝔼 𝐄 𝑬
 						 ("Right"  .  "𝑅")
 						 ("Left"  .  "𝐿")
-						 ;; ("Listof" .    "𝑳") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
-						 ;; ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
-						 ;; ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
-						 ;; ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
+						 ("Listof" .    "𝑳") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
+						 ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
+						 ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
+						 ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
 						 ;; ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("Hash" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("HashMap" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
