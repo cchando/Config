@@ -140,11 +140,12 @@ values."
 
 												 ;; --- Dark themes ---
 												 base16-atelier-cave ;; rabi-ribi
+												 lab-dark
+												 ;; flucui-dark ;; based off of lab-dark
 												 ;; base16-atelier-plateau ;; similar to cave
 												 ;; base16-atelier-savanna ;; dark brown, orange, med green, ocean blue
 												 ;; base16-bespin ;; dark brown, light brown, green, blue
 												 ;; estuary ;;dark brown
-												 ;; flucui-dark ;; based off of lab-dark
 												 ;; misterioso
 												 ;; tango-dark ;; yellow bar
 												 ;; night-owl
@@ -168,9 +169,10 @@ values."
 												 ;; solarized-dark
 
 												 ;; --- Light themes ---
-												 intellij
-												 ;; ritchie
+												 lab-light
+												 ;; intellij
 												 ;; flucui-light ;; based off of lab-light
+												 ;; ritchie
 												 ;; flatui ;; colorful
 												 ;; whiteboard
 												 ;; default
@@ -185,14 +187,14 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '(
 
-															 ;; ("Hasklig"
-															 ;; 	:size 13
-															 ;; 	:weight normal
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
+															 ("Hasklig"
+															 	:size 13
+															 	:weight normal
+															 	:width normal
+															 	:powerline-scale 1.1)
 
-															 ;; /= ->> *** <<< >>> <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: ::: &&
-															 ;; <=> =<< >>= <=< >=> <>
+															 ;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
+															 ;; <=> =<< >>= <=< >=> <> ++ || !! &&
 
 
 															 ;; ("Fira Code"
@@ -442,16 +444,14 @@ you should place your code here."
 
 
 
-
 	;; (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")))
 	;; (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Medium")
 	;; (add-hook 'prog-mode-hook #'ligatures-fira-code-setup)
 	;; (add-hook 'prog-mode-hook 'global-prettify-symbols-mode)
-	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	(remove-hook 'prog-mode-hook 'global-prettify-symbols-mode)
 	(remove-hook 'prog-mode-hook 'global-pretty-mode)
 	(remove-hook 'prog-mode-hook 'pretty-mode)
-	;; (remove-hook 'prog-mode-hook 'prettify-symbols-mode)
+	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	(add-hook 'prog-mode-hook 'hasklig-mode)
 
 	;; (add-hook 'prog-mode-hook 'prettify-symbols-mode)
@@ -479,7 +479,7 @@ you should place your code here."
 						 ;; cons ⍠
 						 ;; ("<*>" .   "⊛")
 						 ;; ("<>" .   "⊕")   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("mappend" .   "++")
+						 ("mappend" .   "⊕")
 						 ("`mappend`" .   "⊕")
 						 ("compose" .   "∘") ;∘ ○ ◯
 						 ("compose1" .   "∘") ;∘ ○ ◯
@@ -498,7 +498,8 @@ you should place your code here."
 						 ("coproduct" .    "∐")
 						 ("divide" .    "÷")
 						 ("sqrt" .    "√")
-						 ("powerset" .    "℘")
+						 ("powerset" .  "℘")
+						 ("-o" .  "⊸")
 						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ("concatenate" .   "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
@@ -558,7 +559,7 @@ you should place your code here."
 						 ;; --- Predicate Logic ---
 						 ("some" .      "∃")
 						 ("none" .      "∄")
-						 ("not" .      "¬") ;❗ ￢ ¬ 〜 ～
+						 ("not" .      "¬") ;❗ ￢ ¬ 〜 ～ ~
 						 ("and" .      "⋀") ;⋀ ∧ ⟎
 						 ("or" .      "⋁") ;⋁ ∨ ⟏
 						 ("xor" .      "⊻")
@@ -573,6 +574,7 @@ you should place your code here."
 						 ("null" .      "∅")
 						 ("elem" .      "∈") ;∈ 𝞊
 						 ("element" .      "∈") ;∈ 𝞊
+						 ("notElem" .   #x2209)
 						 ("member" .      "∈") ;∈ 𝞊
 						 ("union" .      "⋃") ;⋃ ∪
 						 ("Union" .      "⋃") ;⋃ ∪
@@ -1014,7 +1016,7 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+    (lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
