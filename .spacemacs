@@ -518,6 +518,8 @@ you should place your code here."
 						 ;; ("Bottom" .      "⟘")
 						 ;; ("forall" .      "∀")
 						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ("Exact-Negative-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ("Exact-Positive-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Negative-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Nonpositive-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
