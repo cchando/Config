@@ -504,13 +504,15 @@ you should place your code here."
 						 ;; ("subtract" .     "-")
 						 ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉
+						 ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
 						 ;; ("coproduct" .    "∐") ;∐ ⨿
 						 ("/" .    "÷")
 						 ;; ("divide" .    "÷")
 						 ("sqrt" .    "√")
 						 ;; ("powerset" .  "℘")
 						 ;; ("cross" .    "⨯") ; vector- or cross product
+						 ;; ("del" .  "∇")
+						 ;; ("nabla" .  "∇")
 						 ;; ("-o" .  "⊸") ; for working with linear types (taken from Haskell Conceal Plus)
 						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
@@ -605,9 +607,9 @@ you should place your code here."
 						 ("not" .      "¬") ;❗ ￢ ¬ 〜 ～ ~
 						 ("and" .      "∧") ;∧ ⋀ ⟎
 						 ("or" .      "∨") ;∨ ⋁ ⟏
-						 ("xor" .      "⊻")
+						 ;; ("xor" .      "⊻")
 						 ("nor" .      "⊽") ;⊽ ⩝ ⍱
-						 ("nand" .      "⊼") ;⊼ ⩜ ⍲
+						 ;; ("nand" .      "⊼") ;⊼ ⩜ ⍲
 						 ;; --- Set Logic ---
 						 ("in" .       #x2208)
 						 ("not in" .   #x2209)
@@ -619,12 +621,10 @@ you should place your code here."
 						 ;; ("element" .      "∈") ;∈ 𝞊
 						 ("notElem" .   #x2209)
 						 ("member" .      "∈") ;∈ 𝞊
-						 ("union" .      "⋃") ;⋃ ∪
-						 ("Union" .      "⋃") ;⋃ ∪
-						 ("U" .      "⋃") ;⋃ ∪
+						 ("Union" .      "⋃") ;⋃ ∪ ⨆
+						 ("U" .      "⋃") ;⋃ ∪ ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
-						 ;; ("intersection" .      "⋂") ;⋂ ∩
-						 ;; ("Intersection" .      "⋂") ;⋂ ∩
+						 ;; ("Intersection" .      "⋂") ;⋂ ∩ ⨅
 						 ("∩" .      "⋂") ;⋂ ∩
 						 ;; ("complement" .      "∁")
 						 ;; ("Complement" .      "∁")
