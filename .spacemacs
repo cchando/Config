@@ -471,6 +471,7 @@ you should place your code here."
 						 ("letrec" .   "∴")
 						 ;; ("::"    .    "∷") ;covered by Hasklig
 						 ("ann"   .    "∷")
+						 ("inst"   .    "∷")
 						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨
 						 ;; --- Functional ---
 						 ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
