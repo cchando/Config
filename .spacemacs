@@ -394,8 +394,14 @@ you should place your code here."
 	(remove-hook 'prog-mode-hook 'line-number-mode)
 	(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+
+
+
+
+
+
 ;; Font Ligatures
-  (defun my-correct-symbol-bounds (pretty-alist)
+  (defun my-correct-symbol-bounds (prettify-symbols-alist)
       "Prepend a TAB character to each symbol in this alist,
   this way compose-region called by prettify-symbols-mode
   will use the correct width of the symbols
@@ -479,6 +485,7 @@ you should place your code here."
 						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
 						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
 						 ("cons" .     "⍠")
+						 ("curry" .     "⦙") ;⦂ ⦙ ⦁
 						 ;; ("<*>" .   "⊛")
 						 ;; ("<>" .   "⊕") ;⊕ ⨁  ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("mappend" .   "⊕") ;⊕ ⨁
@@ -497,13 +504,14 @@ you should place your code here."
 						 ;; ("subtract" .     "-")
 						 ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨉
+						 ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉
 						 ;; ("coproduct" .    "∐") ;∐ ⨿
 						 ("/" .    "÷")
 						 ;; ("divide" .    "÷")
 						 ("sqrt" .    "√")
 						 ;; ("powerset" .  "℘")
-						 ;; ("-o" .  "⊸")
+						 ;; ("cross" .    "⨯") ; vector- or cross product
+						 ;; ("-o" .  "⊸") ; for working with linear types (taken from Haskell Conceal Plus)
 						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("concatenate" .   "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
@@ -1015,75 +1023,94 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+	 ["#19171c" "#be4678" "#2a9292" "#a06e3b" "#576ddb" "#955ae7" "#576ddb" "#8b8792"])
  '(compilation-message-face (quote default))
  '(ensime-sem-high-faces
-   (quote
-    ((var :foreground "#000000" :underline
-          (:style wave :color "yellow"))
-     (val :foreground "#000000")
-     (varField :foreground "#600e7a" :slant italic)
-     (valField :foreground "#600e7a" :slant italic)
-     (functionCall :foreground "#000000" :slant italic)
-     (implicitConversion :underline
-                         (:color "#c0c0c0"))
-     (implicitParams :underline
-                     (:color "#c0c0c0"))
-     (operator :foreground "#000080")
-     (param :foreground "#000000")
-     (class :foreground "#20999d")
-     (trait :foreground "#20999d" :slant italic)
-     (object :foreground "#5974ab" :slant italic)
-     (package :foreground "#000000")
-     (deprecated :strike-through "#000000"))))
+	 (quote
+		((var :foreground "#000000" :underline
+					(:style wave :color "yellow"))
+		 (val :foreground "#000000")
+		 (varField :foreground "#600e7a" :slant italic)
+		 (valField :foreground "#600e7a" :slant italic)
+		 (functionCall :foreground "#000000" :slant italic)
+		 (implicitConversion :underline
+												 (:color "#c0c0c0"))
+		 (implicitParams :underline
+										 (:color "#c0c0c0"))
+		 (operator :foreground "#000080")
+		 (param :foreground "#000000")
+		 (class :foreground "#20999d")
+		 (trait :foreground "#20999d" :slant italic)
+		 (object :foreground "#5974ab" :slant italic)
+		 (package :foreground "#000000")
+		 (deprecated :strike-through "#000000"))))
  '(evil-snipe-enable-highlight nil)
  '(evil-snipe-enable-incremental-highlight nil)
+ '(evil-surround-pairs-alist
+	 (quote
+		((105 "(" . ")")
+		 (108 "[" . "]")
+		 (40 "( " . " )")
+		 (91 "[ " . " ]")
+		 (123 "{ " . " }")
+		 (41 "(" . ")")
+		 (93 "[" . "]")
+		 (125 "{" . "}")
+		 (35 "#{" . "}")
+		 (98 "(" . ")")
+		 (66 "{" . "}")
+		 (62 "<" . ">")
+		 (116 . evil-surround-read-tag)
+		 (60 . evil-surround-read-tag)
+		 (102 . evil-surround-function))))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#010F1D" t)
  '(global-evil-search-highlight-persist nil)
  '(highlight-changes-colors (quote ("#EF5350" "#7E57C2")))
  '(highlight-tail-colors
-   (quote
-    (("#010F1D" . 0)
-     ("#B44322" . 20)
-     ("#34A18C" . 30)
-     ("#3172FC" . 50)
-     ("#B49C34" . 60)
-     ("#B44322" . 70)
-     ("#8C46BC" . 85)
-     ("#010F1D" . 100))))
+	 (quote
+		(("#010F1D" . 0)
+		 ("#B44322" . 20)
+		 ("#34A18C" . 30)
+		 ("#3172FC" . 50)
+		 ("#B49C34" . 60)
+		 ("#B44322" . 70)
+		 ("#8C46BC" . 85)
+		 ("#010F1D" . 100))))
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
-   (quote
-    (flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+	 (quote
+		(flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#C792EA")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#FFEB95")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#F78C6C")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#7FDBCA")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#82AAFF"))))
+	 (quote
+		((20 . "#C792EA")
+		 (40 . "#CF4F1F")
+		 (60 . "#C26C0F")
+		 (80 . "#FFEB95")
+		 (100 . "#AB8C00")
+		 (120 . "#A18F00")
+		 (140 . "#989200")
+		 (160 . "#8E9500")
+		 (180 . "#F78C6C")
+		 (200 . "#729A1E")
+		 (220 . "#609C3C")
+		 (240 . "#4E9D5B")
+		 (260 . "#3C9F79")
+		 (280 . "#7FDBCA")
+		 (300 . "#299BA6")
+		 (320 . "#2896B5")
+		 (340 . "#2790C3")
+		 (360 . "#82AAFF"))))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
-   (quote
-    (unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF"))))
+	 (quote
+		(unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
