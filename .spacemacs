@@ -140,8 +140,8 @@ values."
 
 												 ;; --- Dark themes ---
 												 base16-atelier-cave ;; rabi-ribi
-												 lab-dark
-												 ;; flucui-dark ;; based off of lab-dark
+												 flucui-dark ;; based off of lab-dark
+												 ;; lab-dark
 												 ;; base16-atelier-plateau ;; similar to cave
 												 ;; base16-atelier-savanna ;; dark brown, orange, med green, ocean blue
 												 ;; base16-bespin ;; dark brown, light brown, green, blue
@@ -473,10 +473,10 @@ you should place your code here."
 						 ("ann"   .    "∷")
 						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨
 						 ;; --- Functional ---
-						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
-						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
-						 ;; ("map" .    "⮉") ;⬆ ↥ ⍐ ⮉    ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
-						 ;; ("fmap" .   "⮉") ;⤊ ↥ ⍐ ⮉   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+						 ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
+						 ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
+						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
 						 ("cons" .     "⍠")
 						 ;; ("<*>" .   "⊛")
 						 ;; ("<>" .   "⊕") ;⊕ ⨁  ;TODO: replace with Hasklig ligature <> in Unicode reserved space
@@ -563,7 +563,7 @@ you should place your code here."
 						 ("False" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("#false" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("#f" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
-						 ("Void" .   "⦱") ;⦱ ◯ ⭕ ⬤ #x20dd #x20e0
+						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0
 						 ;; --- ADTs ---
 						 ("Maybe"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴
 						 ("Option"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
@@ -576,6 +576,8 @@ you should place your code here."
 						 ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
 						 ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
 						 ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
+						 ("Pairof" .    "⨁") ;⨁ 𝐏 𝑷
+						 ("Pair" .    "⨁") ;⨁ 𝐏 𝑷
 						 ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ("Immutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ("Mutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
@@ -1049,7 +1051,7 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+    (flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
