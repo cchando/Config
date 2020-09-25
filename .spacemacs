@@ -469,7 +469,9 @@ you should place your code here."
 						 ("let" .      "∴")
 						 ("let*" .     "∴")
 						 ("letrec" .   "∴")
-						 ("::"    .    "∷") ;covered by Hasklig
+						 ;; ("::"    .    "∷") ;covered by Hasklig
+						 ("ann"   .    "∷")
+						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨
 						 ;; --- Functional ---
 						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
 						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
@@ -482,7 +484,7 @@ you should place your code here."
 						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
 						 ("compose" .   "∘") ;∘ ○ ◯
 						 ("compose1" .   "∘") ;∘ ○ ◯
-						 ("apply" .   "⬆") ;⬆ ↥ ⍐ ⮉
+						 ("apply" .   "⮉") ;⬆ ↥ ⍐ ⮉
 						 ;; ("."  .   "∘") ; infix use
 						 ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
 						 ;; ("join" .   "µ") ;µ ⨝
@@ -495,7 +497,7 @@ you should place your code here."
 						 ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨉
-						 ;; ("coproduct" .    "∐")
+						 ;; ("coproduct" .    "∐") ;∐ ⨿
 						 ("/" .    "÷")
 						 ;; ("divide" .    "÷")
 						 ("sqrt" .    "√")
