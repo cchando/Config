@@ -481,32 +481,47 @@ you should place your code here."
 						 ("inst"   .    "∷")
 						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨
 						 ;; --- Functional ---
-						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
-						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
-						 ;; ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+
+						 ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
+						 ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
+						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
 						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
-						 ;; ("cons" .     "⍠")
+						 ("cons" .     "⍠")
 						 ("curry" .     "⦙") ;⦂ ⦙ ⦁
 						 ;; ("<*>" .   "⊛")
 						 ;; ("<>" .   "⊕") ;⊕ ⨁  ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("mappend" .   "⊕") ;⊕ ⨁
 						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
-						 ("compose" .   "∘") ;∘ ○ ◯
+						 ;; ("compose" .   "∘") ;∘ ○ ◯
 						 ("compose1" .   "∘") ;∘ ○ ◯
 						 ("apply" .   "⮉") ;⬆ ↥ ⍐ ⮉
 						 ;; ("."  .   "∘") ; infix use
-						 ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
+						 ;; ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
 						 ;; ("join" .   "µ") ;µ ⨝
 						 ;; ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
 						 ("for" .      "∀")
-						 ("for-each" .      "∀")
-						 ;; ("for/list" .      "∀")
-						 ;; ("for/hash" .      "∀")
+						 ("for*" .      "∀")
+						 ;; ("for-each" .      "∀")
+						 ("for/list" .      "∀")
+						 ("for*/list" .      "∀")
+						 ("for/hash" .      "∀")
+						 ("for*/hash" .      "∀")
+						 ;; ("for/fold" .      "∀")
+						 ;; ("for*/fold" .      "∀")
 						 ;; ("for/or" .      "∀")
+						 ;; ("for*/or" .      "∀")
 						 ;; ("for/sum" .      "∀")
+						 ;; ("for*/sum" .      "∀")
 						 ;; ("for/product" .      "∀")
+						 ;; ("for*/product" .      "∀")
 						 ;; ("for/set" .      "∀")
+						 ;; ("for*/set" .      "∀")
 						 ;; ("for/vector" .      "∀")
+						 ;; ("for*/vector" .      "∀")
+						 ;; ("for/first" .      "∀")
+						 ;; ("for*/first" .      "∀")
+						 ;; ("for/last" .      "∀")
+						 ;; ("for*/last" .      "∀")
 						 ;; ("take" .     "↑") ; APL
 						 ;; ("drop" .     "↓") ; APL
 						 ;; ("filter" .      "⮋")
@@ -532,16 +547,15 @@ you should place your code here."
 						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("concatenate" .   "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ;; ("append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ;; ("string-append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ("string-append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("string-append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; --- Types ---
 						 ("Any" .      "∀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈 𝖴
 						 ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
-						 ;; ("Bottom" .      "⟘")
 						 ;; ("forall" .      "∀")
 						 ("andmap" .      "∀")
 						 ("ormap" .      "∃")
@@ -571,7 +585,7 @@ you should place your code here."
 						 ;; ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
 						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
 						 ("Exact-Nonnegative-Integer"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
-						 ("Index"  .  "𝐈")
+						 ;; ("Index"  .  "𝝢") ;𝐈 ℕ 𝝢 𝐍 𝙉
 						 ("Negative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Nonpositive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
@@ -587,11 +601,12 @@ you should place your code here."
 						 ("Symbol" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
 						 ;; ("Set" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
 						 ;; ("Top" .      "⟙")
+						 ;; ("Bottom" .   "⟘")
 						 ;; ("Tuple" .    "⨂")
-						 ("True" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
+						 ;; ("True" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
 						 ;; ("#true" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
 						 ("#t" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑻 𝑇
-						 ("False" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
+						 ;; ("False" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ;; ("#false" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("#f" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0
@@ -610,12 +625,13 @@ you should place your code here."
 						 ("Pairof" .    "⨁") ;⨁ 𝐏 𝑷
 						 ("Pair" .    "⨁") ;⨁ 𝐏 𝑷
 						 ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
-						 ("Immutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
-						 ("Mutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ;; ("HashTableTop" .    "𝐇") ;ℍ 𝐇 𝗛 𝑯
+						 ;; ("Immutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ;; ("Mutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("Hash" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("HashMap" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; --- Equality ---
-						 ("!=" .     "≠") ;TODO: replace with Hasklig ligature /= in Unicode reserved space
+						 ;; ("!=" .     "≠") ;TODO: replace with Hasklig ligature /= in Unicode reserved space
 						 ("<=" .      "⩽") ;≤ ⩽
 						 (">=" .      "⩾") ;≥ ⩾
 						 ;; ("not equal" . "≠")
@@ -771,7 +787,7 @@ you should place your code here."
 (evil-define-motion vile-backward-paragraph (count)
   "Move to the beginning of the COUNT-th previous paragraph."
   :jump t
-  (evil-backward-paragraph)
+	(evil-backward-paragraph)
 	(evil-next-line))
 
 (evil-define-motion vile-forward-paragraph (count)
@@ -814,6 +830,10 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
 (define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro)
 (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
+(define-key evil-normal-state-map (kbd "C-p") 'evil-paste-pop-next)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-join)
+(define-key evil-normal-state-map (kbd "C-k") 'spacemacs/evil-smart-doc-lookup)
+(define-key evil-normal-state-map (kbd "C-,") 'evil-indent)
 (define-key evil-normal-state-map (kbd "(") 'evil-backward-paragraph)
 (define-key evil-normal-state-map (kbd ")") 'evil-forward-paragraph)
 (define-key evil-normal-state-map (kbd "t") 'evil-find-char)
@@ -825,8 +845,6 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "I") 'evil-append)
 (define-key evil-normal-state-map (kbd "a") 'evil-first-non-blank)
 (define-key evil-normal-state-map (kbd "gh") 'evil-first-non-blank) ;; for use with d,c,y, etc
-(define-key evil-normal-state-map (kbd "C-j") 'evil-join)
-(define-key evil-normal-state-map (kbd "C-k") 'spacemacs/evil-smart-doc-lookup)
 (define-key evil-normal-state-map (kbd "J") 'vile-scroll-down)
 (define-key evil-normal-state-map (kbd "K") 'vile-scroll-up)
 (define-key evil-normal-state-map (kbd "ga") 'evil-digit-argument-or-evil-beginning-of-line)
@@ -836,12 +854,10 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "gn") 'spacemacs/enter-ahs-forward)
 (define-key evil-normal-state-map (kbd "gN") 'spacemacs/enter-ahs-backward)
 (define-key evil-normal-state-map (kbd "ZQ") 'kill-current-buffer)
-(define-key evil-normal-state-map (kbd "C-,") 'evil-indent)
 (define-key evil-normal-state-map (kbd "w") 'evil-forward-WORD-begin)
 (define-key evil-normal-state-map (kbd "b") 'evil-backward-WORD-begin)
 (define-key evil-normal-state-map (kbd "W") 'evil-forward-word-begin)
 (define-key evil-normal-state-map (kbd "B") 'evil-backward-word-begin)
-(define-key evil-normal-state-map (kbd "C-p") 'evil-paste-pop-next)
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
@@ -861,6 +877,7 @@ you should place your code here."
 ;; (define-key evil-normal-state-map (kbd "C-p") 'replace-from-register-0)
 
 (setq-default evil-escape-key-sequence "fd") ;; key sequence to go from insert to normal mode, etc
+(define-key evil-insert-state-map (kbd "C-m") 'evil-force-normal-state)
 (setq-default evil-escape-delay 0.3)
 (define-prefix-command 'cm) ;; prefix key map, "cac's m"
 (define-key evil-normal-state-map (kbd "m") cm)
