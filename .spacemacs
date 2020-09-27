@@ -481,11 +481,11 @@ you should place your code here."
 						 ("inst"   .    "∷")
 						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨
 						 ;; --- Functional ---
-						 ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
-						 ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
-						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
+						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
+						 ;; ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
 						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
-						 ("cons" .     "⍠")
+						 ;; ("cons" .     "⍠")
 						 ("curry" .     "⦙") ;⦂ ⦙ ⦁
 						 ;; ("<*>" .   "⊛")
 						 ;; ("<>" .   "⊕") ;⊕ ⨁  ;TODO: replace with Hasklig ligature <> in Unicode reserved space
@@ -499,9 +499,17 @@ you should place your code here."
 						 ;; ("join" .   "µ") ;µ ⨝
 						 ;; ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
 						 ("for" .      "∀")
-						 ("take" .     "↑") ; APL
-						 ("drop" .     "↓") ; APL
-						 ("filter" .      "⮋")
+						 ("for-each" .      "∀")
+						 ;; ("for/list" .      "∀")
+						 ;; ("for/hash" .      "∀")
+						 ;; ("for/or" .      "∀")
+						 ;; ("for/sum" .      "∀")
+						 ;; ("for/product" .      "∀")
+						 ;; ("for/set" .      "∀")
+						 ;; ("for/vector" .      "∀")
+						 ;; ("take" .     "↑") ; APL
+						 ;; ("drop" .     "↓") ; APL
+						 ;; ("filter" .      "⮋")
 						 ;; ("sub" .      "-")
 						 ;; ("subtract" .     "-")
 						 ("+" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
@@ -512,10 +520,10 @@ you should place your code here."
 						 ;; ("apply *" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
 						 ;; ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
 						 ;; ("coproduct" .    "∐") ;∐ ⨿
-						 ("/" .    "÷")
+						 ;; ("/" .    "÷")
 						 ;; ("apply /" .    "÷")
 						 ;; ("divide" .    "÷")
-						 ("sqrt" .    "√")
+						 ;; ("sqrt" .    "√")
 						 ;; ("powerset" .  "℘")
 						 ;; ("cross" .    "⨯") ; vector- or cross product
 						 ;; ("del" .  "∇")
@@ -524,12 +532,12 @@ you should place your code here."
 						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("concatenate" .   "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("string-append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("string-append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ;; ("append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ;; ("append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ;; ("string-append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ;; ("string-append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; --- Types ---
-						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴
+						 ("Any" .      "∀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈 𝖴
 						 ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
@@ -555,12 +563,12 @@ you should place your code here."
 						 ("Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
 						 ("Nonnegative-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
 						 ("Positive-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Negative-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ("Nonpositive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ("Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ("Nonnegative-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ("Positive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
+						 ;; ("Negative-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ;; ("Nonpositive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ;; ("Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ;; ("Nonnegative-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ;; ("Positive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
+						 ;; ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
 						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
 						 ("Exact-Nonnegative-Integer"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
 						 ("Index"  .  "𝐈")
@@ -569,31 +577,32 @@ you should place your code here."
 						 ("Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Nonnegative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Positive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
-						 ("Negative-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ("Nonpositive-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ("Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ("Nonnegative-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ("Positive-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Negative-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Nonpositive-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Nonnegative-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Positive-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Index" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("String" .      "𝕊") ;𝕊 𝐒 𝗦 𝑺
 						 ("Symbol" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
 						 ;; ("Set" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
 						 ;; ("Top" .      "⟙")
 						 ;; ("Tuple" .    "⨂")
 						 ("True" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
-						 ("#true" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
+						 ;; ("#true" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑇
 						 ("#t" .     "𝐓") ;𝕋 𝗧 𝐓 𝙏 𝑻 𝑇
 						 ("False" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
-						 ("#false" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
+						 ;; ("#false" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("#f" .    "𝐅") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0
 						 ;; --- ADTs ---
-						 ("Maybe"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴
+						 ;; ("Maybe"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴
 						 ("Option"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
-						 ("Just"  .  "𝐽")
-						 ("Nothing"  .  "𝑁") ;⟘
-						 ("Either"  .  "𝐄") ;𝔼 𝐄 𝑬
-						 ("Right"  .  "𝑅")
-						 ("Left"  .  "𝐿")
+						 ;; ("Just"  .  "𝐽")
+						 ;; ("Nothing"  .  "𝑁") ;⟘
+						 ;; ("Either"  .  "𝐄") ;𝔼 𝐄 𝑬
+						 ;; ("Right"  .  "𝑅")
+						 ;; ("Left"  .  "𝐿")
 						 ("Listof" .    "𝑳") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
 						 ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
 						 ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
@@ -611,26 +620,26 @@ you should place your code here."
 						 (">=" .      "⩾") ;≥ ⩾
 						 ;; ("not equal" . "≠")
 						 ;; --- Predicate Logic ---
-						 ("some" .      "∃")
-						 ("none" .      "∄")
+						 ;; ("some" .      "∃")
+						 ;; ("none" .      "∄")
 						 ("not" .      "¬") ;❗ ￢ ¬ 〜 ～ ~
 						 ("and" .      "∧") ;∧ ⋀ ⟎
 						 ("or" .      "∨") ;∨ ⋁ ⟏
 						 ;; ("xor" .      "⊻")
-						 ("nor" .      "⊽") ;⊽ ⩝ ⍱
+						 ;; ("nor" .      "⊽") ;⊽ ⩝ ⍱
 						 ;; ("nand" .      "⊼") ;⊼ ⩜ ⍲
 						 ;; --- Set Logic ---
 						 ;; ("in" .       #x2208)
 						 ;; ("not in" .   #x2209)
 						 ("empty" .      "∅")
-						 ("mzero" .      "∅")
-						 ("mempty" .      "∅")
+						 ;; ("mzero" .      "∅")
+						 ;; ("mempty" .      "∅")
 						 ("null" .      "∅")
 						 ;; ("elem" .      "∈") ;∈ 𝞊
 						 ;; ("element" .      "∈") ;∈ 𝞊
 						 ("member" .      "∈") ;∈ 𝞊
 						 ;; ("notElem" .   #x2209)
-						 ("Union" .      "⋃") ;⋃ ∪ ⨆
+						 ;; ("Union" .      "⋃") ;⋃ ∪ ⨆
 						 ("U" .      "⋃") ;⋃ ∪ ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
 						 ;; ("Intersection" .      "⋂") ;⋂ ∩ ⨅
