@@ -620,16 +620,16 @@ you should place your code here."
 						 ("nor" .      "⊽") ;⊽ ⩝ ⍱
 						 ;; ("nand" .      "⊼") ;⊼ ⩜ ⍲
 						 ;; --- Set Logic ---
-						 ("in" .       #x2208)
-						 ("not in" .   #x2209)
+						 ;; ("in" .       #x2208)
+						 ;; ("not in" .   #x2209)
 						 ("empty" .      "∅")
 						 ("mzero" .      "∅")
 						 ("mempty" .      "∅")
 						 ("null" .      "∅")
-						 ("elem" .      "∈") ;∈ 𝞊
+						 ;; ("elem" .      "∈") ;∈ 𝞊
 						 ;; ("element" .      "∈") ;∈ 𝞊
-						 ("notElem" .   #x2209)
 						 ("member" .      "∈") ;∈ 𝞊
+						 ;; ("notElem" .   #x2209)
 						 ("Union" .      "⋃") ;⋃ ∪ ⨆
 						 ("U" .      "⋃") ;⋃ ∪ ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
