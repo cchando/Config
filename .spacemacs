@@ -535,6 +535,8 @@ you should place your code here."
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bottom" .      "⟘")
 						 ;; ("forall" .      "∀")
+						 ("andmap" .      "∀")
+						 ("ormap" .      "∃")
 						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Exact-Negative-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Exact-Positive-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
