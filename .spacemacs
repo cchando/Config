@@ -471,6 +471,7 @@ you should place your code here."
 						 ("defun" .    "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("define-type" . "Ƒ") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ;; ("fn" .    "λ")
+						 ;; ("lambda" .    "λ")
 						 ;; ("where" .    "∵")
 						 ("let" .      "∴")
 						 ("let*" .     "∴")
@@ -500,13 +501,19 @@ you should place your code here."
 						 ("for" .      "∀")
 						 ("take" .     "↑") ; APL
 						 ("drop" .     "↓") ; APL
-						 ("sub" .      "-")
+						 ("filter" .      "⮋")
+						 ;; ("sub" .      "-")
 						 ;; ("subtract" .     "-")
-						 ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
+						 ("+" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ;; ("apply +" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ;; ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ;; ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ("*" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
+						 ;; ("apply *" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
+						 ;; ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
 						 ;; ("coproduct" .    "∐") ;∐ ⨿
 						 ("/" .    "÷")
+						 ;; ("apply /" .    "÷")
 						 ;; ("divide" .    "÷")
 						 ("sqrt" .    "√")
 						 ;; ("powerset" .  "℘")
@@ -625,7 +632,7 @@ you should place your code here."
 						 ("U" .      "⋃") ;⋃ ∪ ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
 						 ;; ("Intersection" .      "⋂") ;⋂ ∩ ⨅
-						 ("∩" .      "⋂") ;⋂ ∩
+						 ("∩" .      "⋂") ;⋂ ∩ ⨅
 						 ;; ("complement" .      "∁")
 						 ;; ("Complement" .      "∁")
 						 ))))  ;ends add-hook for prettify-symbols-alist
