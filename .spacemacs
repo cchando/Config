@@ -470,6 +470,7 @@ you should place your code here."
 						 ("define" .   "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("defun" .    "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("define-type" . "Ƒ") ;𝑓 𝒇 Ƒ ƒ 𝓯
+						 ("if" . "?")
 						 ;; ("fn" .    "λ")
 						 ;; ("lambda" .    "λ")
 						 ;; ("where" .    "∵")
@@ -552,7 +553,7 @@ you should place your code here."
 						 ("string-append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("string-append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; --- Types ---
-						 ("Any" .      "∀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈 𝖴
+						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈 𝖴
 						 ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
@@ -829,8 +830,10 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "\\") 'isearch-forward-word)
 (define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
 (define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro)
-(define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
+(define-key evil-normal-state-map (kbd "C-o") 'evil-jump-forward)
+(define-key evil-normal-state-map (kbd "C-i") 'evil-jump-backward)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-paste-pop-next)
+(define-key evil-normal-state-map (kbd "C-n") nil)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-join)
 (define-key evil-normal-state-map (kbd "C-k") 'spacemacs/evil-smart-doc-lookup)
 (define-key evil-normal-state-map (kbd "C-,") 'evil-indent)
@@ -877,7 +880,7 @@ you should place your code here."
 ;; (define-key evil-normal-state-map (kbd "C-p") 'replace-from-register-0)
 
 (setq-default evil-escape-key-sequence "fd") ;; key sequence to go from insert to normal mode, etc
-(define-key evil-insert-state-map (kbd "C-m") 'evil-force-normal-state)
+(define-key evil-insert-state-map (kbd "C-n") 'evil-force-normal-state)
 (setq-default evil-escape-delay 0.3)
 (define-prefix-command 'cm) ;; prefix key map, "cac's m"
 (define-key evil-normal-state-map (kbd "m") cm)
