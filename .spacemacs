@@ -536,8 +536,7 @@ you should place your code here."
 						 ;; ("apply *" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
 						 ;; ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
 						 ;; ("coproduct" .    "∐") ;∐ ⨿
-						 ;; ("/" .    "÷")
-						 ;; ("apply /" .    "÷")
+						 ("/" .    "÷")
 						 ;; ("divide" .    "÷")
 						 ;; ("sqrt" .    "√")
 						 ;; ("powerset" .  "℘")
@@ -607,7 +606,7 @@ you should place your code here."
 						 ;; ("True" .     "𝑻") ;𝕋 𝗧 𝐓 𝙏 𝑇
 						 ;; ("#true" .     "𝑻") ;𝕋 𝗧 𝐓 𝙏 𝑇
 						 ("#t" .     "𝑻") ;𝕋 𝗧 𝐓 𝙏 𝑻 𝑇
-						 ;; ("False" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
+						 ("False" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ;; ("#false" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("#f" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0
@@ -655,9 +654,11 @@ you should place your code here."
 						 ;; ("elem" .      "∈") ;∈ 𝞊
 						 ;; ("element" .      "∈") ;∈ 𝞊
 						 ("member" .      "∈") ;∈ 𝞊
+						 ;; ("memf" .      "∈") ;∈ 𝞊
+						 ;; ("findf" .      "∈") ;∈ 𝞊
 						 ;; ("notElem" .   #x2209)
-						 ;; ("Union" .      "⋃") ;⋃ ∪ ⨆
-						 ("U" .      "⋃") ;⋃ ∪ ⨆
+						 ;; ("Union" .      "⋃") ;⋃ ∪ 𝗨 ⨆
+						 ("U" .      "⋃") ;⋃ ∪ 𝗨 ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
 						 ;; ("Intersection" .      "⋂") ;⋂ ∩ ⨅
 						 ("∩" .      "⋂") ;⋂ ∩ ⨅
@@ -1124,6 +1125,7 @@ you should place your code here."
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
+ '(standard-indent 4)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
 	 (quote
