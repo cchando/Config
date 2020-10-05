@@ -20,7 +20,7 @@
                   [tenth 10th]))
 
 ;; useful for easier range-based filtering
-(: in-range? : Real Real Real -> (U Real False))
+(: in-range? : Real Real Real -> (Option Real))
 (define (in-range? n lower upper)
   (if (>= lower upper)
      (error "in-range?: lower bound was not < upper bound")
@@ -30,7 +30,7 @@
 ;; extract a list of vals from list of hash, given single key
 (: select (All (a b) (case->
                     (-> (Listof (HashTable a b)) a (Listof b))
-                    (-> (Listof (HashTable a b)) a False (Listof (U b False))))))
+                    (-> (Listof (HashTable a b)) a False (Listof (Option b))))))
 (define select (case-lambda
             [(hs key) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b) h key)) hs)]
             [(hs key false) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b #f) h key #f)) hs)]))
@@ -49,7 +49,7 @@
 
 
 ;; checks whether (hash-ref h k) == v for any v in vs. If so, give the v, else give #false.
-(: hash-match-vals : All (a b) (HashTable a b) a (Listof b) -> (U b False))
+(: hash-match-vals : All (a b) (HashTable a b) a (Listof b) -> (Option b))
 (define (hash-match-vals h k vs)
   (ormap (λ ([v : b]) (and (equal? v ((inst hash-ref a b) h k #f)) v)) vs))
 
