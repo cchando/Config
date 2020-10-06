@@ -6,20 +6,73 @@
                   [filter-map orig:filter-map]
                   [identity id]
                   [list-ref !!]
-                  [first head]
-                  [rest tail]
-                  [first 1st]
-                  [second 2nd]
-                  [third 3rd]
-                  [fourth 4th]
-                  [fifth 5th]
-                  [sixth 6th]
-                  [seventh 7th]
-                  [eighth 8th]
-                  [ninth 9th]
-                  [tenth 10th]))
+                  [first head] [rest tail]
+                  [and ∧] [or ∨] [not ¬] [xor ⊻] [nor ⊽] [nand ⊼]
+                  [letrec ∴] [if ?]
+                  [cons ⍠]
+                  [append <>] [append* <>^]
+                  [string-append ++] [string-append* ++^]
+                  ;; [append* concat]
+                  [map <$>] [foldl ⮲] [foldr ⮳]
+                  [map ⮊]
+                  [apply ⮉]
+                  [filter ⮋]
+                  [curry ⫶] [compose1 ∘]
+                  [+ ∑] [* ∏]
+                  [member ∈] [findf ∃]
+                  [take ↑] [drop ↓]
+                  [make-list replicate]
+                  [append-map concat-map]
+                  [remove remove-1st] [remove* \\]
+                  ;; [for ∀] [for* ∀*] [for/list ∀/list] [for*/list ∀*/list] [for/hash ∀/hash] [for*/hash ∀*/hash]
+                  [for* ∀*] [for/list ∀→l] [for*/list ∀*→l] [for/hash ∀→h] [for*/hash ∀*→h]
+                  ;; [for ∀] [for* ∀*] [for/list ∀/l] [for*/list ∀*/l] [for/hash ∀/h] [for*/hash ∀*/h]
+                  [for/vector ∀→v] [for*/vector ∀*→v] [for/sum ∀→∑] [for*/sum ∀*→∑] [for/product ∀→∏] [for*/product ∀*→∏]
+                  ;; [for/vector ∀/v] [for*/vector ∀*/v] [for/sum ∀/∑] [for*/sum ∀*/∑]
+                  [for/last ∀→last] [for*/last ∀*→last] [for/set ∀→s] [for*/set ∀*→s]
+                  [for/hasheq ∀→hq] [for*/hasheq ∀*→hq] [for/hasheqv ∀→hv] [for*/hasheqv ∀*→hv]
+                  [for/or ∀→∨] [for*/or ∀*→∨] [for/and ∀→∧] [for*/and ∀*→∧] [for/first ∀→fst] [for*/first ∀*→fst]
+                  [for/lists ∀→lists] [for*/lists ∀*→lists] [for/fold ∀→⮲] [for*/fold ∀*→⮲]
+                  [first 1st] [second 2nd] [third 3rd] [fourth 4th] [fifth 5th]
+                  [sixth 6th] [seventh 7th] [eighth 8th] [ninth 9th] [tenth 10th]))
 
-;; useful for easier range-based filtering
+
+
+
+
+(: ∉ (∀ (a b) (->* (b (Listof a)) ((-> b a Any)) Boolean)))
+(define (∉ x xs (eqv-rel equal?)) (if (member x xs eqv-rel) #t #f))
+
+
+(: ≠ : Any Any -> Boolean)
+(define (≠ x y) (¬ (equal? x y)))
+
+
+;; all
+(: all : ∀ (a) (a -> Boolean) (Listof a) -> Boolean)
+(define (all pred xs) (andmap (λ ([x : a]) (pred x)) xs))
+
+
+(: zip : All (a b) (Listof a) (Listof b) -> (Listof (Pairof a b)))
+(define (zip xs ys) (let ([lys (length ys)]
+                   [lxs (length xs)])
+                 (cond [(= lxs lys) (map (λ (x y) `(,x . ,y)) xs ys)]
+                       [(> lxs lys) (map (λ (x y) `(,x . ,y)) (take xs lys) ys)]
+                       ;; < lxs lys
+                       [else (map (λ (x y) `(,x . ,y)) xs (take ys lxs))])))
+
+
+;; (: unzip : ∀ (a b) (Listof (Pairof a b) -> (Values (Listof a) (Listof b))))
+;; (define unzip : ())
+
+
+;; zipWith
+
+;; intercalate
+
+;; intersperse
+
+
 (: in-range? : Real Real Real -> (Option Real))
 (define (in-range? n lower upper)
   (if (>= lower upper)
@@ -28,7 +81,7 @@
 
 
 ;; extract a list of vals from list of hash, given single key
-(: select (All (a b) (case->
+(: select (All (a b) (case→
                     (-> (Listof (HashTable a b)) a (Listof b))
                     (-> (Listof (HashTable a b)) a False (Listof (Option b))))))
 (define select (case-lambda
@@ -57,7 +110,15 @@
 ;; filter hs for those hashes for which k is associated with one of the values in vs
 (: filter-hash : All (a b) (Listof (HashTable a b)) a (Listof b) -> (Listof (HashTable a b)))
 (define (filter-hash hs k vs)
-  (filter (λ ([h : (HashTable a b)]) (and (ormap (λ ([v : b]) (and (equal? v (hash-ref h k #f)) v)) vs) h)) hs))
+  (filter (λ ([h : (HashTable a b)])
+            (and
+             ;; find a v among vs that's associated with k in h, if one exists.
+             (findf (λ ([v : b])
+                      (equal? v (hash-ref h k #f)))
+                    vs)
+             ;; if we found that h has such a v, include h in filtered list
+             h))
+          hs))
 
 ;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
 ;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (U v #false).

@@ -470,43 +470,42 @@ you should place your code here."
 						 ("define" .   "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("defun" .    "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("define-type" . "Ƒ") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ("if" . "?")
+						 ;; ("if" . "?")
 						 ;; ("fn" .    "λ")
 						 ;; ("lambda" .    "λ")
-						 ;; ("where" .    "∵")
+						 ;; ("where" .    "∵") <C-k :.>   bec(ause)
 						 ("let" .      "∴")
 						 ("let*" .     "∴")
-						 ("letrec" .   "∴")
-						 ("::"    .    "∷") ;covered by Hasklig
+						 ("letrec" .   "∴") ; <C-k .:>   ther(efor)
+						 ("::"    .    "∷") ;covered by Hasklig    pro(portion)
 						 ("ann"   .    "∷")
 						 ("inst"   .    "∷")
-						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨
+						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨     ri(ghtwards) quad(ruple) ar(row)
 						 ;; --- Functional ---
 
 						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
 						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
-						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊ "right bl(ack) ci(rcled) ar(row)"
-						 ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊
-						 ("cons" .     "⍠")
-						 ("curry" .     "⦙") ; ⦙ ⦁
+						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊    ri(ghtwards) bl(ack) ci(rcled) (white)  ar(row)
+						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊
+						 ("cons" .     "⍠") ;     apl (functional symbol quad) col(on)
+						 ;; ("curry" .     "⫶") ;⫶ ⦙ ⦁   (triple) col(on) ope(rator)
 						 ;; ("<*>" .   "⊛")
-						 ;; ("<>" .   "⊕") ;⊕ ⨁  ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("mappend" .   "⊕") ;⊕ ⨁
 						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
 						 ;; ("compose" .   "∘") ;∘ ○ ◯
-						 ("compose1" .  "∘") ;∘ ○ ◯
-						 ("apply" .   "⮉") ;⬆ ↥ ⍐ ⮉
+						 ;; ("compose1" .  "∘") ;∘ ○ ◯ ⎄  <C-k Ob>    ring o(perator)
+						 ("apply" .   "⮉") ;⬆ ↥ ⍐ ⮉    up(wards) bl(ack) ci(rcled) (white)  ar(row)
 						 ;; ("."  .   "∘") ; infix use
 						 ;; ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
 						 ;; ("join" .   "µ") ;µ ⨝
 						 ;; ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
-						 ("for" .      "∀")
-						 ("for*" .      "∀")
+						 ;; ("for" .      "∀")
+						 ;; ("for*" .      "∀")
 						 ;; ("for-each" .      "∀")
-						 ("for/list" .      "∀")
-						 ("for*/list" .      "∀")
-						 ("for/hash" .      "∀")
-						 ("for*/hash" .      "∀")
+						 ;; ("for/list" .      "∀")
+						 ;; ("for*/list" .      "∀")
+						 ;; ("for/hash" .      "∀")
+						 ;; ("for*/hash" .      "∀")
 						 ;; ("for/fold" .      "∀")
 						 ;; ("for*/fold" .      "∀")
 						 ;; ("for/or" .      "∀")
@@ -523,47 +522,43 @@ you should place your code here."
 						 ;; ("for*/first" .      "∀")
 						 ;; ("for/last" .      "∀")
 						 ;; ("for*/last" .      "∀")
-						 ;; ("take" .     "↑") ; APL
-						 ;; ("drop" .     "↓") ; APL
-						 ;; ("filter" .      "⮋")
+						 ;; ("take" .     "↑") ;  <C-k -!>   up ar(row)
+						 ;; ("drop" .     "↓") ;  <C-k -v>   do(wn) ar(row)
+						 ;; ("filter" .      "⮋") ;  do(wnwards) bl(ack) ci(rcled) wh(ite) ar(row)
 						 ;; ("sub" .      "-")
-						 ;; ("subtract" .     "-")
-						 ("+" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ;; ("apply +" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
+						 ;; ("+" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑   <C-k +Z>   (n-)ary s(ummation)
 						 ;; ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
 						 ;; ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ("*" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
-						 ;; ("apply *" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
-						 ;; ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
-						 ;; ("coproduct" .    "∐") ;∐ ⨿
+						 ;; ("*" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆    <C-k *P>    (n-)ary p(roduct)
+						 ;; ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆
+						 ;; ("coproduct" .    "∐") ;∐ ⨿    (n-)ary co(product)
 						 ;; ("/" .    "÷")
 						 ;; ("divide" .    "÷")
-						 ;; ("sqrt" .    "√")
+						 ;; ("sqrt" .    "√") ; <C-k RT>   s(quare) root
 						 ;; ("powerset" .  "℘")
-						 ;; ("cross" .    "⨯") ; vector- or cross product
+						 ;; ("cross" .    "⨯") ; (vector) (or) cr(oss) pro(duct)
 						 ;; ("del" .  "∇")
-						 ;; ("nabla" .  "∇")
+						 ;; ("nabla" .  "∇") ; <C-k NB>
 						 ;; ("-o" .  "⊸") ; for working with linear types (taken from Haskell Conceal Plus)
-						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ;; ("concat" .    "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ;; ("concatenate" .   "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ;; ("append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ("string-append" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
-						 ;; ("string-append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
+						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig
+						 ;; ("concat" .    "◇") ;⧺ ◇ #x20df   wh(ite) di(amond)
+						 ;; ("append" .      "◇") ;⧺ ◇ #x20df
+						 ;; ("append*" .      "◇") ;⧺ ◇ #x20df
+						 ;; ("string-append" .    "◇") ;⧺ ◇ #x20df
+						 ;; ("string-append*" .    "◇") ;⧺ ◇ #x20df
 						 ;; --- Types ---
 						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈 𝖴
 						 ;; ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
-						 ;; ("forall" .      "∀")
+						 ;; ("forall" .      "∀") ; FA
 						 ;; ("andmap" .      "∀")
 						 ;; ("ormap" .      "∃")
-						 ;; ("all" .      "∀")
-						 ;; ("any" .      "∃")
+						 ("all" .      "∀") ; <C-k FA>   for a(ll)
+						 ;; ("any" .      "∃") ; <C-k TE>    the(re) (exists)
 						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("Exact-Negative-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("Exact-Positive-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ;; ("Exact-Negative-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ;; ("Exact-Positive-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Negative-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Nonpositive-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
@@ -611,7 +606,7 @@ you should place your code here."
 						 ("False" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ;; ("#false" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("#f" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
-						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0
+						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0  ci(rcle) (with) ho(rizontal) b(ar)
 						 ;; --- ADTs ---
 						 ;; ("Maybe"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴
 						 ("Option"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
@@ -620,11 +615,11 @@ you should place your code here."
 						 ;; ("Either"  .  "𝐄") ;𝔼 𝐄 𝑬
 						 ;; ("Right"  .  "𝑅")
 						 ;; ("Left"  .  "𝐿")
-						 ("Listof" .    "𝑳") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
-						 ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝐿 𝑳   ;may conflict with Left
+						 ("Listof" .    "𝑳") ;𝕃 𝐋 𝗟 𝑳
+						 ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝑳
 						 ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
 						 ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
-						 ("Pairof" .    "⨁") ;⨁ 𝐏 𝑷
+						 ("Pairof" .    "⨁") ;⨁ 𝐏 𝑷    (n-)ary (circled) pl(us) (operator)
 						 ;; ("Pair" .    "⨁") ;⨁ 𝐏 𝑷
 						 ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("HashTableTop" .    "𝐇") ;ℍ 𝐇 𝗛 𝑯
@@ -633,33 +628,32 @@ you should place your code here."
 						 ;; ("Hash" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("HashMap" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; --- Equality ---
-						 ;; ("!=" .     "≠") ;TODO: replace with Hasklig ligature /= in Unicode reserved space
-						 ("<=" .      "⩽") ;≤ ⩽
-						 (">=" .      "⩾") ;≥ ⩾
+						 ;; ("!=" .     "≠") ; <C-k !=>    not e(qual) to
+						 ;; ("<=" .      "⩽") ;≤ ⩽    gr(eater) (than) (or) slan(ted) (equal) (to)
+						 ;; (">=" .      "⩾") ;≥ ⩾    le(ss) (than) (or) slan(ted) (equal) (to)
 						 ;; ("not equal" . "≠")
 						 ;; --- Predicate Logic ---
-						 ;; ("some" .      "∃")
-						 ;; ("none" .      "∄")
-						 ("not" .      "¬") ;❗ ￢ ¬ 〜 ～ ~
-						 ("and" .      "∧") ;∧ ⋀ ⟎
-						 ("or" .      "∨") ;∨ ⋁ ⟏
-						 ;; ("xor" .      "⊻")
-						 ;; ("nor" .      "⊽") ;⊽ ⩝ ⍱
-						 ;; ("nand" .      "⊼") ;⊼ ⩜ ⍲
+						 ;; ("some" .      "∃") ;  <C-k TE>    the(re) (exists)
+						 ;; ("none" .      "∄"≠) ;   (there) (does) not ex(ist)
+						 ;; ("not" .      "¬") ;❗ ￢ ¬ 〜 ～ ~   <C-k NO>
+						 ;; ("and" .      "∧") ;∧ ⋀ ⟎   <C-k AN>   l(ogical) a(nd)
+						 ;; ("or" .      "∨") ;∨ ⋁ ⟏    <C-k OR>   l(ogical) or
+						 ;; ("xor" .      "⊻") ;        xor
+						 ;; ("nor" .      "⊽") ;⊽ ⩝ ⍱   nor
+						 ;; ("nand" .      "⊼") ;⊼ ⩜ ⍲   nand
 						 ;; --- Set Logic ---
 						 ;; ("in" .       #x2208)
 						 ;; ("not in" .   #x2209)
-						 ("empty" .      "∅")
+						 ;; ("empty" .      "∅") ;  <C-k /0>
 						 ;; ("mzero" .      "∅")
 						 ;; ("mempty" .      "∅")
-						 ("null" .      "∅")
-						 ;; ("elem" .      "∈") ;∈ 𝞊
-						 ;; ("element" .      "∈") ;∈ 𝞊
-						 ("member" .      "∈") ;∈ 𝞊
-						 ("memf" .      "∈") ;∈ 𝞊
-						 ("findf" .      "∃")
-						 ("not-member" .   "∉")
-						 ;; ("notElem" .   "∉")
+						 ;; ("null" .      "∅")
+						 ;; ("elem" .      "∈")  <C-k (->
+						 ;; ("element" .      "∈")
+						 ;; ("member" .      "∈")
+						 ;; ("memf" .      "∈")
+						 ;; ("findf" .      "∃") ;  elem(ent) (of)
+						 ;; ("notElem" .   "∉") ;  not ele(ment) (of)
 						 ;; ("Union" .      "⋃") ;⋃ ∪ 𝗨 ⨆
 						 ;; ("U" .      "⋃") ;⋃ ∪ 𝗨 ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
