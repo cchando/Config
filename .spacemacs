@@ -477,24 +477,24 @@ you should place your code here."
 						 ("let" .      "∴")
 						 ("let*" .     "∴")
 						 ("letrec" .   "∴")
-						 ;; ("::"    .    "∷") ;covered by Hasklig
+						 ("::"    .    "∷") ;covered by Hasklig
 						 ("ann"   .    "∷")
 						 ("inst"   .    "∷")
 						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨
 						 ;; --- Functional ---
 
-						 ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
-						 ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
-						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
-						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊   ;TODO: replace with Hasklig ligature <$> in Unicode reserved space
+						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
+						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
+						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊ "right bl(ack) ci(rcled) ar(row)"
+						 ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊
 						 ("cons" .     "⍠")
-						 ("curry" .     "⦙") ;⦂ ⦙ ⦁
+						 ("curry" .     "⦙") ; ⦙ ⦁
 						 ;; ("<*>" .   "⊛")
 						 ;; ("<>" .   "⊕") ;⊕ ⨁  ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; ("mappend" .   "⊕") ;⊕ ⨁
 						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
 						 ;; ("compose" .   "∘") ;∘ ○ ◯
-						 ("compose1" .   "∘") ;∘ ○ ◯
+						 ("compose1" .  "∘") ;∘ ○ ◯
 						 ("apply" .   "⮉") ;⬆ ↥ ⍐ ⮉
 						 ;; ("."  .   "∘") ; infix use
 						 ;; ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
@@ -536,7 +536,7 @@ you should place your code here."
 						 ;; ("apply *" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
 						 ;; ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆ ⋅
 						 ;; ("coproduct" .    "∐") ;∐ ⨿
-						 ("/" .    "÷")
+						 ;; ("/" .    "÷")
 						 ;; ("divide" .    "÷")
 						 ;; ("sqrt" .    "√")
 						 ;; ("powerset" .  "℘")
@@ -553,12 +553,14 @@ you should place your code here."
 						 ;; ("string-append*" .      "◇") ;⧺ ◇ #x20df   ;TODO: replace with Hasklig ligature <> in Unicode reserved space
 						 ;; --- Types ---
 						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈 𝖴
-						 ("All" .      "∀")
+						 ;; ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("forall" .      "∀")
-						 ("andmap" .      "∀")
-						 ("ormap" .      "∃")
+						 ;; ("andmap" .      "∀")
+						 ;; ("ormap" .      "∃")
+						 ;; ("all" .      "∀")
+						 ;; ("any" .      "∃")
 						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Exact-Negative-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Exact-Positive-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
@@ -584,7 +586,7 @@ you should place your code here."
 						 ;; ("Positive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
 						 ;; ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
 						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
-						 ("Exact-Nonnegative-Integer"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
+						 ;; ("Exact-Nonnegative-Integer"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
 						 ;; ("Index"  .  "𝝢") ;𝐈 ℕ 𝝢 𝐍 𝙉
 						 ("Negative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Nonpositive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
@@ -623,7 +625,7 @@ you should place your code here."
 						 ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
 						 ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
 						 ("Pairof" .    "⨁") ;⨁ 𝐏 𝑷
-						 ("Pair" .    "⨁") ;⨁ 𝐏 𝑷
+						 ;; ("Pair" .    "⨁") ;⨁ 𝐏 𝑷
 						 ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("HashTableTop" .    "𝐇") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("Immutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
@@ -654,14 +656,15 @@ you should place your code here."
 						 ;; ("elem" .      "∈") ;∈ 𝞊
 						 ;; ("element" .      "∈") ;∈ 𝞊
 						 ("member" .      "∈") ;∈ 𝞊
-						 ;; ("memf" .      "∈") ;∈ 𝞊
-						 ;; ("findf" .      "∈") ;∈ 𝞊
-						 ;; ("notElem" .   #x2209)
+						 ("memf" .      "∈") ;∈ 𝞊
+						 ("findf" .      "∃")
+						 ("not-member" .   "∉")
+						 ;; ("notElem" .   "∉")
 						 ;; ("Union" .      "⋃") ;⋃ ∪ 𝗨 ⨆
-						 ("U" .      "⋃") ;⋃ ∪ 𝗨 ⨆
+						 ;; ("U" .      "⋃") ;⋃ ∪ 𝗨 ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
 						 ;; ("Intersection" .      "⋂") ;⋂ ∩ ⨅
-						 ("∩" .      "⋂") ;⋂ ∩ ⨅
+						 ;; ("∩" .      "⋂") ;⋂ ∩ ⨅
 						 ;; ("complement" .      "∁")
 						 ;; ("Complement" .      "∁")
 						 ))))  ;ends add-hook for prettify-symbols-alist
@@ -868,7 +871,7 @@ you should place your code here."
 (spacemacs/set-leader-keys (kbd "gm") 'magit-dispatch) ;; replace obsolete magit-dispatch-popup
 (spacemacs/set-leader-keys (kbd "wg") 'enlarge-window)
 (spacemacs/set-leader-keys (kbd "wG") 'shrink-window)
-(spacemacs/set-leader-keys (kbd "sd") 'evil-ex-show-digraphs)
+(spacemacs/set-leader-keys (kbd "hsd") 'evil-ex-show-digraphs)
 (spacemacs/set-leader-keys (kbd "ic") 'insert-char)
 ;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
 ;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
