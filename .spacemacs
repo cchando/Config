@@ -547,7 +547,7 @@ you should place your code here."
 						 ;; ("string-append" .    "◇") ;⧺ ◇ #x20df
 						 ;; ("string-append*" .    "◇") ;⧺ ◇ #x20df
 						 ;; --- Types ---
-						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈 𝖴
+						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈
 						 ;; ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
@@ -629,8 +629,8 @@ you should place your code here."
 						 ;; ("HashMap" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; --- Equality ---
 						 ;; ("!=" .     "≠") ; <C-k !=>    not e(qual) to
-						 ;; ("<=" .      "⩽") ;≤ ⩽    gr(eater) (than) (or) slan(ted) (equal) (to)
-						 ;; (">=" .      "⩾") ;≥ ⩾    le(ss) (than) (or) slan(ted) (equal) (to)
+						 ("<=" .      "⩽") ;≤ ⩽    gr(eater) (than) (or) slan(ted) (equal) (to)
+						 (">=" .      "⩾") ;≥ ⩾    le(ss) (than) (or) slan(ted) (equal) (to)
 						 ;; ("not equal" . "≠")
 						 ;; --- Predicate Logic ---
 						 ;; ("some" .      "∃") ;  <C-k TE>    the(re) (exists)
