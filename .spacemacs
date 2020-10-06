@@ -852,6 +852,10 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "gl") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "gi") 'evil-append-line)
 (define-key evil-normal-state-map (kbd "gr") 'evil-insert-resume)
+(define-key evil-normal-state-map (kbd "gd") 'spacemacs/jump-to-definition)
+(add-hook
+ 'racket-mode-hook
+ (define-key evil-normal-state-map (kbd "gd") 'racket-xp-visit-definition))
 (define-key evil-normal-state-map (kbd "gm") 'evil-jump-item)
 (define-key evil-normal-state-map (kbd "gn") 'spacemacs/enter-ahs-forward)
 (define-key evil-normal-state-map (kbd "gN") 'spacemacs/enter-ahs-backward)
