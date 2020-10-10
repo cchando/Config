@@ -152,47 +152,7 @@
 (define (snoc xs x)
   (? (empty? xs)
      [list x]
-     (⍠ (head xs) (snoc (tail xs) x))))
-
-
-;; (: zip : ∀ (a b) (Listof a) (Listof b) -> (Listof (Pair a b)))
-;; (define (zip xs ys) (∴ ([lxs (length xs)]
-;;                    [lys (length ys)])
-;;                   (cond [(= lxs lys) (map (λ (x y) (pair x y)) xs ys)]
-;;                         [(> lxs lys) (map (λ (x y) (pair x y)) (take xs lys) ys)]
-;;                         ;; lxs < lys
-;;                         [else (map (λ (x y) (pair x y)) xs (take ys lxs))])))
-
-
-
-;; (: zip (∀ (a b c) (case→
-;;                    [(Listof a) (Listof b) -> (Listof (Pair a b))]
-;;                    [(Listof a) (Listof b) (Listof c) -> (Listof (List a b c))])))
-;; (define zip (case-λ
-;;         [(xs ys)
-;;          (∴ ([lys (length ys)]
-;;              [lxs (length xs)])
-;;             (cond [(= lxs lys)   (map (λ (x y) (pair x y)) xs ys)]
-;;                   [(> lxs lys)   (map (λ (x y) (pair x y)) (take xs lys) ys)]
-;;                   ;; lxs < lys
-;;                   [else (map (λ (x y) (pair x y)) xs (take ys lxs))]))]
-;;         [(xs ys zs)
-;;          (∴ ([lxs (length xs)]
-;;              [lys (length ys)]
-;;              [lzs (length zs)])
-;;             (cond [(= lxs lys lzs)   (map (λ (x y z) (list x y z)) xs ys zs)]
-;;                   [else   (∴ ([sorted
-;;                                (sort
-;;                                 [list (pair xs lxs) (pair ys lys) (pair zs lzs)]
-;;                                 (λ ([p1 : (Pair (Listof Any) Index)]
-;;                                     [p2 : (Pair (Listof Any) Index)])
-;;                                   (< (cdr p1) (cdr p2))))]
-;;                               [lshort (cdr (head sorted))])
-;;                              (map (λ (x y z)
-;;                                   (list x y z))
-;;                                 (take xs lshort)
-;;                                 (take ys lshort)
-;;                                 (take zs lshort)))]))]))
+     [⍠ (head xs) (snoc (tail xs) x)]))
 
 
 (: zip (∀ (a b c) (case→
@@ -216,9 +176,6 @@
                  [z zs])
               #:break (or (null? (tail xs)) (null? (tail ys)) (null? (tail zs)))
               (list x y z)))]))
-
-
-;; (for/list : (Listof Integer) ([i '[1 2 -3 4 5]] #:when (λ ([x : ]) (< x 1))) #:break (negative? i) i)
 
 
 ;; (: zip-with : ∀ (a b c) (a b -> c) (Listof a) (Listof b) -> (Listof c))
