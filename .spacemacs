@@ -671,7 +671,7 @@ you should place your code here."
 						 ;; ("findf" .      "∃") ;  elem(ent) (of)
 						 ;; ("notElem" .   "∉") ;  not ele(ment) (of)
 						 ;; ("Union" .      "⋃") ;⋃ ∪ 𝗨 ⨆
-						 ;; ("U" .      "⋃") ;⋃ ∪ 𝗨 ⨆
+						 ("U" .      "⋃") ;⋃ ∪ 𝗨 ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
 						 ;; ("Intersection" .      "⋂") ;⋂ ∩ ⨅
 						 ;; ("∩" .      "⋂") ;⋂ ∩ ⨅
