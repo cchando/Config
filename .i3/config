@@ -4,7 +4,7 @@
 # exec redshift -l 32.96:-96.67 -t 6500:2500
 exec xbanish
 exec compton
-exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg
+exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/vlad\ diving.jpg
 # exec nitrogen --head=-1 --set-zoom-fill ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg
 # exec nitrogen --head=-1 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg
 # exec nitrogen --restore
@@ -134,26 +134,29 @@ bindsym $mod+Shift+d exec xrandr --output eDP-1 --auto
     # restart i3  
     bindsym $mod+Shift+r restart
 
-    # start spacemacs
+    # start spaceemacs
     bindsym $mod+s exec emacs
 
+    # redshift off
+    bindsym $mod+4 exec redshift -x
+
     # redshift 1
-    bindsym $mod+7 exec redshift -x
+    bindsym $mod+5 exec redshift -x && redshift -O 5700
 
     # redshift 2
-    bindsym $mod+8 exec redshift -x && redshift -O 5000
+    bindsym $mod+6 exec redshift -x && redshift -O 5000
 
     # redshift 3
-    bindsym $mod+9 exec redshift -x && redshift -O 4500
+    bindsym $mod+7 exec redshift -x && redshift -O 4500
 
     # redshift 4
-    bindsym $mod+0 exec redshift -x && redshift -O 4000
+    bindsym $mod+8 exec redshift -x && redshift -O 4000
 
     # redshift 3
-    bindsym $mod+5 exec redshift -x && redshift -O 3500
+    bindsym $mod+9 exec redshift -x && redshift -O 3500
 
     # redshift 4
-    bindsym $mod+6 exec redshift -x && redshift -O 3000
+    bindsym $mod+0 exec redshift -x && redshift -O 3000
 
 
     # suspend system
@@ -161,6 +164,9 @@ bindsym $mod+Shift+d exec xrandr --output eDP-1 --auto
 
     # reboot system
     bindsym Mod1+Shift+r exec systemctl reboot
+
+    # shutdown system
+    bindsym Mod1+Shift+u exec shutdown now
 
     # enable touchpad 
     bindsym Mod1+Shift+m exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1
