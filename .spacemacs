@@ -188,25 +188,25 @@ values."
    dotspacemacs-default-font '(
 
 															 ("Hasklig"
-															 	:size 13
-															 	:weight normal
-															 	:width normal
-															 	:powerline-scale 1.1)
+																:size 13
+																:weight normal
+																:width normal
+																:powerline-scale 1.1)
 
 															 ;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
 															 ;; <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|>
 
 															 ;; ("Fira Code"
-                               ;; :size 13
-                               ;; :weight normal
-                               ;; :width normal
-                               ;; :powerline-scale 1.1)
+															 ;; 	:size 13
+															 ;; 	:weight normal
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
 
 															 ;; ("Fira Code Symbol"
-                               ;; :size 13
-                               ;; :weight normal
-                               ;; :width normal
-                               ;; :powerline-scale 1.1)
+															 ;; 	:size 13
+															 ;; 	:weight normal
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
 
 															 ;; ("Source Code Pro"
 															 ;; 	:size 13
@@ -391,10 +391,23 @@ you should place your code here."
 	(remove-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'line-number-mode)
-	(remove-hook 'prog-mode-hook 'smartparens-mode)
+	(add-hook 'prog-mode-hook 'smartparens-mode)
 	(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+	(set-fontset-font "fontset-default" '(#x2205 . #x2a7e) "Source Code Pro")
+  ;; ∅  ⩾
 
+	;; (add-to-list 'default-frame-alist
+	;; 						 '(font . "-adbo-hasklig-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
+
+	;; (set-face-attribute 'default nil
+	;; 										:family "Hasklig"
+	;; 										:height 100
+	;; 										:weight 'normal
+	;; 										:width 'normal)
+
+	;; (use-package hasklig-mode
+	;; 	:hook (prog-mode))
 
 
 
@@ -459,6 +472,7 @@ you should place your code here."
 	(remove-hook 'prog-mode-hook 'pretty-mode)
 	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	(add-hook 'prog-mode-hook 'hasklig-mode)
+	;; (remove-hook 'prog-mode-hook 'hasklig-mode)
 
 	(add-hook
 	 'prog-mode-hook
@@ -551,9 +565,7 @@ you should place your code here."
 						 ;; ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
-						 ;; ("forall" .      "∀") ; FA
-						 ;; ("andmap" .      "∀")
-						 ;; ("ormap" .      "∃")
+						 ;; ("forall" .      "∀") ; <C-k FA>   "for a(ll)"
 						 ("all" .      "∀") ; <C-k FA>   for a(ll)
 						 ;; ("any" .      "∃") ; <C-k TE>    the(re) (exists)
 						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕

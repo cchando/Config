@@ -4,7 +4,8 @@
 # exec redshift -l 32.96:-96.67 -t 6500:2500
 exec xbanish
 exec compton
-exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/vlad\ diving.jpg
+exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+# exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/vlad\ diving.jpg
 # exec nitrogen --head=-1 --set-zoom-fill ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg
 # exec nitrogen --head=-1 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg
 # exec nitrogen --restore

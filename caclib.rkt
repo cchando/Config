@@ -3,7 +3,7 @@
 (provide (all-defined-out))
 (require (only-in typed/racket
                   [filter-map orig:filter-map]
-                  [U ⋃] [∩ ⋂] 
+                  [U ⋃] [∩ ⋂]
                   [let* ∴] [if ?] [case-lambda case-λ] [and ∧] [or ∨] [nor ⊽] [nand ⊼]
                   [for ∀:] [for* ∀*:] [for/list ∀:l] [for*/list ∀*:l] [for/hash ∀:h] [for*/hash ∀*:h]
                   [for/vector ∀:v] [for*/vector ∀*:v] [for/sum ∀:∑] [for*/sum ∀*:∑]
@@ -150,11 +150,9 @@
 
 (: snoc : ∀ (a) [Listof a] a -> [List^ a])
 (define (snoc xs x)
-  (: rec : [Listof a] -> [List^ a])
-  (define (rec xs) (? (empty? xs)
-                 [list x]
-                 (⍠ (head xs) (rec (tail xs)))))
-  (rec xs))
+  (? (empty? xs)
+     [list x]
+     (⍠ (head xs) (snoc (tail xs) x))))
 
 
 ;; (: zip : ∀ (a b) (Listof a) (Listof b) -> (Listof (Pair a b)))
