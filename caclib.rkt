@@ -12,7 +12,15 @@
                   [for/or ∀:or] [for*/or ∀*:or] [for/and ∀:and] [for*/and ∀*:and]
                   [for/product ∀:∏] [for*/product ∀*:∏] [for/first ∀:1st] [for*/first ∀*:1st]
                   [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:⮲] [for*/fold ∀*:⮲]))
-(require typed-map)
+(require typed-map ;; type-inference helper for map, foldl, foldr
+         cond-strict ;; raise error if no clauses match, instead of giving Void
+         srfi/87 ;; "=>" in case clauses
+         srfi/61 ;; more general cond clause
+         srfi/26 ;; pseudo-curry
+         srfi/31 ;; rec
+         srfi/2 ;; and-let*
+         srfi/1 ;; list library
+         )
 
 
 ;; (require (only-in typed/racket
