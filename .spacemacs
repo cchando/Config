@@ -141,6 +141,7 @@ values."
 												 ;; --- Dark themes ---
 												 base16-atelier-cave ;; rabi-ribi
 												 flucui-dark ;; based off of lab-dark
+												 ;; base16-snazzy ;; similar-ish to atelier-cave
 												 ;; lab-dark
 												 ;; base16-atelier-plateau ;; similar to cave
 												 ;; base16-atelier-savanna ;; dark brown, orange, med green, ocean blue
@@ -188,10 +189,10 @@ values."
    dotspacemacs-default-font '(
 
 															 ("Hasklig"
-																:size 13
-																:weight normal
-																:width normal
-																:powerline-scale 1.1)
+															 	:size 13
+															 	:weight normal
+															 	:width normal
+															 	:powerline-scale 1.1)
 
 															 ;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
 															 ;; <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|>
@@ -394,8 +395,46 @@ you should place your code here."
 	(add-hook 'prog-mode-hook 'smartparens-mode)
 	(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-	(set-fontset-font "fontset-default" '(#x2205 . #x2a7e) "Source Code Pro")
-  ;; ∅  ⩾
+	; DejaVu Sans Mono ; Liberation Sans
+	(remove-hook 'prog-mode-hook
+							 (lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "DejaVu Sans Mono"))) ;; math operators block (∀, ∃, ∈, ∅, etc.)
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono"))) ;; supplemental math operators block
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "DejaVu Sans Mono"))) ;; math Double-Struck capital letters (𝕃, 𝕍, etc.)
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Sans Mono"))) ;; letterlike symbols block (ℕ, ℤ, ℍ, etc.)
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "DejaVu Sans Mono"))) ;; (ceiling, floor, reversed not sign)
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "DejaVu Sans Mono"))) ;; misc math symbols-A (bag membership, left multimap)
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Sans Mono"))) ;; misc math symbols-B (⧊, ⦱, etc.)
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono"))) ;; APL symbols
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Sans Mono"))) ;; math alphanumeric symbols
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ;; arrows (←, ↰, etc.)
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ;; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ;; supplemental arrows-A (⟵, ⟻, ⟽, etc.)
+	
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2a7d . #x2a7e) "Fira Code"))) ; ⩽ ⩾
+  ;; ∅   ⋙  ⨌   ⩽  ⩾
 
 	;; (add-to-list 'default-frame-alist
 	;; 						 '(font . "-adbo-hasklig-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
@@ -488,21 +527,21 @@ you should place your code here."
 						 ;; ("fn" .    "λ")
 						 ;; ("lambda" .    "λ")
 						 ;; ("where" .    "∵") <C-k :.>   bec(ause)
-						 ;; ("let" .      "∴")
+						 ;; ("let" .      "∴") <C-k .:>   ther(efore)
 						 ("let*" .     "∴")
-						 ;; ("letrec" .   "∴") ; <C-k .:>   ther(efor)
-						 ("::"    .    "∷") ;covered by Hasklig    pro(portion)
-						 ("ann"   .    "∷")
+						 ;; ("letrec" .   "∴")
+						 ;; ("::"    .    "∷") ;covered by Hasklig    pro(portion)
+						 ("ann"   .    "∷") ; <C-k ::>   pro(portion)
 						 ("inst"   .    "∷")
 						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨     ri(ghtwards) quad(ruple) ar(row)
 						 ;; --- Functional ---
-
 						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
 						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
-						 ("map" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊    ri(ghtwards) bl(ack) ci(rcled) (white)  ar(row)
+						 ("map" .    "⮊") ; ⮕ ⍈ ↦ ⮉ ⮊    ri(ghtwards) bl(ack) ci(rcled) (white)  ar(row)
 						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊
-						 ("cons" .     "⍠") ;     apl (functional symbol quad) col(on)
-						 ;; ("curry" .     "⫶") ;⫶ ⦙ ⦁   (triple) col(on) ope(rator)
+						 ("cons" .     ":") ;  ς 𝛓 : ⍠  apl (functional symbol quad) col(on)
+						 ("pair" .     "::") ;  ∷ :: 𝝆 𝞺
+						 ;; ("curry" .   "⫶") ; ⫶ ⋮ ⦙ ⦁   (triple) col(on) ope(rator)
 						 ;; ("<*>" .   "⊛")
 						 ;; ("mappend" .   "⊕") ;⊕ ⨁
 						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
@@ -514,31 +553,10 @@ you should place your code here."
 						 ;; ("join" .   "µ") ;µ ⨝
 						 ;; ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
 						 ;; ("for" .      "∀")
-						 ;; ("for*" .      "∀")
 						 ;; ("for-each" .      "∀")
-						 ;; ("for/list" .      "∀")
-						 ;; ("for*/list" .      "∀")
-						 ;; ("for/hash" .      "∀")
-						 ;; ("for*/hash" .      "∀")
-						 ;; ("for/fold" .      "∀")
-						 ;; ("for*/fold" .      "∀")
-						 ;; ("for/or" .      "∀")
-						 ;; ("for*/or" .      "∀")
-						 ;; ("for/sum" .      "∀")
-						 ;; ("for*/sum" .      "∀")
-						 ;; ("for/product" .      "∀")
-						 ;; ("for*/product" .      "∀")
-						 ;; ("for/set" .      "∀")
-						 ;; ("for*/set" .      "∀")
-						 ;; ("for/vector" .      "∀")
-						 ;; ("for*/vector" .      "∀")
-						 ;; ("for/first" .      "∀")
-						 ;; ("for*/first" .      "∀")
-						 ;; ("for/last" .      "∀")
-						 ;; ("for*/last" .      "∀")
 						 ;; ("take" .     "↑") ;  <C-k -!>   up ar(row)
 						 ;; ("drop" .     "↓") ;  <C-k -v>   do(wn) ar(row)
-						 ;; ("filter" .      "⮋") ;  do(wnwards) bl(ack) ci(rcled) wh(ite) ar(row)
+						 ;; ("filter" .      "⮋") ; ⬇  ⮋  do(wnwards) bl(ack) ci(rcled) wh(ite) ar(row)
 						 ;; ("sub" .      "-")
 						 ;; ("+" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑   <C-k +Z>   (n-)ary s(ummation)
 						 ;; ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
@@ -618,7 +636,7 @@ you should place your code here."
 						 ("False" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ;; ("#false" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
 						 ("#f" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
-						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0  ci(rcle) (with) ho(rizontal) b(ar)
+						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0  ci(rcle) (with) hor(izontal) b(ar)
 						 ;; --- ADTs ---
 						 ;; ("Maybe"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴
 						 ("Option"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
