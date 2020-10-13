@@ -3,7 +3,7 @@
 (provide (all-defined-out))
 (require (only-in typed/racket
                   [filter-map orig:filter-map]
-                  [U ⋃] [∩ ⋂]
+                  [else ε] [U ⋃] [∩ ⋂]
                   [let* ∴] [if ?] [case-lambda case-λ] [and ∧] [or ∨] [nor ⊽] [nand ⊼]
                   [for ∀:] [for* ∀*:] [for/list ∀:l] [for*/list ∀*:l] [for/hash ∀:h] [for*/hash ∀*:h]
                   [for/vector ∀:v] [for*/vector ∀*:v] [for/sum ∀:∑] [for*/sum ∀*:∑]
@@ -12,15 +12,17 @@
                   [for/or ∀:or] [for*/or ∀*:or] [for/and ∀:and] [for*/and ∀*:and]
                   [for/product ∀:∏] [for*/product ∀*:∏] [for/first ∀:1st] [for*/first ∀*:1st]
                   [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:⮲] [for*/fold ∀*:⮲]))
-(require typed-map ;; type-inference helper for map, foldl, foldr
-         cond-strict ;; raise error if no clauses match, instead of giving Void
-         srfi/87 ;; "=>" in case clauses
-         srfi/61 ;; more general cond clause
-         srfi/26 ;; pseudo-curry
-         srfi/31 ;; rec
-         srfi/2 ;; and-let*
-         srfi/1 ;; list library
-         )
+(require cond-strict)
+(require (only-in typed-map [foldl infer:foldl] [foldr infer:foldr]))
+;; (require/typed
+;;     srfi/87 ;; "=>" in case clauses
+;;   srfi/71 ;; extended 'let' syntax for defining multiple names
+;;   srfi/61 ;; more general cond clause
+;;   srfi/26 ;; pseudo-curry
+;;   srfi/31 ;; rec
+;;   srfi/2 ;; and-let*
+;;   )
+;; (require/typed (only-in srfi/1) ) ;; list library
 
 
 ;; (require (only-in typed/racket
@@ -49,22 +51,33 @@
 (define id identity)
 (define =? equal?)
 (define lookup assoc)
-(define ‼ list-ref)
 (define head first)
+(define θ first)
 (define tail rest)
+(define τ rest)
+(define ρ length)
+(define ⊖ reverse)
+(define ι build-list)
 (define ⍠ cons)
 (define ∅ empty)
 (define ￢ not)
+(define ～ not)
 (define ⊻ xor)
-(define ￢^ negate)
+(define ￢. negate)
+(define ⌈ exact-ceiling)
+(define ⌊ exact-floor)
+(define ⌉ ceiling)
+(define ⌋ floor)
 (define <> append)
-(define <>^ append*)
+(define <>. append*)
 (define ++ string-append)
-(define ++^ string-append*)
+(define ++. string-append*)
 (define concat append*)
+(define ∆ sort) ; ⍋
+(define σ sort)
 (define <$> map)
-(define ⮲ foldl)
-(define ⮳ foldr)
+;; (define ⮲ foldl)
+;; (define ⮳ foldr)
 (define ⮊ map)
 (define ⮉ apply)
 (define ⮋ filter)
@@ -77,6 +90,7 @@
 (define ∏ *)
 (define √ sqrt)
 (define % modulo)
+(define ∣ abs)
 (define ≤ <=)
 (define ≥ >=)
 (define ∈ member)
@@ -100,19 +114,15 @@
 (define 10th tenth)
 (define-type (List^ a) (Pairof a (Listof a))) ; Non-empty List
 
+;; TODO: find out how to define these (multi-variadic)
+;; (define-type Tuple (∀ (a b ...) (List a b ... b)))
+;; (define-type Tuple. (∀ (a b ...) (Vector a b ... b)))
+
+;; ℤ   ℕ   ∅   ⋙  ⨌   ⩽  ⩾
+
 (: pair : ∀ (a b) a b -> (Pair a b))
 (define (pair a b) `(,a . ,b))
-(define p: pair)
-
-;; write ∃', which takes x1 x2... instead of xs.
-;; ∃' x . rst = (∃ x:rst)
-
-
-;; write andmap', which is the same as orig:andmap, except:
-;;  either (pick one of these constraints -- probably #2):
-;;      1. it gives #f on an empty list instead of #t, thus eliminating the problem
-;;          of the result type being (U Boolean a), given (Listof a).
-;;      2. it specifies in a case-λ that if given an (NEList z), returns z (rather than (Union True z)).
+(define ⌻ pair)
 
 
 ;; intercalate
@@ -133,9 +143,9 @@
 (define (∄ pred xs) (￢ (∃ pred xs)))
 
 
-(: /= : Any Any -> Boolean)
-(define (/= x y) (￢ (=? x y)))
-(define ≠ /=)
+(: ≠ : Any Any -> Boolean)
+(define (≠ x y) (￢ (=? x y)))
+(define /= ≠)
 
 ;; all
 (: all : ∀ (a) (a -> Boolean) (Listof a) -> Boolean)
@@ -156,11 +166,121 @@
 (define (flip2 f)  (λ (a c b) (f a b c)))
 
 
+;; (: ‼ : ∀ (a) Integer (Listof a) -> a)
+;; (define ‼ (flip list-ref))
+;; (define !! ‼)
+
+(: ‼ : ∀ (a) Integer (Listof a) -> a)
+(define (‼ i xs) (list-ref xs i))
+(define !! ‼)
+
+
+
+
 (: snoc : ∀ (a) [Listof a] a -> [List^ a])
 (define (snoc xs x)
   (? (empty? xs)
      [list x]
      [⍠ (head xs) (snoc (tail xs) x)]))
+
+
+
+;; ;; TEST
+;; ;; foldl with break
+;; ;; can specify predicate on accumulator or on each element
+;; (: ⮲ : ∀ (a b) (a b ->  b) b (Listof a) #:break (a -> Any) -> b)
+;; (define (⮲ f a xs pred)
+;;   ( : go : (Listof a) b -> b )
+;;   (define (go xs acc)
+;;     (cond [(∨ (empty? xs) (pred (head xs))) acc]
+;;           [else (go (cons (f (head xs) (tail xs))))]))
+;;   (go xs a))
+;; (define foldl ⮲)
+
+
+
+
+;; ;; foldl with break
+;; ;; can specify predicate on accumulator or on each element
+;; (: ⮲ (∀ (a b) (case→
+;;                [(a b ->  b) b (Listof a) -> b]
+;;                [(a b ->  b) b (Listof a) #:break (a -> Any) -> b]
+;;                [(a b ->  b) b (Listof a) #:break-acc (b -> Any) -> b])))
+;; (define ⮲ (case-λ
+;;       [(f a xs) (infer:foldl f a xs)]
+;;       [(f a xs pred)
+;;        (begin
+;;          ( : go : (Listof a) b -> b )
+;;          (define (go xs acc)
+;;            (cond [(∨ (empty? xs) (pred (head xs))) acc]
+;;                  [else (go (cons (f (head xs) (tail xs))))]))
+;;          (go xs a))]
+;;       [(f a xs pred)
+;;        (begin
+;;          (: go : (Listof a) b -> b)
+;;          (define (go xs acc)
+;;            (cond [(∨ (empty? xs) (pred acc)) acc]
+;;                  [else (go (tail xs) (cons (f (head xs) acc)))]))
+;;          (go xs a))]))
+;; (define foldl ⮲)
+
+
+;; ;; foldl1 with break
+;; ;; can specify predicate on accumulator or on each element
+;; (: ⮲. (∀ (a) (case→
+;;               [(a a ->  a) (List^ a) -> a]
+;;               [(a a ->  a) (List^ a) #:break (a -> Any) -> a]
+;;               [(a a ->  a) (List^ a) #:break-acc (a -> Any) -> a])))
+;; (define ⮲. (case-λ
+;;     [(f xs) (infer:foldl f (head xs) (tail xs))]
+;;     [(f xs pred)
+;;      (: go : (Listof a) a -> a)
+;;      (define (go xs acc)
+;;        (cond [(∨ (empty? xs) (pred (head xs))) acc]
+;;              [else (go (⍠ (f (head xs) (tail xs))))]))
+;;      (go xs empty)]
+;;     [(f xs pred)
+;;      (: go : (Listof a) -> a)
+;;      (define (go xs acc)
+;;        (cond [(∨ (empty? xs) (pred acc)) acc]
+;;              [else (go (tail xs) (cons (f (head xs) acc)))]))
+;;      (go xs empty)]))
+;; (define foldl. ⮲.)
+
+
+;; ;; foldr with break
+;; (: ⮳ (∀ (a b) (case→
+;;                [(a b ->  b) b (Listof a) -> b]
+;;                [(a b ->  b) b (Listof a) #:break (a -> Any) -> b])))
+;; (define ⮳ (case-λ
+;;     [(f a xs) (infer:foldr f a xs)]
+;;     [(f a xs pred)
+;;      (: go : b (Listof a) -> b)
+;;      (define (go xs)
+;;        (cond [(∨ (empty? xs) (pred (head xs))) empty]
+;;              [else (go (⍠ (f (head xs) (tail xs))))]))
+;;      (go (cons a xs))]))
+;; (define foldr ⮳)
+
+
+
+;; ;; foldr1 with break
+;; (: ⮳. (∀ (a b) (case→
+;;                [(a b ->  b) b (Listof a) -> b]
+;;                [(a a ->  a) (List^ a) -> a]
+;;                [(a a ->  a) (List^ a) #:break (a -> Any) -> a])))
+;; (define ⮳. (case-λ
+;;     [(f a xs) (infer:foldr f a xs)]
+;;     [(f a xs pred)
+;;      (: go : b (Listof a) -> b)
+;;      (define (go xs)
+;;        (cond [(∨ (empty? xs) (pred (head xs))) empty]
+;;              [else (go (⍠ (f (head xs) (tail xs))))]))
+;;      (go (cons a xs))]))
+;; (define foldr. ⮳.)
+
+
+
 
 
 (: zip (∀ (a b c) (case→
@@ -171,9 +291,9 @@
          (∴ ([lys (length ys)]
              [lxs (length xs)])
             (cond [(= lxs lys)   (map (λ (x y) (pair x y)) xs ys)]
-                  [(> lxs lys)   (map (λ (x y) (pair x y)) (take xs lys) ys)]
+                  [(> lxs lys)   (map (λ (x y) (pair x y)) (↑ xs lys) ys)]
                   ;; lxs < lys
-                  [else (map (λ (x y) (pair x y)) xs (take ys lxs))]))]
+                  [else (map (λ (x y) (pair x y)) xs (↑ ys lxs))]))]
         [(xs ys zs)
          (∴ ([lxs (length xs)]
              [lys (length ys)]
@@ -182,19 +302,18 @@
                 ([x xs]
                  [y ys]
                  [z zs])
-              #:break (or (null? (tail xs)) (null? (tail ys)) (null? (tail zs)))
+              #:break (∨ (null? (tail xs)) (null? (tail ys)) (null? (tail zs)))
               (list x y z)))]))
 
 
 ;; (: zip-with : ∀ (a b c) (a b -> c) (Listof a) (Listof b) -> (Listof c))
 ;; (define (zip-with f xs ys) (<$> f xs ys))
 
-
 (: zip-with (∀ (a b c d) (case→
                         ((a b -> c) (Listof a) (Listof b) -> (Listof c))
                         ((a b c -> d) (Listof a) (Listof b) (Listof c) -> (Listof d)))))
-(define zip-with (case-λ [(f xs ys) (<$> f xs ys)]
-                    [(f xs ys zs) (<$> f xs ys zs)]))
+(define zip-with (case-λ [(f xs ys) (map f xs ys)]
+                    [(f xs ys zs) (map f xs ys zs)]))
 
 
 (: unzip : ∀ (a b) (Listof (Pair a b)) -> (Pair (Listof a) (Listof b)))
@@ -287,5 +406,14 @@
 ;; (: ∧ (∀ (a b) (->* () () #:rest Any Any)))
 ;; (define (∧ . rst) (⮲ (λ (x acc) (and x acc))
 ;;                 #t rst))
+
+
+
+;; write andmap', which is the same as orig:andmap, except:
+;;  either (pick one of these constraints -- probably #2):
+;;      1. it gives #f on an empty list instead of #t, thus eliminating the problem
+;;          of the result type being (U Boolean a), given (Listof a).
+;;      2. it specifies in a case-λ that if given an (NEList z), returns z (rather than (Union True z)).
+
 
 
