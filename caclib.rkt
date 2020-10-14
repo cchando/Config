@@ -9,8 +9,8 @@
                   [Natural 𝐍] [Number ℂ] [Index 𝐈]
                   [Negative-Integer 𝐙⁻] [Nonpositive-Integer 𝐙⁰⁻] [Integer 𝐙] [Nonnegative-Integer 𝐙⁰⁺] [Positive-Integer 𝐙⁺]
                   [Negative-Real 𝐑⁻] [Nonpositive-Real 𝐑⁰⁻] [Real 𝐑] [Nonnegative-Real 𝐑⁰⁺] [Positive-Real 𝐑⁺]
-                  [Negative-Exact-Rational ℚ⁻] [Nonnegative-Exact-Rational ℚ⁰⁻] [Negative-Exact-Rational ℚ]
-                  [Nonnegative-Exact-Rational ℚ⁰⁺] [Negative-Exact-Rational ℚ⁺]
+                  [Negative-Exact-Rational 𝐐⁻] [Nonnegative-Exact-Rational 𝐐⁰⁻] [Negative-Exact-Rational 𝐐]
+                  [Nonnegative-Exact-Rational 𝐐⁰⁺] [Negative-Exact-Rational 𝐐⁺]
                   ;; [Negative-Float 𝐑⁻] [Nonpositive-Float 𝐑⁰⁻] [Float 𝐑] [Nonnegative-Float 𝐑⁰⁺] [Positive-Float 𝐑⁺]
                   [let* ∴] [if ?] [case-lambda case-λ] [and ∧] [or ∨] [nor ⊽] [nand ⊼]
                   [for ∀:] [for* ∀*:] [for/list ∀:l] [for*/list ∀*:l] [for/hash ∀:h] [for*/hash ∀*:h]
@@ -347,12 +347,13 @@
 
 
 ;; extract a list of vals from list of hashes, given a single key
-(: select (All (a b) (case→
+(: σ-v (∀ (a b) (case→
                     ((Listof (HashTable a b)) a -> (Listof b))
                     ((Listof (HashTable a b)) a False -> (Listof (Option b))))))
-(define select (case-λ
+(define σ-v (case-λ
             [(hs key) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b) h key)) hs)]
             [(hs key false) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b #f) h key #f)) hs)]))
+(define select σ-v)
 
 
 ;; equivalent to ((map f) >>> (filter pred)), except more efficient,
@@ -378,13 +379,13 @@
 
 
 ;; filter hs for those hashes for which k is associated with one of the values in vs
-(: filter-hash : ∀ (a b) (Listof (HashTable a b)) a (Listof b) -> (Listof (HashTable a b)))
-(define (filter-hash hs k vs)
+(: σ-h : ∀ (a b) (Listof (HashTable a b)) a (Listof b) -> (Listof (HashTable a b)))
+(define (σ-h hs k vs)
   (filter (λ ([h : (HashTable a b)])
             (∧ (∃ (λ ([v : b]) (=? v (hash-ref h k #f))) vs)
                h))
           hs))
-(define ⮋-hash filter-hash)
+(define filter-hash σ-h)
 
 ;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
 ;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (U v #false).
