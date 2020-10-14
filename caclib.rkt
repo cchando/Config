@@ -3,7 +3,15 @@
 (provide (all-defined-out))
 (require (only-in typed/racket
                   [filter-map orig:filter-map]
-                  [else ε] [U ⋃] [∩ ⋂]
+                  [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Void ⦵] [Any 𝐀] [Boolean 𝐁]
+                  [Listof 𝑳] [List Tuple] [List ⨂] [List 𝗟] [Option 𝑴]
+                  [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [Pairof ⨁] [String 𝕊]
+                  [Natural 𝐍] [Number ℂ] [Index 𝐈]
+                  [Negative-Integer 𝐙⁻] [Nonpositive-Integer 𝐙⁰⁻] [Integer 𝐙] [Nonnegative-Integer 𝐙⁰⁺] [Positive-Integer 𝐙⁺]
+                  [Negative-Real 𝐑⁻] [Nonpositive-Real 𝐑⁰⁻] [Real 𝐑] [Nonnegative-Real 𝐑⁰⁺] [Positive-Real 𝐑⁺]
+                  [Negative-Exact-Rational ℚ⁻] [Nonnegative-Exact-Rational ℚ⁰⁻] [Negative-Exact-Rational ℚ]
+                  [Nonnegative-Exact-Rational ℚ⁰⁺] [Negative-Exact-Rational ℚ⁺]
+                  ;; [Negative-Float 𝐑⁻] [Nonpositive-Float 𝐑⁰⁻] [Float 𝐑] [Nonnegative-Float 𝐑⁰⁺] [Positive-Float 𝐑⁺]
                   [let* ∴] [if ?] [case-lambda case-λ] [and ∧] [or ∨] [nor ⊽] [nand ⊼]
                   [for ∀:] [for* ∀*:] [for/list ∀:l] [for*/list ∀*:l] [for/hash ∀:h] [for*/hash ∀*:h]
                   [for/vector ∀:v] [for*/vector ∀*:v] [for/sum ∀:∑] [for*/sum ∀*:∑]
@@ -13,7 +21,7 @@
                   [for/product ∀:∏] [for*/product ∀*:∏] [for/first ∀:1st] [for*/first ∀*:1st]
                   [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:⮲] [for*/fold ∀*:⮲]))
 (require cond-strict)
-(require (only-in typed-map [foldl infer:foldl] [foldr infer:foldr]))
+(require (only-in typed-map [map map] [foldl infer:foldl] [foldr infer:foldr]))
 ;; (require/typed
 ;;     srfi/87 ;; "=>" in case clauses
 ;;   srfi/71 ;; extended 'let' syntax for defining multiple names
@@ -27,13 +35,21 @@
 
 ;; (require (only-in typed/racket
 ;;                   [filter-map orig:filter-map]
-;;                   [U ⋃] [∩ ⋂] [identity id] [equal? =?] [assoc lookup]
-;;                   [list-ref ‼] [first head] [rest tail] [cons ⍠] [null ∅]
-;;                   [let* ∴] [if ?] [case-lambda case-λ]
-;;                   [and ∧] [or ∨] [not ￢] [xor ⊻] [nor ⊽] [nand ⊼] [negate ￢^]
+;;                   [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Void ⦵] [Any 𝐀] [Boolean 𝐁]
+;;                   [Listof 𝑳] [List Tuple] [List ⨂] [List 𝗟] [Option 𝑴]
+;;                   [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [Pairof ⨁] [String 𝕊]
+;;                   [Natural 𝐍] [Number ℂ] [Index 𝐈]
+;;                   [Negative-Integer 𝐙⁻] [Nonpositive-Integer 𝐙⁰⁻] [Integer 𝐙] [Nonnegative-Integer 𝐙⁰⁺] [Positive-Integer 𝐙⁺]
+;;                   [Negative-Real 𝐑⁻] [Nonpositive-Real 𝐑⁰⁻] [Real 𝐑] [Nonnegative-Real 𝐑⁰⁺] [Positive-Real 𝐑⁺]
+;;                   [Negative-Exact-Rational ℚ⁻] [Nonnegative-Exact-Rational ℚ⁰⁻] [Negative-Exact-Rational ℚ]
+;;                   [Nonnegative-Exact-Rational ℚ⁰⁺] [Negative-Exact-Rational ℚ⁺]
+;;                   ;; [Negative-Float 𝐑⁻] [Nonpositive-Float 𝐑⁰⁻] [Float 𝐑] [Nonnegative-Float 𝐑⁰⁺] [Positive-Float 𝐑⁺]
+;;                   [list-ref ‼] [first head] [rest tail] [cons ⍠] [empty ∅] [length ρ] [build-list ι]
+;;                   [let* ∴] [if ?] [case-lambda case-λ] [sort ⍋] [reverse ⊖]
+;;                   [and ∧] [or ∨] [not ¬] [negate ⌙] [xor ⊻] [nor ⊽] [nand ⊼]
 ;;                   [append <>] [append* <>^] [string-append ++] [string-append* ++^] [append* concat]
 ;;                   [map <$>] [foldl ⮲] [foldr ⮳] [map ⮊] [apply ⮉] [filter ⮋] [filter-not ⮋￢]
-;;                   [curry ⫶] [compose1 ∘] [compose1 <<<] [compose ∘^]
+;;                   [curry ⫶] [compose1 ∘] [compose1 <<<] [compose ∘^] [identity id] [make-list replicate]
 ;;                   [+ ∑] [* ∏] [/ ÷] [sqrt √] [modulo %] [<= ≤] [>= ≥]
 ;;                   [member ∈] [findf ∃] [memf ∃s][take ↑] [drop ↓] [make-list replicate]
 ;;                   [append-map concat-map] [remove remove-1st] [remove* \\]
@@ -52,20 +68,20 @@
 (define =? equal?)
 (define lookup assoc)
 (define head first)
-(define θ first)
+(define Ћ head) ; Ћ Ts  ħ h/
 (define tail rest)
-(define τ rest)
+(define τ tail)
 (define ρ length)
 (define ⊖ reverse)
 (define ι build-list)
 (define ⍠ cons)
 (define ∅ empty)
-(define ￢ not)
+(define ¬ not)
+(define ⌙ negate)
 (define ～ not)
 (define ⊻ xor)
-(define ￢. negate)
-(define ⌈ exact-ceiling)
-(define ⌊ exact-floor)
+(define ⌈ exact-ceiling) ; -> 𝐙
+(define ⌊ exact-floor) ; -> 𝐙
 (define ⌉ ceiling)
 (define ⌋ floor)
 (define <> append)
@@ -73,15 +89,12 @@
 (define ++ string-append)
 (define ++. string-append*)
 (define concat append*)
-(define ∆ sort) ; ⍋
-(define σ sort)
+(define ⍋ sort) ;
 (define <$> map)
-;; (define ⮲ foldl)
-;; (define ⮳ foldr)
 (define ⮊ map)
 (define ⮉ apply)
 (define ⮋ filter)
-(define ⮋￢ filter-not)
+(define ⮋¬ filter-not)
 (define ⫶ curry)
 (define <<< compose1)
 (define ∘ compose1)
@@ -113,16 +126,20 @@
 (define 9th ninth)
 (define 10th tenth)
 (define-type (List^ a) (Pairof a (Listof a))) ; Non-empty List
+(define-type (𝑳^ a) (List^ a)) ; Non-empty List
+(define ⮲ foldl)
+(define ⮳ foldr)
+
+
 
 ;; TODO: find out how to define these (multi-variadic)
 ;; (define-type Tuple (∀ (a b ...) (List a b ... b)))
 ;; (define-type Tuple. (∀ (a b ...) (Vector a b ... b)))
 
-;; ℤ   ℕ   ∅   ⋙  ⨌   ⩽  ⩾
+;; ℤ   ℕ   ℝ   ℍ   ∅   ⋙  ⨌   ⩽  ⩾
 
 (: pair : ∀ (a b) a b -> (Pair a b))
 (define (pair a b) `(,a . ,b))
-(define ⌻ pair)
 
 
 ;; intercalate
@@ -136,15 +153,15 @@
 
 
 (: ∉ (∀ (a b) (->* (b (Listof a)) ((b a -> Any)) Boolean)))
-(define (∉ x xs [eqv-rel equal?]) (￢ (∈ x xs eqv-rel)))
+(define (∉ x xs [eqv-rel equal?]) (¬ (∈ x xs eqv-rel)))
 
 
 (: ∄ : ∀ (a) (a -> Boolean) (Listof a) -> Boolean)
-(define (∄ pred xs) (￢ (∃ pred xs)))
+(define (∄ pred xs) (¬ (∃ pred xs)))
 
 
 (: ≠ : Any Any -> Boolean)
-(define (≠ x y) (￢ (=? x y)))
+(define (≠ x y) (¬ (=? x y)))
 (define /= ≠)
 
 ;; all
@@ -175,37 +192,36 @@
 (define !! ‼)
 
 
-
-
 (: snoc : ∀ (a) [Listof a] a -> [List^ a])
 (define (snoc xs x)
   (? (empty? xs)
      [list x]
-     [⍠ (head xs) (snoc (tail xs) x)]))
-
+     [cons (head xs) (snoc (tail xs) x)]))
 
 
 ;; ;; TEST
 ;; ;; foldl with break
-;; ;; can specify predicate on accumulator or on each element
-;; (: ⮲ : ∀ (a b) (a b ->  b) b (Listof a) #:break (a -> Any) -> b)
-;; (define (⮲ f a xs pred)
+;; (: ⮲ (∀ (a b) (->* ((a b -> b) b (Listof a)) (#:break Boolean) b)))
+;; (define (⮲ f a xs [bool #t])
 ;;   ( : go : (Listof a) b -> b )
 ;;   (define (go xs acc)
-;;     (cond [(∨ (empty? xs) (pred (head xs))) acc]
-;;           [else (go (cons (f (head xs) (tail xs))))]))
+;;     (cond [(∨ (empty? xs) bool) acc]
+;;           [else (go (tail xs) (f (head xs) acc))]))
 ;;   (go xs a))
 ;; (define foldl ⮲)
 
+
+(: test : ∀ (a b) (a -> b) a -> b)
+(define (test f x) (f x))
 
 
 
 ;; ;; foldl with break
 ;; ;; can specify predicate on accumulator or on each element
 ;; (: ⮲ (∀ (a b) (case→
-;;                [(a b ->  b) b (Listof a) -> b]
-;;                [(a b ->  b) b (Listof a) #:break (a -> Any) -> b]
-;;                [(a b ->  b) b (Listof a) #:break-acc (b -> Any) -> b])))
+;;                [(a b -> b) b (Listof a) -> b]
+;;                [(a b -> b) b (Listof a) #:break (a -> Any) -> b]
+;;                [(a b -> b) b (Listof a) #:break-acc (b -> Any) -> b])))
 ;; (define ⮲ (case-λ
 ;;       [(f a xs) (infer:foldl f a xs)]
 ;;       [(f a xs pred)
@@ -228,9 +244,9 @@
 ;; ;; foldl1 with break
 ;; ;; can specify predicate on accumulator or on each element
 ;; (: ⮲. (∀ (a) (case→
-;;               [(a a ->  a) (List^ a) -> a]
-;;               [(a a ->  a) (List^ a) #:break (a -> Any) -> a]
-;;               [(a a ->  a) (List^ a) #:break-acc (a -> Any) -> a])))
+;;               [(a a -> a) (List^ a) -> a]
+;;               [(a a -> a) (List^ a) #:break (a -> Any) -> a]
+;;               [(a a -> a) (List^ a) #:break-acc (a -> Any) -> a])))
 ;; (define ⮲. (case-λ
 ;;     [(f xs) (infer:foldl f (head xs) (tail xs))]
 ;;     [(f xs pred)
@@ -250,8 +266,8 @@
 
 ;; ;; foldr with break
 ;; (: ⮳ (∀ (a b) (case→
-;;                [(a b ->  b) b (Listof a) -> b]
-;;                [(a b ->  b) b (Listof a) #:break (a -> Any) -> b])))
+;;                [(a b -> b) b (Listof a) -> b]
+;;                [(a b -> b) b (Listof a) #:break (a -> Any) -> b])))
 ;; (define ⮳ (case-λ
 ;;     [(f a xs) (infer:foldr f a xs)]
 ;;     [(f a xs pred)
@@ -266,9 +282,9 @@
 
 ;; ;; foldr1 with break
 ;; (: ⮳. (∀ (a b) (case→
-;;                [(a b ->  b) b (Listof a) -> b]
-;;                [(a a ->  a) (List^ a) -> a]
-;;                [(a a ->  a) (List^ a) #:break (a -> Any) -> a])))
+;;                [(a b -> b) b (Listof a) -> b]
+;;                [(a a -> a) (List^ a) -> a]
+;;                [(a a -> a) (List^ a) #:break (a -> Any) -> a])))
 ;; (define ⮳. (case-λ
 ;;     [(f a xs) (infer:foldr f a xs)]
 ;;     [(f a xs pred)
@@ -282,28 +298,28 @@
 
 
 
-
-(: zip (∀ (a b c) (case→
-                   [(Listof a) (Listof b) -> (Listof (Pair a b))]
-                   [(Listof a) (Listof b) (Listof c) -> (Listof (List a b c))])))
-(define zip (case-λ
-        [(xs ys)
-         (∴ ([lys (length ys)]
-             [lxs (length xs)])
-            (cond [(= lxs lys)   (map (λ (x y) (pair x y)) xs ys)]
-                  [(> lxs lys)   (map (λ (x y) (pair x y)) (↑ xs lys) ys)]
-                  ;; lxs < lys
-                  [else (map (λ (x y) (pair x y)) xs (↑ ys lxs))]))]
-        [(xs ys zs)
-         (∴ ([lxs (length xs)]
-             [lys (length ys)]
-             [lzs (length zs)])
-            (for/list : (Listof (List a b c))
-                ([x xs]
-                 [y ys]
-                 [z zs])
-              #:break (∨ (null? (tail xs)) (null? (tail ys)) (null? (tail zs)))
-              (list x y z)))]))
+;; (: zip (∀ (a b c) (case→
+;;                    [(Listof a) (Listof b) -> (Listof (Pair a b))]
+;;                    [(Listof a) (Listof b) (Listof c) -> (Listof (List a b c))])))
+;; (define zip (case-λ
+;;         [(xs ys)
+;;          (∴ ([lys (length ys)]
+;;              [lxs (length xs)])
+;;             (cond [(= lxs lys)   (map (λ (x y) (pair x y)) xs ys)]
+;;                   [(> lxs lys)   (map (λ (x y) (pair x y)) (↑ xs lys) ys)]
+;;                   ;; lxs < lys
+;;                   [else (map (λ (x y) (pair x y)) xs (↑ ys lxs))]))]
+;;         [(xs ys zs)
+;;          (∴ ([lxs (length xs)]
+;;              [lys (length ys)]
+;;              [lzs (length zs)])
+;;             (for/list : (Listof (List a b c))
+;;                 ([x xs]
+;;                  [y ys]
+;;                  [z zs])
+;;               #:break (∃ (λ ([as : (Listof Any)]) (empty? (tail as))) '[xs ys zs])
+;;               ;; #:break (∃ (∘ empty? tail) '[xs ys zs])
+;;               (list x y z)))]))
 
 
 ;; (: zip-with : ∀ (a b c) (a b -> c) (Listof a) (Listof b) -> (Listof c))
@@ -368,6 +384,7 @@
             (∧ (∃ (λ ([v : b]) (=? v (hash-ref h k #f))) vs)
                h))
           hs))
+(define ⮋-hash filter-hash)
 
 ;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
 ;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (U v #false).
