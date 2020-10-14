@@ -395,43 +395,55 @@ you should place your code here."
 	(add-hook 'prog-mode-hook 'smartparens-mode)
 	(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-	; DejaVu Sans Mono ; Liberation Sans
+	; DejaVu Sans Mono
+	; Liberation Sans
+	; Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true
+  ; -ADBO-Hasklig-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
+	; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
+	; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
+
 	(remove-hook 'prog-mode-hook
-							 (lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "DejaVu Sans Mono"))) ;; math operators block (∀, ∃, ∈, ∅, etc.)
+							 (lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true"))) ; math operators block (∀, ∈, ∉, ∃, ¬, ∅, ⊖, etc.)
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono"))) ;; supplemental math operators block
+						(lambda () (set-fontset-font "fontset-default" '(#x2A01 . #x2A02) "Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true"))) ; ⨁ ⨂
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "DejaVu Sans Mono"))) ;; math Double-Struck capital letters (𝕃, 𝕍, etc.)
+						(lambda () (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true"))) ; ⩽  ⩾
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Sans Mono"))) ;; letterlike symbols block (ℕ, ℤ, ℍ, etc.)
+						(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono"))) ; supplemental math operators (⨁, ⨂, ⨌, ⨯, ⩽, ⩾  ⋙  ⨌)
+
+	(remove-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "Liberation Sans"))) ; math double-struck capital letters (𝕃, 𝕍, etc.)
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "DejaVu Sans Mono"))) ;; (ceiling, floor, reversed not sign)
+						(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Sans Mono"))) ; letterlike symbols block (ℕ, ℤ, ℝ, ℍ, etc.)
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "DejaVu Sans Mono"))) ;; misc math symbols-A (bag membership, left multimap)
+						(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "DejaVu Sans Mono"))) ; (ceiling ⌈, floor ⌊, ⌐, ⌙)
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Sans Mono"))) ;; misc math symbols-B (⧊, ⦱, etc.)
+						(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "DejaVu Sans Mono"))) ; misc math symbols-A (bag membership, left multimap)
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono"))) ;; APL symbols
+						(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Sans Mono"))) ; misc math symbols-B (⧊, ⦱, etc.)
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Sans Mono"))) ;; math alphanumeric symbols
+						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono"))) ; APL symbols (⍠ ⍋ ⍵ ⍯ ⍕ ⍤ ⍷ etc.)
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ;; arrows (←, ↰, etc.)
+						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ; arrows block (←, ↰, ↦, etc.)
 
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ;; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
+	(remove-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "Liberation Sans"))) ; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
 
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ;; supplemental arrows-A (⟵, ⟻, ⟽, etc.)
-	
+	(remove-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ; supplemental arrows-A (⟵, ⟻, ⟽, etc.)
+
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Sans Mono"))) ;; math alphanumeric symbols
+
 	;; (add-hook 'prog-mode-hook
 	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2a7d . #x2a7e) "Fira Code"))) ; ⩽ ⩾
   ;; ∅   ⋙  ⨌   ⩽  ⩾
@@ -535,18 +547,34 @@ you should place your code here."
 						 ("inst"   .    "∷")
 						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨     ri(ghtwards) quad(ruple) ar(row)
 						 ;; --- Functional ---
-						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
-						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
 						 ("map" .    "⮊") ; ⮕ ⍈ ↦ ⮉ ⮊    ri(ghtwards) bl(ack) ci(rcled) (white)  ar(row)
 						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊
-						 ("cons" .     ":") ;  ς 𝛓 : ⍠  apl (functional symbol quad) col(on)
-						 ("pair" .     "::") ;  ∷ :: 𝝆 𝞺
+						 ("cons" .     "⍠") ; ɔ ς 𝛓 : ⍠  apl (functional symbol quad) col(on)
+
+						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
+						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
+						 ;; ("pair" .     "ꝑ") ; ∷ ꝑ 𝝆 𝞺
+						 ;; ("head" .     "Ћ") ;
+						 ;; ("tail" .     "τ") ; 𝞽 𝞃 τ
+						 ;; ("length" .     "ρ") ;
+						 ;; ("reverse" .     "⊖") ;
+						 ;; ("build-list" .     "ι") ;
+						 ;; ("negate" .     "⌙") ;
+						 ;; ("exact-ceiling" .     "⌈") ;
+						 ;; ("ceiling" .     "⌉") ;
+						 ;; ("exact-floor" .     "⌊") ;
+						 ;; ("floor" .     "⌋") ;
+						 ;; ("sort" .     "⍋") ;
+						 ;; ("compose" .   "∘") ;∘ ○ ◯   <C-k Ob>    ring o(perator)
+						 ;; ("compose1" .  "∘") ;∘ ○ ◯   <C-k Ob>    ring o(perator)
+						 ;; ("take" .     "↑") ;  <C-k -!>   up ar(row)
+						 ;; ("drop" .     "↓") ;  <C-k -v>   do(wn) ar(row)
+						 ;; ("filter" .      "⮋") ; ⬇  ⮋  do(wnwards) bl(ack) ci(rcled) wh(ite) ar(row)
+
 						 ;; ("curry" .   "⫶") ; ⫶ ⋮ ⦙ ⦁   (triple) col(on) ope(rator)
 						 ;; ("<*>" .   "⊛")
 						 ;; ("mappend" .   "⊕") ;⊕ ⨁
 						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
-						 ;; ("compose" .   "∘") ;∘ ○ ◯
-						 ;; ("compose1" .  "∘") ;∘ ○ ◯ ⎄  <C-k Ob>    ring o(perator)
 						 ("apply" .   "⮉") ;⬆ ↥ ⍐ ⮉    up(wards) bl(ack) ci(rcled) (white)  ar(row)
 						 ;; ("."  .   "∘") ; infix use
 						 ;; ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
@@ -554,9 +582,6 @@ you should place your code here."
 						 ;; ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
 						 ;; ("for" .      "∀")
 						 ;; ("for-each" .      "∀")
-						 ;; ("take" .     "↑") ;  <C-k -!>   up ar(row)
-						 ;; ("drop" .     "↓") ;  <C-k -v>   do(wn) ar(row)
-						 ;; ("filter" .      "⮋") ; ⬇  ⮋  do(wnwards) bl(ack) ci(rcled) wh(ite) ar(row)
 						 ;; ("sub" .      "-")
 						 ;; ("+" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑   <C-k +Z>   (n-)ary s(ummation)
 						 ;; ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
@@ -579,7 +604,7 @@ you should place your code here."
 						 ;; ("string-append" .    "◇") ;⧺ ◇ #x20df
 						 ;; ("string-append*" .    "◇") ;⧺ ◇ #x20df
 						 ;; --- Types ---
-						 ("Any" .      "𝐀") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝑈
+						 ("Any" .      "𝐔") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝕌 𝑈 "universal set"
 						 ;; ("All" .      "∀")
 						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
 						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
@@ -587,8 +612,6 @@ you should place your code here."
 						 ("all" .      "∀") ; <C-k FA>   for a(ll)
 						 ;; ("any" .      "∃") ; <C-k TE>    the(re) (exists)
 						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ;; ("Exact-Negative-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ;; ("Exact-Positive-Integer" .   "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Negative-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Nonpositive-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
 						 ("Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
@@ -604,26 +627,21 @@ you should place your code here."
 						 ("Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
 						 ("Nonnegative-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
 						 ("Positive-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ;; ("Negative-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ;; ("Nonpositive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
 						 ;; ("Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ;; ("Nonnegative-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ;; ("Positive-Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
 						 ;; ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
 						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
-						 ;; ("Exact-Nonnegative-Integer"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
 						 ;; ("Index"  .  "𝝢") ;𝐈 ℕ 𝝢 𝐍 𝙉
 						 ("Negative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Nonpositive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Nonnegative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
 						 ("Positive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
-						 ;; ("Negative-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Nonpositive-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Nonnegative-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Positive-Rational"  .  "𝗤") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Index" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
+						 ;; ("Negative-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Nonpositive-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Nonnegative-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Positive-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
+						 ;; ("Index" .      "𝐈") ;ℤ 𝗭 𝐙 𝙕 𝕀 𝐈
 						 ("String" .      "𝕊") ;𝕊 𝐒 𝗦 𝑺
 						 ("Symbol" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
 						 ;; ("Set" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
@@ -667,8 +685,9 @@ you should place your code here."
 						 ;; ("not equal" . "≠")
 						 ;; --- Predicate Logic ---
 						 ;; ("some" .      "∃") ;  <C-k TE>    the(re) (exists)
-						 ;; ("none" .      "∄"≠) ;   (there) (does) not ex(ist)
-						 ;; ("not" .      "¬") ;❗ ￢ ¬ 〜 ～ ~   <C-k NO>
+						 ;; ("none" .      "∄") ;   (there) (does) not ex(ist)
+						 ;; ("not" .      "¬") ￢ ¬ 〜 ～ ~   <C-k NO>
+						 ;; ("negate" .      "⌙") ; ⌙ ❗
 						 ;; ("and" .      "∧") ;∧ ⋀ ⟎   <C-k AN>   l(ogical) a(nd)
 						 ;; ("or" .      "∨") ;∨ ⋁ ⟏    <C-k OR>   l(ogical) or
 						 ;; ("xor" .      "⊻") ;        xor
