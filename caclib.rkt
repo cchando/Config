@@ -3,7 +3,7 @@
 (provide (all-defined-out))
 (require (only-in typed/racket
                   [filter-map orig:filter-map]
-                  [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Void ⦵] [Any 𝐀] [Boolean 𝐁]
+                  [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Void ⦵] [Any 𝐔] [Boolean 𝐁]
                   [Listof 𝑳] [List Tuple] [List ⨂] [List 𝗟] [Option 𝑴]
                   [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [Pairof ⨁] [String 𝕊]
                   [Natural 𝐍] [Number ℂ] [Index 𝐈]
@@ -48,8 +48,8 @@
 ;;                   [let* ∴] [if ?] [case-lambda case-λ] [sort ⍋] [reverse ⊖]
 ;;                   [and ∧] [or ∨] [not ¬] [negate ⌙] [xor ⊻] [nor ⊽] [nand ⊼]
 ;;                   [append <>] [append* <>^] [string-append ++] [string-append* ++^] [append* concat]
-;;                   [map <$>] [foldl ⮲] [foldr ⮳] [map ⮊] [apply ⮉] [filter ⮋] [filter-not ⮋￢]
-;;                   [curry ⫶] [compose1 ∘] [compose1 <<<] [compose ∘^] [identity id] [make-list replicate]
+;;                   [map <$>] [foldl ⮲] [foldr ⮳] [map →] [apply ⮉] [filter φ] [filter-not φ¬]
+;;                   [curry ⫶] [compose1 ∘] [compose1 <<<] [compose ∘^] [identity id]
 ;;                   [+ ∑] [* ∏] [/ ÷] [sqrt √] [modulo %] [<= ≤] [>= ≥]
 ;;                   [member ∈] [findf ∃] [memf ∃s][take ↑] [drop ↓] [make-list replicate]
 ;;                   [append-map concat-map] [remove remove-1st] [remove* \\]
@@ -67,10 +67,12 @@
 (define id identity)
 (define =? equal?)
 (define lookup assoc)
+(define ↑. first)
+(define ↓. rest)
 (define head first)
-(define Ћ head) ; Ћ Ts  ħ h/
+;; (define Ћ head) ; Ћ Ts  ħ h/
 (define tail rest)
-(define τ tail)
+;; (define τ tail)
 (define ρ length)
 (define ⊖ reverse)
 (define ι build-list)
@@ -78,10 +80,9 @@
 (define ∅ empty)
 (define ¬ not)
 (define ⌙ negate)
-(define ～ not)
 (define ⊻ xor)
-(define ⌈ exact-ceiling) ; -> 𝐙
-(define ⌊ exact-floor) ; -> 𝐙
+(define ⌈ exact-ceiling)
+(define ⌊ exact-floor)
 (define ⌉ ceiling)
 (define ⌋ floor)
 (define <> append)
@@ -89,16 +90,15 @@
 (define ++ string-append)
 (define ++. string-append*)
 (define concat append*)
-(define ⍋ sort) ;
+(define ⍋ sort)
 (define <$> map)
-(define ⮊ map)
-(define ⮉ apply)
-(define ⮋ filter)
-(define ⮋¬ filter-not)
+(define → map)
+(define φ filter)
+(define φ¬ filter-not)
 (define ⫶ curry)
 (define <<< compose1)
 (define ∘ compose1)
-(define ∘^ compose)
+(define ∘. compose)
 (define ∑ +)
 (define ∏ *)
 (define √ sqrt)
@@ -202,7 +202,7 @@
 ;; ;; TEST
 ;; ;; foldl with break
 ;; (: ⮲ (∀ (a b) (->* ((a b -> b) b (Listof a)) (#:break Boolean) b)))
-;; (define (⮲ f a xs [bool #t])
+;; (define (⮲ f a xs #:break [bool #t])
 ;;   ( : go : (Listof a) b -> b )
 ;;   (define (go xs acc)
 ;;     (cond [(∨ (empty? xs) bool) acc]
@@ -211,17 +211,12 @@
 ;; (define foldl ⮲)
 
 
-(: test : ∀ (a b) (a -> b) a -> b)
-(define (test f x) (f x))
-
-
-
 ;; ;; foldl with break
 ;; ;; can specify predicate on accumulator or on each element
 ;; (: ⮲ (∀ (a b) (case→
 ;;                [(a b -> b) b (Listof a) -> b]
-;;                [(a b -> b) b (Listof a) #:break (a -> Any) -> b]
-;;                [(a b -> b) b (Listof a) #:break-acc (b -> Any) -> b])))
+;;                [(a b -> b) b (Listof a) (#:break (a -> Any)) -> b]
+;;                [(a b -> b) b (Listof a) (#:break-acc (b -> Any)) -> b])))
 ;; (define ⮲ (case-λ
 ;;       [(f a xs) (infer:foldl f a xs)]
 ;;       [(f a xs pred)
@@ -245,7 +240,7 @@
 ;; ;; can specify predicate on accumulator or on each element
 ;; (: ⮲. (∀ (a) (case→
 ;;               [(a a -> a) (List^ a) -> a]
-;;               [(a a -> a) (List^ a) #:break (a -> Any) -> a]
+;;               [(a a -> a) (List^ a) (#:break (a -> Any)) -> a]
 ;;               [(a a -> a) (List^ a) #:break-acc (a -> Any) -> a])))
 ;; (define ⮲. (case-λ
 ;;     [(f xs) (infer:foldl f (head xs) (tail xs))]
@@ -267,7 +262,7 @@
 ;; ;; foldr with break
 ;; (: ⮳ (∀ (a b) (case→
 ;;                [(a b -> b) b (Listof a) -> b]
-;;                [(a b -> b) b (Listof a) #:break (a -> Any) -> b])))
+;;                [(a b -> b) b (Listof a) (#:break (a -> Any)) -> b])))
 ;; (define ⮳ (case-λ
 ;;     [(f a xs) (infer:foldr f a xs)]
 ;;     [(f a xs pred)
@@ -284,7 +279,7 @@
 ;; (: ⮳. (∀ (a b) (case→
 ;;                [(a b -> b) b (Listof a) -> b]
 ;;                [(a a -> a) (List^ a) -> a]
-;;                [(a a -> a) (List^ a) #:break (a -> Any) -> a])))
+;;                [(a a -> a) (List^ a) (#:break (a -> Any)) -> a])))
 ;; (define ⮳. (case-λ
 ;;     [(f a xs) (infer:foldr f a xs)]
 ;;     [(f a xs pred)
@@ -358,18 +353,18 @@
 
 ;; equivalent to ((map f) >>> (filter pred)), except more efficient,
 ;;    since it avoids building the intermediate list.
-(: map-filter : ∀ (a b) (a -> b) (b -> Any) (Listof a) -> (Listof b))
-(define (map-filter f pred xs)
+(: →∘φ : ∀ (a b) (a -> b) (b -> Any) (Listof a) -> (Listof b))
+(define (→∘φ f pred xs)
   (orig:filter-map (λ ([x : a]) (let* ([res (f x)]) (∧ (pred res) res))) xs))
-(define ⮊⮋ map-filter)
+(define map-filter →∘φ)
 
 
 ;; equivalent to ((filter pred) >>> (map f)), except more efficient,
 ;;    since it avoids building the intermediate list.
-(: filter-map : ∀ (a b) (a -> Any) (a -> b) (Listof a) -> (Listof b))
-(define (filter-map pred f xs)
+(: φ∘→ : ∀ (a b) (a -> Any) (a -> b) (Listof a) -> (Listof b))
+(define (φ∘→ pred f xs)
   (orig:filter-map (λ ([x : a]) (∧ (pred x) (f x))) xs))
-(define ⮋⮊ filter-map)
+(define filter-map φ∘→)
 
 
 ;; checks whether (hash-ref h k) == v for any v in vs. If so, give the v, else give #false.
