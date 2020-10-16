@@ -38,7 +38,7 @@
 
   # Load fonts
   fonts.fonts = with pkgs; [
-    inconsolata fira-code hasklig hanazono
+    inconsolata fira-code hasklig hanazono lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
     corefonts
   ];
 
@@ -49,7 +49,14 @@
         monospace = [
             "Hasklig"
             "Fira Code"
-            "monospace"
+            "Monospace"
+            "Latin Modern Math"
+            "XITS Math"
+            "STIX Two Math"
+            "Libertinus Math"
+            "TeX Gyre Bonum Math"
+            "TeX Gyre Schola Math"
+            "Verdana"
         ];
         sansSerif = [
             "Nimbus Roman"
@@ -191,7 +198,7 @@
 
       # general everyday applications
       #fira-code fira-code-symbols
-      redshfit #xflux
+      redshift #xflux
       nitrogen #wallpaper
       tmux kitty cool-retro-term gnupg #alacritty
       nextcloud-client pwgen hexio theharvester
@@ -199,6 +206,7 @@
       git
       #nixos.gnome3.gnome-clocks
       #sublime-merge #git. There's no nix package in the repo (yet)
+      kde-cli-tools #needed for dolphin file browser
 
       # catamorphic (map/filter)
       ffmpeg pdfgrep graphviz graphicsmagick jhead sourceHighlight
@@ -208,7 +216,7 @@
       # streaming
       aria uget hexchat
 
-      # editors. Remember that an editor merely select data and perform a manipulation on them. Thus an editor's worth is measured by its ability to identify subsets of data and define functions on data. Vim is a good text editor because it defines text well (in terms of columns, rows, words, letters), can select text by pattern or not (i.e. moving the cursor by its movement keys or by searching w/regex); and vim allows easy definition of transforms via macro recording. Of course, these operations are all in terms of selecting data and deleting, inserting, overwriting, or the occasional character case toggle.
+      # editors. Remember that an editor merely selects data and perform a manipulation on them. Thus an editor's worth is measured by its ability to identify subsets of data and define functions on data. Vim is a good text editor because it defines text well (in terms of columns, rows, words, letters), can select text by pattern or not (i.e. moving the cursor by its movement keys or by searching w/regex); and vim allows easy definition of transforms via macro recording. Of course, these operations are all in terms of selecting data and deleting, inserting, overwriting, or the occasional character case toggle.
       # as ever, the most important aspect of an editor is defining type well and making convenient expressions in terms of the atoms/basis.
       # no editor is good if it doesn't support scripting/macros -- does not need to be in text, as long as arbitrary expressions can be elegantly defined it atomic terms.
       vim emacs #howl #text
@@ -254,6 +262,7 @@
       vlc mcomix gpicview cmus qpdfview
       haxor-news newsboat
       gtk2fontsel gucharmap
+      w3m
 
       ## internet
       chromium
@@ -279,8 +288,12 @@
       mgba
 
       # fonts
-      inconsolata-lgc fira-code hasklig hanazono
+      inconsolata-lgc fira-code hasklig hanazono libertine lmodern #gyre-fonts liberation-fonts
+      # math fonts
+      lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
       corefonts #microsoft's core fonts
+
+      gucharmap
 
       # runtimes & compilers
       python37 stack lua luarocks gcc gnumake unzip #unzip IS NEEDED FOR LUAROCKS?!
