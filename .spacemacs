@@ -443,6 +443,12 @@ you should place your code here."
 	          ;; ∀ ∈ ∉ ∃ ∑ Π ⩃ ¬ ∅ ⊖ ⊃ ⊇ ⊋ ⪾ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋸ ⋺ ⋻ ⋽ ∵ ∴ ⋙
 
 	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans")))
+	          ;; ∵ ∴
+	          ;; DejaVu Sans
+
+
+	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math"))) ; arrows block
           	;; ←  ↑  →  ↓  ↰  ↦
           	;; Libertinus Math (map arrow)
