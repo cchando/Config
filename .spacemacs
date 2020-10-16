@@ -63,7 +63,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(hasklig-mode pretty-mode fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode doom-themes
+   dotspacemacs-additional-packages '(dyalog-mode hasklig-mode pretty-mode fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode doom-themes
    ;; solarized-dark-theme tomorrow-blue-theme pheonix-dark-mono-theme apropospriate-light-theme adwaita-theme alect-light-theme
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -395,51 +395,100 @@ you should place your code here."
 	(add-hook 'prog-mode-hook 'smartparens-mode)
 	(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-	; DejaVu Sans Mono
-	; Liberation Sans
-	; Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true
-  ; -ADBO-Hasklig-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
-	; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
-	; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
+	;; Fira Code    diaeresis
+	;; Hasklig      diaeresis
+	;; DejaVu Sans Mono
+  ;; DejaVu Math TeX Gyre
+	;; Latin Modern Math
+	;; XITS Math
+	;; STIX Two Math
+	;; Libertinus Math
+	;; TeX Gyre Bonum Math
+	;; TeX Gyre Schola Math
+	;; Verdana     arrows
 
-	(remove-hook 'prog-mode-hook
-							 (lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true"))) ; math operators block (∀, ∈, ∉, ∃, ¬, ∅, ⊖, etc.)
 
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2A01 . #x2A02) "Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true"))) ; ⨁ ⨂
-
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true"))) ; ⩽  ⩾
-
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono"))) ; supplemental math operators (⨁, ⨂, ⨌, ⨯, ⩽, ⩾  ⋙  ⨌)
-
-	(remove-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "Liberation Sans"))) ; math double-struck capital letters (𝕃, 𝕍, etc.)
-
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Sans Mono"))) ; letterlike symbols block (ℕ, ℤ, ℝ, ℍ, etc.)
+	;; Liberation Sans     arrows
+	;; TeX Gyre Schola
+	;; FreeMono
+	;; FreeSerif
+	;; Fixed     ⍸ ⍷ ⍘ ⍚  (⍹ ⍜ ⍪ ⍤)
+	;; Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true
+  ;; -ADBO-Hasklig-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
+	;; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
+	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "DejaVu Sans Mono"))) ; (ceiling ⌈, floor ⌊, ⌐, ⌙)
+						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "XITS Math")))
+          	;; APL symbols   ⍴ ⍳ ⍵ ⍺ ⍸ ⍶ ⍹ ⍷ ⍪ ⌽ ⍋ ⍨ ⍤ ⍲ ⍱ ⌹ ⍠ ⍯ ⍕ ⌶ ⌷ ⌿⍀⍉⍎⍞⎕
+						;; ←↑→↓∆∇∊∘∧∨⍲⍱¨⍨⍤∩∪∼≡≢≤≥⊂⊃⊖⊢⊣⊤⊥⋄⌈⌊⌶⌷⌹⌽⌿⍀⍉⍋⍎⍒⍕⍝⍞⍪⍳⍸⍴⍵∈⍷⍺⎕○×÷
+
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono")))
+	;; ;; APL symbols   ⍴⍳⍵⍺ ⍸⍶⍹⍷ ⍪ ⌽ ⍋ ⍨ ⍤ ⍲ ⍱ ⌹ ⍠ ⍯ ⍕ ⌶ ⌷ ⌿⍀⍉⍎⍞⎕
+	;; ;; ←↑→↓∆∇∊∘∧∨⍲⍱¨⍨⍤∩∪∼≡≢≤≥⊂⊃⊖⊢⊣⊤⊥⋄⌈⌊⌶⌷⌹⌽⌿⍀⍉⍋⍎⍒⍕⍝⍞⍪⍳⍸⍴⍵∈⍷⍺⎕○×÷
+
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "DejaVu Sans Mono"))) ; misc math symbols-A (bag membership, left multimap)
+						(lambda () (set-fontset-font "fontset-default" #xA8 "Hasklig")))
+						;; ¨  (diaeresis)
+	          ;; need to be rendered in BOLD script
+
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" #x2296 "Fixed")))
+	;; ;; ⊖
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Sans Mono"))) ; misc math symbols-B (⧊, ⦱, etc.)
+						(lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math"))) ; math operators block
+	          ;; ∀ ∈ ∉ ∃ ∑ Π ⩃ ¬ ∅ ⊖ ⊃ ⊇ ⊋ ⪾ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋸ ⋺ ⋻ ⋽ ∵ ∴ ⋙
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono"))) ; APL symbols (⍠ ⍋ ⍵ ⍯ ⍕ ⍤ ⍷ etc.)
+						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math"))) ; arrows block
+          	;; ←  ↑  →  ↓  ↰  ↦
+          	;; Libertinus Math (map arrow)
 
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ; arrows block (←, ↰, ↦, etc.)
+						(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "TeX Gyre Schola Math")))
+ 				   ;; ceiling ⌈    floor ⌊   ⌐   ⌙
+	; TeX Gyre Schola (corners)   Fixed (normal, visible edge)
 
-	(remove-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "Liberation Sans"))) ; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "STIX Two Math")))
+						;; misc math symbols-A (bag membership, left multimap)
 
-	(remove-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Sans Mono"))) ; supplemental arrows-A (⟵, ⟻, ⟽, etc.)
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Math TeX Gyre"))) ; misc math symbols-B
+          	;; ⧊  ⦱
+
+; --------------------------------------------------------------------------------------------------------------------------------
+; --------------------------------------------------------------------------------------------------------------------------------
+
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "DejaVu Math TeX Gyre"))) ; math double-struck capital letters
+	          ;; 𝔹 𝕃 𝕍
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre"))) ; letterlike symbols block
+						;; ℕ ℤ ℝ ℍ ℚ
+
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2A01 . #x2A02) "DejaVu Math TeX Gyre")))
+						;; ⨁ ⨂
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "DejaVu Math TeX Gyre")))
+  					;; ⩽  ⩾
+
+
+	(add-hook 'prog-mode-hook
+						(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono"))) ; supplemental math operators
+          	;; ⨁ ⨂ ⨯ ⩽ ⩾ ⨌
+
+	;; (remove-hook 'prog-mode-hook
+	;; 						 (lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre"))) ; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
+
 
 	;; (add-hook 'prog-mode-hook
 	;; 					(lambda () (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Sans Mono"))) ;; math alphanumeric symbols
@@ -554,8 +603,8 @@ you should place your code here."
 						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
 						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
 						 ;; ("pair" .     "ꝑ") ; ∷ ꝑ 𝝆 𝞺
-						 ;; ("head" .     "Ћ") ;
-						 ;; ("tail" .     "τ") ; 𝞽 𝞃 τ
+						 ("head" .     "↑") ; Ћ ↓
+						 ("tail" .     "↓") ; 𝞽 𝞃 τ
 						 ;; ("length" .     "ρ") ;
 						 ;; ("reverse" .     "⊖") ;
 						 ;; ("build-list" .     "ι") ;
@@ -631,11 +680,11 @@ you should place your code here."
 						 ;; ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
 						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
 						 ;; ("Index"  .  "𝝢") ;𝐈 ℕ 𝝢 𝐍 𝙉
-						 ("Negative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
-						 ("Nonpositive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
-						 ("Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
-						 ("Nonnegative-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
-						 ("Positive-Real"  .  "𝗥") ;ℝ 𝗥 𝐑 𝑹
+						 ("Negative-Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonpositive-Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Nonnegative-Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
+						 ("Positive-Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
 						 ;; ("Negative-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
 						 ;; ("Nonpositive-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
 						 ;; ("Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
@@ -1174,7 +1223,7 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+    (dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
