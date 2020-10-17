@@ -201,6 +201,7 @@
       #fira-code fira-code-symbols
       redshift #xflux
       nitrogen #wallpaper
+      breeze-icons #for dolphin
       tmux kitty cool-retro-term gnupg #alacritty
       nextcloud-client pwgen hexio theharvester
       brightnessctl
@@ -266,6 +267,7 @@
       w3m
 
       ## internet
+      google-chrome
       chromium
       luakit
 #     otter-browser # best of opera
@@ -295,6 +297,7 @@
       corefonts #microsoft's core fonts
 
       gucharmap
+
 
       # runtimes & compilers
       python37 stack lua luarocks gcc gnumake unzip #unzip IS NEEDED FOR LUAROCKS?!
