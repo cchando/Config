@@ -119,7 +119,7 @@ bindsym $mod+Shift+d exec xrandr --output eDP-1 --auto
     bindsym $mod+Shift+v exec vlc
 
     # volume control
-    bindsym $mod+v exec pavucontrol-qt
+    bindsym $mod+v exec pavucontrol #pavucontrol-qt
     
     # start kcolorchooser
     bindsym $mod+Shift+z exec kcolorchooser
