@@ -188,7 +188,37 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '(
 
-															 ;; ("Hasklig"
+															 ;; NOTE: It's not clear what effect these have exactly. Putting a font first sets it as the default,
+															 ;;       but font B may be used for e.g. most math chars, even though font A was specified here
+															 ;;       before B (and supports the same char range), or even if A was specified and B was not.
+
+															 ;; FreeSans, HanaMinA (gen. math, empty set, APL quads), Serif (gen. math, empty set)
+
+															 ;; ("Verdana"
+															 ;; 	:size 13
+															 ;; 	:weight normal
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
+
+															 ;; ("Hasklig"  ;; not, gr/e, le/e, arrows
+															 ;; 	:size 13
+															 ;; 	:weight normal
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
+
+															 ;; ("Inconsolata"
+															 ;; 	:size 15
+															 ;; 	:weight bold
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
+
+															 ("FreeSans"   ;; large size relative to its few math symbols...
+															 	:size 13
+															 	:weight normal
+															 	:width normal
+															 	:powerline-scale 1.1)
+
+															 ;; ("Fira Code"   ;; large size relative to its few math symbols...
 															 ;; 	:size 13
 															 ;; 	:weight normal
 															 ;; 	:width normal
@@ -199,6 +229,30 @@ values."
 															 	:weight bold
 															 	:width normal
 															 	:powerline-scale 1.1)
+
+															 ;; ("TeX Gyre Schola Math"
+															 ;; 	:size 13
+															 ;; 	:weight bold
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
+
+															 ("DejaVu Sans"
+															 	:size 13
+															 	:weight bold
+															 	:width normal
+															 	:powerline-scale 1.1)
+
+															 ("HanaMinA"
+															 	:size 13
+															 	:weight bold
+															 	:width normal
+															 	:powerline-scale 1.1)
+
+															 ;; ("DejaVu Sans Mono"
+															 ;; 	:size 13
+															 ;; 	:weight bold
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -393,114 +447,119 @@ you should place your code here."
 	;; Verdana     arrows
 
 	;; Liberation Sans     arrows
-	;; TeX Gyre Schola     arrows
-	;; FreeMono
-	;; FreeSerif
-	;; Fixed     ⍸ ⍷ ⍘ ⍚  (⍹ ⍜ ⍪ ⍤)
+	;; TeX Gyre Schola (Math?)    arrows
+	;; FreeMono     ⍸ ⍷ ⍘ ⍚  (⍹ ⍜ ⍪ ⍤)
 	;; Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true
   ;; -ADBO-Hasklig-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
-  ;; (add-to-list 'face-ignored-fonts "FreeMono")
-  (add-to-list 'face-ignored-fonts "Source Code Pro")
+  (add-to-list 'face-ignored-fonts "FreeMono")
+  ;; (add-to-list 'face-ignored-fonts "Fira Code")
+  (add-to-list 'face-ignored-fonts "DejaVu Sans Mono")
+  (add-to-list 'face-ignored-fonts "TeX Gyre Schola Math")
+  (add-to-list 'face-ignored-fonts "TeX Gyre Bonum Math")
+  (add-to-list 'face-ignored-fonts "Unifont")
+  ;; (add-to-list 'face-ignored-fonts "Source Code Pro")
   ;; (add-to-list 'face-ignored-fonts "Unifont")
-  (add-to-list 'face-ignored-fonts "Hasklig")
+  ;; (add-to-list 'face-ignored-fonts "Hasklig")
   ;; (add-to-list 'face-ignored-fonts "fixed")
 
 
 
 
 
-	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙ ⋀ ⋁
-	;; ← ↑ → ↓ ∆ ∇ ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺ ∊ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
-	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍇ ⍐ ⍈ ⍗
+	;; nand/nor
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙ ⋀ ⋁
+	;; → ← ↑↓ ∆ ∇ ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺ ∊ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
+	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍭ ⍇ ⍐ ⍈ ⍗
 	;; APL symbols
 	;; ⍲ ⍱ ∆ ∇ ⍫  ≤ ≥ ⍎ ⍕      STIX Two Math
-	;; ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺     DejaVu Sans Mono
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono")))
+	;; ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺     DejaVu Sans (has i, p, a.  want p, a)    DejaVu Sans Mono (most of APL functional symbols)
+	;; FreeMono (i underbar, epsilon underbar)
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono")))
 
-	;; ¨  (diaeresis)
-	;; need to be rendered in BOLD script
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" #xA8 "Hasklig")))
+	;; ;; ¨  (diaeresis)
+	;; ;; need to be rendered in BOLD script
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" #xA8 "Hasklig")))
 
 	;; ;; ⊖
 	;; (add-hook 'prog-mode-hook
 	;; 					(lambda () (set-fontset-font "fontset-default" #x2296 "Fixed")))
 
 	;; math operators block
-	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ∐ ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ∆ ∇ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ≤ ≥ ⋙ ⋀ ⋁
-	;; ≤ ≥     STIX Two Math
-	;; ∀ ∃           DejaVu Sans Mono (bolder ∀ ∃)     DejaVu Math TeX Gyre
-	;; ∈ ⋸ ∉      DejaVu Math TeX Gyre
-	;; ∆ ∇          DejaVu Math TeX Gyre
-	;; ∩ ∪           STIX Two Math
-	⋂  ⋃   ∑  ∐   ⋀ ⋁    probably DejaVu Sans Mono?      STIX Two Math's are overly large
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math")))
+	;; ;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ∐ ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ∆ ∇ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ≤ ≥ ⋙ ⋀ ⋁
+	;; ;; ≤ ≥     STIX Two Math
+	;; ;; ∀ ∃           DejaVu Sans Mono (bolder ∀ ∃)     DejaVu Math TeX Gyre
+	;; ;; ∈ ⋸ ∉      DejaVu Math TeX Gyre
+	;; ;; ∆ ∇          DejaVu Math TeX Gyre
+	;; ;; ∩ (∪ Boolean Integer)           STIX Two Math
+	;; ⋂  ⋃   ∑  ∐   ⋀ ⋁    probably DejaVu Sans Mono?      STIX Two Math's are overly large
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math")))
+	;; ;; DejaVu Sans
 
-	;; DejaVu Sans
-	;; ∵ ∴
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans")))
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans")))
 
-	;; arrows block
-	;; Libertinus Math (map arrow)
-	;; ←  ↑  →  ↓  ↰  ↦
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math")))
+	;; ;; arrows block
+	;; ;; Libertinus Math (map arrow)
+	;; ;; ←  ↑  →  ↓  ↰  ↦
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math")))
 
-	;; ceiling ⌈    floor ⌊   ⌐   ⌙
-	;; TeX Gyre Schola (corners)   Fixed (normal, visible edge)
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "TeX Gyre Schola Math")))
+	;; ;; TODO: ceiling/floor are not contiguous. make sure there are no other modified chars in their range
+	;; ;; ceiling ⌈    floor ⌊   ⌐   ⌙
+	;; ;; TeX Gyre Schola (corners)   Fixed (normal, visible edge)
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "TeX Gyre Schola Math")))
 
-	;; misc math symbols-A (bag membership, left multimap)
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "STIX Two Math")))
+	;; ;; misc math symbols-A (bag membership, left multimap)
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "STIX Two Math")))
 
-	;; ⧊  ⦱
-	;; misc math symbols-B
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Math TeX Gyre")))
+	;; ;; ⧊  ⦱
+	;; ;; misc math symbols-B
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Math TeX Gyre")))
 
 	;; --------------------------------------------------------------------------------------------------------------------------------
 	;; --------------------------------------------------------------------------------------------------------------------------------
 	;; --------------------------------------------------------------------------------------------------------------------------------
 	;; --------------------------------------------------------------------------------------------------------------------------------
 
-	;; 𝔹 𝕃 𝕍
-	;; math double-struck capital letters
-	;; DejaVu Math TeX Gyre
-	;; DejaVu Serif
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "DejaVu Math TeX Gyre")))
+	;; ;; 𝔹 𝕃 𝕍
+	;; ;; math double-struck capital letters
+	;; ;; DejaVu Math TeX Gyre
+	;; ;; DejaVu Serif
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "DejaVu Math TeX Gyre")))
 
-	;; ℕ ℤ ℝ ℍ ℚ
-	;; letterlike symbols block
-	;; DejaVu Math TeX Gyre
-	;; DejaVu Serif
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre")))
+	;; ;; ℕ ℤ ℝ ℍ ℚ
+	;; ;; letterlike symbols block
+	;; ;; DejaVu Math TeX Gyre
+	;; ;; DejaVu Serif
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre")))
 
-	;; ⨁ ⨂
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2A01 . #x2A02) "DejaVu Math TeX Gyre")))
+	;; ;; ⨁ ⨂
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2A01 . #x2A02) "DejaVu Math TeX Gyre")))
 
-	;; ⩽  ⩾
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "DejaVu Math TeX Gyre")))
+	;; ;; ⩽  ⩾
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "DejaVu Math TeX Gyre")))
 
-	;; ⨁ ⨂ ⨯ ⩽ ⩾ ⨌
-	;; supplemental math operators
-	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono")))
+	;; ;; ⨁ ⨂ ⨯ ⩽ ⩾ ⨌
+	;; ;; supplemental math operators
+	;; (add-hook 'prog-mode-hook
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono")))
 
-	;; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
-	(remove-hook 'prog-mode-hook
-							 (lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre")))
+	;; ;; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
+	;; (remove-hook 'prog-mode-hook
+	;; 						 (lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre")))
 
 
 	;; ;; math alphanumeric symbols   𝐋  𝐙  𝑭
