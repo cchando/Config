@@ -11,9 +11,10 @@
       #imports = [ <nixpkgs/nixos/modules/profiles/minimal.nix> ];
     ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Use the systemd-boot EFI boot loader.  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader.grub.devices = "";
 
   networking = {
     hostName = "nixos"; # Define your hostname.
@@ -47,16 +48,16 @@
     defaultFonts = { #used when current/default font cannot display glyphs
                      #TODO: does this override ~/.config/fontconfig/fonts.conf?
         monospace = [
-            "Hasklig"
             "Fira Code"
+            "Hasklig"
             "Monospace"
-            "Latin Modern Math"
+#DejaVu Math TeX Gyre  (should already show up in charmap)
             "XITS Math"
             "STIX Two Math"
-            "Libertinus Math"
+            "Libertinus Math" # good prod, coprod, sum
             "TeX Gyre Bonum Math"
-            "TeX Gyre Schola Math"
-            "Verdana"
+            "TeX Gyre Schola Math" # good inc, nabla, elem
+            "Verdana" # mostly for arrows
         ];
         sansSerif = [
             "Nimbus Roman"

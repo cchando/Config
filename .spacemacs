@@ -437,7 +437,7 @@ you should place your code here."
 	;; ∈ ⋸ ∉      DejaVu Math TeX Gyre
 	;; ∆ ∇          DejaVu Math TeX Gyre
 	;; ∩ ∪           STIX Two Math
-	;; ⋂ ⋃   ⋀ ⋁    probably DejaVu Sans Mono?      STIX Two Math's are overly large
+	⋂  ⋃   ∑  ∐   ⋀ ⋁    probably DejaVu Sans Mono?      STIX Two Math's are overly large
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math")))
 
