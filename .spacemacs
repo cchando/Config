@@ -188,17 +188,17 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '(
 
-															 ("Hasklig"
-															 	:size 13
-															 	:weight normal
-															 	:width normal
-															 	:powerline-scale 1.1)
-
 															 ;; ("Hasklig"
 															 ;; 	:size 13
-															 ;; 	:weight bold
+															 ;; 	:weight normal
 															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
+
+															 ("STIX Two Math"
+															 	:size 13
+															 	:weight bold
+															 	:width normal
+															 	:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -386,7 +386,7 @@ you should place your code here."
   ;; DejaVu Math TeX Gyre
 	;; Latin Modern Math
 	;; XITS Math
-	;; STIX Two Math
+	;; STIX Two Math     ⍲ ⍱ ∆ ∇ ⍫  ≤ ≥ ⍎ ⍕
 	;; Libertinus Math
 	;; TeX Gyre Bonum Math
 	;; TeX Gyre Schola Math
@@ -402,17 +402,22 @@ you should place your code here."
 	;; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
-  (add-to-list 'face-ignored-fonts "FreeMono")
+  ;; (add-to-list 'face-ignored-fonts "FreeMono")
   (add-to-list 'face-ignored-fonts "Source Code Pro")
-  (add-to-list 'face-ignored-fonts "Unifont")
+  ;; (add-to-list 'face-ignored-fonts "Unifont")
   (add-to-list 'face-ignored-fonts "Hasklig")
   ;; (add-to-list 'face-ignored-fonts "fixed")
 
 
+
+
+
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙ ⋀ ⋁
+	;; ← ↑ → ↓ ∆ ∇ ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺ ∊ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
+	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍇ ⍐ ⍈ ⍗
 	;; APL symbols
-	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙
-	;; ← ↑ → ↓ ∆ ∇ ∊ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺ ⎕ ○ × ÷
-  ;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍇ ⍐ ⍈ ⍗
+	;; ⍲ ⍱ ∆ ∇ ⍫  ≤ ≥ ⍎ ⍕      STIX Two Math
+	;; ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺     DejaVu Sans Mono
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono")))
 
@@ -426,7 +431,11 @@ you should place your code here."
 	;; 					(lambda () (set-fontset-font "fontset-default" #x2296 "Fixed")))
 
 	;; math operators block
-	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ∐ ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ∆ ∇ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ≤ ≥ ⋙ ⋀ ⋁
+	;; ≤ ≥     STIX Two Math
+	;; ∀ ∃        DejaVu Sans Mono (bolder ∀ ∃)     DejaVu Math TeX Gyre 
+	;; ∈ ⋸ ∉     DejaVu Math TeX Gyre
+	;; ∆ ∇        DejaVu Math TeX Gyre
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math")))
 
