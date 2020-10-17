@@ -68,7 +68,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(company-tern)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -194,24 +194,9 @@ values."
 															 	:width normal
 															 	:powerline-scale 1.1)
 
-															 ;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
-															 ;; <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|>
-
-															 ;; ("Fira Code"
+															 ;; ("Hasklig"
 															 ;; 	:size 13
-															 ;; 	:weight normal
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("Fira Code Symbol"
-															 ;; 	:size 13
-															 ;; 	:weight normal
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("Source Code Pro"
-															 ;; 	:size 13
-															 ;; 	:weight normal
+															 ;; 	:weight bold
 															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
 
@@ -407,9 +392,8 @@ you should place your code here."
 	;; TeX Gyre Schola Math
 	;; Verdana     arrows
 
-
 	;; Liberation Sans     arrows
-	;; TeX Gyre Schola
+	;; TeX Gyre Schola     arrows
 	;; FreeMono
 	;; FreeSerif
 	;; Fixed     ⍸ ⍷ ⍘ ⍚  (⍹ ⍜ ⍪ ⍤)
@@ -418,90 +402,103 @@ you should place your code here."
 	;; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
+  (add-to-list 'face-ignored-fonts "FreeMono")
+  (add-to-list 'face-ignored-fonts "Source Code Pro")
+  (add-to-list 'face-ignored-fonts "Unifont")
+  (add-to-list 'face-ignored-fonts "Hasklig")
+  ;; (add-to-list 'face-ignored-fonts "fixed")
+
+
+	;; APL symbols
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙
+	;; ← ↑ → ↓ ∆ ∇ ∊ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺ ⎕ ○ × ÷
+  ;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍇ ⍐ ⍈ ⍗
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "XITS Math")))
-          	;; APL symbols   ⍴ ⍳ ⍵ ⍺ ⍸ ⍶ ⍹ ⍷ ⍪ ⌽ ⍋ ⍨ ⍤ ⍲ ⍱ ⌹ ⍠ ⍯ ⍕ ⌶ ⌷ ⌿⍀⍉⍎⍞⎕
-						;; ←↑→↓∆∇∊∘∧∨⍲⍱¨⍨⍤∩∪∼≡≢≤≥⊂⊃⊖⊢⊣⊤⊥⋄⌈⌊⌶⌷⌹⌽⌿⍀⍉⍋⍎⍒⍕⍝⍞⍪⍳⍸⍴⍵∈⍷⍺⎕○×÷
+						(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono")))
 
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono")))
-	;; ;; APL symbols   ⍴⍳⍵⍺ ⍸⍶⍹⍷ ⍪ ⌽ ⍋ ⍨ ⍤ ⍲ ⍱ ⌹ ⍠ ⍯ ⍕ ⌶ ⌷ ⌿⍀⍉⍎⍞⎕
-	;; ;; ←↑→↓∆∇∊∘∧∨⍲⍱¨⍨⍤∩∪∼≡≢≤≥⊂⊃⊖⊢⊣⊤⊥⋄⌈⌊⌶⌷⌹⌽⌿⍀⍉⍋⍎⍒⍕⍝⍞⍪⍳⍸⍴⍵∈⍷⍺⎕○×÷
-
-
+	;; ¨  (diaeresis)
+	;; need to be rendered in BOLD script
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" #xA8 "Hasklig")))
-						;; ¨  (diaeresis)
-	          ;; need to be rendered in BOLD script
 
+	;; ;; ⊖
 	;; (add-hook 'prog-mode-hook
 	;; 					(lambda () (set-fontset-font "fontset-default" #x2296 "Fixed")))
-	;; ;; ⊖
 
+	;; math operators block
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math"))) ; math operators block
-	          ;; ∀ ∈ ∉ ∃ ∑ Π ⩃ ¬ ∅ ⊖ ⊃ ⊇ ⊋ ⪾ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋸ ⋺ ⋻ ⋽ ∵ ∴ ⋙
+						(lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math")))
 
+	;; DejaVu Sans
+	;; ∵ ∴
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans")))
-	          ;; ∵ ∴
-	          ;; DejaVu Sans
 
-
+	;; arrows block
+	;; Libertinus Math (map arrow)
+	;; ←  ↑  →  ↓  ↰  ↦
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math"))) ; arrows block
-          	;; ←  ↑  →  ↓  ↰  ↦
-          	;; Libertinus Math (map arrow)
+						(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math")))
 
+	;; ceiling ⌈    floor ⌊   ⌐   ⌙
+	;; TeX Gyre Schola (corners)   Fixed (normal, visible edge)
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "TeX Gyre Schola Math")))
- 				   ;; ceiling ⌈    floor ⌊   ⌐   ⌙
-	; TeX Gyre Schola (corners)   Fixed (normal, visible edge)
 
+	;; misc math symbols-A (bag membership, left multimap)
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "STIX Two Math")))
-						;; misc math symbols-A (bag membership, left multimap)
 
+	;; ⧊  ⦱
+	;; misc math symbols-B
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Math TeX Gyre"))) ; misc math symbols-B
-          	;; ⧊  ⦱
+						(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Math TeX Gyre")))
 
-; --------------------------------------------------------------------------------------------------------------------------------
-; --------------------------------------------------------------------------------------------------------------------------------
+	;; --------------------------------------------------------------------------------------------------------------------------------
+	;; --------------------------------------------------------------------------------------------------------------------------------
+	;; --------------------------------------------------------------------------------------------------------------------------------
+	;; --------------------------------------------------------------------------------------------------------------------------------
 
-
+	;; 𝔹 𝕃 𝕍
+	;; math double-struck capital letters
+	;; DejaVu Math TeX Gyre
+	;; DejaVu Serif
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "DejaVu Math TeX Gyre"))) ; math double-struck capital letters
-	          ;; 𝔹 𝕃 𝕍
+						(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "DejaVu Math TeX Gyre")))
 
+	;; ℕ ℤ ℝ ℍ ℚ
+	;; letterlike symbols block
+	;; DejaVu Math TeX Gyre
+	;; DejaVu Serif
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre"))) ; letterlike symbols block
-						;; ℕ ℤ ℝ ℍ ℚ
+						(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre")))
 
-
+	;; ⨁ ⨂
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x2A01 . #x2A02) "DejaVu Math TeX Gyre")))
-						;; ⨁ ⨂
 
+	;; ⩽  ⩾
 	(add-hook 'prog-mode-hook
 						(lambda () (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "DejaVu Math TeX Gyre")))
-  					;; ⩽  ⩾
 
-
+	;; ⨁ ⨂ ⨯ ⩽ ⩾ ⨌
+	;; supplemental math operators
 	(add-hook 'prog-mode-hook
-						(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono"))) ; supplemental math operators
-          	;; ⨁ ⨂ ⨯ ⩽ ⩾ ⨌
+						(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono")))
 
-	;; (remove-hook 'prog-mode-hook
-	;; 						 (lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre"))) ; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
+	;; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
+	(remove-hook 'prog-mode-hook
+							 (lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre")))
 
 
+	;; ;; math alphanumeric symbols   𝐋  𝐙  𝑭
 	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Sans Mono"))) ;; math alphanumeric symbols
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Sans Mono")))
 
+	;; ;; ⩽ ⩾
 	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2a7d . #x2a7e) "Fira Code"))) ; ⩽ ⩾
-  ;; ∅   ⋙  ⨌   ⩽  ⩾
+	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2a7d . #x2a7e) "Fira Code")))
 
 	;; (add-to-list 'default-frame-alist
 	;; 						 '(font . "-adbo-hasklig-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
@@ -528,14 +525,8 @@ you should place your code here."
       (mapcar (lambda (el)
                 (setcdr el (string ?\t (cdr el)))
                 el)
-              pretty-alist))
+              prettify-symbols-alist))
 
-  ;; (defun my-ligature-list (ligatures codepoint-start)
-  ;;     "Create an alist of strings to replace with
-  ;; codepoints starting from codepoint-start."
-  ;;     (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
-  ;;       (-zip-pair ligatures codepoints)))
-  ;; (setq my-fira-code-ligatures
   ;;     (let* ((ligs '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
   ;;                   "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
   ;;                   "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
@@ -549,18 +540,33 @@ you should place your code here."
   ;;                   "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
   ;;                   "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
   ;;                   "x" ":" "+" "+" "*")))
-  ;;       (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
-  ;; (defun my-set-fira-code-ligatures ()
-  ;;     "Add fira code ligatures for use with prettify-symbols-mode."
-  ;;     (setq prettify-symbols-alist
-  ;;           (append my-fira-code-ligatures prettify-symbols-alist))
-  ;;     (prettify-symbols-mode))
-  ;; (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
+  (defun my-ligature-list (ligatures codepoint-start)
+      "Create an alist of strings to replace with
+  codepoints starting from codepoint-start."
+      (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
+        (-zip-pair ligatures codepoints)))
+  (setq my-fira-code-ligatures
+      (let* ((ligs '("www" "***" "*>" "*/"
+                    "[]" "::" ":::" ":=" "!!" "!=" "!=="
+                    "-->" "->" "->>" "-<" "-<<" "..." "?=" "/*"
+                    "/**" "/=" "|>" "$>" "++" "+++" "+>" "=="
+                    "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
+                    ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
+                    "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
+                    "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
+                    "<~~" "~@" "~=" "~>" "~~>" "*")))
+        (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
+  (defun my-set-fira-code-ligatures ()
+      "Add fira code ligatures for use with prettify-symbols-mode."
+      (setq prettify-symbols-alist
+            (append my-fira-code-ligatures prettify-symbols-alist))
+      (prettify-symbols-mode))
+  (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
 
 	;; (global-pretty-mode t)
 	;; (pretty-deactivate-groups
-	;;  ; operator, equality and arrow groups interfere with Fira COde operators
-	;; ; logic group interferes with prettify-symbols
+	;;  ;; operator, equality and arrow groups interfere with Fira COde operators
+	;; ;; logic group interferes with prettify-symbols
 	;;  '(:equality :ordering :ordering-double :ordering-triple
 	;; 						 :arrows :arrows-twoheaded :punctuation
 	;; 						 :logic :sets))
@@ -577,8 +583,14 @@ you should place your code here."
 	(remove-hook 'prog-mode-hook 'global-pretty-mode)
 	(remove-hook 'prog-mode-hook 'pretty-mode)
 	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
-	(add-hook 'prog-mode-hook 'hasklig-mode)
-	;; (remove-hook 'prog-mode-hook 'hasklig-mode)
+	(add-hook 'prog-mode-hook 'fira-code-mode)
+	;; (remove-hook 'prog-mode-hook 'fira-code-mode)
+	;; (add-hook 'prog-mode-hook 'hasklig-mode)
+	(remove-hook 'prog-mode-hook 'hasklig-mode)
+
+	;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
+	;;  <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|> != !==
+
 
 	(add-hook
 	 'prog-mode-hook
@@ -630,7 +642,7 @@ you should place your code here."
 						 ;; ("<*>" .   "⊛")
 						 ;; ("mappend" .   "⊕") ;⊕ ⨁
 						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
-						 ("apply" .   "⮉") ;⬆ ↥ ⍐ ⮉    up(wards) bl(ack) ci(rcled) (white)  ar(row)
+						 ("apply" .   "⍙") ;⍙⍏ ⬆ ↥ ⍐ ⮉    up(wards) bl(ack) ci(rcled) (white)  ar(row)
 						 ;; ("."  .   "∘") ; infix use
 						 ;; ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
 						 ;; ("join" .   "µ") ;µ ⨝
@@ -935,7 +947,7 @@ you should place your code here."
 ;; (global-set-key (kbd "C-n") 'keyboard-quit)
 (define-key evil-normal-state-map (kbd "\\") 'isearch-forward-word)
 (define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
-(define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro)
+(define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro) ; q for evil-record-macro
 (define-key evil-normal-state-map (kbd "C-o") 'evil-jump-forward)
 (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-backward)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-paste-pop-next)
