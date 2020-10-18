@@ -200,11 +200,11 @@ values."
 															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
 
-															 ;; ("Hasklig"  ;; not, gr/e, le/e, arrows
-															 ;; 	:size 13
-															 ;; 	:weight normal
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
+															 ("Hasklig"  ;; not, gr/e, le/e, arrows
+															 	:size 12
+															 	:weight normal
+															 	:width normal
+															 	:powerline-scale 1.1)
 
 															 ;; ("Inconsolata"
 															 ;; 	:size 15
@@ -212,11 +212,11 @@ values."
 															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
 
-															 ("FreeSans"   ;; large size relative to its few math symbols...
-															 	:size 13
-															 	:weight normal
-															 	:width normal
-															 	:powerline-scale 1.1)
+															 ;; ("FreeSans"   ;; large size relative to its few math symbols...
+															 ;; 	:size 13
+															 ;; 	:weight normal
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
 
 															 ;; ("Fira Code"   ;; large size relative to its few math symbols...
 															 ;; 	:size 13
@@ -224,11 +224,11 @@ values."
 															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
 
-															 ("STIX Two Math"
-															 	:size 13
-															 	:weight bold
-															 	:width normal
-															 	:powerline-scale 1.1)
+															 ;; ("STIX Two Math"
+															 ;; 	:size 13
+															 ;; 	:weight bold
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
 
 															 ;; ("TeX Gyre Schola Math"
 															 ;; 	:size 13
@@ -236,17 +236,17 @@ values."
 															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
 
-															 ("DejaVu Sans"
-															 	:size 13
-															 	:weight bold
-															 	:width normal
-															 	:powerline-scale 1.1)
+															 ;; ("DejaVu Sans"
+															 ;; 	:size 13
+															 ;; 	:weight bold
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
 
-															 ("HanaMinA"
-															 	:size 13
-															 	:weight bold
-															 	:width normal
-															 	:powerline-scale 1.1)
+															 ;; ("HanaMinA"
+															 ;; 	:size 13
+															 ;; 	:weight bold
+															 ;; 	:width normal
+															 ;; 	:powerline-scale 1.1)
 
 															 ;; ("DejaVu Sans Mono"
 															 ;; 	:size 13
@@ -454,18 +454,20 @@ you should place your code here."
 	;; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
-  (add-to-list 'face-ignored-fonts "FreeMono")
+  ;; (add-to-list 'face-ignored-fonts "FreeMono")
   ;; (add-to-list 'face-ignored-fonts "Fira Code")
-  (add-to-list 'face-ignored-fonts "DejaVu Sans Mono")
-  (add-to-list 'face-ignored-fonts "TeX Gyre Schola Math")
-  (add-to-list 'face-ignored-fonts "TeX Gyre Bonum Math")
-  (add-to-list 'face-ignored-fonts "Unifont")
+  ;; (add-to-list 'face-ignored-fonts "DejaVu Sans Mono")
+  ;; (add-to-list 'face-ignored-fonts "TeX Gyre Schola Math")
+  ;; (add-to-list 'face-ignored-fonts "TeX Gyre Bonum Math")
+  ;; (add-to-list 'face-ignored-fonts "Unifont")
   ;; (add-to-list 'face-ignored-fonts "Source Code Pro")
   ;; (add-to-list 'face-ignored-fonts "Unifont")
   ;; (add-to-list 'face-ignored-fonts "Hasklig")
   ;; (add-to-list 'face-ignored-fonts "fixed")
 
-
+	(set-fontset-font "fontset-default" '(#x2336 . #x234A) "HanaMinA")
+	(set-fontset-font "fontset-default" '(#x234F . #x2350) "HanaMinA")
+	(set-fontset-font "fontset-default" '(#x2356 . #x2357) "HanaMinA")
 
 
 
