@@ -468,7 +468,38 @@ you should place your code here."
 	(set-fontset-font "fontset-default" '(#x2336 . #x234A) "HanaMinA")
 	(set-fontset-font "fontset-default" '(#x234F . #x2350) "HanaMinA")
 	(set-fontset-font "fontset-default" '(#x2356 . #x2357) "HanaMinA")
-
+	(set-fontset-font "fontset-default" #x235A "HanaMinA") ; diamond underbar
+	(set-fontset-font "fontset-default" #x235C "HanaMinA") ; ⍜  circle underbar
+	(set-fontset-font "fontset-default" #x2360 "HanaMinA") ; quad colon
+	(set-fontset-font "fontset-default" #x2365 "HanaMinA") ; ⍥  circle diaeresis
+	(set-fontset-font "fontset-default" '(#x236D . #x2370) "HanaMinA")
+	(set-fontset-font "fontset-default" #x2378 "HanaMinA") ; iota bar
+	(set-fontset-font "fontset-default" #x2377 "HanaMinA") ; epsilon bar
+	(set-fontset-font "fontset-default" '(#x235A . #x235C) "DejaVu Sans Mono") ; ⍚ ⍛ ⍜
+	(set-fontset-font "fontset-default" #x2373 "DejaVu Sans Mono") ; iota
+	(set-fontset-font "fontset-default" #x2374 "DejaVu Sans Mono") ; rho
+	(set-fontset-font "fontset-default" #x2375 "DejaVu Sans Mono") ; omega
+	(set-fontset-font "fontset-default" #x2376 "DejaVu Sans Mono") ; alpha bar
+	(set-fontset-font "fontset-default" #x2378 "DejaVu Sans Mono") ; iota bar
+	(set-fontset-font "fontset-default" #x2379 "DejaVu Sans Mono") ; omega bar
+	(set-fontset-font "fontset-default" #x237A "DejaVu Sans Mono") ; alpha
+	(set-fontset-font "fontset-default" #x236A "DejaVu Sans Mono") ; comma bar
+	(set-fontset-font "fontset-default" #x236B "DejaVu Sans Mono") ; del tilde
+	(set-fontset-font "fontset-default" #x235F "DejaVu Sans Mono") ; circle star
+	(set-fontset-font "fontset-default" '(#x2363 . #x2364) "DejaVu Sans Mono") ; star diaeresis, jot diaeresis
+	(set-fontset-font "fontset-default" '(#x2366 . #x2369) "DejaVu Sans Mono") ;
+	(set-fontset-font "fontset-default" #x2377 "DejaVu Sans Mono") ; epsilon bar
+	(set-fontset-font "fontset-default" #x235B "DejaVu Sans") ; jot underbar
+	(set-fontset-font "fontset-default" #x2373 "DejaVu Sans") ; iota
+	(set-fontset-font "fontset-default" #x2374 "DejaVu Sans") ; rho
+	(set-fontset-font "fontset-default" #x2375 "DejaVu Sans") ; omega
+	(set-fontset-font "fontset-default" #x237A "DejaVu Sans") ; alpha
+	(set-fontset-font "fontset-default" #x235F "FreeMono") ; circle star
+	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
+	(set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSerif") ; arrows
+	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math") ; arrows
+	(set-fontset-font "fontset-default" '(#x2190 . #x21FF) "HanaMinA") ; arrows
+	(set-fontset-font "fontset-default" '(#x2208 . #x2209) "HanaMinA") ; elem, notElem
 
 
 	;; nand/nor
