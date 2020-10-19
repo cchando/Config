@@ -192,67 +192,17 @@ values."
 															 ;;       but font B may be used for e.g. most math chars, even though font A was specified here
 															 ;;       before B (and supports the same char range), or even if A was specified and B was not.
 
-															 ;; FreeSans, HanaMinA (gen. math, empty set, APL quads), Serif (gen. math, empty set)
-
-															 ;; ("Verdana"
-															 ;; 	:size 13
+															 ;; ("Hasklig"  ;; not, gr/e, le/e, arrows
+															 ;; 	:size 12
 															 ;; 	:weight normal
 															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
 
-															 ("Hasklig"  ;; not, gr/e, le/e, arrows
+															 ("Fira Code"
 															 	:size 12
 															 	:weight normal
-															 	:width normal
+															 	:width condensed
 															 	:powerline-scale 1.1)
-
-															 ;; ("Inconsolata"
-															 ;; 	:size 15
-															 ;; 	:weight bold
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("FreeSans"   ;; large size relative to its few math symbols...
-															 ;; 	:size 13
-															 ;; 	:weight normal
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("Fira Code"   ;; large size relative to its few math symbols...
-															 ;; 	:size 13
-															 ;; 	:weight normal
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("STIX Two Math"
-															 ;; 	:size 13
-															 ;; 	:weight bold
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("TeX Gyre Schola Math"
-															 ;; 	:size 13
-															 ;; 	:weight bold
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("DejaVu Sans"
-															 ;; 	:size 13
-															 ;; 	:weight bold
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("HanaMinA"
-															 ;; 	:size 13
-															 ;; 	:weight bold
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ;; ("DejaVu Sans Mono"
-															 ;; 	:size 13
-															 ;; 	:weight bold
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -454,73 +404,116 @@ you should place your code here."
 	;; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
-  ;; (add-to-list 'face-ignored-fonts "FreeMono")
+	(add-to-list 'face-ignored-fonts "FreeMono")
   ;; (add-to-list 'face-ignored-fonts "Fira Code")
   ;; (add-to-list 'face-ignored-fonts "DejaVu Sans Mono")
-  ;; (add-to-list 'face-ignored-fonts "TeX Gyre Schola Math")
-  ;; (add-to-list 'face-ignored-fonts "TeX Gyre Bonum Math")
-  ;; (add-to-list 'face-ignored-fonts "Unifont")
-  ;; (add-to-list 'face-ignored-fonts "Source Code Pro")
-  ;; (add-to-list 'face-ignored-fonts "Unifont")
-  ;; (add-to-list 'face-ignored-fonts "Hasklig")
-  ;; (add-to-list 'face-ignored-fonts "fixed")
+  (add-to-list 'face-ignored-fonts "TeX Gyre Schola Math")
+  (add-to-list 'face-ignored-fonts "TeX Gyre Bonum Math")
+  (add-to-list 'face-ignored-fonts "Latin Modern Math")
+  (add-to-list 'face-ignored-fonts "Source Code Pro")
+  (add-to-list 'face-ignored-fonts "Unifont")
+  (add-to-list 'face-ignored-fonts "Fixed")
+  (add-to-list 'face-ignored-fonts "fixed")
 
-	(set-fontset-font "fontset-default" '(#x2336 . #x234A) "HanaMinA")
-	(set-fontset-font "fontset-default" '(#x234F . #x2350) "HanaMinA")
-	(set-fontset-font "fontset-default" '(#x2356 . #x2357) "HanaMinA")
+
+	;; NOTE: when this list is too long, the earlier ones get pushed off!!
+
+	(set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math") ; math operators block
+	(set-fontset-font "fontset-default" '(#x2336 . #x237A) "HanaMinA") ; APL symbols
+	(set-fontset-font "fontset-default" '(#x2336 . #x237A) "STIX Two Math") ; APL symbols
+	(set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "STIX Two Math") ; mathematical alphanumeric symbols
+	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "STIX Two Math") ; letterlike symbols
+	(set-fontset-font "fontset-default" #x233D "DejaVu Sans Mono") ; ⌽
+	;; (set-fontset-font "fontset-default" '(#x2336 . #x234A) "HanaMinA") ; I-beam to up-tack underbar
+	(set-fontset-font "fontset-default" '(#x234F . #x2350) "HanaMinA") ; upwards vane, quad upwards arrow
+	(set-fontset-font "fontset-default" '(#x2356 . #x2357) "HanaMinA") ; downwards vane, quad downwards arrow
+	(set-fontset-font "fontset-default" '(#x2345 . #x2346) "HanaMinA") ; left / right vanes
 	(set-fontset-font "fontset-default" #x235A "HanaMinA") ; diamond underbar
-	(set-fontset-font "fontset-default" #x235C "HanaMinA") ; ⍜  circle underbar
 	(set-fontset-font "fontset-default" #x2360 "HanaMinA") ; quad colon
-	(set-fontset-font "fontset-default" #x2365 "HanaMinA") ; ⍥  circle diaeresis
+	;; (set-fontset-font "fontset-default" #x2365 "HanaMinA") ; ⍥  circle diaeresis (large)
 	(set-fontset-font "fontset-default" '(#x236D . #x2370) "HanaMinA")
 	(set-fontset-font "fontset-default" #x2378 "HanaMinA") ; iota bar
-	(set-fontset-font "fontset-default" #x2377 "HanaMinA") ; epsilon bar
+	(set-fontset-font "fontset-default" #x2377 "HanaMinA") ; epsilon bar (alternate)
 	(set-fontset-font "fontset-default" '(#x235A . #x235C) "DejaVu Sans Mono") ; ⍚ ⍛ ⍜
-	(set-fontset-font "fontset-default" #x2373 "DejaVu Sans Mono") ; iota
-	(set-fontset-font "fontset-default" #x2374 "DejaVu Sans Mono") ; rho
-	(set-fontset-font "fontset-default" #x2375 "DejaVu Sans Mono") ; omega
-	(set-fontset-font "fontset-default" #x2376 "DejaVu Sans Mono") ; alpha bar
-	(set-fontset-font "fontset-default" #x2378 "DejaVu Sans Mono") ; iota bar
-	(set-fontset-font "fontset-default" #x2379 "DejaVu Sans Mono") ; omega bar
-	(set-fontset-font "fontset-default" #x237A "DejaVu Sans Mono") ; alpha
-	(set-fontset-font "fontset-default" #x236A "DejaVu Sans Mono") ; comma bar
-	(set-fontset-font "fontset-default" #x236B "DejaVu Sans Mono") ; del tilde
-	(set-fontset-font "fontset-default" #x235F "DejaVu Sans Mono") ; circle star
-	(set-fontset-font "fontset-default" '(#x2363 . #x2364) "DejaVu Sans Mono") ; star diaeresis, jot diaeresis
-	(set-fontset-font "fontset-default" '(#x2366 . #x2369) "DejaVu Sans Mono") ;
-	(set-fontset-font "fontset-default" #x2377 "DejaVu Sans Mono") ; epsilon bar
-	(set-fontset-font "fontset-default" #x235B "DejaVu Sans") ; jot underbar
-	(set-fontset-font "fontset-default" #x2373 "DejaVu Sans") ; iota
-	(set-fontset-font "fontset-default" #x2374 "DejaVu Sans") ; rho
-	(set-fontset-font "fontset-default" #x2375 "DejaVu Sans") ; omega
-	(set-fontset-font "fontset-default" #x237A "DejaVu Sans") ; alpha
-	(set-fontset-font "fontset-default" #x235F "FreeMono") ; circle star
-	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
-	(set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSerif") ; arrows
-	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math") ; arrows
-	(set-fontset-font "fontset-default" '(#x2190 . #x21FF) "HanaMinA") ; arrows
-	(set-fontset-font "fontset-default" '(#x2208 . #x2209) "HanaMinA") ; elem, notElem
+	;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚
+	(set-fontset-font "fontset-default" #x2364 "HanaMinA") ; ⍛
+	;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans Mono") ; ⍜
+	(set-fontset-font "fontset-default" #x2374 "DejaVu Sans Mono") ; rho   ⍴
+	;; (set-fontset-font "fontset-default" #x2373 "DejaVu Sans Mono") ; iota ⍳
+	(set-fontset-font "fontset-default" #x2375 "DejaVu Sans Mono") ; omega   ⍵
+	(set-fontset-font "fontset-default" #x237A "DejaVu Sans Mono") ; alpha   ⍺
+	(set-fontset-font "fontset-default" #x2376 "DejaVu Sans Mono") ; alpha bar    ⍶
+	(set-fontset-font "fontset-default" #x2378 "DejaVu Sans Mono") ; iota bar    ⍸
+	(set-fontset-font "fontset-default" #x2379 "DejaVu Sans Mono") ; omega bar   ⍹
 
+	(set-fontset-font "fontset-default" '(#x2376 . #x2379) "DejaVu Sans Mono") ; alpha bar, epsilon bar, iota bar, omega bar
+	;; (set-fontset-font "fontset-default" #x236B "DejaVu Sans Mono") ; del tilde      or STIX Two Math
+	(set-fontset-font "fontset-default" '(#x2366 . #x2369) "DejaVu Sans Mono") ; ⍦ ⍧ ⍨ ⍩
+	;; (set-fontset-font "fontset-default" #x2377 "DejaVu Sans Mono") ; epsilon bar
+	(set-fontset-font "fontset-default" #x2373 "DejaVu Sans") ; iota
+	;; ;; (set-fontset-font "fontset-default" #x2374 "DejaVu Sans") ; rho
+	;; (set-fontset-font "fontset-default" #x2375 "DejaVu Sans") ; omega
+	;; ;; (set-fontset-font "fontset-default" #x237A "DejaVu Sans") ; alpha
+	;; ;; (set-fontset-font "fontset-default" #x235B "FreeMono") ; jot underbar
+	;; (set-fontset-font "fontset-default" #x235F "STIX Two Math") ; circle star
+	;; ;; (set-fontset-font "fontset-default" #x2378 "FreeMono") ; iota underbar
+	;; ;; (set-fontset-font "fontset-default" '(#x2208 . #x2209) "HanaMinA") ; elem, notElem
+	(set-fontset-font "fontset-default" '(#x2308 . #x230B) "FreeSerif") ; left/right floor/ceiling  FreeMono (corners), FreeSerif
+	;; (set-fontset-font "fontset-default" '(#x2206 . #x2207) "TeX Gyre Schola Math") ; delta, nabla
+	;; (set-fontset-font "fontset-default" '(#x2234 . #x2237) "STIX Math Two") ; therefore, because, ratio, proportion
+	;; (set-fontset-font "fontset-default" #x2205 "Serif") ; empty set
+	;; (set-fontset-font "fontset-default" #x22C6 "DejaVu Math TeX Gyre") ; star operator (APL)
+
+	;; (set-fontset-font "fontset-default" #x220F "Liberation Serif") ; product
+	;; (set-fontset-font "fontset-default" #x2211 "Liberation Serif") ; sum
+	;; (set-fontset-font "fontset-default" #x2205 "STIX Math Two") ; empty set
+	;; (set-fontset-font "fontset-default" #x223C "STIX Math Two") ; tilde
+	;; (set-fontset-font "fontset-default" #x220A "STIX Math Two") ; small elem
+	;; (set-fontset-font "fontset-default" #x220D "STIX Math Two") ; small contains
+	;; (set-fontset-font "fontset-default" '(#x2260 . #x2262) "STIX Math Two") ; equal, NE, NEQ
+	;; (set-fontset-font "fontset-default" '(#x2282 . #x228B) "STIX Math Two") ; subset, superset, etc
+	;; (set-fontset-font "fontset-default" '(#x2295 . #x2298) "STIX Math Two") ; circled plus, circled times, etc
+	(set-fontset-font "fontset-default" '(#x2208 . #x2209) "DejaVu Math TeX Gyre") ; elem / notElem
+	(set-fontset-font "fontset-default" '(#x220B . #x220C) "DejaVu Math TeX Gyre") ; contains / notContains
+	;; (set-fontset-font "fontset-default" #x236A "DejaVu Sans Mono") ; comma bar   --------------------------------------------------------------
+	;; (set-fontset-font "fontset-default" #x235F "DejaVu Sans Mono") ; circle star --------------------------------------------------------------
+	;; (set-fontset-font "fontset-default" #x235B "DejaVu Sans") ; jot underbar       ------------------------------------------------------------
+	;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans") ; circle underbar    ------------------------------------------------------------
+	;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚ ------------------------------------------------------------------------
+	;; (set-fontset-font "fontset-default" '(#x2363 . #x2364) "") ; ⍤ ⍣
+
+	;; (set-fontset-font "fontset-default" #x2229 "DejaVu Serif") ; intersection
+	(set-fontset-font "fontset-default" #x222A "DejaVu Serif") ; union
+
+
+	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
+	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSerif") ; arrows
+	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math") ; arrows
+	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "HanaMinA") ; arrows
+
+
+
+	;; TODO TODO TODO TODO!!!   intersection 2229    union 222A
+
+	;; grade up 234B S2M
+	;; grade down 2352 S2M
+	;; quad up caret 2353 S2M
+	;; down tack jot 2355 S2M
+	;; up tack jot 234E S2M
+	;; turned-not sign 2319 S2M
+
+	;; ←  ↑  →  ↓  ↰  ↦
 
 	;; nand/nor
-	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙ ⋀ ⋁
-	;; → ← ↑↓ ∆ ∇ ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺ ∊ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ⊻ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙ ⋀ ⋁
+	;; → ← ↑ ↓ ∆ ∇ ⍴ ∊ ⍳ ⍺ ⍵ ⍷ ⍸ ⍶ ⍹ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
 	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍭ ⍇ ⍐ ⍈ ⍗
 	;; APL symbols
 	;; ⍲ ⍱ ∆ ∇ ⍫  ≤ ≥ ⍎ ⍕      STIX Two Math
-	;; ⍳ ⍸ ⍴ ⍵ ∈ ⍷ ⍺     DejaVu Sans (has i, p, a.  want p, a)    DejaVu Sans Mono (most of APL functional symbols)
-	;; FreeMono (i underbar, epsilon underbar)
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono")))
 
-	;; ;; ¨  (diaeresis)
-	;; ;; need to be rendered in BOLD script
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" #xA8 "Hasklig")))
+	;; ¨  (diaeresis)
 
-	;; ;; ⊖
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" #x2296 "Fixed")))
+	;; ⊖
 
 	;; math operators block
 	;; ;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ∐ ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ∆ ∇ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ≤ ≥ ⋙ ⋀ ⋁
@@ -530,28 +523,8 @@ you should place your code here."
 	;; ;; ∆ ∇          DejaVu Math TeX Gyre
 	;; ;; ∩ (∪ Boolean Integer)           STIX Two Math
 	;; ⋂  ⋃   ∑  ∐   ⋀ ⋁    probably DejaVu Sans Mono?      STIX Two Math's are overly large
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math")))
-	;; ;; DejaVu Sans
-
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans")))
-
-	;; ;; arrows block
-	;; ;; Libertinus Math (map arrow)
-	;; ;; ←  ↑  →  ↓  ↰  ↦
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math")))
-
-	;; ;; TODO: ceiling/floor are not contiguous. make sure there are no other modified chars in their range
-	;; ;; ceiling ⌈    floor ⌊   ⌐   ⌙
-	;; ;; TeX Gyre Schola (corners)   Fixed (normal, visible edge)
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2308 . #x2310) "TeX Gyre Schola Math")))
 
 	;; ;; misc math symbols-A (bag membership, left multimap)
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x27C0 . #x27EF) "STIX Two Math")))
 
 	;; ;; ⧊  ⦱
 	;; ;; misc math symbols-B
@@ -618,57 +591,42 @@ you should place your code here."
 
 
 
-
-;; Font Ligatures
+  ;; Font Ligatures
   (defun my-correct-symbol-bounds (prettify-symbols-alist)
-      "Prepend a TAB character to each symbol in this alist,
+    "Prepend a TAB character to each symbol in this alist,
   this way compose-region called by prettify-symbols-mode
   will use the correct width of the symbols
   instead of the width measured by char-width."
-      (mapcar (lambda (el)
-                (setcdr el (string ?\t (cdr el)))
-                el)
-              prettify-symbols-alist))
-
-  ;;     (let* ((ligs '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
-  ;;                   "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
-  ;;                   "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
-  ;;                   "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
-  ;;                   ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
-  ;;                   "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
-  ;;                   "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
-  ;;                   "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
-  ;;                   ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
-  ;;                   "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
-  ;;                   "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
-  ;;                   "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
-  ;;                   "x" ":" "+" "+" "*")))
+    (mapcar (lambda (el)
+              (setcdr el (string ?\t (cdr el)))
+              el)
+            prettify-symbols-alist))
   (defun my-ligature-list (ligatures codepoint-start)
-      "Create an alist of strings to replace with
+    "Create an alist of strings to replace with
   codepoints starting from codepoint-start."
-      (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
-        (-zip-pair ligatures codepoints)))
+    (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
+      (-zip-pair ligatures codepoints)))
   (setq my-fira-code-ligatures
-      (let* ((ligs '("www" "***" "*>" "*/"
-                    "[]" "::" ":::" ":=" "!!" "!=" "!=="
-                    "-->" "->" "->>" "-<" "-<<" "..." "?=" "/*"
-                    "/**" "/=" "|>" "$>" "++" "+++" "+>" "=="
-                    "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
-                    ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
-                    "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
-                    "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
-                    "<~~" "~@" "~=" "~>" "~~>" "*")))
-        (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
+        (let* ((ligs '("***" "*>" "*/"  "&&" "||"
+                       "[]" "::" ":::" ":=" "!!" "!=" "!=="
+                       "-->" "->" "->>" "-<" "-<<" "..." "?=" "/*"
+                       "/**" "/=" "|>" "$>" "++" "+++" "+>" "=="
+                       "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
+                       ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
+                       "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
+                       "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
+                       "<~~" "~@" "~=" "~>" "~~>" "*")))
+          (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
   (defun my-set-fira-code-ligatures ()
-      "Add fira code ligatures for use with prettify-symbols-mode."
-      (setq prettify-symbols-alist
-            (append my-fira-code-ligatures prettify-symbols-alist))
-      (prettify-symbols-mode))
+    "Add fira code ligatures for use with prettify-symbols-mode."
+    (setq prettify-symbols-alist
+          (append my-fira-code-ligatures prettify-symbols-alist))
+    (prettify-symbols-mode))
   (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
 
 	;; (global-pretty-mode t)
 	;; (pretty-deactivate-groups
-	;;  ;; operator, equality and arrow groups interfere with Fira COde operators
+	;;  ;; operator, equality and arrow groups interfere with Fira Code operators
 	;; ;; logic group interferes with prettify-symbols
 	;;  '(:equality :ordering :ordering-double :ordering-triple
 	;; 						 :arrows :arrows-twoheaded :punctuation
@@ -689,7 +647,7 @@ you should place your code here."
 	(add-hook 'prog-mode-hook 'fira-code-mode)
 	;; (remove-hook 'prog-mode-hook 'fira-code-mode)
 	;; (add-hook 'prog-mode-hook 'hasklig-mode)
-	(remove-hook 'prog-mode-hook 'hasklig-mode)
+	;; (remove-hook 'prog-mode-hook 'hasklig-mode)
 
 	;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
 	;;  <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|> != !==
@@ -1287,64 +1245,64 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
-   ["#19171c" "#be4678" "#2a9292" "#a06e3b" "#576ddb" "#955ae7" "#576ddb" "#8b8792"])
+	 ["#19171c" "#be4678" "#2a9292" "#a06e3b" "#576ddb" "#955ae7" "#576ddb" "#8b8792"])
  '(compilation-message-face (quote default))
  '(ensime-sem-high-faces
-   (quote
-    ((var :foreground "#000000" :underline
-          (:style wave :color "yellow"))
-     (val :foreground "#000000")
-     (varField :foreground "#600e7a" :slant italic)
-     (valField :foreground "#600e7a" :slant italic)
-     (functionCall :foreground "#000000" :slant italic)
-     (implicitConversion :underline
-                         (:color "#c0c0c0"))
-     (implicitParams :underline
-                     (:color "#c0c0c0"))
-     (operator :foreground "#000080")
-     (param :foreground "#000000")
-     (class :foreground "#20999d")
-     (trait :foreground "#20999d" :slant italic)
-     (object :foreground "#5974ab" :slant italic)
-     (package :foreground "#000000")
-     (deprecated :strike-through "#000000"))))
+	 (quote
+		((var :foreground "#000000" :underline
+					(:style wave :color "yellow"))
+		 (val :foreground "#000000")
+		 (varField :foreground "#600e7a" :slant italic)
+		 (valField :foreground "#600e7a" :slant italic)
+		 (functionCall :foreground "#000000" :slant italic)
+		 (implicitConversion :underline
+												 (:color "#c0c0c0"))
+		 (implicitParams :underline
+										 (:color "#c0c0c0"))
+		 (operator :foreground "#000080")
+		 (param :foreground "#000000")
+		 (class :foreground "#20999d")
+		 (trait :foreground "#20999d" :slant italic)
+		 (object :foreground "#5974ab" :slant italic)
+		 (package :foreground "#000000")
+		 (deprecated :strike-through "#000000"))))
  '(evil-snipe-enable-highlight nil)
  '(evil-snipe-enable-incremental-highlight nil)
  '(evil-surround-pairs-alist
-   (quote
-    ((105 "(" . ")")
-     (108 "[" . "]")
-     (40 "( " . " )")
-     (91 "[ " . " ]")
-     (123 "{ " . " }")
-     (41 "(" . ")")
-     (93 "[" . "]")
-     (125 "{" . "}")
-     (35 "#{" . "}")
-     (98 "(" . ")")
-     (66 "{" . "}")
-     (62 "<" . ">")
-     (116 . evil-surround-read-tag)
-     (60 . evil-surround-read-tag)
-     (102 . evil-surround-function))))
+	 (quote
+		((105 "(" . ")")
+		 (108 "[" . "]")
+		 (40 "( " . " )")
+		 (91 "[ " . " ]")
+		 (123 "{ " . " }")
+		 (41 "(" . ")")
+		 (93 "[" . "]")
+		 (125 "{" . "}")
+		 (35 "#{" . "}")
+		 (98 "(" . ")")
+		 (66 "{" . "}")
+		 (62 "<" . ">")
+		 (116 . evil-surround-read-tag)
+		 (60 . evil-surround-read-tag)
+		 (102 . evil-surround-function))))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#010F1D" t)
  '(global-evil-search-highlight-persist nil)
  '(highlight-changes-colors (quote ("#EF5350" "#7E57C2")))
  '(highlight-tail-colors
-   (quote
-    (("#010F1D" . 0)
-     ("#B44322" . 20)
-     ("#34A18C" . 30)
-     ("#3172FC" . 50)
-     ("#B49C34" . 60)
-     ("#B44322" . 70)
-     ("#8C46BC" . 85)
-     ("#010F1D" . 100))))
+	 (quote
+		(("#010F1D" . 0)
+		 ("#B44322" . 20)
+		 ("#34A18C" . 30)
+		 ("#3172FC" . 50)
+		 ("#B49C34" . 60)
+		 ("#B44322" . 70)
+		 ("#8C46BC" . 85)
+		 ("#010F1D" . 100))))
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
-   (quote
-    (dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+	 (quote
+		(xah-math-input dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
@@ -1352,32 +1310,35 @@ you should place your code here."
  '(standard-indent 4)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#C792EA")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#FFEB95")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#F78C6C")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#7FDBCA")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#82AAFF"))))
+	 (quote
+		((20 . "#C792EA")
+		 (40 . "#CF4F1F")
+		 (60 . "#C26C0F")
+		 (80 . "#FFEB95")
+		 (100 . "#AB8C00")
+		 (120 . "#A18F00")
+		 (140 . "#989200")
+		 (160 . "#8E9500")
+		 (180 . "#F78C6C")
+		 (200 . "#729A1E")
+		 (220 . "#609C3C")
+		 (240 . "#4E9D5B")
+		 (260 . "#3C9F79")
+		 (280 . "#7FDBCA")
+		 (300 . "#299BA6")
+		 (320 . "#2896B5")
+		 (340 . "#2790C3")
+		 (360 . "#82AAFF"))))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
-   (quote
-    (unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF"))))
+	 (quote
+		(unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(font-lock-comment-face ((t (:inherit italic :foreground "#A7ABB2" :underline nil))))
+ '(font-lock-constant-face ((t (:inherit italic :foreground "#73777D" :underline nil))))
+ '(font-lock-keyword-face ((t (:inherit italic :foreground "#73777D" :underline nil))))
+ '(sp-show-pair-match-content-face ((t (:underline nil))) t))
