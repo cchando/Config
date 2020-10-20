@@ -1,0 +1,1076 @@
+;;; cac-math-input.el --- a minor mode for inputting math and Unicode symbols. -*- coding: utf-8; lexical-binding: t; -*-
+
+;; Copyright © 2010-2020 by Xah Lee
+
+;; Author: Xah Lee ( http://xahlee.info/ )
+;; Version: 2.7.20200216233900
+;; Package-Version: 20200217.740
+;; Package-Commit: c1e72c4578a134e9aa3ec9ef425038d8c16fba94
+;; Created: 08 Dec 2010
+;; Package-Requires: ((emacs "24.1"))
+;; Keywords: abbrev, convenience, unicode, math, LaTex
+;; License: GPL v3
+;; URL: http://ergoemacs.org/emacs/xmsi-math-symbols-input.html
+
+;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; A minor mode for inputing math symbols and Unicode symbols.
+
+;; M-x `global-cac-math-input-mode' to toggle on/off for all buffers.
+;; M-x `cac-math-input-mode' to toggle on/off for current buffer.
+
+;; In lisp code:
+;; (global-cac-math-input-mode 1) ; turn on globally
+;; (global-cac-math-input-mode 0) ; turn off globally
+;; (cac-math-input-mode 1) or (cac-math-input-mode-on) ; turn on for current buffer
+;; (cac-math-input-mode 0) or (cac-math-input-mode-off) ; turn off for current buffer
+
+;; Type “inf”, then press 【Shift+Space】 `cac-math-input-change-to-symbol', then it becomes “∞”.
+;; Other examples:
+
+;; Other examples:
+;;  a → α
+;;  p → π
+;;  /= → ≠ or ne
+;;  >= → ≥ or ge
+;;  -> → → or rarr
+;;  and → ∧
+;; etc.
+
+;; M-x `cac-math-input-list-math-symbols' to see all abbrevs.
+
+;; Home page: http://ergoemacs.org/emacs/xmsi-math-symbols-input.html
+
+;;; Install:
+
+;; Manual install.
+;; To have emacs automatically load the file when it restarts, follow these steps:
+
+;; Place the file in the dir 〔~/.emacs.d/lisp/〕. Create the folder if you don't have it.
+
+;; Put the following lines in your emacs init file:
+;; (add-to-list 'load-path "~/.emacs.d/lisp/")
+;; (require 'cac-math-input)
+;; (global-cac-math-input-mode 1) ; activate the mode globally
+
+;; References
+;; http://xahlee.info/comp/unicode_index.html
+;; http://xahlee.info/comp/unicode_math_operators.html
+;; 〈How Mathematica does Unicode?〉 http://xahlee.info/math/mathematica_unicode.html
+
+
+
+;;; Code:
+
+(defvar cac-math-input-abrvs nil "A abbreviation hash table that maps a string to unicode char.")
+(setq cac-math-input-abrvs (make-hash-table :test 'equal))
+
+(defun cac-math-input--add-to-hash (@pairs)
+  "Add @pairs to the hash table `cac-math-input-abrvs'.
+@pairs is a sequence of pairs. Each element is a sequence of 2 items, [key, value]."
+  (mapc
+   (lambda (x) (puthash (elt x 0) (elt x 1) cac-math-input-abrvs))
+   @pairs))
+
+
+(cac-math-input--add-to-hash
+ '(
+
+   ["a" "α"] ["b" "β"] ["g" "γ"] ["d" "δ"] ["e" "ε"] ["z" "ζ"] ["h" "η"] ["q" "θ"] ["i" "ι"] ["k" "κ"] ["l" "λ"] ["m" "μ"] ["n" "ν"] ["x" "ξ"] ["p" "π"] ["r" "ρ"] ["s" "σ"] ["t" "τ"] ["v" "υ"] ["f" "φ"] ["c" "χ"] ["y" "ψ"] ["o" "ω"]
+
+   ["A" "Α"] ["B" "Β"] ["G" "Γ"] ["D" "Δ"] ["E" "Ε"] ["Z" "Ζ"] ["H" "Η"] ["Q" "Θ"] ["I" "Ι"] ["K" "Κ"] ["L" "Λ"] ["M" "Μ"] ["N" "Ν"] ["X" "Ξ"] ["P" "Π"] ["R" "Ρ"] ["S" "Σ"] ["T" "Τ"] ["V" "Υ"] ["F" "Φ"] ["C" "Χ"] ["Y" "Ψ"] ["O" "Ω"]
+
+
+	 ;; personal
+	 ["cam" "Cameron"]
+	 ["cac" "Cameron Chandoke"]
+
+    ;; internet abbrev
+    ["afaik" "as far as i know"]
+    ["atm" "at the moment"]
+    ["dfb" "difference between"]
+    ["ty" "thank you"]
+    ["ui" "user interface"]
+    ["uns" "understand"]
+    ["ur" "you are"]
+    ["btw" "by the way"]
+    ["ie" "i.e.,"]
+    ["eg" "e.g.,"]
+
+    ["cant" "can't"]
+    ["didnt" "didn't"]
+    ["dont" "don't"]
+
+    ;; english word abbrev
+    ["ann" "announcement"]
+    ["arg" "argument"]
+    ["autom" "automatic"]
+    ["bc" "because"]
+    ["bg" "background"]
+    ["bt" "between"]
+    ["math" "mathematics"]
+
+    ;; computing
+    ["ahk" "AutoHotkey"]
+    ["cfg" "context-free grammar"]
+    ["cj" "Clojure"]
+    ["csi" "computer science"]
+
+    ;; tech company
+    ["gc" "Google Chrome"]
+    ["gm" "Google Map"]
+    ["macos" "Mac OS"]
+    ["msw" "Microsoft Windows"]
+
+    ;; programing
+    ["ev" "environment variable"]
+    ["ipa" "IP address"]
+    ["jvm" "Java Virtual Machine"]
+    ["rsi" "repetitive-strain injury"]
+    ["subdir" "sub-directory"]
+    ["subf" "sub-folder"]
+    ["wd" "web development"]
+
+    ["db" "database"]
+    ["guif" "graphical user interface"]
+    ["gui" "GUI"]
+    ["oopf" "object oriented programing"]
+    ["oop" "OOP"]
+
+    ["osf" "operating system"]
+    ["os" "OS"]
+
+    ;; programming
+    ["eqe" "=="]
+    ["ret" "return"]
+    ["utf8" "-*- coding: utf-8 -*-"]
+
+    ;; regex
+		;; digits
+		["xAZ" "\\([A-Za-z0-9]+\\)"]
+    ["xPhone" "/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b$/"]
+    ["xWholenums" "/^\d+$/"]
+    ["xDec" "/^\d*\.\d+$/"]
+    ["xWhole+dec" "/^-?\d*(\.\d+)?$/"]
+    ["xWhole+dec+frac" "/[-]?[0-9]+[,.]?[0-9]*([\/][0-9]+[,.]?[0-9]*)*/"]
+		;; alphanumeric
+    ["xAN-nospace" "/^[a-zA-Z0-9]*$/"]
+    ["xAN" "/^[a-zA-Z0-9 ]*$/"]
+		;; email
+    ["xEmail" "/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,5})$/"]
+    ["xEmailc" "/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/"]
+    ["xEmailu" "/^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/"]
+		;; Time Format HH:MM 12-hour, optional leading 0
+    ["xHH:MM-12h-0o" "/^(0?[1-9]|1[0-2]):[0-5][0-9]$/"]
+		;; Time Format HH:MM 12-hour, optional leading 0, Meridiems [AM/PM]
+    ["xHH:MM-12h-0o-AP" "/((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))/"]
+		;; match duplicates in a string
+    ["xStringdups" "/(\b\w+\b)(?=.*\b\1\b)/"]
+		;; file path w/ filename & extension
+    ["xPathNameExt" "/((\/|\\|\/\/|https?:\\\\|https?:\/\/)[a-z0-9 _@\-^!#$%&+={}.\/\\\[\]]+)+\.[a-z]+$/"]
+		;; file path w/ optional filename, extension
+    ["xPathonamEext" "/^(.+)/([^/]+)$/"]
+		;; file name w/ 3-char extension
+    ["xFileNameExt3" "/^[\w,\s-]+\.[A-Za-z]{3}$/"]
+		;; social security number
+		;; can use either hypen(-) or space( ) character as separator
+    ["xSSN" "/^((?!219-09-9999|078-05-1120)(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4})|((?!219 09 9999|078 05 1120)(?!666|000|9\d{2})\d{3} (?!00)\d{2} (?!0{4})\d{4})|((?!219099999|078051120)(?!666|000|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4})$/"]
+		;; passport
+    ["xPassport" "/^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/"]
+
+
+
+    ;; misc. unicode
+    ["mda" "—"]
+    ["nda" "–"]
+    ["dlim" "-----------------------------------------------------------------------------------"]
+    ["bul" "•"]
+    ["aub" "↥"]
+    ["arb" "↦"]
+    ["alb" "↤"]
+    ["adb" "↧"]
+
+
+    ;; Mathematics
+    ["inter" "∩"]
+    ["∪" "∪"]
+    ["C" "⊂"]
+    ["C_" "⊆"]
+    ["Cl" "⊃"]
+    ["C_l" "⊇"]
+    ;; ("all" "∀" )  ; commented-out so I don't accidentally use it for my Racket "all" function, which is prettified as '∀'
+    ["exi" "∃"]
+    ["any" "∃"]
+    ["some" "∃"]
+    ["nex" "∄"]
+    ["none" "∄"]
+    ["in" "∈"]
+    ["nin" "∉"]
+    ["cont" "∋"]
+    ["ncon" "∌"]
+    ["o" "∘"]
+    ["and" "∧"]
+    ["or" "∨"]
+    ["nor" "⊽"]
+    ["nand" "⊼"]
+    ["xor" "⊻"]
+    ["thr" "∴"]
+    ["ther" "∴"]
+    ["bec" "∵"]
+    ["em" "∅"]
+    ["cro" "⨯"]
+    ["grs" "⩾"]
+    ["les" "⩽"]
+    ["ge" "≥"]
+    ["le" "≤"]
+    ["not" "¬"]
+    ["nega" "⌙"]
+    ["abs" "∣"]
+    ["neq" "≠"]
+    ["E" "∑"]
+    ["P" "∏"]
+    ["cop" "∐"]
+    ["cop'" "⨿"]
+    ["G" "𝚪"]
+    ["l" "λ"]
+    ["pi" "𝛑"]
+    ["eu" "ℯ"]
+    ["g" "𝛄"]
+    ["est" "℮"]
+    ["inte" "∫"]
+    ["ii" "∬"]
+    ["iii" "∭"]
+    ["iiii" "⨌"]
+    ["io" "∮"]
+    ["iio" "∯"]
+    ["iiio" "∰"]
+    ["icl" "∱"]
+    ["iacl" "⨑"]
+    ["iocl" "∲"]
+    ["ioacl" "∳"]
+    ["intf" "⨍"]
+    ["prec" "≺"]
+    ["succ" "≻"]
+    ["prer" "⊰"]
+    ["sucr" "⊱"]
+    ["pro" "∷"]
+    ["prop" "∝"]
+    ["inf" "∞"]
+    ["cirp" "⊕"]
+    ["cirx" "⊗"]
+    ["map" "↦"]
+    ;; ["_1" "₁"]
+    ;; ["_2" "₂"]
+    ;; ["_3" "₃"]
+    ;; ["_4" "₄"]
+    ;; ["_5" "₅"]
+    ;; ["_6" "₆"]
+    ;; ["_7" "₇"]
+    ;; ["_8" "₈"]
+    ;; ["_9" "₉"]
+    ;; ["_m" "₋"]
+    ;; ["_p" "₊"]
+    ;; ["_(" "₍"]
+    ;; ["_)" "₎"]
+    ;; ["^1" "¹"]
+    ;; ["^2" "²"]
+    ;; ["^3" "³"]
+    ;; ["^4" "⁴"]
+    ;; ["^5" "⁵"]
+    ;; ["^6" "⁶"]
+    ;; ["^7" "⁷"]
+    ;; ["^8" "⁸"]
+    ;; ["^9" "⁹"]
+    ;; ["^m" "⁻"]
+    ;; ["^p" "⁺"]
+    ;; ["^(" "⁽"]
+    ;; ["^)" "⁾"]
+    ;; ["^i" "ⁱ"]
+    ;; ["^n" "ⁿ"]
+
+
+		;; APL
+    ["al" "←"]
+    ["ar" "→"]
+    ["au" "↑"]
+    ["ad" "↓"]
+    ["lv" "⍅"]
+    ["rv" "⍆"]
+    ["uv" "⍏"]
+    ["dv" "⍖"]
+    ["div" "÷"]
+    ["x'" "×"]
+    ["log" "⍟"]
+    ["eqq" "≡"]
+    ["neqq" "≢"]
+    ["til" "∼"]
+    ["p" "⍴"]
+    ["w" "⍵"]
+    ["i" "⍳"]
+    ["ib" "⍸"]
+    ["a" "⍺"]
+    ["a_" "⍶"]
+    ["ain" "∊"]
+    ["in_" "⋸"]
+    ["fl" "⌊"]
+    ["ce" "⌈"]
+    ["∆" "∆"]
+    ["del" "∇"]
+    ["nab" "∇"]
+    ["o_" "⍛"]
+    ["T" "⊤"]
+    ["dec" "⊥"]
+    ["lef" "⊣"]
+    ["rig" "⊢"]
+    ["dom" "⌹"]
+    ["○" "○"]
+    ["ci_" "⍜"]
+    ["ro" "⌽"]
+    ["rf" "⊖"]
+    ["tra" "⍉"]
+    ["xf" "⍀"]
+    ["rf" "⌿"]
+    ["sou" "⍋"]
+    ["sod" "⍒"]
+    ["aneg" "¯"]
+    ["zil" "⍬"]
+    ["cob" "⍪"]
+    ["fmt" "⍕"]
+    ["exc" "⍎"]
+    ["at" "@"]
+    ["Ib" "⌶"]
+    ["dia" "¨"]
+    ["strd" "⍣"]
+    ["smrk" "⍨"]
+    ["hoot" "⍤"]
+    ["holl" "⍥"]
+    ["qua" "⎕"]
+    ["squ" "⌷"]
+    ["qe" "⌸"]
+    ["qdi" "⌺"]
+    ["acom" "⍝"]
+    ["acm" "⍝"]
+
+
+		;; Racket
+    ;; ("rt" "#t" )
+    ;; ("rf" "#f" )
+    ["flx" "⌋"]
+    ["cex" "⌉"]
+    ["cur" "⫶"] ; curry
+    ["repl" "replicate"]
+    ["cat" "concat"]
+    ["zipw" "zip-with"]
+    ["ir" "in-range?"]
+    ["csae" "case"] ; catch typo
+    ["casea" "case→"]
+    ["csaea" "case→"] ; catch typo
+    ["casel" "case-λ"]
+    ["csaea" "case→"] ; catch typo
+    ["casel" "case-λ"]
+    ["csael" "case-λ"] ; catch typo
+    ["cns" "cons"]
+    ["lsit" "list"] ; catch typo
+    ["let" "let*"]
+    ["for" "∀:"]
+    ["for*" "∀:*"]
+    ["forl" "∀:l"]
+    ["for*l" "∀:*l"]
+    ["forh" "∀:h"]
+    ["for*h" "∀:*h"]
+    ["forv" "∀:v"]
+    ["for*v" "∀:*v"]
+    ["fors" "∀:∑"]
+    ["for*s" "∀:*∑"]
+    ["forp" "∀:∏"]
+    ["for*p" "∀:*∏"]
+    ["forse" "∀:s"]
+    ["for*se" "∀:*s"]
+    ["forhe" "∀:hq"]
+    ["for*he" "∀:*hq"]
+    ["forhv" "∀:hv"]
+    ["for*hv" "∀:*hv"]
+    ["foro" "∀:or"]
+    ["for*o" "∀:*or"]
+    ["foran" "∀:and"]
+    ["for*an" "∀:*∧"]
+    ["forfi" "∀:1st"]
+    ["for*fi" "∀:*1st"]
+    ["forla" "∀:last"]
+    ["for*la" "∀:*last"]
+    ["forls" "∀:lists"]
+    ["for*ls" "∀:*lists"]
+    ["forfo" "∀:↰"]
+    ["for*fo" "∀:*↰"]
+    ["foldl" "↰"]
+    ["↱" "↱"]
+
+
+    ;; Types
+
+    ["N" "ℕ"]
+    ["I" "𝐈"]
+    ["Nu" "ℂ"]
+    ["Zn" "ℤ⁻"]
+    ["Zn0" "ℤ⁰⁻"]
+    ["Z" "ℤ"]
+    ["Zp0" "ℤ⁰⁺"]
+    ["Zp" "ℤ⁺"]
+    ["L" "𝑳"]
+    ["L'" "𝗟"]
+    ;; ["L'" "⊗"]
+    ["V" "𝑽"]
+    ["V'" "𝗩"]
+    ["Pa" "Pair"]
+    ;; ["Pa" "⊕"]
+    ["M" "𝑴"]
+    ["O" "𝑴"]
+    ["Rn" "ℝ⁻"]
+    ["Rn0" "ℝ⁰⁻"]
+    ["R" "ℝ"]
+    ["Rp0" "ℝ⁰⁺"]
+    ["Rp" "ℝ⁺"]
+    ["Tr" "𝑻"]
+    ["F" "𝑭"]
+    ["B" "𝐁"]
+    ["St" "𝕊"]
+    ["Sy" "𝑺"]
+    ["H" "𝑯"]
+    ["Hi" "𝑯i"]
+    ["Hm" "𝑯m"]
+    ["A" "𝐀"]
+    ["Qn" "ℚ⁻"]
+    ["Qn0" "ℚ⁰⁻"]
+    ["Q" "ℚ"]
+    ["Qp0" "ℚ⁰⁺"]
+    ["Qp" "ℚ⁺"]
+    ["JS" "JSExpr"]
+    ["JH" "JSHash"]
+
+    ;; ["N" "𝐍"]
+    ;; ["I" "𝐈"]
+    ;; ["Nu" "ℂ"]
+    ;; ["Zn" "𝐙⁻"]
+    ;; ["Zn0" "𝐙⁰⁻"]
+    ;; ["Z" "𝐙"]
+    ;; ["Zp0" "𝐙⁰⁺"]
+    ;; ["Zp" "𝐙⁺"]
+    ;; ["L" "𝑳"]
+    ;; ["L'" "𝗟"]
+    ;; ;; ["L'" "⊗"]
+    ;; ["V" "𝑽"]
+    ;; ["V'" "𝗩"]
+    ;; ["Pa" "Pair"]
+    ;; ;; ["Pa" "⊕"]
+    ;; ["M" "𝑴"]
+    ;; ["O" "𝑴"]
+    ;; ["Rn" "𝐑⁻"]
+    ;; ["Rn0" "𝐑⁰⁻"]
+    ;; ["R" "𝐑"]
+    ;; ["Rp0" "𝐑⁰⁺"]
+    ;; ["Rp" "𝐑⁺"]
+    ;; ["Tr" "𝑻"]
+    ;; ["F" "𝑭"]
+    ;; ["B" "𝐁"]
+    ;; ["St" "𝕊"]
+    ;; ["Sy" "𝑺"]
+    ;; ["H" "𝑯"]
+    ;; ["Hi" "𝑯i"]
+    ;; ["Hn" "𝑯m"]
+    ;; ["A" "𝐀"]
+    ;; ["Qn" "𝐐⁻"]
+    ;; ["Qn0" "𝐐⁰⁻"]
+    ;; ["Q" "𝐐"]
+    ;; ["Qp0" "𝐐⁰⁺"]
+    ;; ["Qp" "𝐐⁺"]
+    ;; ["JS" "JSExpr"]
+    ;; ["JH" "JSHash"]
+
+;; ----------------------------------------------
+
+    ;; ["N" "Natural"]
+    ;; ["I" "Index"]
+    ;; ["Com" "Number"] ; Complex number
+    ;; ["Zn" "Negative-Integer"]
+    ;; ["Zn0" "Nonpositive-Integer"]
+    ;; ["Z" "Integer"]
+    ;; ["Zp0" "Nonnegative-Integer"]
+    ;; ["Zp" "Positive-Integer"]
+    ;; ["L" "Listof"]
+    ;; ["L'" "List"]
+    ;; ["V" "Vectorof"]
+    ;; ["V'" "Vector"]
+    ;; ["Pa" "Pair"]
+    ;; ["M" "Maybe"]
+    ;; ["O" "Option"]
+    ;; ["Rn" "Negative-Float"]
+    ;; ["Rn0" "Nonpositive-Float"]
+    ;; ["R" "Float"]
+    ;; ["Rp0" "Nonnegative-Float"]
+    ;; ["Rp" "Positive-Float"]
+    ;; ["Ren" "Negative-Real"]
+    ;; ["Ren0" "Nonpositive-Real"]
+    ;; ["Re" "Real"]
+    ;; ["Rep0" "Nonnegative-Real"]
+    ;; ["Rep" "Positive-Real"]
+    ;; ["Tr" "True"]
+    ;; ["F" "False"]
+    ;; ["B" "Boolean"]
+    ;; ["St" "String"]
+    ;; ["Sy" "Symbol"]
+    ;; ["H" "HashTable"]
+    ;; ["Hi" "ImmutableHashTable"]
+    ;; ["Hm" "MutableHashTable"]
+    ;; ["Qn" "Negative-Exact-Rational"]
+    ;; ["Qn0" "Nonpositive-Exact-Rational"]
+    ;; ["Q" "Exact-Rational"]
+    ;; ["Qp0" "Nonnegative-Exact-Rational"]
+    ;; ["Qp" "Positive-Exact-Rational"]
+    ;; ["JS" "JSExpr"]
+    ;; ["JH" "JSHash"]
+
+		))
+
+
+
+(cac-math-input--add-to-hash
+ [
+  ["deg" "°"]
+  ["plusmn" "±"]
+  ["micro" "µ"]
+  ["middot" "·"]
+  ["sup1" "¹"]
+  ["frac14" "¼"]
+  ["frac12" "½"]
+  ["frac34" "¾"]
+
+  ["Alpha" "Α"] ["Beta" "Β"] ["Gamma" "Γ"] ["Delta" "Δ"] ["Epsilon" "Ε"] ["Zeta" "Ζ"] ["Eta" "Η"] ["Theta" "Θ"] ["Iota" "Ι"] ["Kappa" "Κ"] ["Lambda" "Λ"] ["Mu" "Μ"] ["Nu" "Ν"] ["Xi" "Ξ"] ["Omicron" "Ο"] ["Pi" "Π"] ["Rho" "Ρ"] ["Sigma" "Σ"] ["Tau" "Τ"] ["Upsilon" "Υ"] ["Phi" "Φ"] ["Chi" "Χ"] ["Psi" "Ψ"] ["Omega" "Ω"]
+
+  ["alpha" "α"] ["beta" "β"] ["gamma" "γ"] ["delta" "δ"] ["epsilon" "ε"] ["zeta" "ζ"] ["eta" "η"] ["theta" "θ"] ["iota" "ι"] ["kappa" "κ"] ["lambda" "λ"] ["mu" "μ"] ["nu" "ν"] ["xi" "ξ"] ["omicron" "ο"] ["pi" "π"] ["rho" "ρ"] ["sigmaf" "ς"] ["sigma" "σ"] ["tau" "τ"] ["upsilon" "υ"] ["phi" "φ"] ["chi" "χ"] ["psi" "ψ"] ["omega" "ω"] ["theta2" "ϑ"] ["upsih" "ϒ"] ["piv" "ϖ"]
+
+  ["ndash" "–"] ["mdash" "—"]
+
+  ["times" "×"] ["divide" "÷"] ["minus" "−"] ["lowast" "∗"] ["radic" "√"]
+  ["oplus" "⊕"] ["otimes" "⊗"]
+  ["oslash" "ø"]
+  ["fnof" "ƒ"]
+
+  ["nabla" "∇"]
+  ["part" "∂"]
+
+	["ang" "∠"]
+
+  ["sub" "⊂"] ["sup" "⊃"] ["nsub" "⊄"] ["sube" "⊆"] ["supe" "⊇"]
+
+  ["perp" "⊥"] ["sdot" "⋅"]
+
+  ["lceil" "⌈"] ["rceil" "⌉"] ["lfloor" "⌊"] ["rfloor" "⌋"]
+
+  ["lang" "〈"] ["rang" "〉"]
+
+  ]
+ )
+
+
+
+(cac-math-input--add-to-hash
+ '(
+
+   ["a" "α"] ["b" "β"] ["g" "γ"] ["d" "δ"] ["e" "ε"] ["z" "ζ"] ["h" "η"] ["q" "θ"] ["i" "ι"] ["k" "κ"] ["l" "λ"] ["m" "μ"] ["n" "ν"] ["x" "ξ"] ["p" "π"] ["r" "ρ"] ["s" "σ"] ["t" "τ"] ["v" "υ"] ["f" "φ"] ["c" "χ"] ["y" "ψ"] ["o" "ω"]
+
+   ["A" "Α"] ["B" "Β"] ["G" "Γ"] ["D" "Δ"] ["E" "Ε"] ["Z" "Ζ"] ["H" "Η"] ["Q" "Θ"] ["I" "Ι"] ["K" "Κ"] ["L" "Λ"] ["M" "Μ"] ["N" "Ν"] ["X" "Ξ"] ["P" "Π"] ["R" "Ρ"] ["S" "Σ"] ["T" "Τ"] ["V" "Υ"] ["F" "Φ"] ["C" "Χ"] ["Y" "Ψ"] ["O" "Ω"]
+
+;; omicron in entities section, need full name
+
+   ))
+
+(cac-math-input--add-to-hash
+ [
+
+  ["AA" "𝔸"] ["BB" "𝔹"] ["CC" "ℂ"] ["DD" "𝔻"] ["EE" "𝔼"] ["FF" "𝔽"] ["GG" "𝔾"] ["HH" "ℍ"] ["II" "𝕀"] ["JJ" "𝕁"] ["KK" "𝕂"] ["LL" "𝕃"] ["MM" "𝕄"] ["NN" "ℕ"] ["OO" "𝕆"] ["PP" "ℙ"] ["QQ" "ℚ"] ["RR" "ℝ"] ["SS" "𝕊"] ["TT" "𝕋"] ["UU" "𝕌"] ["VV" "𝕍"] ["WW" "𝕎"] ["XX" "𝕏"] ["YY" "𝕐"] ["ZZ" "ℤ"]
+
+  ["dd" "ⅆ"] ["ee" "ⅇ"] ["ii" "ⅈ"] ["jj" "ⅉ"]
+
+  ["N" "ℕ"]
+  ["integer" "ℤ"]
+  ["rational" "ℚ"]
+  ["Q" "ℚ"]
+  ["real" "ℝ"]
+  ["R" "ℝ"]
+  ["C" "ℂ"]
+  ["quaternion" "ℍ"]
+  ["H" "ℍ"]
+  ["sedenion" "𝕊"]
+  ["S" "𝕊"]
+
+  ])
+
+
+(cac-math-input--add-to-hash
+ ;; Scripted letter forms. Most are outside BMP.
+ [
+
+  ["scB" "ℬ"]
+  ["scE" "ℰ"]
+  ["scF" "ℱ"]
+  ["scH" "ℋ"]
+  ["scI" "ℐ"]
+  ["scL" "ℒ"]
+  ["scM" "ℳ"]
+  ["scP" "℘"]
+  ["scR" "ℛ"]
+
+])
+
+
+(cac-math-input--add-to-hash
+ [
+  ;; misc non-math symbols
+  ["tm" "™"]
+  ["3/4" "¾"]
+  ["1/2" "½"]
+  ["1/4" "¼"]
+  ["..." "…"]
+  ["fdash" "‒"]
+  ["wdash" "〜"]
+  ["--" "—"]
+  ;; ["??" "⁇"]
+  ;; ["?!" "⁈"]
+  ;; ["!?" "⁉"]
+  ;; ["!!" "‼"]
+
+  ;;
+  ]
+
+ )
+
+(cac-math-input--add-to-hash
+ [
+  ["m2" "㎡"]
+  ["cm" "㎝"]
+  ["cm2" "㎠"]
+  ["cm3" "㎤"]
+  ] )
+
+
+(cac-math-input--add-to-hash
+ [
+  ;; superscripts
+  ["^0" "⁰"]
+  ["^1" "¹"]
+  ["^2" "²"]
+  ["^3" "³"]
+  ["^4" "⁴"]
+  ["^5" "⁵"]
+  ["^6" "⁶"]
+  ["^7" "⁷"]
+  ["^8" "⁸"]
+  ["^9" "⁹"]
+  ["^+" "⁺"]
+  ["^-" "⁻"]
+  ["^=" "⁼"]
+  ["^(" "⁽"]
+  ["^)" "⁾"]
+  ["^n" "ⁿ"]
+  ["^i" "ⁱ"]
+
+  ;; subscripts
+
+  ["_(" "₍"]
+  ["_)" "₎"]
+  ["_+" "₊"]
+  ["_-" "₋"]
+  ["_0" "₀"]
+  ["_1" "₁"]
+  ["_2" "₂"]
+  ["_3" "₃"]
+  ["_4" "₄"]
+  ["_5" "₅"]
+  ["_6" "₆"]
+  ["_7" "₇"]
+  ["_8" "₈"]
+  ["_9" "₉"]
+  ["_=" "₌"]
+  ["_a" "ₐ"]
+  ["_e" "ₑ"]
+
+  ["_h" "ₕ"]
+  ["_i" "ᵢ"]
+  ["_j" "ⱼ"]
+  ["_k" "ₖ"]
+  ["_l" "ₗ"]
+  ["_m" "ₘ"]
+  ["_n" "ₙ"]
+  ["_o" "ₒ"]
+  ["_p" "ₚ"]
+  ["_r" "ᵣ"]
+  ["_s" "ₛ"]
+  ["_t" "ₜ"]
+  ["_u" "ᵤ"]
+  ["_v" "ᵥ"]
+  ["_x" "ₓ"]
+  ["_schwa" "ₔ"]
+
+  ])
+
+(cac-math-input--add-to-hash
+'(  ["empty" "∅"] ["+-" "±"] ["-+" "∓"]))
+
+(cac-math-input--add-to-hash
+ '(
+
+   ;; ["flr" "⌊⌋"]
+   ;; ["ceil" "⌈⌉"]
+   ;; ["floor" "⌊⌋"]
+   ;; ["ceiling" "⌈⌉"]
+
+   ;; ["\"" "“”"] ;curly quote
+   ;; ["\"\"" "“”"]
+
+   ;; ["cb" "「」"] ; corner bracket
+   ;; ["[" "「」"]
+
+   ;; ["[(" "【】"] ; LEFT BLACK LENTICULAR BRACKET
+
+  ;;   ["tb" "〔〕"] ; TORTOISE SHELL BRACKET
+  ;; ["(" "〔〕"]
+
+   ))
+
+
+(cac-math-input--add-to-hash
+ '(
+   ;; letter-like forms
+   ["R2" "ℝ²"]
+   ["R3" "ℝ³"]
+   ["r2" "ℝ²"]
+   ["r3" "ℝ³"]
+   ["fn" "ƒ"]))
+
+(cac-math-input--add-to-hash
+ '(
+   ;; ["<" "≺"]
+   ;; [">" "≻"]
+
+   ["<=" "≤"]
+   [">=" "≥"]
+   ;; ["!el" "∉"]
+   ;; ["el" "∈"]
+   ;; ["in" "∈"]
+   ["&&" "∧"]
+   ["||" "∨"]
+   ;; ["not" "¬"]
+   ;; ["===" "≡"]
+   ;; ["eq" "≡"]
+   ;; ["xor" "⊻"]
+   ;; ["nand" "⊼"]
+   ;; ["nor" "⊽"]
+
+   ["~" "≈"]
+   [":=" "≔"]
+   ["=:" "≕"]
+   ["!=" "≠"]
+   ["/=" "≠"]
+
+   ;; ["fa" "∀"] ["forall" "∀"]
+   ;; ["ex" "∃"]
+   ["|-" "⊢"]
+   ["-|" "⊣"]
+
+))
+
+(cac-math-input--add-to-hash
+ '(
+
+   ["<-" "←"] ["->" "→"] ["<->" "↔"] ["!<-" "↚"] ["!->" "↛"] ["!<->" "↮"]
+   ["≤" "⇐"] ["=>" "⇒"]
+["to" "⇒"]
+ ["<=>" "⇔"] ["!<=" "⇍"] ["!=>" "⇏"] ["!<=>" "⇎"]
+   ["<==" "⟸"] ["==>" "⟹"] ["<==>" "⟺"]
+   ["<-|" "↤"] ["|->" "↦"]
+   ["<--" "⟵"] ["-->" "⟶"] ["<-->" "⟷"]
+
+   ))
+
+(cac-math-input--add-to-hash
+ '(
+
+   ;; operators
+   ["rp" "∘"] ; ring operator
+   ["cp" "⊕"] ; circle plus
+   ["ct" "⊗"] ; circle times
+   ["cm" "⊖"] ; circle minus
+   ["cd" "⊘"] ; circle divide
+   ;; ["'" "′"]  ; prime
+   ;; ["''" "″"] ; double prime
+   ;; ["'''" "‴"]
+   ["." "·"]
+   ["sqrt" "√"]
+   ["rt" "√"]
+   ["del" "∇"]
+
+   ["pd" "∂"] ; partial derivative
+   ["cross" "⨯"]
+   ;; ["cint" "∮"] ; contour integral
+   ;; ["ccint" "∲"]
+   ;; ["cccint" "∳"]
+   ["union" "∪"]
+   ["intersection" "∩"]))
+
+(cac-math-input--add-to-hash
+ '(
+   ["/_" "∠"] ;ANGLE
+   ["rightangle" "⦜"]
+   ["|_" "⦜"]
+   ))
+
+
+;; (defun cac-math-input--add-cycle (cycleList)
+;;   "DOCSTRING"
+;;   (let (
+;;         (ll (- (length cycleList) 1) )
+;;         (ii 0)
+;;         )
+;;     (while (< ii ll)
+;;       (let (
+;;             (charThis (elt cycleList ii ))
+;;             (charNext (elt cycleList (+ ii 1) ))
+;;             )
+;;         (puthash charThis charNext cac-math-input-abrvs)
+;;         (setq ii (1+ ii) ) ) )
+;;     (puthash (elt cycleList ll) (elt cycleList 0) cac-math-input-abrvs)
+;;     ))
+
+;; ;; cycle brackets
+;; (cac-math-input--add-cycle ["〘〙" "〔〕"])
+;; (cac-math-input--add-cycle ["〈〉" "《》"])
+;; (cac-math-input--add-cycle ["‹›" "«»"])
+;; (cac-math-input--add-cycle ["【】" "〖〗"])
+;; (cac-math-input--add-cycle ["「」" "『』"])
+
+;; ;; cycle arrows
+;; (cac-math-input--add-cycle ["←" "⇐"])
+;; (cac-math-input--add-cycle ["↑" "⇑"])
+;; (cac-math-input--add-cycle ["→" "⇒"])
+;; (cac-math-input--add-cycle ["↓" "⇓"])
+;; (cac-math-input--add-cycle ["↔" "⇔"])
+;; (cac-math-input--add-cycle ["⇐" "←"])
+;; (cac-math-input--add-cycle ["⇑" "↑"])
+;; (cac-math-input--add-cycle ["⇒" "→"])
+;; (cac-math-input--add-cycle ["⇓" "↓"])
+;; (cac-math-input--add-cycle ["⇔" "↔"])
+
+;; ;; equal, equivalence, congruence, similarity, identity
+;; (cac-math-input--add-cycle ["~" "∼" "〜" "≈" "≅"])
+;; (cac-math-input--add-cycle ["=" "≈" "≡" "≅"])
+
+;; (cac-math-input--add-cycle ["⊢" "⊣"])
+
+;; ;; dash, hyphen, minus sign
+;; (cac-math-input--add-cycle ["-" "–" "−" ])
+;; (cac-math-input--add-cycle [ "-" "‐" "‑"  "–"  "‒"])
+;; (cac-math-input--add-cycle ["—"  "―" ])
+
+;; (cac-math-input--add-cycle ["#" "♯" "№"])
+
+;; (cac-math-input--add-cycle ["θ" "ϑ"])
+
+;; ;; cycle black white chars
+;; (cac-math-input--add-cycle ["■" "□"])
+;; (cac-math-input--add-cycle ["●" "○"])
+;; (cac-math-input--add-cycle ["◆" "◇"])
+;; (cac-math-input--add-cycle ["▲" "△"])
+;; (cac-math-input--add-cycle ["◀" "◁"])
+;; (cac-math-input--add-cycle ["▶" "▷"])
+;; (cac-math-input--add-cycle ["▼" "▽"])
+;; (cac-math-input--add-cycle ["★" "☆"])
+;; (cac-math-input--add-cycle ["♠" "♤"])
+;; (cac-math-input--add-cycle ["♣" "♧"])
+;; (cac-math-input--add-cycle ["♥" "♡"])
+;; (cac-math-input--add-cycle ["♦" "♢"])
+
+;; (cac-math-input--add-cycle ["✂" "✄"])              ;scissor
+;; (cac-math-input--add-cycle ["↹" "⇥" "⇤"])          ; tab
+;; (cac-math-input--add-cycle ["⏎" "↩" "↵" "⌤" "⎆"])     ; return/enter
+
+;; (cac-math-input--add-cycle ["∇" "⌫" "⌦"])     ; del delete
+;; (cac-math-input--add-cycle ["↶" "⎌"])     ; undo
+;; (cac-math-input--add-cycle ["✲" "⎈" "‸"])     ; control
+
+;; (cac-math-input--add-cycle ["*" "•" "×"]) ; bullet, multiply, times
+
+;; (cac-math-input--add-cycle ["," "，"])
+;; (cac-math-input--add-cycle ["·" "。"])      ; MIDDLE DOT, IDEOGRAPHIC FULL STOP
+;; (cac-math-input--add-cycle [":" "："])    ; FULLWIDTH COLON
+;; (cac-math-input--add-cycle [";" "；"])
+;; (cac-math-input--add-cycle ["!" "❗" "❕" "！"])
+;; (cac-math-input--add-cycle ["♩" "♪" "♫" "♬"])
+;; (cac-math-input--add-cycle ["🎶" "🎵" "🎼"])
+
+;; (cac-math-input--add-cycle ["&" "＆" "﹠"])
+;; (cac-math-input--add-cycle ["?" "？" "�" "¿" "❓" "❔"])
+
+;; (cac-math-input--add-cycle [" " " " "　"])         ; space, NO-BREAK SPACE, IDEOGRAPHIC SPACE
+
+(defun cac-math-input--hash-to-list (hashtable)
+  "Return a list that represents the HASHTABLE."
+  (let (mylist)
+    (maphash (lambda (kk vv) (setq mylist (cons (list vv kk) mylist))) hashtable)
+    mylist
+    ))
+
+(defun cac-math-input-list-math-symbols ()
+  "Print a list of math symbols and their input abbreviations.
+See `cac-math-input-mode'."
+  (interactive)
+  (with-output-to-temp-buffer "*cac-math-input output*"
+    (mapc (lambda (tt)
+            (princ (concat (car tt) " " (car (cdr tt)) "\n")))
+          (sort
+           (cac-math-input--hash-to-list cac-math-input-abrvs)
+           (lambda
+             (a b)
+             (string< (car a) (car b)))))))
+
+(defvar cac-math-input-keymap nil "Keymap for cac-math-input mode.")
+
+(progn
+  (setq cac-math-input-keymap (make-sparse-keymap))
+  (define-key cac-math-input-keymap (kbd "S-SPC") 'cac-math-input-change-to-symbol))
+
+(defun cac-math-input--abbr-to-symbol (@inputStr)
+  "Returns a char corresponding to @inputStr.
+If none found, return nil.
+Version 2018-02-16"
+  (let ($resultChar $charByNameResult)
+    (setq $resultChar (gethash @inputStr cac-math-input-abrvs))
+    (cond
+     ($resultChar $resultChar)
+     ;; begin with u+
+     ((string-match "\\`u\\+\\([0-9a-fA-F]+\\)\\'" @inputStr) (char-to-string (string-to-number (match-string 1 @inputStr) 16)))
+     ;; decimal. 「945」 or 「#945」
+     ((string-match "\\`#?\\([0-9]+\\)\\'" @inputStr) (char-to-string (string-to-number (match-string 1 @inputStr))))
+     ;; e.g. decimal with html entity markup. 「&#945;」
+     ((string-match "\\`&#\\([0-9]+\\);\\'" @inputStr) (char-to-string (string-to-number (match-string 1 @inputStr))))
+     ;; hex number. e.g. 「x3b1」 or 「#x3b1」
+     ((string-match "\\`#?x\\([0-9a-fA-F]+\\)\\'" @inputStr) (char-to-string (string-to-number (match-string 1 @inputStr) 16)))
+     ;; html entity hex number. e.g. 「&#x3b1;」
+     ((string-match "\\`&#x\\([0-9a-fA-F]+\\);\\'" @inputStr) (char-to-string (string-to-number (match-string 1 @inputStr) 16)))
+     ;; unicode full name. e.g. 「GREEK SMALL LETTER ALPHA」
+     ((and (string-match "\\`\\([- a-zA-Z0-9]+\\)\\'" @inputStr)
+           (setq $charByNameResult (cac-math-input--name-to-codepoint @inputStr)))
+      (char-to-string $charByNameResult))
+     (t nil))))
+
+(defun cac-math-input--name-to-codepoint (@name)
+  "Returns integer that's the codepoint of Unicode char named @name (string).
+Version 2018-07-09"
+  (interactive)
+  (if (version<= "26" emacs-version)
+      (gethash @name (ucs-names))
+    (assoc-string @name (ucs-names) t)))
+
+(defun cac-math-input-change-to-symbol (&optional print-message-when-no-match)
+  "Change text selection or word to the left of cursor into a Unicode character.
+
+A valid input can be any abbreviation listed by the command `cac-math-input-list-math-symbols', or, any of the following form:
+
+ 945     ← decimal
+ #945    ← decimal with prefix #
+ &#945;  ← XML entity syntax
+
+ x3b1    ← hexadimal with prefix x
+ U+3B1   ← hexadimal with prefix U+ (lower case ok.)
+ #x3b1   ← hexadimal with prefix #x
+ &#x3b1; ← XML entity syntax
+
+Full Unicode name can also be used, e.g. 「greek small letter alpha」.
+
+If preceded by `universal-argument', print error message when no valid abbrev found.
+
+See also: `cac-math-input-mode'.
+Version 2018-07-09"
+  (interactive "P")
+  (let ($p1 $p2 $inputStr $resultChar)
+    (if (region-active-p)
+        (progn
+          (setq $p1 (region-beginning))
+          (setq $p2 (region-end))
+          (setq $inputStr (buffer-substring-no-properties $p1 $p2))
+          (setq $resultChar (cac-math-input--abbr-to-symbol $inputStr))
+          (when $resultChar (progn (delete-region $p1 $p2) (insert $resultChar))))
+      ;; if there's no text selection, grab all chars to the left of cursor point up to whitespace, try each string until there a valid abbrev found or none char left.
+      (progn
+        (setq $p2 (point))
+        (skip-chars-backward "^ \t\n" -20)
+        (setq $p1 (point))
+        (while (and (not $resultChar) (>= (- $p2 $p1) 1))
+          (setq $inputStr (buffer-substring-no-properties $p1 $p2))
+          (setq $resultChar (cac-math-input--abbr-to-symbol $inputStr))
+          (when $resultChar (progn (goto-char $p2) (delete-region $p1 $p2) (insert $resultChar)))
+          (setq $p1 (1+ $p1)))))
+    (when (not $resultChar)
+      (when print-message-when-no-match
+        (cac-math-input-list-math-symbols)
+        (user-error "「%s」 no match found for that abbrev/input. M-x `cac-math-input-list-math-symbols' for a list. Or use a decimal e.g. 「945」 or hexadecimal e.g. 「x3b1」, or full Unicode name e.g. 「greek small letter alpha」."  $inputStr)))))
+
+;;;###autoload
+(define-globalized-minor-mode global-cac-math-input-mode cac-math-input-mode cac-math-input-mode-on)
+
+;;;###autoload
+(defun cac-math-input-mode-on ()
+  "Turn on `cac-math-input-mode' in current buffer."
+  (interactive)
+  (cac-math-input-mode 1))
+
+;;;###autoload
+(defun cac-math-input-mode-off ()
+  "Turn off `cac-math-input-mode' in current buffer."
+  (interactive)
+  (cac-math-input-mode 0))
+
+;;;###autoload
+(define-minor-mode cac-math-input-mode
+  "Toggle cac-math-input minor mode.
+
+A mode for inputting a math and Unicode symbols.
+
+Type “inf”, then press \\[cac-math-input-change-to-symbol] (or M-x `cac-math-input-change-to-symbol'), then it becomes “∞”.
+
+Other examples:
+ a → α
+ p → π
+ /= → ≠ or ne
+ >= → ≥ or ge
+ -> → → or rarr
+ and → ∧
+etc.
+
+For the complete list of abbrevs, call `cac-math-input-list-math-symbols'.
+
+Decimal and hexadecimal can also be used. Example:
+
+ 945     ← decimal
+ #945    ← decimal with prefix #
+ &#945;  ← XML entity syntax
+
+ x3b1    ← hexadimal with prefix x
+ #x3b1   ← hexadimal with prefix #x
+ &#x3b1; ← XML entity syntax
+
+Full Unicode name can also be used, e.g. 「greek small letter alpha」.
+
+If you wish to enter a symbor by full unicode name but do not know the full name, M-x `insert'. Asterisk “*” can be used as a wildcard to find the char. For example, M-x `insert' , then type 「*arrow」 then Tab, then emacs will list all unicode char names that has “arrow” in it. (this feature is part of Emacs 23)
+
+Home page at: URL `http://ergoemacs.org/emacs/xah-math-input-math-symbols-input.html'"
+  nil
+  :global nil
+  :lighter " ∑α"
+  :keymap cac-math-input-keymap
+  )
+
+(provide 'cac-math-input)
+
+;;; cac-math-input.el ends here
