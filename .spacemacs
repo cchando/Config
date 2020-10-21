@@ -63,10 +63,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(dyalog-mode hasklig-mode pretty-mode fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode doom-themes
+   dotspacemacs-additional-packages '(flycheck xah-math-input dyalog-mode hasklig-mode pretty-mode fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode doom-themes
    ;; solarized-dark-theme tomorrow-blue-theme pheonix-dark-mono-theme apropospriate-light-theme adwaita-theme alect-light-theme
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
+   dotspacemacs-frozen-packages '(xah-math-input)
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(company-tern)
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -192,17 +192,17 @@ values."
 															 ;;       but font B may be used for e.g. most math chars, even though font A was specified here
 															 ;;       before B (and supports the same char range), or even if A was specified and B was not.
 
-															 ;; ("Hasklig"  ;; not, gr/e, le/e, arrows
-															 ;; 	:size 12
-															 ;; 	:weight normal
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ("Fira Code"
+															 ("Hasklig"  ;; not, gr/e, le/e, arrows
 															 	:size 12
 															 	:weight normal
-															 	:width condensed
+															 	:width normal
 															 	:powerline-scale 1.1)
+
+															 ;; ("Fira Code"
+															 ;; 	:size 12
+															 ;; 	:weight normal
+															 ;; 	:width condensed
+															 ;; 	:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -368,6 +368,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -377,6 +378,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  (setq-default xah-math-input-mode t)
 
 	(remove-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
 	(remove-hook 'prog-mode-hook 'highlight-parentheses-mode)
@@ -404,16 +407,16 @@ you should place your code here."
 	;; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
-	(add-to-list 'face-ignored-fonts "FreeMono")
+	;; (add-to-list 'face-ignored-fonts "FreeMono")
   ;; (add-to-list 'face-ignored-fonts "Fira Code")
   ;; (add-to-list 'face-ignored-fonts "DejaVu Sans Mono")
-  (add-to-list 'face-ignored-fonts "TeX Gyre Schola Math")
-  (add-to-list 'face-ignored-fonts "TeX Gyre Bonum Math")
-  (add-to-list 'face-ignored-fonts "Latin Modern Math")
-  (add-to-list 'face-ignored-fonts "Source Code Pro")
-  (add-to-list 'face-ignored-fonts "Unifont")
-  (add-to-list 'face-ignored-fonts "Fixed")
-  (add-to-list 'face-ignored-fonts "fixed")
+  ;; (add-to-list 'face-ignored-fonts "TeX Gyre Schola Math")
+  ;; (add-to-list 'face-ignored-fonts "TeX Gyre Bonum Math")
+  ;; (add-to-list 'face-ignored-fonts "Latin Modern Math")
+  ;; (add-to-list 'face-ignored-fonts "Source Code Pro")
+  ;; (add-to-list 'face-ignored-fonts "Unifont")
+  ;; (add-to-list 'face-ignored-fonts "Fixed")
+  ;; (add-to-list 'face-ignored-fonts "fixed")
 
 
 	;; NOTE: when this list is too long, the earlier ones get pushed off!!
@@ -438,6 +441,7 @@ you should place your code here."
 	;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚
 	(set-fontset-font "fontset-default" #x2364 "HanaMinA") ; ⍛
 	;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans Mono") ; ⍜
+	(set-fontset-font "fontset-default" '(#x2371 . #x2372) "STIX Two Math") ; apl nand / nor
 	(set-fontset-font "fontset-default" #x2374 "DejaVu Sans Mono") ; rho   ⍴
 	;; (set-fontset-font "fontset-default" #x2373 "DejaVu Sans Mono") ; iota ⍳
 	(set-fontset-font "fontset-default" #x2375 "DejaVu Sans Mono") ; omega   ⍵
@@ -493,10 +497,9 @@ you should place your code here."
 
 
 
-	;; TODO TODO TODO TODO!!!   intersection 2229    union 222A
-
 	;; grade up 234B S2M
 	;; grade down 2352 S2M
+	;; small element 220A
 	;; quad up caret 2353 S2M
 	;; down tack jot 2355 S2M
 	;; up tack jot 234E S2M
@@ -505,7 +508,7 @@ you should place your code here."
 	;; ←  ↑  →  ↓  ↰  ↦
 
 	;; nand/nor
-	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ⊻ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙ ⋀ ⋁
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ⊻ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙
 	;; → ← ↑ ↓ ∆ ∇ ⍴ ∊ ⍳ ⍺ ⍵ ⍷ ⍸ ⍶ ⍹ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
 	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍭ ⍇ ⍐ ⍈ ⍗
 	;; APL symbols
@@ -608,7 +611,7 @@ you should place your code here."
       (-zip-pair ligatures codepoints)))
   (setq my-fira-code-ligatures
         (let* ((ligs '("***" "*>" "*/"  "&&" "||"
-                       "[]" "::" ":::" ":=" "!!" "!=" "!=="
+                       "::" ":::" ":=" "!!" "!=" "!=="
                        "-->" "->" "->>" "-<" "-<<" "..." "?=" "/*"
                        "/**" "/=" "|>" "$>" "++" "+++" "+>" "=="
                        "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
@@ -644,9 +647,9 @@ you should place your code here."
 	(remove-hook 'prog-mode-hook 'global-pretty-mode)
 	(remove-hook 'prog-mode-hook 'pretty-mode)
 	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
-	(add-hook 'prog-mode-hook 'fira-code-mode)
-	;; (remove-hook 'prog-mode-hook 'fira-code-mode)
-	;; (add-hook 'prog-mode-hook 'hasklig-mode)
+	;; (add-hook 'prog-mode-hook 'fira-code-mode)
+	(remove-hook 'prog-mode-hook 'fira-code-mode)
+	(add-hook 'prog-mode-hook 'hasklig-mode)
 	;; (remove-hook 'prog-mode-hook 'hasklig-mode)
 
 	;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
@@ -836,7 +839,7 @@ you should place your code here."
 						 ;; ("findf" .      "∃") ;  elem(ent) (of)
 						 ;; ("notElem" .   "∉") ;  not ele(ment) (of)
 						 ;; ("Union" .      "⋃") ;⋃ ∪ 𝗨 ⨆
-						 ("U" .      "⋃") ;⋃ ∪ 𝗨 ⨆
+						 ("U" .      "∪") ;⋃ ∪ 𝗨 ⨆
 						 ;; ("∪" .      "⋃") ;⋃ ∪
 						 ;; ("Intersection" .      "⋂") ;⋂ ∩ ⨅
 						 ;; ("∩" .      "⋂") ;⋂ ∩ ⨅
@@ -996,8 +999,6 @@ you should place your code here."
 ;;     This is very helpful when you add e.g. a cast statement like
 ;;         (cast (hash-ref stockmap stock) (Listof Candle))
 ;;     except it's a longer expression that wraps to the next line, and you later want to remove the surrounding
-;;     cast expression while keeping the hash-ref expression.
-;;     Might be possible to add this to the evil-surround variable 'evil-surround-operator-alist'...
 
 ;; visual-state mappings
 (define-key evil-visual-state-map (kbd "(") 'evil-backward-paragraph)
@@ -1052,6 +1053,7 @@ you should place your code here."
 (spacemacs/set-leader-keys (kbd "wG") 'shrink-window)
 (spacemacs/set-leader-keys (kbd "hsd") 'evil-ex-show-digraphs)
 (spacemacs/set-leader-keys (kbd "ic") 'insert-char)
+(spacemacs/set-leader-keys (kbd "kw") 'evil-window-up) ; disable evil-lisp-state-wrap
 ;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
 ;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
 ;; (define-key evil-normal-state-map (kbd "M-d") nil) ;; disable kill-word
@@ -1302,14 +1304,14 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
 	 (quote
-		(xah-math-input dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+		(org-noter xah-math-input dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
  '(standard-indent 4)
  '(vc-annotate-background nil)
- '(vc-annotate-color-map
+ '(vc-annotate-color-↦
 	 (quote
 		((20 . "#C792EA")
 		 (40 . "#CF4F1F")
