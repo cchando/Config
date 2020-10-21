@@ -3,15 +3,13 @@
 (provide (all-defined-out))
 (require (only-in typed/racket
                   [filter-map orig:filter-map]
-                  [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Void ⦵] [Any 𝐔] [Boolean 𝐁]
-                  [Listof 𝑳] [List Tuple] [List ⨂] [List 𝗟] [Option 𝑴]
-                  [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [Pairof ⨁] [String 𝕊]
-                  [Natural 𝐍] [Number ℂ] [Index 𝐈]
-                  [Negative-Integer 𝐙⁻] [Nonpositive-Integer 𝐙⁰⁻] [Integer 𝐙] [Nonnegative-Integer 𝐙⁰⁺] [Positive-Integer 𝐙⁺]
-                  [Negative-Real 𝐑⁻] [Nonpositive-Real 𝐑⁰⁻] [Real 𝐑] [Nonnegative-Real 𝐑⁰⁺] [Positive-Real 𝐑⁺]
+                  ;; [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝐀] [Boolean 𝐁]
+                  [Listof 𝑳] [List 𝗟] [Option 𝑴] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
+                  [Natural 𝐍] [Number ℂ] [Index 𝐈] [Negative-Integer 𝐙⁻] [Nonpositive-Integer 𝐙⁰⁻] [Integer 𝐙] [Nonnegative-Integer 𝐙⁰⁺] [Positive-Integer 𝐙⁺]
+                  ;; [Negative-Float 𝐑⁻] [Nonpositive-Float 𝐑⁰⁻] [Float 𝐑] [Nonnegative-Float 𝐑⁰⁺] [Positive-Float 𝐑⁺]
                   [Negative-Exact-Rational 𝐐⁻] [Nonnegative-Exact-Rational 𝐐⁰⁻] [Negative-Exact-Rational 𝐐]
                   [Nonnegative-Exact-Rational 𝐐⁰⁺] [Negative-Exact-Rational 𝐐⁺]
-                  ;; [Negative-Float 𝐑⁻] [Nonpositive-Float 𝐑⁰⁻] [Float 𝐑] [Nonnegative-Float 𝐑⁰⁺] [Positive-Float 𝐑⁺]
+                  ;; [Negative-Real Real⁻] [Nonpositive-Float Real⁰⁻] [Real Real] [Nonnegative-Real Real⁰⁺] [Positive-Real Real⁺]
                   [let* ∴] [if ?] [case-lambda case-λ] [and ∧] [or ∨] [nor ⊽] [nand ⊼]
                   [for ∀:] [for* ∀*:] [for/list ∀:l] [for*/list ∀*:l] [for/hash ∀:h] [for*/hash ∀*:h]
                   [for/vector ∀:v] [for*/vector ∀*:v] [for/sum ∀:∑] [for*/sum ∀*:∑]
@@ -19,7 +17,7 @@
                   [for/hasheq ∀:hq] [for*/hasheq ∀*:hq] [for/hasheqv ∀:hv] [for*/hasheqv ∀*:hv]
                   [for/or ∀:or] [for*/or ∀*:or] [for/and ∀:and] [for*/and ∀*:and]
                   [for/product ∀:∏] [for*/product ∀*:∏] [for/first ∀:1st] [for*/first ∀*:1st]
-                  [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:⮲] [for*/fold ∀*:⮲]))
+                  [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:fold] [for*/fold ∀*:fold]))
 (require cond-strict)
 (require (only-in typed-map [map map] [foldl infer:foldl] [foldr infer:foldr]))
 ;; (require/typed
@@ -33,35 +31,33 @@
 ;; (require/typed (only-in srfi/1) ) ;; list library
 
 
-;; (require (only-in typed/racket
-;;                   [filter-map orig:filter-map]
-;;                   [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Void ⦵] [Any 𝐀] [Boolean 𝐁]
-;;                   [Listof 𝑳] [List Tuple] [List ⨂] [List 𝗟] [Option 𝑴]
-;;                   [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [Pairof ⨁] [String 𝕊]
-;;                   [Natural 𝐍] [Number ℂ] [Index 𝐈]
-;;                   [Negative-Integer 𝐙⁻] [Nonpositive-Integer 𝐙⁰⁻] [Integer 𝐙] [Nonnegative-Integer 𝐙⁰⁺] [Positive-Integer 𝐙⁺]
-;;                   [Negative-Real 𝐑⁻] [Nonpositive-Real 𝐑⁰⁻] [Real 𝐑] [Nonnegative-Real 𝐑⁰⁺] [Positive-Real 𝐑⁺]
-;;                   [Negative-Exact-Rational ℚ⁻] [Nonnegative-Exact-Rational ℚ⁰⁻] [Negative-Exact-Rational ℚ]
-;;                   [Nonnegative-Exact-Rational ℚ⁰⁺] [Negative-Exact-Rational ℚ⁺]
-;;                   ;; [Negative-Float 𝐑⁻] [Nonpositive-Float 𝐑⁰⁻] [Float 𝐑] [Nonnegative-Float 𝐑⁰⁺] [Positive-Float 𝐑⁺]
-;;                   [list-ref ‼] [first head] [rest tail] [cons ⍠] [empty ∅] [length ρ] [build-list ι]
-;;                   [let* ∴] [if ?] [case-lambda case-λ] [sort ⍋] [reverse ⊖]
-;;                   [and ∧] [or ∨] [not ¬] [negate ⌙] [xor ⊻] [nor ⊽] [nand ⊼]
-;;                   [append <>] [append* <>^] [string-append ++] [string-append* ++^] [append* concat]
-;;                   [map <$>] [foldl ⮲] [foldr ⮳] [map →] [apply ⮉] [filter φ] [filter-not φ¬]
-;;                   [curry ⫶] [compose1 ∘] [compose1 <<<] [compose ∘^] [identity id]
-;;                   [+ ∑] [* ∏] [/ ÷] [sqrt √] [modulo %] [<= ≤] [>= ≥]
-;;                   [member ∈] [findf ∃] [memf ∃s][take ↑] [drop ↓] [make-list replicate]
-;;                   [append-map concat-map] [remove remove-1st] [remove* \\]
-;;                   [for ∀:] [for* ∀*:] [for/list ∀:l] [for*/list ∀*:l] [for/hash ∀:h] [for*/hash ∀*:h]
-;;                   [for/vector ∀:v] [for*/vector ∀*:v] [for/sum ∀:∑] [for*/sum ∀*:∑]
-;;                   [for/last ∀:last] [for*/last ∀*:last] [for/set ∀:s] [for*/set ∀*:s]
-;;                   [for/hasheq ∀:hq] [for*/hasheq ∀*:hq] [for/hasheqv ∀:hv] [for*/hasheqv ∀*:hv]
-;;                   [for/or ∀:or] [for*/or ∀*:or] [for/and ∀:and] [for*/and ∀*:and]
-;;                   [for/product ∀:∏] [for*/product ∀*:∏] [for/first ∀:1st] [for*/first ∀*:1st]
-;;                   [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:⮲] [for*/fold ∀*:⮲]
-;;                   [first 1st] [second 2nd] [third 3rd] [fourth 4th] [fifth 5th]
-;;                   [sixth 6th] [seventh 7th] [eighth 8th] [ninth 9th] [tenth 10th]))
+(require (only-in typed/racket
+                  [filter-map orig:filter-map]
+                  ;; [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝐀] [Boolean 𝐁]
+                  [Listof 𝑳] [List 𝗟] [Option 𝑴] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
+                  [Natural 𝐍] [Number ℂ] [Index 𝐈] [Negative-Integer 𝐙⁻] [Nonpositive-Integer 𝐙⁰⁻] [Integer 𝐙] [Nonnegative-Integer 𝐙⁰⁺] [Positive-Integer 𝐙⁺]
+                  ;; [Negative-Float 𝐑⁻] [Nonpositive-Float 𝐑⁰⁻] [Float 𝐑] [Nonnegative-Float 𝐑⁰⁺] [Positive-Float 𝐑⁺]
+                  [Negative-Exact-Rational 𝐐⁻] [Nonnegative-Exact-Rational 𝐐⁰⁻] [Negative-Exact-Rational 𝐐]
+                  [Nonnegative-Exact-Rational 𝐐⁰⁺] [Negative-Exact-Rational 𝐐⁺]
+                  ;; [Negative-Real Real⁻] [Nonpositive-Float Real⁰⁻] [Real Real] [Nonnegative-Real Real⁰⁺] [Positive-Real Real⁺]
+                  [let* ∴] [if ?] [case-lambda case-λ] [and ∧] [or ∨] [nor ⊽] [nand ⊼]
+                  [list-ref ‼] [first head] [rest tail] [cons ⍠] [empty ∅] [length ρ] [build-list ι]
+                  [sort ⍋] [reverse ⊖] [and ∧] [or ∨] [not ¬] [negate ⌙] [xor ⊻] [nor ⊽] [nand ⊼]
+                  [append <>] [append* <>^] [string-append ++] [string-append* ++^] [append* concat]
+                  [map <$>] [foldl /.] [foldr /:] [map →] [filter ⊇] [filter-not ⊉]
+                  [curry ⫶] [compose1 ∘] [compose1 <<<] [compose ∘^] [identity id]
+                  [+ ∑] [* ∏] [/ ÷] [sqrt √] [modulo %] [<= ≤] [>= ≥]
+                  [member ∈] [findf ∃] [take ↑] [drop ↓] [make-list replicate]
+                  [append-map concat-map] [remove rem-1st] [remove* \\]
+                  [for ∀:] [for* ∀*:] [for/list ∀:l] [for*/list ∀*:l] [for/hash ∀:h] [for*/hash ∀*:h]
+                  [for/vector ∀:v] [for*/vector ∀*:v] [for/sum ∀:∑] [for*/sum ∀*:∑]
+                  [for/last ∀:last] [for*/last ∀*:last] [for/set ∀:s] [for*/set ∀*:s]
+                  [for/hasheq ∀:hq] [for*/hasheq ∀*:hq] [for/hasheqv ∀:hv] [for*/hasheqv ∀*:hv]
+                  [for/or ∀:or] [for*/or ∀*:or] [for/and ∀:and] [for*/and ∀*:and]
+                  [for/product ∀:∏] [for*/product ∀*:∏] [for/first ∀:1st] [for*/first ∀*:1st]
+                  [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:fold] [for*/fold ∀*:fold]
+                  [first 1st] [second 2nd] [third 3rd] [fourth 4th] [fifth 5th]
+                  [sixth 6th] [seventh 7th] [eighth 8th] [ninth 9th] [tenth 10th]))
 
 
 (define id identity)
@@ -70,13 +66,10 @@
 (define ↑. first)
 (define ↓. rest)
 (define head first)
-;; (define Ћ head) ; Ћ Ts  ħ h/
 (define tail rest)
-;; (define τ tail)
-(define ρ length)
-(define ⊖ reverse)
-(define ι build-list)
-(define ⍠ cons)
+(define ⍴ length)
+(define ⌽ reverse)
+(define ⍳ build-list)
 (define ∅ empty)
 (define ¬ not)
 (define ⌙ negate)
@@ -89,12 +82,11 @@
 (define <>. append*)
 (define ++ string-append)
 (define ++. string-append*)
-(define concat append*)
 (define ⍋ sort)
 (define <$> map)
-(define → map)
-(define φ filter)
-(define φ¬ filter-not)
+(define → →)
+(define ⊇ filter)
+(define ⊉ filter-not)
 (define ⫶ curry)
 (define <<< compose1)
 (define ∘ compose1)
@@ -104,11 +96,10 @@
 (define √ sqrt)
 (define % modulo)
 (define ∣ abs)
-(define ≤ <=)
-(define ≥ >=)
+(define ⩽ <=)
+(define ⩾ >=)
 (define ∈ member)
 (define ∃ findf)
-(define ∃s memf)
 (define ↑ take)
 (define ↓ drop)
 (define replicate make-list)
@@ -126,9 +117,9 @@
 (define 9th ninth)
 (define 10th tenth)
 (define-type (List^ a) (Pairof a (Listof a))) ; Non-empty List
-(define-type (𝑳^ a) (List^ a)) ; Non-empty List
-(define ⮲ foldl)
-(define ⮳ foldr)
+(define-type (𝑳^ a) (List^ a))
+(define /. foldl)
+(define /: foldr)
 
 
 
@@ -136,7 +127,6 @@
 ;; (define-type Tuple (∀ (a b ...) (List a b ... b)))
 ;; (define-type Tuple. (∀ (a b ...) (Vector a b ... b)))
 
-;; ℤ   ℕ   ℝ   ℍ   ∅   ⋙  ⨌   ⩽  ⩾
 
 (: pair : ∀ (a b) a b -> (Pair a b))
 (define (pair a b) `(,a . ,b))
@@ -341,30 +331,20 @@
      (∧ (>= n lower) (<= n upper) n)))
 
 
-;; extract a list of vals from list of hashes, given a single key
-(: σ-v (∀ (a b) (case→
-                    ((Listof (HashTable a b)) a -> (Listof b))
-                    ((Listof (HashTable a b)) a False -> (Listof (Option b))))))
-(define σ-v (case-λ
-            [(hs key) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b) h key)) hs)]
-            [(hs key false) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b #f) h key #f)) hs)]))
-(define select σ-v)
-
-
 ;; equivalent to ((map f) >>> (filter pred)), except more efficient,
 ;;    since it avoids building the intermediate list.
-(: →∘φ : ∀ (a b) (a -> b) (b -> Any) (Listof a) -> (Listof b))
-(define (→∘φ f pred xs)
+(: ⊇∘→ : ∀ (a b) (a -> b) (b -> Any) (Listof a) -> (Listof b))
+(define (⊇∘→ f pred xs)
   (orig:filter-map (λ ([x : a]) (let* ([res (f x)]) (∧ (pred res) res))) xs))
-(define map-filter →∘φ)
+(define map-filter ⊇∘→)
 
 
 ;; equivalent to ((filter pred) >>> (map f)), except more efficient,
 ;;    since it avoids building the intermediate list.
-(: φ∘→ : ∀ (a b) (a -> Any) (a -> b) (Listof a) -> (Listof b))
-(define (φ∘→ pred f xs)
+(: →∘⊇ : ∀ (a b) (a -> Any) (a -> b) (Listof a) -> (Listof b))
+(define (→∘⊇ pred f xs)
   (orig:filter-map (λ ([x : a]) (∧ (pred x) (f x))) xs))
-(define filter-map φ∘→)
+(define filter-map ⊇∘→)
 
 
 ;; checks whether (hash-ref h k) == v for any v in vs. If so, give the v, else give #false.
@@ -373,14 +353,24 @@
   (ormap (λ ([v : b]) (∧ (equal? v ((inst hash-ref a b) h k #f)) v)) vs))
 
 
+;; extract a list of vals from list of hashes, given a single key
+(: σ (∀ (a b) (case→
+                 ((Listof (HashTable a b)) a -> (Listof b))
+                 ((Listof (HashTable a b)) a False -> (Listof (Option b))))))
+(define σ (case-λ
+        [(hs key) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b) h key)) hs)]
+        [(hs key false) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b #f) h key #f)) hs)]))
+(define select σ)
+
+
 ;; filter hs for those hashes for which k is associated with one of the values in vs
-(: σ-h : ∀ (a b) (Listof (HashTable a b)) a (Listof b) -> (Listof (HashTable a b)))
-(define (σ-h hs k vs)
+(: σ. : ∀ (a b) (Listof (HashTable a b)) a (Listof b) -> (Listof (HashTable a b)))
+(define (σ. hs k vs)
   (filter (λ ([h : (HashTable a b)])
             (∧ (∃ (λ ([v : b]) (=? v (hash-ref h k #f))) vs)
                h))
           hs))
-(define filter-hash σ-h)
+(define filter-hash σ.)
 
 ;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
 ;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (U v #false).
