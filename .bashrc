@@ -23,6 +23,11 @@ function conda-shell {
 #xinput list
 #alias redshift='redshift -l 32.96:-96.67 -t 6500:2000'
 #alias etermite='emacs ~/.config/termite/config'
+alias updatechannel='nix-channel --update'
+alias updchnl='nix-channel --update'
+#alias mvfiles='find . type f -regextype egrep -regex '.*[a-z]+\.el$' -execdir mv -t dest {} \+'  # example only
+alias ltracked='git ls-tree -r --name-only' #list tracked files in given branch
+alias grep='egrep'
 alias nsg='nix-env --switch-generation'
 alias lgen='nix-env --list-generations'
 alias fonts='gucharmap'

@@ -192,17 +192,17 @@ values."
 															 ;;       but font B may be used for e.g. most math chars, even though font A was specified here
 															 ;;       before B (and supports the same char range), or even if A was specified and B was not.
 
-															 ("Hasklig"  ;; not, gr/e, le/e, arrows
-															 	:size 12
-															 	:weight normal
-															 	:width normal
-															 	:powerline-scale 1.1)
-
-															 ;; ("Fira Code"
+															 ;; ("Hasklig"
 															 ;; 	:size 12
 															 ;; 	:weight normal
-															 ;; 	:width condensed
+															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
+
+															 ("Fira Code"
+																:size 12
+																:weight normal
+																:width condensed
+																:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -472,7 +472,6 @@ you should place your code here."
 	;; (set-fontset-font "fontset-default" #x2211 "Liberation Serif") ; sum
 	;; (set-fontset-font "fontset-default" #x2205 "STIX Math Two") ; empty set
 	;; (set-fontset-font "fontset-default" #x223C "STIX Math Two") ; tilde
-	;; (set-fontset-font "fontset-default" #x220A "STIX Math Two") ; small elem
 	;; (set-fontset-font "fontset-default" #x220D "STIX Math Two") ; small contains
 	;; (set-fontset-font "fontset-default" '(#x2260 . #x2262) "STIX Math Two") ; equal, NE, NEQ
 	;; (set-fontset-font "fontset-default" '(#x2282 . #x228B) "STIX Math Two") ; subset, superset, etc
@@ -485,9 +484,9 @@ you should place your code here."
 	;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans") ; circle underbar    ------------------------------------------------------------
 	;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚ ------------------------------------------------------------------------
 	;; (set-fontset-font "fontset-default" '(#x2363 . #x2364) "") ; ⍤ ⍣
-
 	;; (set-fontset-font "fontset-default" #x2229 "DejaVu Serif") ; intersection
 	(set-fontset-font "fontset-default" #x222A "DejaVu Serif") ; union
+	(set-fontset-font "fontset-default" #x220A "FreeSans") ; small elem     FreeSans    TeX Gyre Schola Math   DejaVu Sans  (more fonts)
 
 
 	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
@@ -499,7 +498,6 @@ you should place your code here."
 
 	;; grade up 234B S2M
 	;; grade down 2352 S2M
-	;; small element 220A
 	;; quad up caret 2353 S2M
 	;; down tack jot 2355 S2M
 	;; up tack jot 234E S2M
@@ -595,37 +593,90 @@ you should place your code here."
 
 
   ;; Font Ligatures
-  (defun my-correct-symbol-bounds (prettify-symbols-alist)
-    "Prepend a TAB character to each symbol in this alist,
-  this way compose-region called by prettify-symbols-mode
-  will use the correct width of the symbols
-  instead of the width measured by char-width."
-    (mapcar (lambda (el)
-              (setcdr el (string ?\t (cdr el)))
-              el)
-            prettify-symbols-alist))
-  (defun my-ligature-list (ligatures codepoint-start)
-    "Create an alist of strings to replace with
-  codepoints starting from codepoint-start."
-    (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
-      (-zip-pair ligatures codepoints)))
-  (setq my-fira-code-ligatures
-        (let* ((ligs '("***" "*>" "*/"  "&&" "||"
-                       "::" ":::" ":=" "!!" "!=" "!=="
-                       "-->" "->" "->>" "-<" "-<<" "..." "?=" "/*"
-                       "/**" "/=" "|>" "$>" "++" "+++" "+>" "=="
-                       "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
-                       ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
-                       "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
-                       "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
-                       "<~~" "~@" "~=" "~>" "~~>" "*")))
-          (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
-  (defun my-set-fira-code-ligatures ()
-    "Add fira code ligatures for use with prettify-symbols-mode."
-    (setq prettify-symbols-alist
-          (append my-fira-code-ligatures prettify-symbols-alist))
-    (prettify-symbols-mode))
-  (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
+(use-package composite
+  :defer t
+  :init
+  (defvar composition-ligature-table (make-char-table nil))
+  :hook
+  (((prog-mode conf-mode nxml-mode markdown-mode help-mode)
+    . (lambda () (setq-local composition-function-table composition-ligature-table))))
+  :config
+  ;; support ligatures, some toned down to prevent hang (originally removed are 42-2, 43-2, 46-2, 47-2, 92)
+  (when (version<= "27.0" emacs-version) ; when using 27.0 or newer
+    (let ((alist
+           '((33 . ".\\(?:\\(==\\|[!=]\\)[!=]?\\)")
+             (35 . ".\\(?:\\(###?\\|_(\\|[(:=?[_{]\\)[#(:=?[_{]?\\)")
+             (36 . ".\\(?:\\(>\\)>?\\)")
+             (37 . ".\\(?:\\(%\\)%?\\)")
+             (38 . ".\\(?:\\(&\\)&?\\)")
+             (42 . ".\\(?:\\(\\*\\*\\|[*>]\\)[*>]?\\)")
+             ;; (42 . ".\\(?:\\(\\*\\*\\|[*/>]\\).?\\)")
+             (43 . ".\\(?:\\([>]\\)>?\\)")
+             ;; (43 . ".\\(?:\\(\\+\\+\\|[+>]\\).?\\)")
+             (45 . ".\\(?:\\(-[->]\\|<<\\|>>\\|[-<>|~]\\)[-<>|~]?\\)")
+             (46 . ".\\(?:\\(\\.<\\|[-=]\\)[-<=]?\\)")
+             ;; (46 . ".\\(?:\\(\\.[.<]\\|[-.=]\\)[-.<=]?\\)")
+             (47 . ".\\(?:\\(//\\|==\\|[=>]\\)[/=>]?\\)")
+             ;; (47 . ".\\(?:\\(//\\|==\\|[*/=>]\\).?\\)")
+             (48 . ".\\(?:\\(x[a-fA-F0-9]\\).?\\)")
+             (58 . ".\\(?:\\(::\\|[:<=>]\\)[:<=>]?\\)")
+             (59 . ".\\(?:\\(;\\);?\\)")
+             (60 . ".\\(?:\\(!--\\|\\$>\\|\\*>\\|\\+>\\|-[-<>|]\\|/>\\|<[-<=]\\|=[<>|]\\|==>?\\||>\\||||?\\|~[>~]\\|[$*+/:<=>|~-]\\)[$*+/:<=>|~-]?\\)")
+             (61 . ".\\(?:\\(!=\\|/=\\|:=\\|<<\\|=[=>]\\|>>\\|[=>]\\)[=<>]?\\)")
+             (62 . ".\\(?:\\(->\\|=>\\|>[-=>]\\|[-:=>]\\)[-:=>]?\\)")
+             (63 . ".\\(?:\\([.:=?]\\)[.:=?]?\\)")
+             (91 . ".\\(?:\\(|\\)[]|]?\\)")
+             ;; (92 . ".\\(?:\\([\\n]\\)[\\]?\\)")
+             (94 . ".\\(?:\\(=\\)=?\\)")
+             (95 . ".\\(?:\\(|_\\|[_]\\)_?\\)")
+             (119 . ".\\(?:\\(ww\\)w?\\)")
+             (123 . ".\\(?:\\(|\\)[|}]?\\)")
+             (124 . ".\\(?:\\(->\\|=>\\||[-=>]\\||||*>\\|[]=>|}-]\\).?\\)")
+             (126 . ".\\(?:\\(~>\\|[-=>@~]\\)[-=>@~]?\\)"))))
+      (dolist (char-regexp alist)
+        (set-char-table-range composition-ligature-table (car char-regexp)
+                              `([,(cdr char-regexp) 0 font-shape-gstring]))))
+    (set-char-table-parent composition-ligature-table composition-function-table))
+  )
+
+
+
+	;; (use-package fira-code-mode
+  ;; :custom (fira-code-mode-disabled-ligatures '("[]" "x"))
+  ;; :hook prog-mode
+	;; )
+  ;; (defun my-correct-symbol-bounds (prettify-symbols-alist)
+  ;;   "Prepend a TAB character to each symbol in this alist,
+  ;; this way compose-region called by prettify-symbols-mode
+  ;; will use the correct width of the symbols
+  ;; instead of the width measured by char-width."
+  ;;   (mapcar (lambda (el)
+  ;;             (setcdr el (string ?\t (cdr el)))
+  ;;             el)
+  ;;           prettify-symbols-alist))
+  ;; (defun my-ligature-list (ligatures codepoint-start)
+  ;;   "Create an alist of strings to replace with
+  ;; codepoints starting from codepoint-start."
+  ;;   (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
+  ;;     (-zip-pair ligatures codepoints)))
+  ;; (setq my-fira-code-ligatures
+  ;;       (let* ((ligs '("***" "*>" "*/"  "&&" "||"
+  ;;                      "::" ":::" ":=" "!!" "!=" "!=="
+  ;;                      "-->" "->" "->>" "-<" "-<<" "..." "?=" "/*"
+  ;;                      "/**" "/=" "|>" "$>" "++" "+++" "+>" "=="
+  ;;                      "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
+  ;;                      ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
+  ;;                      "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
+  ;;                      "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
+  ;;                      "<~~" "~@" "~=" "~>" "~~>" "*")))
+  ;;         (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
+  ;; (defun my-set-fira-code-ligatures ()
+  ;;   "Add fira code ligatures for use with prettify-symbols-mode."
+  ;;   (setq prettify-symbols-alist
+  ;;         (append my-fira-code-ligatures prettify-symbols-alist))
+  ;;   (prettify-symbols-mode))
+  ;; (when (version<= emacs-version "27.0") ; when using version lower than 27.0
+	;;  (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures))
 
 	;; (global-pretty-mode t)
 	;; (pretty-deactivate-groups
@@ -649,8 +700,8 @@ you should place your code here."
 	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	;; (add-hook 'prog-mode-hook 'fira-code-mode)
 	(remove-hook 'prog-mode-hook 'fira-code-mode)
-	(add-hook 'prog-mode-hook 'hasklig-mode)
-	;; (remove-hook 'prog-mode-hook 'hasklig-mode)
+	;; (add-hook 'prog-mode-hook 'hasklig-mode)
+	(remove-hook 'prog-mode-hook 'hasklig-mode)
 
 	;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
 	;;  <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|> != !==
@@ -980,7 +1031,7 @@ you should place your code here."
 	(evil-previous-line))
 
 
-;; (define-key key-translation-map [f1] (kbd "["))
+(define-key key-translation-map (kbd "<f1>") (kbd "•"))
 
 ;; (define-key evil-visual-state-map (kbd "{") 'vile-backward-paragraph)
 ;; (define-key evil-visual-state-map (kbd "}") 'vile-forward-paragraph)
