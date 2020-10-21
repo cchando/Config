@@ -39,7 +39,7 @@
 
   # Load fonts
   fonts.fonts = with pkgs; [
-    inconsolata fira-code hasklig hanazono lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
+    inconsolata fira-code hasklig iosevka hanazono lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
     corefonts
   ];
 
@@ -51,6 +51,7 @@
             "Fira Code"
             "Hasklig"
             "Monospace"
+            "Iosevka"
 #DejaVu Math TeX Gyre  (should already show up in charmap)
             "XITS Math"
             "STIX Two Math"
@@ -291,7 +292,7 @@
       mgba
 
       # fonts
-      inconsolata-lgc fira-code hasklig hanazono libertine lmodern #gyre-fonts liberation-fonts
+      inconsolata-lgc fira-code hasklig iosevka hanazono libertine lmodern #gyre-fonts liberation-fonts
       # math fonts
       lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
       corefonts #microsoft's core fonts
