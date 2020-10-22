@@ -498,6 +498,7 @@ you should place your code here."
 
 
 
+	;; best font for mathematical bold letters
 	;; grade up 234B S2M
 	;; grade down 2352 S2M
 	;; quad up caret 2353 S2M
@@ -594,6 +595,7 @@ you should place your code here."
 
 
 
+	;; TODO: add ..  ...  [multi-line guards]
   ;; Font Ligatures
 (use-package composite
   :defer t
@@ -1088,7 +1090,7 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "ga") 'evil-digit-argument-or-evil-beginning-of-line)
 (define-key evil-normal-state-map (kbd "gl") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "gi") 'evil-append-line)
-(define-key evil-normal-state-map (kbd "gr") 'evil-insert-resume)
+(define-key evil-normal-state-map (kbd "gI") 'evil-insert-resume)
 (define-key evil-normal-state-map (kbd "gd") 'racket-xp-visit-definition)
 (define-key evil-normal-state-map (kbd "gm") 'evil-jump-item)
 (define-key evil-normal-state-map (kbd "gn") 'spacemacs/enter-ahs-forward)
@@ -1119,6 +1121,8 @@ you should place your code here."
 ;; (define-key evil-normal-state-map (kbd "C-f") nil)
 ;; (define-key evil-normal-state-map (kbd "C-b") nil)
 ;; (define-key evil-normal-state-map (kbd "C-p") 'replace-from-register-0)
+(define-key evil-normal-state-map (kbd "gr") 'racket-run)
+(define-key evil-normal-state-map (kbd "gR") 'racket-run-and-switch-to-repl)
 
 (setq-default evil-escape-key-sequence "fd") ;; key sequence to go from insert to normal mode, etc
 (define-key evil-insert-state-map (kbd "C-n") 'evil-force-normal-state)
