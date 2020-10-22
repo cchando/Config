@@ -8,102 +8,118 @@
 # If running in tty1, run startx
 if [ "$(tty)" = "/dev/tty1" ]; then startx; fi
 
-function conda-shell {
-    nix-shell ~/.conda-shell.nix
-}
+shopt -s extglob dotglob globstar
+
+# # Notes
 #stat -- display file permissions -- stat -c %A %n
 #lspci -- list PCI bus devices
 #ping 8.8.8.8
 #sftp cameron@10.0.0.2
 #xdg-mime  #check / modify file-type associations
-#start wpa_supplicant -- sudo systemctl start wpa_supplicant
 #wpa_passphrase Frontier4704 21422325889218 > /etc/wpa_supplicant.conf #5148275597
 #alias ni='nix-instantiate --eval'
 #ip a -- get status of wireless devices
 #xinput list
-#alias redshift='redshift -l 32.96:-96.67 -t 6500:2000'
-#alias etermite='emacs ~/.config/termite/config'
-alias updatechannel='nix-channel --update'
-alias updchnl='nix-channel --update'
-#alias mvfiles='find . type f -regextype egrep -regex '.*[a-z]+\.el$' -execdir mv -t dest {} \+'  # example only
-alias ltracked='git ls-tree -r --name-only' #list tracked files in given branch
-alias grep='egrep'
-alias nsg='nix-env --switch-generation'
-alias lgen='nix-env --list-generations'
-alias fonts='gucharmap'
-alias lfonts='gtk2fontsel'
-alias et='emacs -nw'
-alias vi-mode='set -o vi'
-alias tr='racket -I typed/racket'
-alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
-shopt -s extglob dotglob globstar
-alias padd="xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0"
-alias pade="xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1"
-alias stickd="xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0"
-alias sticke="xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1"
-alias wpabg='sudo wpa_supplicant -i wlp1s0 -c f -B'  # (-d for debugging, -B for background/daemon)
-alias ipsu='sudo ip link set wlp1s0 up'
-alias sudo='sudo '
-alias e='exit'
-alias ls='ls --color=auto'
-alias lst='ps -A | grep'
-alias kill='kill -9'
-alias mv='mv -i'
-alias cp='cp -i'
+
+# Nix & NixOS
 alias cr='less ~/.nixenv | grep'   # check nixpkgs repo file
 alias crd='nix-env -qaP --description | grep'   # check nixpkgs repo
-alias update='nix-channel --update'   # check nixpkgs repo
 alias rb='sudo nixos-rebuild switch'  # rebuild NixOS
-alias eba='emacs ~/.bashrc'
-alias evi='emacs ~/.vimrc'
-alias enc='sudo vim /etc/nixos/configuration.nix'
-alias eiwm='emacs ~/.i3/config'
-alias xr='xrdb -merge ~/.Xdefaults'
-alias conh='sudo nmcli device wifi connect Frontier4704 password 21422325889218' #5148275597
-alias con='nmcli device wifi connect'
-alias wifi='nmcli device wifi'
-alias c='clear'
-alias ns='nix-shell'
-alias xflux='xflux -z 75044'
+alias clean='nix-collect-garbage -d'
+alias upd='nix-channel --update'
+alias upg='nix-env --upgrade'
+alias upgv='nix-env --upgrade --always'
+alias rollback='nix-channel --rollback'
+alias rm='mv -t /home/cameron/.trash'
+alias rmu='mv -t /home/cameron/.trash' # remove unsafe
 alias inst='nix-env -iA'
+alias lgen='nix-env --list-generations'
+alias sgen='nix-env --switch-generation'
 alias unin='nix-env --uninstall'
 alias linst='nix-env -q --installed'
+alias lhave='nix-env -q'
+# alias anp='nix-env -f '<nixpkgs>' -iA'   # nodePackages.searchterm
+
+# program aliases
+alias e='exit'
+alias c='clear'
+alias ns='nix-shell'
+alias charmap='gucharmap'
+alias grep='egrep'
+alias mv='mv -i'
+alias cp='cp -i'
+alias sudo='sudo '
+alias ls='ls --color=auto'
+alias kill='kill -9'
+alias xflux='xflux -z 75044'
+alias redshift='redshift -l 32.96:-96.67 -t 6500:2000'
+
+# wifi
+alias conh='sudo nmcli device wifi connect Frontier4704 password 21422325889218' #5148275597
+alias con='nmcli device wifi connect'
+alias wifi='nmcli device wifi' # list wifi networks
+alias wpabg='sudo wpa_supplicant -i wlp1s0 -c f -B'  # (-d for debugging, -B for background/daemon)
+alias ipsu='sudo ip link set wlp1s0 up'
+alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
+# alias wpastart='sudo systemctl start wpa_supplicant' # I think this doesn't work -- wpa is controlled by systemd
+
+# convenience
+alias et='emacs -nw'
+alias vimode='set -o vi'
+alias tr='racket -I typed/racket'
+alias ra='racket'
+alias fonts='gucharmap'
+alias lfonts='gtk2fontsel'
+alias lst='ps -A | grep'
+alias xr='xrdb -merge ~/.Xdefaults'
 alias bat='acpi'    # or 'upower ...'
-alias ei3status='emacs ~/.i3status.conf'
-alias etmux='emacs ~/.tmux.conf'
-alias estretchly='emacs ~/.config/stretchly/config.json'
 alias music='cmuse'
 alias zip='7z a'
-alias zipzip='7z a -tzip'
 alias unzip='7z x'
-#alias pavucontrol='pavucontrol-qt'
-alias clean='nix-collect-garbage -d'
-alias repo='nix-env -qaP'
-alias srm='mv -t /home/cameron/.trash'
+alias zipt='7z a -tzip'
 alias bhi='sudo brightnessctl set 100%'
 alias bmhi='sudo brightnessctl set 75%'
 alias bmed='sudo brightnessctl set 50%'
 alias bmlo='sudo brightnessctl set 25%'
 alias blo='sudo brightnessctl set 10%'
+alias pade="xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1"
+alias sticke="xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1"
+function conda-shell {
+    nix-shell ~/.conda-shell.nix
+}
+#alias mvfiles='find . type f -regextype egrep -regex '.*[a-z]+\.el$' -execdir mv -t dest {} \+'  # example only
 
-# # git commands
+# config edits
+alias eba='emacs ~/.bashrc'
+alias evi='emacs ~/.vimrc'
+alias eiwm='emacs ~/.i3/config'
+alias eis='emacs ~/.i3status.conf'
+alias ete='emacs ~/.config/termite/config'
+alias eki='emacs ~/.config/kitty/kitty.conf'
+alias etm='emacs ~/.tmux.conf'
+alias est='emacs ~/.config/stretchly/config.json'
+alias enc='sudo vim /etc/nixos/configuration.nix'
+# alias es='vim ~/.config/sway/config'
+
+# git commands
 alias com="git commit"
 alias st="git status"
 alias ch="git checkout"
-alias logp="git log --pretty=oneline"
+alias sw="git switch"
 alias br="git branch"
 alias pull="git pull"
 alias pullr="git pull --rebase"
 alias push="git push"
-alias tag="git tag"
 alias add="git add"
-alias am="git commit ammend"
+alias amend="git commit amend"
 alias reba="git rebase"
+alias rebase="git rebase"
 alias log="git log"
-alias logp="git log --all --decorate --oneline --graph"
+alias logp="git log --pretty=oneline"
+alias logpp="git log --all --decorate --oneline --graph"
+alias ltracked='git ls-tree -r --name-only' #list tracked files in given branch
+alias tag="git tag"
 
-# alias anp='nix-env -f '<nixpkgs>' -iA'   # nodePackages.searchterm
-# alias es='vim ~/.config/sway/config'
 
 
 PS1='[\u@\h \W]\$ '
