@@ -26,18 +26,19 @@ alias cr='less ~/.nixenv | grep'   # check nixpkgs repo file
 alias crd='nix-env -qaP --description | grep'   # check nixpkgs repo
 alias rb='sudo nixos-rebuild switch'  # rebuild NixOS
 alias clean='nix-collect-garbage -d'
-alias upd='nix-channel --update'
+alias chupd='nix-channel --update'
 alias upg='nix-env --upgrade'
 alias upgv='nix-env --upgrade --always'
 alias rollback='nix-channel --rollback'
 alias rm='mv -t /home/cameron/.trash'
-alias rmu='mv -t /home/cameron/.trash' # remove unsafe
+alias rmu='rm' # remove unsafe
 alias inst='nix-env -iA'
 alias lgen='nix-env --list-generations'
 alias sgen='nix-env --switch-generation'
+alias deletegen='nix-env --delete-generations'
 alias unin='nix-env --uninstall'
-alias linst='nix-env -q --installed'
 alias lhave='nix-env -q'
+alias linst='nix-env -q --installed'
 # alias anp='nix-env -f '<nixpkgs>' -iA'   # nodePackages.searchterm
 
 # program aliases
@@ -64,6 +65,8 @@ alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
 # alias wpastart='sudo systemctl start wpa_supplicant' # I think this doesn't work -- wpa is controlled by systemd
 
 # convenience
+alias r='command' # "raw"
+alias show='command -v'
 alias et='emacs -nw'
 alias vimode='set -o vi'
 alias tr='racket -I typed/racket'
@@ -90,6 +93,7 @@ function conda-shell {
 #alias mvfiles='find . type f -regextype egrep -regex '.*[a-z]+\.el$' -execdir mv -t dest {} \+'  # example only
 
 # config edits
+alias enc='sudo vim /etc/nixos/configuration.nix'
 alias eba='emacs ~/.bashrc'
 alias evi='emacs ~/.vimrc'
 alias eiwm='emacs ~/.i3/config'
@@ -98,15 +102,19 @@ alias ete='emacs ~/.config/termite/config'
 alias eki='emacs ~/.config/kitty/kitty.conf'
 alias etm='emacs ~/.tmux.conf'
 alias est='emacs ~/.config/stretchly/config.json'
-alias enc='sudo vim /etc/nixos/configuration.nix'
 # alias es='vim ~/.config/sway/config'
 
 # git commands
-alias com="git commit"
+alias s="git switch"
 alias st="git status"
-alias ch="git checkout"
-alias sw="git switch"
-alias br="git branch"
+alias com="git commit"
+alias grm="git rm"
+alias gu="git rm --cached" # "git untrack"
+alias grc="git rm --cached" # "git untrack"
+alias cbr="git switch -c"
+alias cbrn="git branch" # "no-switch"
+alias cbrO="git switch -c" # "overwrite"
+alias cbrF="git switch -c" # "force"
 alias pull="git pull"
 alias pullr="git pull --rebase"
 alias push="git push"
@@ -118,6 +126,7 @@ alias log="git log"
 alias logp="git log --pretty=oneline"
 alias logpp="git log --all --decorate --oneline --graph"
 alias ltracked='git ls-tree -r --name-only' #list tracked files in given branch
+alias ltr='git ls-tree -r --name-only' #list tracked files in given branch
 alias tag="git tag"
 
 
