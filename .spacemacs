@@ -1112,6 +1112,7 @@ you should place your code here."
 (spacemacs/set-leader-keys (kbd "ic") 'insert-char)
 (spacemacs/set-leader-keys (kbd "ts") 'prettify-symbols-mode)
 (spacemacs/set-leader-keys (kbd "kw") 'evil-window-up) ; shadow evil-lisp-state-wrap binding
+(spacemacs/set-leader-keys (kbd "hw") 'helm-man-woman)
 ;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
 ;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
 ;; (define-key evil-normal-state-map (kbd "M-d") nil) ;; disable kill-word
