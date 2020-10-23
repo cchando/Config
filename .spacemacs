@@ -415,15 +415,6 @@ you should place your code here."
 	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
 	;; (add-to-list 'face-ignored-fonts "FreeMono")
-  ;; (add-to-list 'face-ignored-fonts "Fira Code")
-  ;; (add-to-list 'face-ignored-fonts "DejaVu Sans Mono")
-  ;; (add-to-list 'face-ignored-fonts "TeX Gyre Schola Math")
-  ;; (add-to-list 'face-ignored-fonts "TeX Gyre Bonum Math")
-  ;; (add-to-list 'face-ignored-fonts "Latin Modern Math")
-  ;; (add-to-list 'face-ignored-fonts "Source Code Pro")
-  ;; (add-to-list 'face-ignored-fonts "Unifont")
-  ;; (add-to-list 'face-ignored-fonts "Fixed")
-  ;; (add-to-list 'face-ignored-fonts "fixed")
 
 
 	;; NOTE: when this list is too long, the earlier ones get pushed off!!
