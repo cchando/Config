@@ -191,19 +191,19 @@ values."
 															 ;; NOTE: It's not clear what effect these have exactly. Putting a font first sets it as the default,
 															 ;;       but font B may be used for e.g. most math chars, even though font A was specified here
 															 ;;       before B (and supports the same char range), or even if A was specified and B was not.
-															 ;;       Also, [("Fira Code" :size 12)] gives Fira Code, size 13. Go figure.
+															 ;;       Also, [("Fira Code" :size 12)] gives Fira Code size 13. Go figure.
 
-															 ("Hasklig"
-																:size 13
-																:weight normal
-																:width normal
-																:powerline-scale 1.1)
-
-															 ;; ("Fira Code"
-															 ;; 	:size 12
+															 ;; ("Hasklig"
+															 ;; 	:size 13
 															 ;; 	:weight normal
-															 ;; 	:width condensed
+															 ;; 	:width normal
 															 ;; 	:powerline-scale 1.1)
+
+															 ("Fira Code"
+																:size 12
+																:weight normal
+																:width condensed
+																:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -437,8 +437,8 @@ you should place your code here."
 	(set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Math TeX Gyre") ; mathematical alphanumeric symbols
 	(set-fontset-font "fontset-default" '(#x1D538 . #x1D56B) "FreeSerif") ; mathematical double-stroke letters
 	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Sans") ; letterlike symbols
-	(set-fontset-font "fontset-default" '(#x2200 . #x22FF) "DejaVu Sans") ; math operators block
 	(set-fontset-font "fontset-default" '(#x2200 . #x22FF) "DejaVu Math TeX Gyre") ; math operators block
+	(set-fontset-font "fontset-default" '(#x22F2 . #x22FF) "DejaVu Sans") ; ⋸ ⋶ ⋽ ⋻ etc
 	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre") ; letterlike symbols
 	(set-fontset-font "fontset-default" '(#x2308 . #x230B) "FreeSerif") ; left/right floor/ceiling  FreeMono (corners), FreeSerif
 	(set-fontset-font "fontset-default" #x222A "DejaVu Serif") ; union
@@ -452,8 +452,8 @@ you should place your code here."
 	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C1) "FreeSans") ;; ⋀ ⋁
 	;; (set-fontset-font "fontset-default" '(#x22C2 . #x22C3) "DejaVu Sans") ;; ⋂ ⋃
 	(set-fontset-font "fontset-default" '(#x2070 . #x209C) "DejaVu Sans") ; sub- & superscripts
-	(set-fontset-font "fontset-default" #x2355 "FreeMono") ; ⍕  downtack jot
-	(set-fontset-font "fontset-default" #x234E "FreeMono") ; ⍎  uptack jot
+	;; (set-fontset-font "fontset-default" #x2355 "FreeMono") ; ⍕  downtack jot
+	;; (set-fontset-font "fontset-default" #x234E "FreeMono") ; ⍎  uptack jot
 
 
 	;; ----------- For proper font set -------------------------------------------------------------
@@ -552,7 +552,7 @@ you should place your code here."
 	;; ←  ↑  →  ↓  ↰  ↦
 
 	;; nand/nor
-	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ⊻ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ⊻ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊉ ∩ ∪ ⋂ ⋃ ⋀ ⋁ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙
 	;; → ← ↑ ↓ ∆ ∇ ⍴ ∊ ⍳ ⍺ ⍵ ⍷ ⍸ ⍶ ⍹ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
 	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍭ ⍇ ⍐ ⍈ ⍗
 	;; APL symbols
