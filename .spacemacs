@@ -193,17 +193,17 @@ values."
 															 ;;       before B (and supports the same char range), or even if A was specified and B was not.
 															 ;;       Also, [("Fira Code" :size 12)] gives Fira Code, size 13. Go figure.
 
-															 ;; ("Hasklig"
-															 ;; 	:size 13
-															 ;; 	:weight normal
-															 ;; 	:width normal
-															 ;; 	:powerline-scale 1.1)
-
-															 ("Fira Code"
-																:size 12
+															 ("Hasklig"
+																:size 13
 																:weight normal
-																:width condensed
+																:width normal
 																:powerline-scale 1.1)
+
+															 ;; ("Fira Code"
+															 ;; 	:size 12
+															 ;; 	:weight normal
+															 ;; 	:width condensed
+															 ;; 	:powerline-scale 1.1)
 
 															 )
    ;; The leader key
@@ -428,84 +428,121 @@ you should place your code here."
 
 	;; NOTE: when this list is too long, the earlier ones get pushed off!!
 
-	(set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math") ; math operators block
-	(set-fontset-font "fontset-default" '(#x2336 . #x237A) "HanaMinA") ; APL symbols
-	(set-fontset-font "fontset-default" '(#x2336 . #x237A) "STIX Two Math") ; APL symbols
-	(set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "STIX Two Math") ; mathematical alphanumeric symbols
-	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "STIX Two Math") ; letterlike symbols
+
+	;; ----------- For minimal font set -------------------------------------------------------------
+	(set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono") ; APL symbols
 	(set-fontset-font "fontset-default" #x233D "DejaVu Sans Mono") ; ⌽
-	;; (set-fontset-font "fontset-default" '(#x2336 . #x234A) "HanaMinA") ; I-beam to up-tack underbar
-	(set-fontset-font "fontset-default" '(#x234F . #x2350) "HanaMinA") ; upwards vane, quad upwards arrow
-	(set-fontset-font "fontset-default" '(#x2356 . #x2357) "HanaMinA") ; downwards vane, quad downwards arrow
-	(set-fontset-font "fontset-default" '(#x2345 . #x2346) "HanaMinA") ; left / right vanes
-	(set-fontset-font "fontset-default" #x235A "HanaMinA") ; diamond underbar
-	(set-fontset-font "fontset-default" #x2360 "HanaMinA") ; quad colon
-	;; (set-fontset-font "fontset-default" #x2365 "HanaMinA") ; ⍥  circle diaeresis (large)
-	(set-fontset-font "fontset-default" '(#x236D . #x2370) "HanaMinA")
-	(set-fontset-font "fontset-default" #x2378 "HanaMinA") ; iota bar
-	(set-fontset-font "fontset-default" #x2377 "HanaMinA") ; epsilon bar (alternate)
-	(set-fontset-font "fontset-default" '(#x235A . #x235C) "DejaVu Sans Mono") ; ⍚ ⍛ ⍜
-	;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚
-	(set-fontset-font "fontset-default" #x2364 "HanaMinA") ; ⍛
-	;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans Mono") ; ⍜
-	(set-fontset-font "fontset-default" '(#x2371 . #x2372) "STIX Two Math") ; apl nand / nor
-	(set-fontset-font "fontset-default" #x2374 "DejaVu Sans Mono") ; rho   ⍴
-	;; (set-fontset-font "fontset-default" #x2373 "DejaVu Sans Mono") ; iota ⍳
-	(set-fontset-font "fontset-default" #x2375 "DejaVu Sans Mono") ; omega   ⍵
-	(set-fontset-font "fontset-default" #x237A "DejaVu Sans Mono") ; alpha   ⍺
-	(set-fontset-font "fontset-default" #x2376 "DejaVu Sans Mono") ; alpha bar    ⍶
-	(set-fontset-font "fontset-default" #x2378 "DejaVu Sans Mono") ; iota bar    ⍸
-	(set-fontset-font "fontset-default" #x2379 "DejaVu Sans Mono") ; omega bar   ⍹
-
-	(set-fontset-font "fontset-default" '(#x2376 . #x2379) "DejaVu Sans Mono") ; alpha bar, epsilon bar, iota bar, omega bar
-	;; (set-fontset-font "fontset-default" #x236B "DejaVu Sans Mono") ; del tilde      or STIX Two Math
-	(set-fontset-font "fontset-default" '(#x2366 . #x2369) "DejaVu Sans Mono") ; ⍦ ⍧ ⍨ ⍩
-	;; (set-fontset-font "fontset-default" #x2377 "DejaVu Sans Mono") ; epsilon bar
 	(set-fontset-font "fontset-default" #x2373 "DejaVu Sans") ; iota
-	;; ;; (set-fontset-font "fontset-default" #x2374 "DejaVu Sans") ; rho
-	;; (set-fontset-font "fontset-default" #x2375 "DejaVu Sans") ; omega
-	;; ;; (set-fontset-font "fontset-default" #x237A "DejaVu Sans") ; alpha
-	;; ;; (set-fontset-font "fontset-default" #x235B "FreeMono") ; jot underbar
-	;; (set-fontset-font "fontset-default" #x235F "STIX Two Math") ; circle star
-	;; ;; (set-fontset-font "fontset-default" #x2378 "FreeMono") ; iota underbar
-	;; ;; (set-fontset-font "fontset-default" '(#x2208 . #x2209) "HanaMinA") ; elem, notElem
+	(set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre") ; arrows
+	(set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Math TeX Gyre") ; mathematical alphanumeric symbols
+	(set-fontset-font "fontset-default" '(#x1D538 . #x1D56B) "FreeSerif") ; mathematical double-stroke letters
+	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Sans") ; letterlike symbols
+	(set-fontset-font "fontset-default" '(#x2200 . #x22FF) "DejaVu Sans") ; math operators block
+	(set-fontset-font "fontset-default" '(#x2200 . #x22FF) "DejaVu Math TeX Gyre") ; math operators block
+	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre") ; letterlike symbols
 	(set-fontset-font "fontset-default" '(#x2308 . #x230B) "FreeSerif") ; left/right floor/ceiling  FreeMono (corners), FreeSerif
-	;; (set-fontset-font "fontset-default" '(#x2206 . #x2207) "TeX Gyre Schola Math") ; delta, nabla
-	;; (set-fontset-font "fontset-default" '(#x2234 . #x2237) "STIX Math Two") ; therefore, because, ratio, proportion
-	;; (set-fontset-font "fontset-default" #x2205 "Serif") ; empty set
-	;; (set-fontset-font "fontset-default" #x22C6 "DejaVu Math TeX Gyre") ; star operator (APL)
-
-	;; (set-fontset-font "fontset-default" #x220F "Liberation Serif") ; product
-	;; (set-fontset-font "fontset-default" #x2211 "Liberation Serif") ; sum
-	;; (set-fontset-font "fontset-default" #x2205 "STIX Math Two") ; empty set
-	;; (set-fontset-font "fontset-default" #x223C "STIX Math Two") ; tilde
-	;; (set-fontset-font "fontset-default" #x220D "STIX Math Two") ; small contains
-	;; (set-fontset-font "fontset-default" '(#x2260 . #x2262) "STIX Math Two") ; equal, NE, NEQ
-	;; (set-fontset-font "fontset-default" '(#x2282 . #x228B) "STIX Math Two") ; subset, superset, etc
-	;; (set-fontset-font "fontset-default" '(#x2295 . #x2298) "STIX Math Two") ; circled plus, circled times, etc
-	(set-fontset-font "fontset-default" '(#x2208 . #x2209) "DejaVu Math TeX Gyre") ; elem / notElem
-	(set-fontset-font "fontset-default" '(#x220B . #x220C) "DejaVu Math TeX Gyre") ; contains / notContains
-	;; (set-fontset-font "fontset-default" #x236A "DejaVu Sans Mono") ; comma bar   --------------------------------------------------------------
-	;; (set-fontset-font "fontset-default" #x235F "DejaVu Sans Mono") ; circle star --------------------------------------------------------------
-	;; (set-fontset-font "fontset-default" #x235B "DejaVu Sans") ; jot underbar       ------------------------------------------------------------
-	;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans") ; circle underbar    ------------------------------------------------------------
-	;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚ ------------------------------------------------------------------------
-	;; (set-fontset-font "fontset-default" '(#x2363 . #x2364) "") ; ⍤ ⍣
-	;; (set-fontset-font "fontset-default" #x2229 "DejaVu Serif") ; intersection
 	(set-fontset-font "fontset-default" #x222A "DejaVu Serif") ; union
-	(set-fontset-font "fontset-default" #x220A "FreeSans") ; small elem     FreeSans    TeX Gyre Schola Math   DejaVu Sans  (more fonts)
+	(set-fontset-font "fontset-default" #x234b "DejaVu Sans Mono") ; ⍋
+	(set-fontset-font "fontset-default" #x2352 "DejaVu Sans Mono") ; ⍒
+	(set-fontset-font "fontset-default" #x2205 "Free Sans") ; empty set
+	(set-fontset-font "fontset-default" '(#x22D8 . #x22D9) "DejaVu Sans") ; ⋘ ⋙
+	(set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "FreeSans") ;; ⋀ ⋁ ⋂ ⋃  (medium-large)
+	(set-fontset-font "fontset-default" '(#x2282 . #x2294) "DejaVu Sans") ;; sub- / superset series
+	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "DejaVu Sans") ;; ⋀ ⋁ ⋂ ⋃
+	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C1) "FreeSans") ;; ⋀ ⋁
+	;; (set-fontset-font "fontset-default" '(#x22C2 . #x22C3) "DejaVu Sans") ;; ⋂ ⋃
+	(set-fontset-font "fontset-default" '(#x2070 . #x209C) "DejaVu Sans") ; sub- & superscripts
+	(set-fontset-font "fontset-default" #x2355 "FreeMono") ; ⍕  downtack jot
+	(set-fontset-font "fontset-default" #x234E "FreeMono") ; ⍎  uptack jot
 
 
-	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
-	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSerif") ; arrows
+	;; ----------- For proper font set -------------------------------------------------------------
+	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
+	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSerif") ; arrows
 	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math") ; arrows
-	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "HanaMinA") ; arrows
+	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "HanaMinA") ; arrows
+	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre") ; arrows
+	;; (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math") ; math operators block
+	;; (set-fontset-font "fontset-default" '(#x2336 . #x237A) "HanaMinA") ; APL symbols
+	;; (set-fontset-font "fontset-default" '(#x2336 . #x237A) "STIX Two Math") ; APL symbols
+	;; (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Math TeX Gyre") ; mathematical alphanumeric symbols
+	;; (set-fontset-font "fontset-default" '(#x1D538 . #x1D56B) "STIX Two Math") ; mathematical double-stroke letters
+	;; (set-fontset-font "fontset-default" '(#x2100 . #x214F) "STIX Two Math") ; letterlike symbols
+	;; (set-fontset-font "fontset-default" #x233D "DejaVu Sans Mono") ; ⌽
+	;; ;; (set-fontset-font "fontset-default" '(#x2336 . #x234A) "HanaMinA") ; I-beam to up-tack underbar
+	;; (set-fontset-font "fontset-default" '(#x234F . #x2350) "HanaMinA") ; upwards vane, quad upwards arrow
+	;; (set-fontset-font "fontset-default" '(#x2356 . #x2357) "HanaMinA") ; downwards vane, quad downwards arrow
+	;; (set-fontset-font "fontset-default" '(#x2345 . #x2346) "HanaMinA") ; left / right vanes
+	;; ;; (set-fontset-font "fontset-default" #x235A "HanaMinA") ; diamond underbar
+	;; (set-fontset-font "fontset-default" #x2360 "HanaMinA") ; quad colon
+	;; ;; (set-fontset-font "fontset-default" #x2365 "HanaMinA") ; ⍥  circle diaeresis (large)
+	;; (set-fontset-font "fontset-default" '(#x236D . #x2370) "HanaMinA")
+	;; (set-fontset-font "fontset-default" #x2378 "HanaMinA") ; iota bar
+	;; (set-fontset-font "fontset-default" #x2377 "HanaMinA") ; epsilon bar (alternate)
+	;; (set-fontset-font "fontset-default" '(#x235A . #x235C) "DejaVu Sans Mono") ; ⍚ ⍛ ⍜
+	;; ;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚
+	;; ;; (set-fontset-font "fontset-default" #x2364 "HanaMinA") ; ⍛
+	;; ;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans Mono") ; ⍜
+	;; (set-fontset-font "fontset-default" '(#x2371 . #x2372) "STIX Two Math") ; apl nand / nor
+	;; (set-fontset-font "fontset-default" #x2374 "DejaVu Sans Mono") ; rho   ⍴
+	;; ;; (set-fontset-font "fontset-default" #x2373 "DejaVu Sans Mono") ; iota ⍳
+	;; (set-fontset-font "fontset-default" #x2373 "DejaVu Sans") ; iota
+	;; (set-fontset-font "fontset-default" #x2375 "DejaVu Sans Mono") ; omega   ⍵
+	;; (set-fontset-font "fontset-default" #x237A "DejaVu Sans Mono") ; alpha   ⍺
+	;; (set-fontset-font "fontset-default" #x2376 "DejaVu Sans Mono") ; alpha bar    ⍶
+	;; (set-fontset-font "fontset-default" #x2378 "DejaVu Sans Mono") ; iota bar    ⍸
+	;; (set-fontset-font "fontset-default" #x2379 "DejaVu Sans Mono") ; omega bar   ⍹
+	;; (set-fontset-font "fontset-default" '(#x2376 . #x2379) "DejaVu Sans Mono") ; alpha bar, epsilon bar, iota bar, omega bar
+	;; ;; (set-fontset-font "fontset-default" #x236B "DejaVu Sans Mono") ; del tilde      or STIX Two Math
+	;; (set-fontset-font "fontset-default" '(#x2366 . #x2369) "DejaVu Sans Mono") ; ⍦ ⍧ ⍨ ⍩
+	;; ;; (set-fontset-font "fontset-default" #x2377 "DejaVu Sans Mono") ; epsilon bar
+	;; ;; ;; (set-fontset-font "fontset-default" #x2374 "DejaVu Sans") ; rho
+	;; ;; (set-fontset-font "fontset-default" #x2375 "DejaVu Sans") ; omega
+	;; ;; ;; (set-fontset-font "fontset-default" #x237A "DejaVu Sans") ; alpha
+	;; ;; ;; (set-fontset-font "fontset-default" #x235B "FreeMono") ; jot underbar
+	;; ;; (set-fontset-font "fontset-default" #x235F "STIX Two Math") ; circle star
+	;; ;; ;; (set-fontset-font "fontset-default" #x2378 "FreeMono") ; iota underbar
+	;; ;; ;; (set-fontset-font "fontset-default" '(#x2208 . #x2209) "HanaMinA") ; elem, notElem
+	;; (set-fontset-font "fontset-default" '(#x2308 . #x230B) "FreeSerif") ; left/right floor/ceiling  FreeMono (corners), FreeSerif
+	;; ;; (set-fontset-font "fontset-default" '(#x2206 . #x2207) "TeX Gyre Schola Math") ; delta, nabla
+	;; ;; (set-fontset-font "fontset-default" '(#x2234 . #x2237) "STIX Math Two") ; therefore, because, ratio, proportion
+	;; ;; (set-fontset-font "fontset-default" #x22C6 "DejaVu Math TeX Gyre") ; star operator (APL)
+	;; ;; (set-fontset-font "fontset-default" #x220F "Liberation Serif") ; product
+	;; ;; (set-fontset-font "fontset-default" #x2211 "Liberation Serif") ; sum
+	;; (set-fontset-font "fontset-default" #x2205 "Free Sans") ; empty set
+	;; ;; (set-fontset-font "fontset-default" #x2205 "STIX Math Two") ; empty set
+	;; ;; (set-fontset-font "fontset-default" #x223C "STIX Math Two") ; tilde
+	;; ;; (set-fontset-font "fontset-default" #x220D "STIX Math Two") ; small contains
+	;; ;; (set-fontset-font "fontset-default" '(#x2260 . #x2262) "STIX Math Two") ; equal, NE, NEQ
+	;; ;; (set-fontset-font "fontset-default" '(#x2282 . #x228B) "STIX Math Two") ; subset, superset, etc
+	;; ;; (set-fontset-font "fontset-default" '(#x2295 . #x2298) "STIX Math Two") ; circled plus, circled times, etc
+	;; (set-fontset-font "fontset-default" '(#x2208 . #x2209) "DejaVu Math TeX Gyre") ; elem / notElem
+	;; (set-fontset-font "fontset-default" '(#x220B . #x220C) "DejaVu Math TeX Gyre") ; contains / notContains
+	;; ;; (set-fontset-font "fontset-default" #x236A "DejaVu Sans Mono") ; comma bar   --------------------------------------------------------------
+	;; ;; (set-fontset-font "fontset-default" #x235F "DejaVu Sans Mono") ; circle star --------------------------------------------------------------
+	;; ;; (set-fontset-font "fontset-default" #x235B "DejaVu Sans") ; jot underbar       ------------------------------------------------------------
+	;; ;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans") ; circle underbar    ------------------------------------------------------------
+	;; ;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚ ------------------------------------------------------------------------
+	;; ;; (set-fontset-font "fontset-default" '(#x2363 . #x2364) "") ; ⍤ ⍣
+	;; ;; (set-fontset-font "fontset-default" #x2229 "DejaVu Serif") ; intersection
+	;; (set-fontset-font "fontset-default" #x222A "DejaVu Serif") ; union
+	;; ;; (set-fontset-font "fontset-default" #x220A "FreeSans") ; small elem     FreeSans    TeX Gyre Schola Math   DejaVu Sans
+	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "FreeSans") ;; ⋀ ⋁ ⋂ ⋃  (medium-large)
+	;; ;; (set-fontset-font "fontset-default" '(#x2282 . #x2294) "DejaVu Sans") ;; sub- / superset series
+	;; ;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "DejaVu Sans") ;; ⋀ ⋁ ⋂ ⋃
+	;; ;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C1) "FreeSans") ;; ⋀ ⋁
+	;; ;; (set-fontset-font "fontset-default" '(#x22C2 . #x22C3) "DejaVu Sans") ;; ⋂ ⋃
+	;; ;; (set-fontset-font "fontset-default" '(#x22D8 . #x22D9) "DejaVu Sans") ; ⋘ ⋙
+	;; ;; (set-fontset-font "fontset-default" #x2355 '("FreeMono" :weight bold)) ; ⍕  downtack jot
+	;; ;; (set-fontset-font "fontset-default" #x234E "STIX Two Math") ; ⍎  uptack jot
+	;; ;; (set-fontset-font "fontset-default" #x234b "DejaVu Sans Mono") ; ⍋
+	;; ;; (set-fontset-font "fontset-default" #x2352 "DejaVu Sans Mono") ; ⍒
+
 
 
 
 	;; best font for mathematical bold letters
-	;; grade up 234B S2M
-	;; grade down 2352 S2M
+	;; try adding bold for ∴ ∵   FreeSans  FreeSerif
 	;; quad up caret 2353 S2M
 	;; down tack jot 2355 S2M
 	;; up tack jot 234E S2M
@@ -519,7 +556,6 @@ you should place your code here."
 	;; → ← ↑ ↓ ∆ ∇ ⍴ ∊ ⍳ ⍺ ⍵ ⍷ ⍸ ⍶ ⍹ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
 	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍭ ⍇ ⍐ ⍈ ⍗
 	;; APL symbols
-	;; ⍲ ⍱ ∆ ∇ ⍫  ≤ ≥ ⍎ ⍕      STIX Two Math
 
 	;; ¨  (diaeresis)
 
