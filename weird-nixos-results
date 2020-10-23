@@ -1,0 +1,155 @@
+[cameron@nixos ~]$ rollback
+switching from generation 99 to 98
+[cameron@nixos ~]$ emacs --version
+GNU Emacs 27.1
+Copyright (C) 2020 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+[cameron@nixos ~]$ deletegen 99
+removing generation 99
+[cameron@nixos ~]$ lgen
+  76   2020-10-17 07:57:20   
+  77   2020-10-17 07:58:36   
+  78   2020-10-17 17:37:49   
+  79   2020-10-17 17:38:04   
+  80   2020-10-21 00:11:58   
+  81   2020-10-21 00:19:48   
+  82   2020-10-21 02:34:41   
+  83   2020-10-21 09:36:21   
+  84   2020-10-21 09:39:26   
+  85   2020-10-21 09:39:33   
+  86   2020-10-21 09:39:48   
+  87   2020-10-21 09:40:02   
+  88   2020-10-21 09:40:23   
+  89   2020-10-21 11:21:06   
+  90   2020-10-21 11:25:19   
+  96   2020-10-22 17:04:23   
+  97   2020-10-23 00:06:07   
+  98   2020-10-23 00:16:00   (current)
+[cameron@nixos ~]$ sgen 79
+switching from generation 98 to 79
+[cameron@nixos ~]$ emacs --version
+GNU Emacs 26.3
+Copyright (C) 2019 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+[cameron@nixos ~]$ upgv emacs-25
+error: selector 'emacs-25' matches no derivations
+[cameron@nixos ~]$ emacs --version
+GNU Emacs 26.3
+Copyright (C) 2019 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+[cameron@nixos ~]$ sgen 75
+error: generation 75 does not exist
+[cameron@nixos ~]$ sgen 76
+switching from generation 79 to 76
+[cameron@nixos ~]$ upgv emacs-27
+error: selector 'emacs-27' matches no derivations
+[cameron@nixos ~]$ upgv emacs-27.1
+[cameron@nixos ~]$ emacs --version
+GNU Emacs 26.3
+Copyright (C) 2019 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+[cameron@nixos ~]$ upg emacs
+[cameron@nixos ~]$ emacs --version
+GNU Emacs 26.3
+Copyright (C) 2019 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+[cameron@nixos ~]$ show upg
+alias upg='nix-env --upgrade'
+[cameron@nixos ~]$ gucharmap --version
+GNOME Character Map 12.0.1
+[cameron@nixos ~]$ upg gucharmap
+[cameron@nixos ~]$ gucharmap --version
+GNOME Character Map 12.0.1
+[cameron@nixos ~]$ show upd
+[cameron@nixos ~]$ show update
+[cameron@nixos ~]$ cat .bashrc | grep upd
+alias chupd='nix-channel --update'
+[cameron@nixos ~]$ chupd
+unpacking channels...
+[cameron@nixos ~]$ upg emacs
+^Cerror: interrupted by the user
+[cameron@nixos ~]$ upgv emacs-27
+error: selector 'emacs-27' matches no derivations
+[cameron@nixos ~]$ upgv emacs-27.1
+[cameron@nixos ~]$ emacs --version
+GNU Emacs 26.3
+Copyright (C) 2019 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+[cameron@nixos ~]$ upg emacs
+[cameron@nixos ~]$ emacs --version
+GNU Emacs 26.3
+Copyright (C) 2019 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+[cameron@nixos ~]$ lgen
+  76   2020-10-17 07:57:20   
+  77   2020-10-17 07:58:36   
+  78   2020-10-17 17:37:49   
+  79   2020-10-17 17:38:04   
+  80   2020-10-21 00:11:58   
+  81   2020-10-21 00:19:48   
+  82   2020-10-21 02:34:41   
+  83   2020-10-21 09:36:21   
+  84   2020-10-21 09:39:26   
+  85   2020-10-21 09:39:33   
+  86   2020-10-21 09:39:48   
+  87   2020-10-21 09:40:02   
+  88   2020-10-21 09:40:23   
+  89   2020-10-21 11:21:06   
+  90   2020-10-21 11:25:19   
+  96   2020-10-22 17:04:23   
+  97   2020-10-23 00:06:07   
+  98   2020-10-23 00:16:00   
+  99   2020-10-23 00:28:57   (current)
+[cameron@nixos ~]$ chupd
+unpacking channels...
+[cameron@nixos ~]$ ;gem
+bash: syntax error near unexpected token `;'
+[cameron@nixos ~]$ lgen
+  76   2020-10-17 07:57:20   
+  77   2020-10-17 07:58:36   
+  78   2020-10-17 17:37:49   
+  79   2020-10-17 17:38:04   
+  80   2020-10-21 00:11:58   
+  81   2020-10-21 00:19:48   
+  82   2020-10-21 02:34:41   
+  83   2020-10-21 09:36:21   
+  84   2020-10-21 09:39:26   
+  85   2020-10-21 09:39:33   
+  86   2020-10-21 09:39:48   
+  87   2020-10-21 09:40:02   
+  88   2020-10-21 09:40:23   
+  89   2020-10-21 11:21:06   
+  90   2020-10-21 11:25:19   
+  96   2020-10-22 17:04:23   
+  97   2020-10-23 00:06:07   
+  98   2020-10-23 00:16:00   
+  99   2020-10-23 00:28:57   (current)
+[cameron@nixos ~]$ emacs --version
+GNU Emacs 26.3
+Copyright (C) 2019 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+[cameron@nixos ~]$ 
