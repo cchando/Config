@@ -17,8 +17,8 @@ shopt -s extglob dotglob globstar
 #sftp cameron@10.0.0.2
 #xdg-mime  #check / modify file-type associations
 #wpa_passphrase Frontier4704 21422325889218 > /etc/wpa_supplicant.conf #5148275597
-#alias ni='nix-instantiate --eval'
 #ip a -- get status of wireless devices
+#alias ni='nix-instantiate --eval'
 #xinput list
 
 # Nix & NixOS
@@ -29,7 +29,7 @@ alias clean='nix-collect-garbage -d'
 alias chupd='nix-channel --update'
 alias upg='nix-env --upgrade'
 alias upgv='nix-env --upgrade --always'
-alias rollback='nix-channel --rollback'
+alias rollback='nix-env --rollback'
 alias rm='mv -t /home/cameron/.trash'
 alias rmu='rm' # remove unsafe
 alias inst='nix-env -iA'
