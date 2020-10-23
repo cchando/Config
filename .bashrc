@@ -93,7 +93,7 @@ function conda-shell {
 #alias mvfiles='find . type f -regextype egrep -regex '.*[a-z]+\.el$' -execdir mv -t dest {} \+'  # example only
 
 # config edits
-alias enc='sudo vim /etc/nixos/configuration.nix'
+alias enc='emacs /etc/nixos/configuration.nix'
 alias eba='emacs ~/.bashrc'
 alias evi='emacs ~/.vimrc'
 alias eiwm='emacs ~/.i3/config'
@@ -102,7 +102,7 @@ alias ete='emacs ~/.config/termite/config'
 alias eki='emacs ~/.config/kitty/kitty.conf'
 alias etm='emacs ~/.tmux.conf'
 alias est='emacs ~/.config/stretchly/config.json'
-# alias es='vim ~/.config/sway/config'
+# alias es='emacs ~/.config/sway/config'
 
 # git commands
 alias s="git switch"
