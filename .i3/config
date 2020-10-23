@@ -130,7 +130,7 @@ bindsym $mod+Shift+d exec xrandr --output eDP-1 --auto
     bindsym $mod+b exec stretchly
 
     # start charmap
-    bindsym $mod+c exec charmap
+    bindsym $mod+c exec gucharmap
 
     # reload the configuration file
     bindsym $mod+Shift+c reload
