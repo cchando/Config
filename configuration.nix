@@ -11,7 +11,7 @@
       #imports = [ <nixpkgs/nixos/modules/profiles/minimal.nix> ];
     ];
 
-  # Use the systemd-boot EFI boot loader.  
+  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   #boot.loader.grub.devices = "";
@@ -22,7 +22,7 @@
     extraHosts =
       '' #nixos version of /etc/hosts
       '';
-  }; 
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -39,7 +39,7 @@
 
   # Load fonts
   fonts.fonts = with pkgs; [
-    inconsolata fira-code hasklig iosevka hanazono lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
+    inconsolata fira-code hasklig hanazono lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
     corefonts
   ];
 
@@ -52,13 +52,12 @@
             "Hasklig"
             "Monospace"
             "Iosevka"
-#DejaVu Math TeX Gyre  (should already show up in charmap)
             "XITS Math"
             "STIX Two Math"
-            "Libertinus Math" # good prod, coprod, sum
+            "Libertinus Math"
             "TeX Gyre Bonum Math"
-            "TeX Gyre Schola Math" # good inc, nabla, elem
-            "Verdana" # mostly for arrows
+            "TeX Gyre Schola Math"
+            #DejaVu Math TeX Gyre  (should already show up in charmap)
         ];
         sansSerif = [
             "Nimbus Roman"
@@ -75,7 +74,19 @@
     fcitx.engines = with pkgs.fcitx-engines; [ mozc ]; #TODO: change mozc?
   };
 
-  nixpkgs.config.allowUnfree = true;
+
+# nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config = {
+    # Allow proprietary packages
+    allowUnfree = true;
+    # Create an alias for the unstable channel
+    packageOverrides = pkgs: {
+      unstable = import <nixos-unstable> { # pass the nixpkgs config to the unstable alias # to ensure `allowUnfree = true;` is propagated:
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
     environment.systemPackages = with pkgs; [
       # libs
@@ -178,12 +189,11 @@
       #corgi-v0.2.4
 #     wpgtk #executable name is wpg
       neofetch
-# 		patchelf    #patches precompiled binaries to look for libraries at the right place in NixOS 
 
       # managers
       anthy fcitx-engines.anthy
       sylpheed
-      
+
       #languages
       #clojure leiningen
 
@@ -292,12 +302,10 @@
       mgba
 
       # fonts
-      inconsolata-lgc fira-code hasklig iosevka hanazono libertine lmodern #gyre-fonts liberation-fonts
+      inconsolata-lgc fira-code hasklig hanazono libertine lmodern #gyre-fonts liberation-fonts
       # math fonts
       lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
       corefonts #microsoft's core fonts
-
-      gucharmap
 
 
       # runtimes & compilers
@@ -316,7 +324,7 @@
 
       #analyzers
 #     crex
-      
+
       # others
       # check-out bloop for scala production; ccls or cquery for c[++] repl; caddy for HTTP/2 web server with "automatic" HTTPS
       #websocketd #redirect stdin/out to WS
