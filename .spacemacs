@@ -66,7 +66,7 @@ values."
    dotspacemacs-additional-packages '(nix-mode auto-sudoedit xah-math-input dyalog-mode hasklig-mode pretty-mode fira-code-mode moe-theme intellij-theme lab-themes flucui-themes base16-theme afternoon-theme color-theme-modern sublime-themes heroku-theme atom-one-dark-theme solarized-theme light-soap-theme color-theme-sanityinc-tomorrow apropospriate-theme underwater-theme occidental-theme ample-theme flatui-theme alect-themes night-owl-theme tldr parinfer disable-mouse highlight-indent-guides highlight-indentation) ;fira-code-mode doom-themes sudo-edit auto-sudoedit
    ;; solarized-dark-theme tomorrow-blue-theme pheonix-dark-mono-theme apropospriate-light-theme adwaita-theme alect-light-theme
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '(xah-math-input)
+   dotspacemacs-frozen-packages '(xah-math-input pretty-mode)
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(company-tern)
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -400,19 +400,19 @@ you should place your code here."
   ;; DejaVu Math TeX Gyre
 	;; Latin Modern Math
 	;; XITS Math
-	;; STIX Two Math     ⍲ ⍱ ∆ ∇ ⍫  ≤ ≥ ⍎ ⍕
+	;; STIX Two Math     ⍲ ⍱ ∆ ∇ ⍫  ≤ ≥ ⍎ ⍕ → ← ↑ ↓
 	;; Libertinus Math
 	;; TeX Gyre Bonum Math
 	;; TeX Gyre Schola Math
 	;; Verdana     arrows
-
 	;; Liberation Sans     arrows
-	;; TeX Gyre Schola (Math?)    arrows
+	;; TeX Gyre Schola (Math)    arrows
 	;; FreeMono     ⍸ ⍷ ⍘ ⍚  (⍹ ⍜ ⍪ ⍤)
 	;; Hasklig:pixelsize=13:foundry=ADBO:weight=bold:slant=normal:width=normal:spacing=100:scalable=true
   ;; -ADBO-Hasklig-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -CTDB-Fira Code-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 	;; -PfEd-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
+	;; -PfEd-DejaVu Sans-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
 	;; (add-to-list 'face-ignored-fonts "FreeMono")
 
@@ -423,92 +423,95 @@ you should place your code here."
 	;; ----------- For minimal font set -------------------------------------------------------------
 	(set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono") ; APL symbols
 	(set-fontset-font "fontset-default" #x233D "DejaVu Sans Mono") ; ⌽
-	(set-fontset-font "fontset-default" #x2373 "DejaVu Sans") ; iota
 	(set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre") ; arrows
-	(set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Math TeX Gyre") ; mathematical alphanumeric symbols
-	(set-fontset-font "fontset-default" '(#x1D538 . #x1D56B) "FreeSerif") ; mathematical double-stroke letters
-	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Sans") ; letterlike symbols
+	(set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Math TeX Gyre") ; alphanumeric symbols
+	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre") ; letterlike symbols
 	(set-fontset-font "fontset-default" '(#x2200 . #x22FF) "DejaVu Math TeX Gyre") ; math operators block
 	(set-fontset-font "fontset-default" '(#x22F2 . #x22FF) "DejaVu Sans") ; ⋸ ⋶ ⋽ ⋻ etc
-	(set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre") ; letterlike symbols
 	(set-fontset-font "fontset-default" '(#x2308 . #x230B) "FreeSerif") ; left/right floor/ceiling  FreeMono (corners), FreeSerif
 	(set-fontset-font "fontset-default" #x222A "DejaVu Serif") ; union
 	(set-fontset-font "fontset-default" #x234b "DejaVu Sans Mono") ; ⍋
 	(set-fontset-font "fontset-default" #x2352 "DejaVu Sans Mono") ; ⍒
 	(set-fontset-font "fontset-default" #x2205 "Free Sans") ; empty set
-	(set-fontset-font "fontset-default" '(#x22D8 . #x22D9) "DejaVu Sans") ; ⋘ ⋙
+	(set-fontset-font "fontset-default" '(#x22D8 . #x22D9) "DejaVu Math TeX Gyre") ; ⋘ ⋙
 	(set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "FreeSans") ;; ⋀ ⋁ ⋂ ⋃  (medium-large)
 	(set-fontset-font "fontset-default" '(#x2282 . #x2294) "DejaVu Sans") ;; sub- / superset series
+	(set-fontset-font "fontset-default" '(#x2070 . #x209C) "DejaVu Sans") ; sub- & superscripts
+	(set-fontset-font "fontset-default" #x2319 "DejaVu Math TeX Gyre") ; ⌙
+	(set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans") ;; ⨁ ⨂ ⩽ ⩾ ⨌ etc
+	(set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans") ;; ∴ ∵
+	;; (set-fontset-font "fontset-default" '(#x2234 . #x2235) "-PfEd-DejaVu Sans-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1") ; ∴ ∵
 	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "DejaVu Sans") ;; ⋀ ⋁ ⋂ ⋃
 	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C1) "FreeSans") ;; ⋀ ⋁
 	;; (set-fontset-font "fontset-default" '(#x22C2 . #x22C3) "DejaVu Sans") ;; ⋂ ⋃
-	(set-fontset-font "fontset-default" '(#x2070 . #x209C) "DejaVu Sans") ; sub- & superscripts
-	;; (set-fontset-font "fontset-default" #x2355 "FreeMono") ; ⍕  downtack jot
-	;; (set-fontset-font "fontset-default" #x234E "FreeMono") ; ⍎  uptack jot
+	;; (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "DejaVu Sans") ;; ⩽ ⩾
+	;; (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "TeX Gyre Bonum") ;; ⩽ ⩾
 
 
-	;; ----------- For proper font set -------------------------------------------------------------
-	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
-	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSerif") ; arrows
+
+	;; ;; ----------- For proper font set -------------------------------------------------------------
 	;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "STIX Two Math") ; arrows
-	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "HanaMinA") ; arrows
-	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre") ; arrows
+	;; (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Math TeX Gyre") ; alphanumeric symbols
+	;; (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre") ; letterlike symbols
 	;; (set-fontset-font "fontset-default" '(#x2200 . #x22FF) "STIX Two Math") ; math operators block
+	;; (set-fontset-font "fontset-default" '(#x2336 . #x237A) "DejaVu Sans Mono") ; APL symbols
 	;; (set-fontset-font "fontset-default" '(#x2336 . #x237A) "HanaMinA") ; APL symbols
-	;; (set-fontset-font "fontset-default" '(#x2336 . #x237A) "STIX Two Math") ; APL symbols
-	;; (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Math TeX Gyre") ; mathematical alphanumeric symbols
-	;; (set-fontset-font "fontset-default" '(#x1D538 . #x1D56B) "STIX Two Math") ; mathematical double-stroke letters
-	;; (set-fontset-font "fontset-default" '(#x2100 . #x214F) "STIX Two Math") ; letterlike symbols
-	;; (set-fontset-font "fontset-default" #x233D "DejaVu Sans Mono") ; ⌽
-	;; ;; (set-fontset-font "fontset-default" '(#x2336 . #x234A) "HanaMinA") ; I-beam to up-tack underbar
-	;; (set-fontset-font "fontset-default" '(#x234F . #x2350) "HanaMinA") ; upwards vane, quad upwards arrow
-	;; (set-fontset-font "fontset-default" '(#x2356 . #x2357) "HanaMinA") ; downwards vane, quad downwards arrow
-	;; (set-fontset-font "fontset-default" '(#x2345 . #x2346) "HanaMinA") ; left / right vanes
-	;; ;; (set-fontset-font "fontset-default" #x235A "HanaMinA") ; diamond underbar
-	;; (set-fontset-font "fontset-default" #x2360 "HanaMinA") ; quad colon
-	;; ;; (set-fontset-font "fontset-default" #x2365 "HanaMinA") ; ⍥  circle diaeresis (large)
-	;; (set-fontset-font "fontset-default" '(#x236D . #x2370) "HanaMinA")
+	;; (set-fontset-font "fontset-default" #x2205 "Free Sans") ; empty set
+	;; (set-fontset-font "fontset-default" '(#x2308 . #x230B) "FreeSerif") ; left/right floor/ceiling  FreeMono (corners), FreeSerif
+	;; (set-fontset-font "fontset-default" '(#x2208 . #x2209) "DejaVu Math TeX Gyre") ; elem / notElem
+	;; (set-fontset-font "fontset-default" '(#x220B . #x220C) "DejaVu Math TeX Gyre") ; contains / notContains
+	;; (set-fontset-font "fontset-default" #x222A "DejaVu Serif") ; union
+	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "FreeSans") ;; ⋀ ⋁ ⋂ ⋃  (medium-large)
+	;; (set-fontset-font "fontset-default" #x2319 "DejaVu Math TeX Gyre") ; ⌙
+	;; (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans") ;; ⨁ ⨂ ⩽ ⩾ ⨌ etc
+	;; (set-fontset-font "fontset-default" '(#x2371 . #x2372) "STIX Two Math") ; ⍲ ⍱
+	;; (set-fontset-font "fontset-default" '(#x2373 . #x237A) "DejaVu Sans Mono") ; ⍳ ⍴ ⍵ ⍶ ⍷ ⍸ ⍹ ⍺
 	;; (set-fontset-font "fontset-default" #x2378 "HanaMinA") ; iota bar
 	;; (set-fontset-font "fontset-default" #x2377 "HanaMinA") ; epsilon bar (alternate)
 	;; (set-fontset-font "fontset-default" '(#x235A . #x235C) "DejaVu Sans Mono") ; ⍚ ⍛ ⍜
+	;; (set-fontset-font "fontset-default" #x233D "DejaVu Sans Mono") ; ⌽
+	;; (set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans") ;; ∴ ∵
+	;; ;; (set-fontset-font "fontset-default" '(#x2234 . #x2235) "-PfEd-DejaVu Sans-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1") ; ∴ ∵
+	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
+	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSerif") ; arrows
+	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "HanaMinA") ; arrows
+	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre") ; arrows
+	;; ;; (set-fontset-font "fontset-default" '(#x2336 . #x237A) "STIX Two Math") ; APL symbols
+	;; ;; (set-fontset-font "fontset-default" '(#x1D538 . #x1D56B) "STIX Two Math") ; double-stroke letters
+	;; ;; (set-fontset-font "fontset-default" '(#x2100 . #x214F) "STIX Two Math") ; letterlike symbols
+	;; ;; (set-fontset-font "fontset-default" '(#x2336 . #x234A) "HanaMinA") ; I-beam to up-tack underbar
+	;; ;; (set-fontset-font "fontset-default" '(#x234F . #x2350) "HanaMinA") ; upwards vane, quad upwards arrow
+	;; ;; (set-fontset-font "fontset-default" '(#x2356 . #x2357) "HanaMinA") ; downwards vane, quad downwards arrow
+	;; ;; (set-fontset-font "fontset-default" '(#x2345 . #x2346) "HanaMinA") ; left / right vanes
+	;; ;; (set-fontset-font "fontset-default" #x235A "HanaMinA") ; diamond underbar
+	;; ;; (set-fontset-font "fontset-default" #x2360 "HanaMinA") ; quad colon
+	;; ;; (set-fontset-font "fontset-default" #x2365 "HanaMinA") ; ⍥  circle diaeresis (large)
+	;; ;; (set-fontset-font "fontset-default" '(#x236D . #x2370) "HanaMinA")
 	;; ;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚
 	;; ;; (set-fontset-font "fontset-default" #x2364 "HanaMinA") ; ⍛
 	;; ;; (set-fontset-font "fontset-default" #x235C "DejaVu Sans Mono") ; ⍜
-	;; (set-fontset-font "fontset-default" '(#x2371 . #x2372) "STIX Two Math") ; apl nand / nor
-	;; (set-fontset-font "fontset-default" #x2374 "DejaVu Sans Mono") ; rho   ⍴
-	;; ;; (set-fontset-font "fontset-default" #x2373 "DejaVu Sans Mono") ; iota ⍳
-	;; (set-fontset-font "fontset-default" #x2373 "DejaVu Sans") ; iota
-	;; (set-fontset-font "fontset-default" #x2375 "DejaVu Sans Mono") ; omega   ⍵
-	;; (set-fontset-font "fontset-default" #x237A "DejaVu Sans Mono") ; alpha   ⍺
-	;; (set-fontset-font "fontset-default" #x2376 "DejaVu Sans Mono") ; alpha bar    ⍶
-	;; (set-fontset-font "fontset-default" #x2378 "DejaVu Sans Mono") ; iota bar    ⍸
-	;; (set-fontset-font "fontset-default" #x2379 "DejaVu Sans Mono") ; omega bar   ⍹
-	;; (set-fontset-font "fontset-default" '(#x2376 . #x2379) "DejaVu Sans Mono") ; alpha bar, epsilon bar, iota bar, omega bar
+	;; ;; (set-fontset-font "fontset-default" '(#x2376 . #x2379) "DejaVu Sans Mono") ; alpha bar, epsilon bar, iota bar, omega bar
 	;; ;; (set-fontset-font "fontset-default" #x236B "DejaVu Sans Mono") ; del tilde      or STIX Two Math
-	;; (set-fontset-font "fontset-default" '(#x2366 . #x2369) "DejaVu Sans Mono") ; ⍦ ⍧ ⍨ ⍩
+	;; ;; (set-fontset-font "fontset-default" '(#x2366 . #x2369) "DejaVu Sans Mono") ; ⍦ ⍧ ⍨ ⍩
 	;; ;; (set-fontset-font "fontset-default" #x2377 "DejaVu Sans Mono") ; epsilon bar
-	;; ;; ;; (set-fontset-font "fontset-default" #x2374 "DejaVu Sans") ; rho
+	;; ;; (set-fontset-font "fontset-default" #x2374 "DejaVu Sans") ; rho
 	;; ;; (set-fontset-font "fontset-default" #x2375 "DejaVu Sans") ; omega
-	;; ;; ;; (set-fontset-font "fontset-default" #x237A "DejaVu Sans") ; alpha
-	;; ;; ;; (set-fontset-font "fontset-default" #x235B "FreeMono") ; jot underbar
+	;; ;; (set-fontset-font "fontset-default" #x237A "DejaVu Sans") ; alpha
+	;; ;; (set-fontset-font "fontset-default" #x235B "FreeMono") ; jot underbar
 	;; ;; (set-fontset-font "fontset-default" #x235F "STIX Two Math") ; circle star
-	;; ;; ;; (set-fontset-font "fontset-default" #x2378 "FreeMono") ; iota underbar
-	;; ;; ;; (set-fontset-font "fontset-default" '(#x2208 . #x2209) "HanaMinA") ; elem, notElem
-	;; (set-fontset-font "fontset-default" '(#x2308 . #x230B) "FreeSerif") ; left/right floor/ceiling  FreeMono (corners), FreeSerif
+	;; ;; (set-fontset-font "fontset-default" #x2378 "FreeMono") ; iota underbar
+	;; ;; (set-fontset-font "fontset-default" '(#x2208 . #x2209) "HanaMinA") ; elem, notElem
 	;; ;; (set-fontset-font "fontset-default" '(#x2206 . #x2207) "TeX Gyre Schola Math") ; delta, nabla
 	;; ;; (set-fontset-font "fontset-default" '(#x2234 . #x2237) "STIX Math Two") ; therefore, because, ratio, proportion
 	;; ;; (set-fontset-font "fontset-default" #x22C6 "DejaVu Math TeX Gyre") ; star operator (APL)
 	;; ;; (set-fontset-font "fontset-default" #x220F "Liberation Serif") ; product
 	;; ;; (set-fontset-font "fontset-default" #x2211 "Liberation Serif") ; sum
-	;; (set-fontset-font "fontset-default" #x2205 "Free Sans") ; empty set
 	;; ;; (set-fontset-font "fontset-default" #x2205 "STIX Math Two") ; empty set
 	;; ;; (set-fontset-font "fontset-default" #x223C "STIX Math Two") ; tilde
 	;; ;; (set-fontset-font "fontset-default" #x220D "STIX Math Two") ; small contains
 	;; ;; (set-fontset-font "fontset-default" '(#x2260 . #x2262) "STIX Math Two") ; equal, NE, NEQ
 	;; ;; (set-fontset-font "fontset-default" '(#x2282 . #x228B) "STIX Math Two") ; subset, superset, etc
 	;; ;; (set-fontset-font "fontset-default" '(#x2295 . #x2298) "STIX Math Two") ; circled plus, circled times, etc
-	;; (set-fontset-font "fontset-default" '(#x2208 . #x2209) "DejaVu Math TeX Gyre") ; elem / notElem
-	;; (set-fontset-font "fontset-default" '(#x220B . #x220C) "DejaVu Math TeX Gyre") ; contains / notContains
 	;; ;; (set-fontset-font "fontset-default" #x236A "DejaVu Sans Mono") ; comma bar   --------------------------------------------------------------
 	;; ;; (set-fontset-font "fontset-default" #x235F "DejaVu Sans Mono") ; circle star --------------------------------------------------------------
 	;; ;; (set-fontset-font "fontset-default" #x235B "DejaVu Sans") ; jot underbar       ------------------------------------------------------------
@@ -516,9 +519,7 @@ you should place your code here."
 	;; ;; (set-fontset-font "fontset-default" #x235A "DejaVu Sans Mono") ; ⍚ ------------------------------------------------------------------------
 	;; ;; (set-fontset-font "fontset-default" '(#x2363 . #x2364) "") ; ⍤ ⍣
 	;; ;; (set-fontset-font "fontset-default" #x2229 "DejaVu Serif") ; intersection
-	;; (set-fontset-font "fontset-default" #x222A "DejaVu Serif") ; union
 	;; ;; (set-fontset-font "fontset-default" #x220A "FreeSans") ; small elem     FreeSans    TeX Gyre Schola Math   DejaVu Sans
-	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "FreeSans") ;; ⋀ ⋁ ⋂ ⋃  (medium-large)
 	;; ;; (set-fontset-font "fontset-default" '(#x2282 . #x2294) "DejaVu Sans") ;; sub- / superset series
 	;; ;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "DejaVu Sans") ;; ⋀ ⋁ ⋂ ⋃
 	;; ;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C1) "FreeSans") ;; ⋀ ⋁
@@ -528,103 +529,23 @@ you should place your code here."
 	;; ;; (set-fontset-font "fontset-default" #x234E "STIX Two Math") ; ⍎  uptack jot
 	;; ;; (set-fontset-font "fontset-default" #x234b "DejaVu Sans Mono") ; ⍋
 	;; ;; (set-fontset-font "fontset-default" #x2352 "DejaVu Sans Mono") ; ⍒
+	;; ;; (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "DejaVu Sans") ;; ⩽ ⩾
 
 
 
-
-	;; best font for mathematical bold letters
-	;; try adding bold for ∴ ∵   FreeSans  FreeSerif
 	;; quad up caret 2353 S2M
 	;; down tack jot 2355 S2M
 	;; up tack jot 234E S2M
 	;; turned-not sign 2319 S2M
-	;; (can't change diaeresis b/c it's already covered by Fira Code / Hasklig...)
+	;; (can't change diaeresis (#xA8) b/c it's already covered by Fira Code / Hasklig...)
 
-	;; ←  ↑  →  ↓  ↰  ↦
-
-	;; nand/nor
-	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ⊻ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊉ ∩ ∪ ⋂ ⋃ ⋀ ⋁ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙
+	;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ¬ ⊼ ⊽ ⊻ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊉ ∩ ∪ ⋂ ⋃ ⋀ ⋁ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ⋙ ⨁ ⨂ ⨯ ⩽ ⩾ ⨌ ↰ ↦
 	;; → ← ↑ ↓ ∆ ∇ ⍴ ∊ ⍳ ⍺ ⍵ ⍷ ⍸ ⍶ ⍹ ∘ ∧ ∨ ⍲ ⍱ ¨ ⍨ ⍤ ∩ ∪ ∼ ≡ ≢ ≤ ≥ ⊂ ⊃ ⊖ ⊢ ⊣ ⊤ ⊥ ⋄ ⌈ ⌊ ⌶ ⌷ ⌹ ⌽ ⌿ ⍀ ⍉ ⍋ ⍒ ⍎ ⍕ ⍝ ⍞ ⍪ ⎕ ○ × ÷
-	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍭ ⍇ ⍐ ⍈ ⍗
-	;; APL symbols
-
-	;; ¨  (diaeresis)
-
-	;; ⊖
-
-	;; math operators block
-	;; ;; ∀ ∈ ⋸ ∉ ∃ ∑ Π ∐ ¬ ∅ ⊖ ⊕ ⊗ ⊃ ⊇ ⊋ ∩ ∪ ⋂ ⋃ ∆ ∇ ⋵ ⋹ ⋺ ⋻ ⋽ ∵ ∴ ≤ ≥ ⋙ ⋀ ⋁
-	;; ;; ≤ ≥     STIX Two Math
-	;; ;; ∀ ∃           DejaVu Sans Mono (bolder ∀ ∃)     DejaVu Math TeX Gyre
-	;; ;; ∈ ⋸ ∉      DejaVu Math TeX Gyre
-	;; ;; ∆ ∇          DejaVu Math TeX Gyre
-	;; ;; ∩ (∪ Boolean Integer)           STIX Two Math
-	;; ⋂  ⋃   ∑  ∐   ⋀ ⋁    probably DejaVu Sans Mono?      STIX Two Math's are overly large
-
-	;; ;; misc math symbols-A (bag membership, left multimap)
-
-	;; ;; ⧊  ⦱
-	;; ;; misc math symbols-B
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2980 . #x29FF) "DejaVu Math TeX Gyre")))
-
-	;; --------------------------------------------------------------------------------------------------------------------------------
-	;; --------------------------------------------------------------------------------------------------------------------------------
-	;; --------------------------------------------------------------------------------------------------------------------------------
-	;; --------------------------------------------------------------------------------------------------------------------------------
-
-	;; ;; 𝔹 𝕃 𝕍
-	;; ;; math double-struck capital letters
-	;; ;; DejaVu Math TeX Gyre
-	;; ;; DejaVu Serif
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x1D538 . #x1D550) "DejaVu Math TeX Gyre")))
-
-	;; ;; ℕ ℤ ℝ ℍ ℚ
-	;; ;; letterlike symbols block
-	;; ;; DejaVu Math TeX Gyre
-	;; ;; DejaVu Serif
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2100 . #x214F) "DejaVu Math TeX Gyre")))
-
-	;; ;; ⨁ ⨂
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2A01 . #x2A02) "DejaVu Math TeX Gyre")))
-
-	;; ;; ⩽  ⩾
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2A7D . #x2A7E) "DejaVu Math TeX Gyre")))
-
-	;; ;; ⨁ ⨂ ⨯ ⩽ ⩾ ⨌
-	;; ;; supplemental math operators
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans Mono")))
-
-	;; ;; misc symbols and arrows (⬅, ⮈, ⮲, ⭅, etc.)
-	;; (remove-hook 'prog-mode-hook
-	;; 						 (lambda () (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "DejaVu Math TeX Gyre")))
-
-
-	;; ;; math alphanumeric symbols   𝐋  𝐙  𝑭
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x1D400 . #x1D7FF) "DejaVu Sans Mono")))
-
-	;; ;; ⩽ ⩾
-	;; (add-hook 'prog-mode-hook
-	;; 					(lambda () (set-fontset-font "fontset-default" '(#x2a7d . #x2a7e) "Fira Code")))
-
-	;; (add-to-list 'default-frame-alist
-	;; 						 '(font . "-adbo-hasklig-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
-
-	;; (set-face-attribute 'default nil
-	;; 										:family "Hasklig"
-	;; 										:height 100
-	;; 										:weight 'normal
-	;; 										:width 'normal)
-
-	;; (use-package hasklig-mode
-	;; 	:hook (prog-mode))
-
+	;; ⍬ ⍔ ⌻ ⍫ ⌾ ⍁ ⍍ ⍠ ⌼ ⍟ ⍏ ⍛ ⍓ ¨ ⍢ ⍤ ⍰ ⍂ ⍃ ⍅ ⍖ ⍘ ⍙ ⍣ ⍯ ⍆ ⍌ ⍑ ⍦ ⍧ ⍚ ⍥ ⍄ ⍡ ⍊ ⍮ ⍩ ⍭ ⍇ ⍐ ⍈ ⍗
+	;; 𝔹 𝕃 𝕍
+	;; ℕ ℤ ℝ ℍ ℚ
+	;; 𝐋  𝐙  𝑭
+	;; ⬅ ⮈ ⮲ ⭅
 
 
 
@@ -733,8 +654,10 @@ you should place your code here."
 	;; (add-hook 'prog-mode-hook 'global-prettify-symbols-mode)
 	(remove-hook 'prog-mode-hook 'global-prettify-symbols-mode)
 	(remove-hook 'prog-mode-hook 'global-pretty-mode)
-	(remove-hook 'prog-mode-hook 'pretty-mode)
-	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
+	;; (remove-hook 'prog-mode-hook 'pretty-mode)
+	(add-hook 'prog-mode-hook 'pretty-mode)
+	(remove-hook 'prog-mode-hook 'prettify-symbols-mode)
+	;; (add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	;; (add-hook 'prog-mode-hook 'fira-code-mode)
 	(remove-hook 'prog-mode-hook 'fira-code-mode)
 	;; (add-hook 'prog-mode-hook 'hasklig-mode)
@@ -750,35 +673,27 @@ you should place your code here."
 		 (mapc (lambda (pair) (push pair prettify-symbols-alist))
 					 '(
 						 ;; --- Syntax ---
-						 ;; ("def" .      "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("define" .   "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("defun" .    "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
 						 ("define-type" . "Ƒ") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ;; ("if" . "?")
-						 ;; ("fn" .    "λ")
-						 ;; ("lambda" .    "λ")
-						 ;; ("where" .    "∵") <C-k :.>   bec(ause)
-						 ;; ("let" .      "∴") <C-k .:>   ther(efore)
 						 ("let*" .     "∴")
-						 ;; ("letrec" .   "∴")
-						 ;; ("::"    .    "∷") ;covered by Hasklig    pro(portion)
+						 ;; ("::"    .    "∷")
 						 ("ann"   .    "∷") ; <C-k ::>   pro(portion)
 						 ("inst"   .    "∷")
 						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨     ri(ghtwards) quad(ruple) ar(row)
 						 ;; --- Functional ---
 						 ("map" .    "⮊") ; ⮕ ⍈ ↦ ⮉ ⮊    ri(ghtwards) bl(ack) ci(rcled) (white)  ar(row)
 						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊
-						 ("cons" .     "⍠") ; ɔ ς 𝛓 : ⍠  apl (functional symbol quad) col(on)
-
+						 ("cons" .     ":") ; ɔ ς 𝛓 : ⍠  apl (functional symbol quad) col(on)
 						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
 						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
 						 ;; ("pair" .     "ꝑ") ; ∷ ꝑ 𝝆 𝞺
 						 ("head" .     "↑") ; Ћ ↓
 						 ("tail" .     "↓") ; 𝞽 𝞃 τ
-						 ;; ("length" .     "ρ") ;
-						 ;; ("reverse" .     "⊖") ;
-						 ;; ("build-list" .     "ι") ;
-						 ;; ("negate" .     "⌙") ;
+						 ;; ("length" .     "⍴") ;
+						 ;; ("reverse" .     "⌽") ;
+						 ;; ("build-list" .     "⍳") ;
+						 ("negate" .     "⌙") ;
 						 ;; ("exact-ceiling" .     "⌈") ;
 						 ;; ("ceiling" .     "⌉") ;
 						 ;; ("exact-floor" .     "⌊") ;
@@ -794,7 +709,7 @@ you should place your code here."
 						 ;; ("<*>" .   "⊛")
 						 ;; ("mappend" .   "⊕") ;⊕ ⨁
 						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
-						 ("apply" .   "⍙") ;⍙⍏ ⬆ ↥ ⍐ ⮉    up(wards) bl(ack) ci(rcled) (white)  ar(row)
+						 ("apply" .   "↥") ;⍙⍏ ⬆ ↥ ⍐ ⮉    up(wards) bl(ack) ci(rcled) (white)  ar(row)
 						 ;; ("."  .   "∘") ; infix use
 						 ;; ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
 						 ;; ("join" .   "µ") ;µ ⨝
@@ -886,9 +801,8 @@ you should place your code here."
 						 ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝑳
 						 ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
 						 ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
-						 ("Pair" .    "⨁") ;⨁ 𝐏 𝑷    (n-)ary (circled) pl(us) (operator)
-						 ("Pairof" .    "⨁") ;⨁ 𝐏 𝑷    (n-)ary (circled) pl(us) (operator)
-						 ;; ("Pair" .    "⨁") ;⨁ 𝐏 𝑷
+						 ("Pair" .    "⊕") ;⨁ 𝐏 𝑷    (n-)ary (circled) pl(us) (operator)
+						 ("Pairof" .    "⊕") ;⨁ 𝐏 𝑷    (n-)ary (circled) pl(us) (operator)
 						 ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("HashTableTop" .    "𝐇") ;ℍ 𝐇 𝗛 𝑯
 						 ;; ("Immutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
@@ -1136,6 +1050,8 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
+(spacemacs/set-leader-keys (kbd "tP") 'smartparens)
+(spacemacs/set-leader-keys (kbd "tp") 'pretty-mode)
 (spacemacs/set-leader-keys (kbd "bh") 'previous-buffer)
 (spacemacs/set-leader-keys (kbd "bl") 'next-buffer)
 (spacemacs/set-leader-keys (kbd "gm") 'magit-dispatch) ;; replace obsolete magit-dispatch-popup
