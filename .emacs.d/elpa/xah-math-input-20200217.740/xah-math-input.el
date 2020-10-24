@@ -188,9 +188,32 @@
     ["adb" "↧"]
 
 
+
+		(xah-math-input--add-to-hash
+		 [
+			;; ["AA" "𝔸"] ["BB" "𝔹"] ["CC" "ℂ"] ["DD" "𝔻"] ["EE" "𝔼"] ["FF" "𝔽"] ["GG" "𝔾"] ["HH" "ℍ"] ["II" "𝕀"] ["JJ" "𝕁"] ["KK" "𝕂"] ["LL" "𝕃"] ["MM" "𝕄"] ["NN" "ℕ"] ["OO" "𝕆"] ["PP" "ℙ"] ["QQ" "ℚ"] ["RR" "ℝ"] ["SS" "𝕊"] ["TT" "𝕋"] ["UU" "𝕌"] ["VV" "𝕍"] ["WW" "𝕎"] ["XX" "𝕏"] ["YY" "𝕐"] ["ZZ" "ℤ"]
+			["AA" "𝔸"] ["BB" "𝔹"] ["CC" "ℂ"] ["DD" "𝔻"] ["EE" "𝔼"] ["FF" "𝔽"] ["GG" "𝔾"] ["HH" "ℍ"] ["ID" "𝕀"] ["I2" "𝕀"] ["JJ" "𝕁"] ["KK" "𝕂"] ["LL" "𝕃"] ["MM" "𝕄"] ["NN" "ℕ"] ["OO" "𝕆"] ["PP" "ℙ"] ["QQ" "ℚ"] ["RR" "ℝ"] ["SS" "𝕊"] ["TT" "𝕋"] ["UD" "𝕌"] ["U2" "𝕌"] ["VV" "𝕍"] ["WW" "𝕎"] ["XX" "𝕏"] ["YY" "𝕐"] ["ZZ" "ℤ"]
+			;; ["dd" "ⅆ"] ["ee" "ⅇ"] ["ii" "ⅈ"] ["jj" "ⅉ"]
+			["dd" "ⅆ"] ["ee" "ⅇ"] ["id" "ⅈ"] ["i2" "ⅈ"] ["jj" "ⅉ"]
+			;; ["N" "ℕ"]
+			;; ["integer" "ℤ"]
+			;; ["rational" "ℚ"]
+			;; ["Q" "ℚ"]
+			;; ["real" "ℝ"]
+			;; ["R" "ℝ"]
+			;; ["C" "ℂ"]
+			["quaternion" "ℍ"]
+			["quat" "ℍ"]
+			;; ["H" "ℍ"]
+			["sedenion" "𝕊"]
+			;; ["S" "𝕊"]
+			])
+
+
+
+
     ;; Mathematics
-    ["U" "∪"]
-    ["uni" "∪"]
+    ;; ["union" "∪"] ; covered elsewhere
     ["inter" "∩"]
     ["C" "⊂"]
     ["C_" "⊆"]
@@ -201,6 +224,7 @@
     ["Cnl" "⊅"]
     ["C_nl" "⊉"]
     ("fora" "∀" )
+    ("All" "∀" )
     ;; ("all" "∀" )
     ["exi" "∃"]
     ["any" "∃"]
@@ -271,16 +295,18 @@
     ["prop" "∝"]
     ["inf" "∞"]
     ["o+" "⊕"]
+    ["o-" "⊕"]
     ["o" "⊗"]
     ["o*" "⊛"]
     ["od" "⨸"]
     ["o/" "⊘"]
     ["cir+" "⊕"]
-    ["cir" "⊗"]
+    ["cir-" "⊕"]
+    ["cirx" "⊗"]
     ["cir*" "⊛"]
     ["cird" "⨸"]
     ["cir/" "⊘"]
-    ;; ["map" "↦"]
+    ["map" "↦"]
     ["bagl" "⟅"]
     ["bagr" "⟆"]
     ["inbag" "⋿"]
@@ -304,6 +330,7 @@
     ["neqq" "≢"]
     ["til" "∼"]
     ["p" "⍴"] ; rho
+    ["r" "⍴"] ; rho
     ["w" "⍵"] ; omega
     ["w_" "⍹"]
     ["i" "⍳"] ; iota
@@ -333,10 +360,11 @@
     ["ro" "⌽"]
     ["rot" "⌽"]
     ["rev" "⌽"]
-    ["rf" "⊖"]
+    ["rof" "⊖"]
     ["tra" "⍉"]
     ["xf" "⍀"]
     ["rf" "⌿"]
+    ["ref" "⌿"]
     ["sou" "⍋"]
     ["sod" "⍒"]
     ["nn" "¯"]
@@ -360,16 +388,15 @@
 
 
 		;; Racket
-    ;; ("rt" "#t" )
-    ;; ("rf" "#f" )
+    ("t" "#t" )
+    ("f" "#f" )
     ["flr" "exact-floor"]
     ["ceil" "exact-ceiling"]
-    ["flf" "floor"] ; result is float/real
-    ["ceif" "ceiling"] ; result is float/real
-    ["flf" "⌋"]
-    ["ceif" "⌉"]
+    ["flrr" "floor"] ; result is Real
+    ["ceir" "ceiling"] ; result is Real
     ["cur" "⫶"] ; curry
     ["fil" "⊇"] ; filter
+    ["fno" "⊉"] ; filter-not
     ["repl" "replicate"]
     ["cat" "concat"]
     ["zipw" "zip-with"]
@@ -415,7 +442,11 @@
     ["frr" "foldr"]
 
 
-    ;; Types
+    ;; --- Types ---
+		;; If it's not parameterized (Integer, Natural, Boolean, etc), it has a double-struck letter.
+		;; If it is parameterized, it has a bold letter.
+		;;     Normal parameterized types (Listof, Vectorof, Pairof, HashTable, etc) are slanted.
+		;;     Fixed parameterized types akin to tuples (List, Vector, etc) are upright
 
     ["N" "ℕ"]
     ["I" "𝐈"]
@@ -425,11 +456,13 @@
     ["Z" "ℤ"]
     ["Zp0" "ℤ⁰⁺"]
     ["Zp" "ℤ⁺"]
-    ["L" "𝕃"]
+    ["L" "𝑳"]
     ["L'" "𝗟"]
     ["V" "𝑽"]
     ["V'" "𝗩"]
-    ["Pa" "Pair"]
+    ;; ["Pa" "Pair"]
+    ["Pa" "𝐏"]
+    ;; ["Pa" "𝑷"]
     ["M" "𝑴"]
     ["O" "𝑴"]
     ["Rn" "ℝ⁻"]
@@ -445,12 +478,14 @@
     ["T" "𝑻"]
     ["F" "𝑭"]
     ["B" "𝔹"]
-    ["St" "𝕊"]
-    ["Sy" "𝑺"]
+    ["str" "𝕊"]
+    ["STR" "𝕊"]
+    ["sy" "𝑺"]
+    ["SY" "𝑺"]
     ["H" "𝑯"]
     ["Hi" "𝑯i"]
     ["Hm" "𝑯m"]
-    ["A" "𝐀"]
+    ["A" "𝔸"]
     ["Qn" "ℚ⁻"]
     ["Qn0" "ℚ⁰⁻"]
     ["Q" "ℚ"]
@@ -584,31 +619,6 @@
 
   ]
  )
-
-
-(xah-math-input--add-to-hash
- [
-
-  ["AA" "𝔸"] ["BB" "𝔹"] ["CC" "ℂ"] ["DD" "𝔻"] ["EE" "𝔼"] ["FF" "𝔽"] ["GG" "𝔾"] ["HH" "ℍ"] ["II" "𝕀"] ["JJ" "𝕁"] ["KK" "𝕂"] ["LL" "𝕃"] ["MM" "𝕄"] ["NN" "ℕ"] ["OO" "𝕆"] ["PP" "ℙ"] ["QQ" "ℚ"] ["RR" "ℝ"] ["SS" "𝕊"] ["TT" "𝕋"] ["UU" "𝕌"] ["VV" "𝕍"] ["WW" "𝕎"] ["XX" "𝕏"] ["YY" "𝕐"] ["ZZ" "ℤ"]
-
-  ["dd" "ⅆ"] ["ee" "ⅇ"] ["ii" "ⅈ"] ["jj" "ⅉ"]
-
-  ["N" "ℕ"]
-  ["integer" "ℤ"]
-  ["rational" "ℚ"]
-  ["Q" "ℚ"]
-  ["real" "ℝ"]
-  ["R" "ℝ"]
-  ["C" "ℂ"]
-  ["quaternion" "ℍ"]
-  ["H" "ℍ"]
-  ["sedenion" "𝕊"]
-  ["S" "𝕊"]
-
-  ])
-
-
-
 
 
 (xah-math-input--add-to-hash
