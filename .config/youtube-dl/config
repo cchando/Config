@@ -4,9 +4,6 @@
 # Use best audio quality
 --audio-quality 0
 
-# Use mp4 for video downloads
---recode-video mp4
-
 # Do not copy the mtime
 --no-mtime
 
@@ -18,12 +15,3 @@
 
 # Bypass geographic restrictions
 --geo-bypass
-
-# Always extract audio
-###-x
-
-# Save all music downloads in given folder
-## Below command requires python library for formatting, which hasn't been wrapped for NixOS yet -- don't use
-###-o ~/Music/youtube-dl/%(title)s.%(ext)s
-###-o ~/Videos/youtube-dl/%(title)s.%(ext)s
-###-o ~/Music/youtube-dl/s

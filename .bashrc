@@ -65,10 +65,10 @@ alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
 # alias wpastart='sudo systemctl start wpa_supplicant' # I think this doesn't work -- wpa is controlled by systemd
 
 # Misc
-alias ydl='echo "Download MP3s:/n" && youtube-dl -x --no-playlist -o ~/Music/youtube-dl/%(title)s.%(ext)s'
-alias ydlp='echo "Download MP3s:/n" && youtube-dl -citx --yes-playlist -o ~/Music/youtube-dl/%(title)s.%(ext)s'
-alias ydlv='youtube-dl -o ~/Videos/youtube-dl/%(title)s.%(ext)s'
-alias ydlpv='youtube-dl -cit --yes-playlist -o ~/Videos/youtube-dl/%(title)s.%(ext)s'
+alias ydl='echo "Download MP3s:/n" && youtube-dl -x --no-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3'
+alias ydlp='echo "Download MP3s:/n" && youtube-dl -citx --yes-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3'
+alias ydlv='youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(ext)s" -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
+alias ydlpv='youtube-dl -cit --yes-playlist -o "~/Videos/youtube-dl/%(title)s.%(ext)s" -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias r='command' # "raw"
 alias show='alias'
 alias et='emacs -nw'
@@ -89,6 +89,9 @@ alias bmhi='sudo brightnessctl set 75%'
 alias bmed='sudo brightnessctl set 50%'
 alias bmlo='sudo brightnessctl set 25%'
 alias blo='sudo brightnessctl set 10%'
+alias br3='sudo brightnessctl set 3%'
+alias br2='sudo brightnessctl set 2%'
+alias br1='sudo brightnessctl set 1%'
 alias pade="xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1"
 alias sticke="xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1"
 function conda-shell {
@@ -97,40 +100,40 @@ function conda-shell {
 #alias mvfiles='find . type f -regextype egrep -regex '.*[a-z]+\.el$' -execdir mv -t dest {} \+'  # example only
 
 # config edits
-alias enc='emacs /etc/nixos/configuration.nix'
-alias eba='emacs ~/.bashrc'
-alias evi='emacs ~/.vimrc'
-alias eiwm='emacs ~/.i3/config'
-alias eis='emacs ~/.i3status.conf'
-alias ete='emacs ~/.config/termite/config'
-alias eki='emacs ~/.config/kitty/kitty.conf'
-alias etm='emacs ~/.tmux.conf'
-alias est='emacs ~/.config/stretchly/config.json'
-# alias es='emacs ~/.config/sway/config'
+alias enc='emacs /etc/nixos/configuration.nix -fs'
+alias eba='emacs ~/.bashrc -fs'
+alias evi='emacs ~/.vimrc -fs'
+alias eiwm='emacs ~/.i3/config -fs'
+alias eis='emacs ~/.i3status.conf -fs'
+alias ete='emacs ~/.config/termite/config -fs'
+alias eki='emacs ~/.config/kitty/kitty.conf -fs'
+alias etm='emacs ~/.tmux.conf -fs'
+alias est='emacs ~/.config/stretchly/config.json -fs'
+# alias es='emacs ~/.config/sway/config -fs'
 
 # git commands
-alias uns="git restore" # "unstage"
-alias unt="git rm --cached" # "untrack"
-alias s="git switch"
-alias st="git status"
-alias com="git commit"
-alias grm="git rm"
-# alias untr="git rm --cached" # "git untrack"
-alias grc="git rm --cached" # "git untrack"
-alias br="git branch"
-alias cbr="git switch -c"
-alias cbrO="git switch -c" # "overwrite"
-alias cbrF="git switch -c" # "force"
-alias pull="git pull"
-alias pullr="git pull --rebase"
-alias push="git push"
-alias add="git add"
-alias amend="git commit amend"
-alias reba="git rebase"
-alias rebase="git rebase"
-alias log="git log"
-alias logp="git log --pretty=oneline"
-alias logpp="git log --all --decorate --oneline --graph"
+alias uns='git restore' # "unstage"
+alias unt='git rm --cached' # "untrack"
+alias s='git switch'
+alias st='git status'
+alias com='git commit'
+alias grm='git rm'
+# alias untr='git rm --cached' # "git untrack"
+alias grc='git rm --cached' # "git untrack"
+alias br='git branch'
+alias cbr='git switch -c'
+alias cbrO='echo "use cbr --force"'
+alias cbrF='echo "use cbr --force"'
+alias pull='git pull'
+alias pullr='git pull --rebase'
+alias push='git push'
+alias add='git add'
+alias amend='git commit amend'
+alias reba='git rebase'
+alias rebase='git rebase'
+alias log='git log'
+alias logp='git log --pretty=oneline'
+alias logpp='git log --all --decorate --oneline --graph'
 alias ltracked='git ls-tree -r --name-only' #list tracked files in given branch
 alias ltr='git ls-tree -r --name-only' #list tracked files in given branch
 alias tag="git tag"
