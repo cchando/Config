@@ -107,10 +107,13 @@ alias est='emacs ~/.config/stretchly/config.json'
 
 # git commands
 alias s="git switch"
+alias uns="git restore" # "unstage"
+# alias unst="git restore" # "unstage"
 alias st="git status"
 alias com="git commit"
 alias grm="git rm"
-alias gu="git rm --cached" # "git untrack"
+alias unt="git rm --cached" # "git untrack"
+# alias untr="git rm --cached" # "git untrack"
 alias grc="git rm --cached" # "git untrack"
 alias br="git branch"
 alias cbr="git switch -c"
