@@ -22,6 +22,7 @@ shopt -s extglob dotglob globstar
 #xinput list
 
 # Nix & NixOS
+alias ns='nix-shell'
 alias cr='less ~/.nixenv | grep'   # check nixpkgs repo file
 alias crd='nix-env -qaP --description | grep'   # check nixpkgs repo
 alias rb='sudo nixos-rebuild switch'  # rebuild NixOS
@@ -44,7 +45,6 @@ alias linst='nix-env -q --installed'
 # program aliases
 alias e='exit'
 alias c='clear'
-alias ns='nix-shell'
 alias charmap='gucharmap'
 alias grep='egrep'
 alias mv='mv -i'
@@ -64,9 +64,12 @@ alias ipsu='sudo ip link set wlp1s0 up'
 alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
 # alias wpastart='sudo systemctl start wpa_supplicant' # I think this doesn't work -- wpa is controlled by systemd
 
-# convenience
+# Misc
+alias ydl='echo "Download MP3s:/n" && youtube-dl -x --no-playlist -o ~/Music/youtube-dl/%(title)s.%(ext)s'
+alias ydlp='echo "Download MP3s:/n" && youtube-dl -citx --yes-playlist -o ~/Music/youtube-dl/%(title)s.%(ext)s'
+alias ydlv='youtube-dl -o ~/Videos/youtube-dl/%(title)s.%(ext)s'
+alias ydlpv='youtube-dl -cit --yes-playlist -o ~/Videos/youtube-dl/%(title)s.%(ext)s'
 alias r='command' # "raw"
-alias ydl='youtubedl'
 alias show='alias'
 alias et='emacs -nw'
 alias vimode='set -o vi'
@@ -106,13 +109,12 @@ alias est='emacs ~/.config/stretchly/config.json'
 # alias es='emacs ~/.config/sway/config'
 
 # git commands
-alias s="git switch"
 alias uns="git restore" # "unstage"
-# alias unst="git restore" # "unstage"
+alias unt="git rm --cached" # "untrack"
+alias s="git switch"
 alias st="git status"
 alias com="git commit"
 alias grm="git rm"
-alias unt="git rm --cached" # "git untrack"
 # alias untr="git rm --cached" # "git untrack"
 alias grc="git rm --cached" # "git untrack"
 alias br="git branch"
