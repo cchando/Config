@@ -65,11 +65,17 @@ alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
 # alias wpastart='sudo systemctl start wpa_supplicant' # I think this doesn't work -- wpa is controlled by systemd
 
 # Misc
+
+# alias ydl='nohup "youtube-dl -x --no-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3" &>/dev/null &'
+# alias ydlp='nohup "youtube-dl -cix --yes-playlist -o "~/Music/youtube-dl/%(playlist)s/%(title)s.%(ext)s" --audio-format mp3" &>/dev/null &'
+# alias ydlv='nohup "youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"" &>/dev/null &'
+# alias ydlpv='nohup "youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"" &>/dev/null &'
+
 alias ydl='youtube-dl -x --no-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3'
-# alias ydlp='youtube-dl -citx --yes-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3'
 alias ydlp='youtube-dl -cix --yes-playlist -o "~/Music/youtube-dl/%(playlist)s/%(title)s.%(ext)s" --audio-format mp3'
 alias ydlv='youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
+
 alias r='command' # "raw"
 alias show='alias'
 alias et='emacs -nw'
