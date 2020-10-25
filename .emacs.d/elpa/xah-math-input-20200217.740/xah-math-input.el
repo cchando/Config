@@ -479,6 +479,8 @@
 		;; Racket
     ("t" "#t" )
     ("f" "#f" )
+    ("++" "cons" )
+    (":" "cons" )
     ["flr" "exact-floor"]
     ["cei" "exact-ceiling"]
     ["flrr" "floor"] ; result is Real
