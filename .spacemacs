@@ -636,15 +636,15 @@ you should place your code here."
   ;; (when (version<= emacs-version "27.0") ; when using version lower than 27.0
 	;;  (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures))
 
-	;; (global-pretty-mode t)
-	;; (pretty-deactivate-groups
-	;;  ;; operator, equality and arrow groups interfere with Fira Code operators
-	;; ;; logic group interferes with prettify-symbols
-	;;  '(:equality :ordering :ordering-double :ordering-triple
-	;; 						 :arrows :arrows-twoheaded :punctuation
-	;; 						 :logic :sets))
-	;; (pretty-activate-groups
-	;;  '(:sub-and-superscripts :greek :arithmetic-nary))
+	(global-pretty-mode t)
+	(pretty-deactivate-groups
+	 ;; operator, equality and arrow groups interfere with Fira Code operators
+	;; logic group interferes with prettify-symbols
+	 '(:equality :ordering :ordering-double :ordering-triple
+							 :arrows :arrows-twoheaded :punctuation
+							 :logic :sets))
+	(pretty-activate-groups
+	 '(:sub-and-superscripts :greek :arithmetic-nary))
 
 
 
@@ -654,10 +654,10 @@ you should place your code here."
 	;; (add-hook 'prog-mode-hook 'global-prettify-symbols-mode)
 	(remove-hook 'prog-mode-hook 'global-prettify-symbols-mode)
 	(remove-hook 'prog-mode-hook 'global-pretty-mode)
-	;; (remove-hook 'prog-mode-hook 'pretty-mode)
-	(add-hook 'prog-mode-hook 'pretty-mode)
-	(remove-hook 'prog-mode-hook 'prettify-symbols-mode)
-	;; (add-hook 'prog-mode-hook 'prettify-symbols-mode)
+	(remove-hook 'prog-mode-hook 'pretty-mode)
+	;; (add-hook 'prog-mode-hook 'pretty-mode)
+	;; (remove-hook 'prog-mode-hook 'prettify-symbols-mode)
+	(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 	;; (add-hook 'prog-mode-hook 'fira-code-mode)
 	(remove-hook 'prog-mode-hook 'fira-code-mode)
 	;; (add-hook 'prog-mode-hook 'hasklig-mode)
@@ -673,180 +673,204 @@ you should place your code here."
 		 (mapc (lambda (pair) (push pair prettify-symbols-alist))
 					 '(
 						 ;; --- Syntax ---
-						 ("define" .   "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ("defun" .    "𝑓") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ("define-type" . "Ƒ") ;𝑓 𝒇 Ƒ ƒ 𝓯
-						 ("let*" .     "∴")
+						 ("define" .   "𝑓")
+						 ("defun" .    "𝑓")
+						 ("define-type" . "Ƒ")
 						 ;; ("::"    .    "∷")
-						 ("ann"   .    "∷") ; <C-k ::>   pro(portion)
+						 ("ann"   .    "∷")
 						 ("inst"   .    "∷")
-						 ("cast"   .   "⭆") ;⭆ ⮆ ➡ ⇨     ri(ghtwards) quad(ruple) ar(row)
+						 ("cast"   .   "⭆")
+						 ("for" .      "∀")
 						 ;; --- Functional ---
-						 ("map" .    "⮊") ; ⮕ ⍈ ↦ ⮉ ⮊    ri(ghtwards) bl(ack) ci(rcled) (white)  ar(row)
-						 ;; ("fmap" .    "⮊") ;⬆ ↥ ⍐ ⮉ ⮊
-						 ("cons" .     ":") ; ɔ ς 𝛓 : ⍠  apl (functional symbol quad) col(on)
-						 ;; ("foldl" .  "⮲") ;⭅ ⮈ ⮲ ⮰ ⮪ ⮨
-						 ;; ("foldr" .  "⮳") ;⭆ ⮊ ⮳ ⮱ ⮫ ⮩
-						 ;; ("pair" .     "ꝑ") ; ∷ ꝑ 𝝆 𝞺
-						 ("head" .     "↑") ; Ћ ↓
-						 ("tail" .     "↓") ; 𝞽 𝞃 τ
-						 ;; ("length" .     "⍴") ;
-						 ;; ("reverse" .     "⌽") ;
-						 ;; ("build-list" .     "⍳") ;
-						 ("negate" .     "⌙") ;
-						 ;; ("exact-ceiling" .     "⌈") ;
-						 ;; ("ceiling" .     "⌉") ;
-						 ;; ("exact-floor" .     "⌊") ;
-						 ;; ("floor" .     "⌋") ;
-						 ;; ("sort" .     "⍋") ;
-						 ;; ("compose" .   "∘") ;∘ ○ ◯   <C-k Ob>    ring o(perator)
-						 ;; ("compose1" .  "∘") ;∘ ○ ◯   <C-k Ob>    ring o(perator)
-						 ;; ("take" .     "↑") ;  <C-k -!>   up ar(row)
-						 ;; ("drop" .     "↓") ;  <C-k -v>   do(wn) ar(row)
-						 ;; ("filter" .      "⮋") ; ⬇  ⮋  do(wnwards) bl(ack) ci(rcled) wh(ite) ar(row)
-
-						 ;; ("curry" .   "⫶") ; ⫶ ⋮ ⦙ ⦁   (triple) col(on) ope(rator)
+						 ("exact-ceiling" .     "⌈")
+						 ("exact-floor" .     "⌊")
+						 ("compose" .   "∘")
+						 ("take" .     "↑") ;
+						 ("drop" .     "↓") ;
+						 ("modulo" .      "%")
+						 ("abs" .      "|")
+						 ("+" .    "∑")
+						 ("sum" .   "∑")
+						 ("*" .    "∏")
+						 ("/" .    "÷")
+						 ("sqrt" .    "√") ;
+						 ;; --- decent-readability-to-others separater ---
+						 ("if" .     "?")
+						 ("let*" .     "∴")
+						 ("where" .     "∵")
+						 ("take" .      "↑")
+						 ("drop" .      "↓")
+						 ("log" .      "⍟")
+						 ("select" .      "σ")
+						 ("flip" .      "⍨")
+						 ("equal?" .      "≡")
+						 ("map" .    "¨") ; ↦ ⮕ ⍈ ¨
+						 ("fmap" .    "↥")
+						 ("maximum" .    "⌈")
+						 ("minimum" .    "⌊")
+						 ("max" .    "⌈")
+						 ("min" .    "⌊")
+						 ("lcm" .    "∧")
+						 ("gcd" .    "∨")
+						 ("conj" .    "+")
+						 ("length" .      "⍴")
+						 ("reverse" .      "⌽")
+						 ("build-list" .      "⍳")
+						 ("ceiling" .     "⌉")
+						 ("floor" .     "⌋")
+						 ("foldl" .  "/")
+						 ("foldr" .  "⮳")
+						 ("head" .     "↑")
+						 ("tail" .     "↓")
+						 ("cons" .     ":")
+						 ("sort" .     "⍋")
+						 ("remove*" .      "∖")
+						 ("apply" .   "↥")
+						 ("format" .    "⍕")
+						 ("eval" .    "⍎")
+						 ("head" .    "↑")
+						 ("tail" .    "↓")
+						 ("exact-floor" .    "⌊")
+						 ("exact-ceiling" .    "⌈")
+						 ("floor" .    "⌋")
+						 ("ceiling" .    "⌉")
+						 ("sort" .    "⍋")
+						 ("filter" .      "⊇")
+						 ("filter-not" .      "⊉")
+						 ("concat" .    "⧺")
+						 ("append" .      "⧺")
+						 ("append*" .      "⧺")
+						 ("string-append" .    "⧺")
+						 ("string-append*" .    "⧺")
+						 ("curry" .   "⫶") ; ⫶ ⋮ ⦙
+						 ("."  .   "∘") ; infix use
+						 ("compose1" .  "⍛")
+						 ;; ("powerset" .  "℘")
+						 ;; ("cross" .    "⨯")
+						 ;; ("del" .  "∇")
+						 ;; ("nabla" .  "∇")
+						 ;; ("-o" .  "⊸")
+						 ;; ("++" .      "◇")
 						 ;; ("<*>" .   "⊛")
-						 ;; ("mappend" .   "⊕") ;⊕ ⨁
-						 ;; ("`mappend`" .   "⊕") ;⊕ ⨁
-						 ("apply" .   "↥") ;⍙⍏ ⬆ ↥ ⍐ ⮉    up(wards) bl(ack) ci(rcled) (white)  ar(row)
-						 ;; ("."  .   "∘") ; infix use
+						 ;; ("mappend" .   "⊕")
+						 ;; ("`mappend`" .   "⊕")
 						 ;; ("return" .   "⮩") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼ η
-						 ;; ("join" .   "µ") ;µ ⨝
-						 ;; ("yield" .   "⮨") ;⮩ ⮨ ⮡ ⤷ ⤶ ⏎ ⭅ ➥ ⟾ ⟻ ⟼
-						 ;; ("for" .      "∀")
+						 ;; ("join" .   "⨝") ; µ ⨝
+						 ;; ("bind" .   "η")
+						 ;; ("yield" .   "⮨")
+						 ;; ("divide" .    "÷")
 						 ;; ("for-each" .      "∀")
 						 ;; ("sub" .      "-")
-						 ;; ("+" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑   <C-k +Z>   (n-)ary s(ummation)
-						 ;; ("add" .    "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ;; ("sum" .   "∑") ;⅀ 𝚺 𝝨 𝜮 𝞢 ∑
-						 ;; ("*" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆    <C-k *P>    (n-)ary p(roduct)
-						 ;; ("product" .    "∏") ;ℿ 𝝥 𝞟 ∏ × ⨯ ⨉ * ⋆
-						 ;; ("coproduct" .    "∐") ;∐ ⨿    (n-)ary co(product)
-						 ;; ("/" .    "÷")
-						 ;; ("divide" .    "÷")
-						 ;; ("sqrt" .    "√") ; <C-k RT>   s(quare) root
-						 ;; ("powerset" .  "℘")
-						 ;; ("cross" .    "⨯") ; (vector) (or) cr(oss) pro(duct)
-						 ;; ("del" .  "∇")
-						 ;; ("nabla" .  "∇") ; <C-k NB>
-						 ;; ("-o" .  "⊸") ; for working with linear types (taken from Haskell Conceal Plus)
-						 ;; ("++" .      "◇") ;⧺ ◇ #x20df  ; ⧺ covered by Hasklig
-						 ;; ("concat" .    "◇") ;⧺ ◇ #x20df   wh(ite) di(amond)
-						 ;; ("append" .      "◇") ;⧺ ◇ #x20df
-						 ;; ("append*" .      "◇") ;⧺ ◇ #x20df
-						 ;; ("string-append" .    "◇") ;⧺ ◇ #x20df
-						 ;; ("string-append*" .    "◇") ;⧺ ◇ #x20df
+						 ;; ("product" .    "∏")
+						 ;; ("coproduct" .    "∐")
 						 ;; --- Types ---
-						 ("Any" .      "𝐔") ;𝔸 𝐀 𝗔 𝐴 Ʉ 𝐔 𝑼 𝕌 𝑈 "universal set"
+						 ("Any" .      "𝔸")
+						 ("Integer" .      "ℤ")
+						 ("Boolean" .      "𝔹")
+						 ("Float"  .  "ℝ")
+						 ("Flonum"  .  "ℝ")
+						 ("Number"  .   "ℂ")
+						 ("Real"  .  "ℝ")
+						 ("Natural"  .  "ℕ")
+						 ("Index"  .  "𝕀")
+						 ("Exact-Rational"  .  "ℚ")
+						 ("String" .      "𝕊")
+						 ("Symbol" .      "𝑺")
+						 ("#t" .     "𝑻")
+						 ("False" .    "𝑭")
+						 ("#f" .    "𝑭")
+						 ("Listof" .    "𝑳")
+						 ("List" .    "𝗟")
+						 ("Vectorof" .    "𝑽")
+						 ("Vector" .    "𝗩")
+						 ("Pair" .    "⊕")
+						 ("Pairof" .    "⊕")
+						 ("HashTable" .    "𝑯")
+						 ("Option"  .  "𝑴") ; "Maybe"
+						 ("Void" .   "∅")
 						 ;; ("All" .      "∀")
-						 ("Boolean" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
-						 ;; ("Bool" .      "𝐁") ;𝔹 𝐁 𝘽 𝑩
-						 ;; ("forall" .      "∀") ; <C-k FA>   "for a(ll)"
-						 ("all" .      "∀") ; <C-k FA>   for a(ll)
-						 ;; ("any" .      "∃") ; <C-k TE>    the(re) (exists)
-						 ;; ("int" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("Negative-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("Nonpositive-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("Nonnegative-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("Positive-Integer" .      "𝐙") ;ℤ 𝗭 𝐙 𝙕
-						 ("Negative-Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Nonpositive-Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Nonnegative-Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Positive-Float"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Negative-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Nonpositive-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Nonnegative-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Positive-Flonum"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ;; ("Number"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶  ;All numbers are complex numbers
-						 ;; ("Complex"  .   "𝐂") ;ℂ 𝐂 𝗖 𝐶
-						 ("Natural"  .  "𝐍") ;ℕ 𝝢 𝐍 𝙉
-						 ;; ("Index"  .  "𝝢") ;𝐈 ℕ 𝝢 𝐍 𝙉
-						 ("Negative-Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Nonpositive-Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Nonnegative-Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ("Positive-Real"  .  "𝐑") ;ℝ 𝗥 𝐑 𝑹
-						 ;; ("Negative-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Nonpositive-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Nonnegative-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Positive-Exact-Rational"  .  "𝐐") ;ℚ 𝗤 𝐐 𝙌
-						 ;; ("Index" .      "𝐈") ;ℤ 𝗭 𝐙 𝙕 𝕀 𝐈
-						 ("String" .      "𝕊") ;𝕊 𝐒 𝗦 𝑺
-						 ("Symbol" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
-						 ;; ("Set" .      "𝑺") ;𝕊 𝐒 𝗦 𝑺
+						 ;; ("Bool" .      "𝔹")
+						 ;; ("forall" .      "∀")
+						 ;; ("All" .      "∀")
+						 ;; ("all" .      "∀")
+						 ;; ("any" .      "∃")
+						 ;; ("int" .      "ℤ")
+						 ;; ("Negative-Integer" .      "ℤ")
+						 ;; ("Nonpositive-Integer" .      "ℤ")
+						 ;; ("Nonnegative-Integer" .      "ℤ")
+						 ;; ("Positive-Integer" .      "ℤ")
+						 ;; ("Negative-Float"  .  "ℝ")
+						 ;; ("Nonpositive-Float"  .  "ℝ")
+						 ;; ("Nonnegative-Float"  .  "ℝ")
+						 ;; ("Positive-Float"  .  "ℝ")
+						 ;; ("Negative-Flonum"  .  "ℝ")
+						 ;; ("Nonpositive-Flonum"  .  "ℝ")
+						 ;; ("Nonnegative-Flonum"  .  "ℝ")
+						 ;; ("Positive-Flonum"  .  "ℝ")
+						 ;; ("Complex"  .   "ℂ")
+						 ;; ("Negative-Real"  .  "ℝ")
+						 ;; ("Nonpositive-Real"  .  "ℝ")
+						 ;; ("Nonnegative-Real"  .  "ℝ")
+						 ;; ("Positive-Real"  .  "ℝ")
+						 ;; ("Negative-Exact-Rational"  .  "ℚ")
+						 ;; ("Nonpositive-Exact-Rational"  .  "ℚ")
+						 ;; ("Nonnegative-Exact-Rational"  .  "ℚ")
+						 ;; ("Positive-Exact-Rational"  .  "ℚ")
+						 ;; ("Set" .      "𝑺")
 						 ;; ("Top" .      "⟙")
 						 ;; ("Bottom" .   "⟘")
-						 ;; ("Tuple" .    "⨂")
-						 ;; ("True" .     "𝑻") ;𝕋 𝗧 𝐓 𝙏 𝑇
-						 ;; ("#true" .     "𝑻") ;𝕋 𝗧 𝐓 𝙏 𝑇
-						 ("#t" .     "𝑻") ;𝕋 𝗧 𝐓 𝙏 𝑻 𝑇
-						 ("False" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
-						 ;; ("#false" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
-						 ("#f" .    "𝑭") ;𝔽 𝗙 𝐅 𝑭 𝐹
-						 ("Void" .   "⦵") ;⦵ ⦱ ◯ ⭕ ⬤ #x20dd #x20e0  ci(rcle) (with) hor(izontal) b(ar)
+						 ;; ("Tuple" .    "⊗")
+						 ;; ("True" .     "𝑻")
+						 ;; ("#true" .     "𝑻")
+						 ;; ("#false" .    "𝑭")
 						 ;; --- ADTs ---
-						 ;; ("Maybe"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴
-						 ("Option"  .  "𝑴") ;𝕄 𝐌 𝗠 𝑴  ;same as Maybe
-						 ;; ("Just"  .  "𝐽")
-						 ;; ("Nothing"  .  "𝑁") ;⟘
-						 ;; ("Either"  .  "𝐄") ;𝔼 𝐄 𝑬
-						 ;; ("Right"  .  "𝑅")
-						 ;; ("Left"  .  "𝐿")
-						 ("Listof" .    "𝑳") ;𝕃 𝐋 𝗟 𝑳
-						 ("List" .    "𝗟") ;𝕃 𝐋 𝗟 𝑳
-						 ("Vectorof" .    "𝑽") ;𝕍 𝐕 𝗩 𝑽
-						 ("Vector" .    "𝗩") ;𝕍 𝐕 𝗩 𝑽
-						 ("Pair" .    "⊕") ;⨁ 𝐏 𝑷    (n-)ary (circled) pl(us) (operator)
-						 ("Pairof" .    "⊕") ;⨁ 𝐏 𝑷    (n-)ary (circled) pl(us) (operator)
-						 ("HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
-						 ;; ("HashTableTop" .    "𝐇") ;ℍ 𝐇 𝗛 𝑯
-						 ;; ("Immutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
-						 ;; ("Mutable-HashTable" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
-						 ;; ("Hash" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
-						 ;; ("HashMap" .    "𝑯") ;ℍ 𝐇 𝗛 𝑯
+						 ("Maybe"  .  "𝑴")
+						 ("Just"  .  "𝐽")
+						 ("Nothing"  .  "𝑁")
+						 ("Either"  .  "𝑬")
+						 ("Right"  .  "𝑅")
+						 ("Left"  .  "𝐿")
+						 ;; ("HashTableTop" .    "𝐇")
+						 ;; ("Immutable-HashTable" .    "𝑯")
+						 ;; ("Mutable-HashTable" .    "𝑯")
+						 ;; ("Hash" .    "𝑯")
+						 ;; ("HashMap" .    "𝑯")
 						 ;; --- Equality ---
-						 ;; ("!=" .     "≠") ; <C-k !=>    not e(qual) to
-						 ("<=" .      "⩽") ;≤ ⩽    gr(eater) (than) (or) slan(ted) (equal) (to)
-						 (">=" .      "⩾") ;≥ ⩾    le(ss) (than) (or) slan(ted) (equal) (to)
-						 ;; ("≤" .      "⩽") ;≤ ⩽    gr(eater) (than) (or) slan(ted) (equal) (to)
-						 ;; ("≥" .      "⩾") ;≥ ⩾    le(ss) (than) (or) slan(ted) (equal) (to)
+						 ;; ("!=" .     "≠") ;
+						 ;; ("<=" .      "⩽") ;≤ ⩽
+						 ;; (">=" .      "⩾") ;≥ ⩾
+						 ;; ("≤" .      "⩽") ;≤ ⩽
+						 ;; ("≥" .      "⩾") ;≥ ⩾
 						 ;; ("not equal" . "≠")
 						 ;; --- Predicate Logic ---
-						 ;; ("some" .      "∃") ;  <C-k TE>    the(re) (exists)
-						 ;; ("none" .      "∄") ;   (there) (does) not ex(ist)
-						 ;; ("not" .      "¬") ￢ ¬ 〜 ～ ~   <C-k NO>
-						 ;; ("negate" .      "⌙") ; ⌙ ❗
-						 ;; ("and" .      "∧") ;∧ ⋀ ⟎   <C-k AN>   l(ogical) a(nd)
-						 ;; ("or" .      "∨") ;∨ ⋁ ⟏    <C-k OR>   l(ogical) or
-						 ;; ("xor" .      "⊻") ;        xor
-						 ;; ("nor" .      "⊽") ;⊽ ⩝ ⍱   nor
-						 ;; ("nand" .      "⊼") ;⊼ ⩜ ⍲   nand
+						 ("not" .      "¬")
+						 ("negate" .      "⌙")
+						 ("and" .      "∧")
+						 ("or" .      "∨")
+						 ("xor" .      "⊻")
+						 ("nor" .      "⊽")
+						 ("nand" .      "⊼")
+						 ("findf" .      "∃")
+						 ("memf" .      "∃")
+						 ;; ("some" .      "∃") ;
+						 ;; ("none" .      "∄") ;
 						 ;; --- Set Logic ---
+						 ("empty" .      "∅")
+						 ("'()" .      "∅")
+						 ("(set)" .      "∅")
+						 ("null" .      "∅")
+						 ("elem" .      "∈")
+						 ("member" .      "∈")
+						 ("notElem" .   "∉")
+						 ("U" .      "⋃")
 						 ;; ("in" .       #x2208)
 						 ;; ("not in" .   #x2209)
-						 ;; ("empty" .      "∅") ;  <C-k /0>
-						 ;; ("(set)" .      "∅") ;  <C-k /0>
-						 ;; ("mzero" .      "∅")
-						 ;; ("mempty" .      "∅")
-						 ;; ("null" .      "∅")
-						 ;; ("elem" .      "∈")  <C-k (->
 						 ;; ("element" .      "∈")
-						 ;; ("member" .      "∈")
-						 ;; ("memf" .      "∈")
-						 ;; ("findf" .      "∃") ;  elem(ent) (of)
-						 ;; ("notElem" .   "∉") ;  not ele(ment) (of)
-						 ;; ("Union" .      "⋃") ;⋃ ∪ 𝗨 ⨆
-						 ("U" .      "∪") ;⋃ ∪ 𝗨 ⨆
-						 ;; ("∪" .      "⋃") ;⋃ ∪
-						 ;; ("Intersection" .      "⋂") ;⋂ ∩ ⨅
-						 ;; ("∩" .      "⋂") ;⋂ ∩ ⨅
+						 ;; ("Union" .      "⋃")
+						 ;; ("∪" .      "⋃")
+						 ;; ("Intersection" .      "⋂")
+						 ;; ("∩" .      "⋂")
 						 ;; ("complement" .      "∁")
-						 ;; ("Complement" .      "∁")
 						 ))))  ;ends add-hook for prettify-symbols-alist
 
 

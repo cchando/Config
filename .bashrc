@@ -66,7 +66,8 @@ alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
 
 # convenience
 alias r='command' # "raw"
-alias show='command -v'
+alias ydl='youtubedl'
+alias show='alias'
 alias et='emacs -nw'
 alias vimode='set -o vi'
 alias tr='racket -I typed/racket'
