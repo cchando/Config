@@ -332,142 +332,142 @@
 
 
 
-		;; APL
-    ["al" "←"]
-    ["ar" "→"]
-    ["au" "↑"]
-    ["ad" "↓"]
-    ["=" "←"]
-    ["take" "↑"]
-    ["tak" "↑"] ; take
-    ["ta" "↑"] ; take
-    ["mix" "↑"]
-    ["drop" "↓"]
-    ["dro" "↓"] ; drop
-    ["dr" "↓"] ; drop
-    ["spl" "↓"] ; split
-    ["head" "⊃"]
-    ["pick" "⊃"]
-    ["encl" "⊂"] ; enclose
-    ["paen" "⊂"] ; partitioned enclose
-    ["nest" "⊆"]
-    ["part" "⊆"] ; partition
-    ["no" "~"] ; not
-    ["wo" "~"] ; without
-    ["lv" "⍅"]
-    ["rv" "⍆"]
-    ["uv" "⍏"]
-    ["dv" "⍖"]
-    ["div" "÷"]
-    ["x'" "×"]
-    ["-" "−"]
-    ["log" "⍟"]
-    ["eq" "≡"]
-    ["dep" "≡"] ; depth
-    ["mat" "≡"] ; match
-    ["neq" "≢"]
-    ["til" "∼"]
-    ["p" "⍴"] ; rho
-    ["r" "⍴"] ; rho
-    ["w" "⍵"] ; omega
-    ["w_" "⍹"]
-    ["i" "⍳"] ; iota
-    ["i_" "⍸"]
-    ["a" "⍺"] ; alpha
-    ["a_" "⍶"]
-    ["enl" "∊"] ; enlist
-    ["en" "∊"] ; enlist
-    ["es" "∊"]
-    ["se" "∊"]
-    ["find" "⋸"]
-    ["e_" "⋸"]
-    ["in_" "⋸"]
-    ["flr" "⌊"] ; floor
-    ["min" "⌊"]
-    ["cei" "⌈"] ; ceiling
-    ["max" "⌈"]
-		["lcm" "∧"] ; lowest common denomenator
-		["gcd" "∨"] ; greatest common divisor
-		["conj" "+"] ; conjugate
-		["neg" "-"] ; negate
-		["nega" "-"] ; negate
-		["dire" "×"] ; direction
-		["dir" "×"] ; direction
-    ["mag" "∣"] ; magnitude
-    ["norm" "∣"] ; magnitude
-    ["res" "∣"] ; residue
-    ["inc" "∆"] ; increment
-    ["delta" "∆"]
-    ["del" "∇"]
-    ["nab" "∇"] ; nabla
-    ["j_" "⍛"]
-    ["enc" "⊤"] ; encode
-    ["enco" "⊤"] ; encode
-    ["dec" "⊥"] ; decode
-    ["deco" "⊥"] ; decode
-    ["left" "⊣"]
-    ["lef" "⊣"] ; left
-    ["righ" "⊢"] ; right
-    ["ri" "⊢"] ; right
-    ["rig" "⊢"] ; right
-    ["mdv" "⌹"] ; matrix divide
-    ["min" "⌹"] ; matrix inverse
-    ["minv" "⌹"] ; matrix inverse
-    ["o" "○"] ; APL pi-times (not composition)
-    ["trig" "○"] ; trigonometric functions
-    ["o_" "⍜"]
-    ["ro" "⌽"]
-    ["rot" "⌽"]
-    ["rev" "⌽"]
-    ["rof" "⊖"]
-    ["tra" "⍉"]
-    ["xf" "⍀"] ; expand 1st
-    ["sf" "⍀"] ; scan 1st
-    ["rf" "⌿"] ; [replicate / reduce] 1st
-    ["ref" "⌿"] ; [replicate / reduce] 1st
-    ["repf" "⌿"] ; replicate 1st
-    ["redf" "⌿"] ; reduce 1st
-    ["gu" "⍋"]
-    ["gd" "⍒"]
-    ["gru" "⍋"]
-    ["grd" "⍒"]
-    ["sou" "⍋"]
-    ["sod" "⍒"]
-    ["nn" "¯"]
-    ["zil" "⍬"]
-    [",_" "⍪"]
-    ["fmt" "⍕"]
-    ["exc" "⍎"]
-    ["at" "@"]
-    ["IB" "⌶"]
-    ["Ib" "⌶"]
-    ["ib" "⌶"]
-    ["map" "¨"]
-    ["each" "¨"]
-    ["dia" "¨"]
-    ["pwr" "⍣"]
-    ["strd" "⍣"]
-    ["flip" "⍨"]
-    ["smrk" "⍨"]
-    ["rank" "⍤"]
-    ["hoot" "⍤"]
-    ["sep" "◇"] ; statement separator
-    ["dia" "◇"]
-    ["holl" "⍥"]
-    ["vari" "⍠"] ; variant
-    ["opt" "⍠"] ; option
-    ["quc" "⍠"]
-    ["qua" "⎕"]
-    ["sys" "⎕"]
-    ["mat" "⌷"] ; materialize
-    ["ind" "⌷"] ; index
-    ["squ" "⌷"]
-    ["key" "⌸"]
-    ["que" "⌸"]
-    ["sten" "⌺"]
-    ["qudi" "⌺"]
-    ["com" "⍝"]
-    ["c" "⍝"]
+		;; ;; APL
+    ;; ["al" "←"]
+    ;; ["ar" "→"]
+    ;; ["au" "↑"]
+    ;; ["ad" "↓"]
+    ;; ["=" "←"]
+    ;; ["take" "↑"]
+    ;; ["tak" "↑"] ; take
+    ;; ["ta" "↑"] ; take
+    ;; ["mix" "↑"]
+    ;; ["drop" "↓"]
+    ;; ["dro" "↓"] ; drop
+    ;; ["dr" "↓"] ; drop
+    ;; ["spl" "↓"] ; split
+    ;; ["head" "⊃"]
+    ;; ["pick" "⊃"]
+    ;; ["encl" "⊂"] ; enclose
+    ;; ["paen" "⊂"] ; partitioned enclose
+    ;; ["nest" "⊆"]
+    ;; ["part" "⊆"] ; partition
+    ;; ["no" "~"] ; not
+    ;; ["wo" "~"] ; without
+    ;; ["lv" "⍅"]
+    ;; ["rv" "⍆"]
+    ;; ["uv" "⍏"]
+    ;; ["dv" "⍖"]
+    ;; ["div" "÷"]
+    ;; ["x'" "×"]
+    ;; ["-" "−"]
+    ;; ["log" "⍟"]
+    ;; ["eq" "≡"]
+    ;; ["dep" "≡"] ; depth
+    ;; ["mat" "≡"] ; match
+    ;; ["neq" "≢"]
+    ;; ["til" "∼"]
+    ;; ["p" "⍴"] ; rho
+    ;; ["r" "⍴"] ; rho
+    ;; ["w" "⍵"] ; omega
+    ;; ["w_" "⍹"]
+    ;; ["i" "⍳"] ; iota
+    ;; ["i_" "⍸"]
+    ;; ["a" "⍺"] ; alpha
+    ;; ["a_" "⍶"]
+    ;; ["enl" "∊"] ; enlist
+    ;; ["en" "∊"] ; enlist
+    ;; ["es" "∊"]
+    ;; ["se" "∊"]
+    ;; ["find" "⋸"]
+    ;; ["e_" "⋸"]
+    ;; ["in_" "⋸"]
+    ;; ["flr" "⌊"] ; floor
+    ;; ["min" "⌊"]
+    ;; ["cei" "⌈"] ; ceiling
+    ;; ["max" "⌈"]
+		;; ["lcm" "∧"] ; lowest common denomenator
+		;; ["gcd" "∨"] ; greatest common divisor
+		;; ["conj" "+"] ; conjugate
+		;; ["neg" "-"] ; negate
+		;; ["nega" "-"] ; negate
+		;; ["dire" "×"] ; direction
+		;; ["dir" "×"] ; direction
+    ;; ["mag" "∣"] ; magnitude
+    ;; ["norm" "∣"] ; magnitude
+    ;; ["res" "∣"] ; residue
+    ;; ["inc" "∆"] ; increment
+    ;; ["delta" "∆"]
+    ;; ["del" "∇"]
+    ;; ["nab" "∇"] ; nabla
+    ;; ["j_" "⍛"]
+    ;; ["enc" "⊤"] ; encode
+    ;; ["enco" "⊤"] ; encode
+    ;; ["dec" "⊥"] ; decode
+    ;; ["deco" "⊥"] ; decode
+    ;; ["left" "⊣"]
+    ;; ["lef" "⊣"] ; left
+    ;; ["righ" "⊢"] ; right
+    ;; ["ri" "⊢"] ; right
+    ;; ["rig" "⊢"] ; right
+    ;; ["mdv" "⌹"] ; matrix divide
+    ;; ["min" "⌹"] ; matrix inverse
+    ;; ["minv" "⌹"] ; matrix inverse
+    ;; ["o" "○"] ; APL pi-times (not composition)
+    ;; ["trig" "○"] ; trigonometric functions
+    ;; ["o_" "⍜"]
+    ;; ["ro" "⌽"]
+    ;; ["rot" "⌽"]
+    ;; ["rev" "⌽"]
+    ;; ["rof" "⊖"]
+    ;; ["tra" "⍉"]
+    ;; ["xf" "⍀"] ; expand 1st
+    ;; ["sf" "⍀"] ; scan 1st
+    ;; ["rf" "⌿"] ; [replicate / reduce] 1st
+    ;; ["ref" "⌿"] ; [replicate / reduce] 1st
+    ;; ["repf" "⌿"] ; replicate 1st
+    ;; ["redf" "⌿"] ; reduce 1st
+    ;; ["gu" "⍋"]
+    ;; ["gd" "⍒"]
+    ;; ["gru" "⍋"]
+    ;; ["grd" "⍒"]
+    ;; ["sou" "⍋"]
+    ;; ["sod" "⍒"]
+    ;; ["nn" "¯"]
+    ;; ["zil" "⍬"]
+    ;; [",_" "⍪"]
+    ;; ["fmt" "⍕"]
+    ;; ["exc" "⍎"]
+    ;; ["at" "@"]
+    ;; ["IB" "⌶"]
+    ;; ["Ib" "⌶"]
+    ;; ["ib" "⌶"]
+    ;; ["map" "¨"]
+    ;; ["each" "¨"]
+    ;; ["dia" "¨"]
+    ;; ["pwr" "⍣"]
+    ;; ["strd" "⍣"]
+    ;; ["flip" "⍨"]
+    ;; ["smrk" "⍨"]
+    ;; ["rank" "⍤"]
+    ;; ["hoot" "⍤"]
+    ;; ["sep" "◇"] ; statement separator
+    ;; ["dia" "◇"]
+    ;; ["holl" "⍥"]
+    ;; ["vari" "⍠"] ; variant
+    ;; ["opt" "⍠"] ; option
+    ;; ["quc" "⍠"]
+    ;; ["qua" "⎕"]
+    ;; ["sys" "⎕"]
+    ;; ["mat" "⌷"] ; materialize
+    ;; ["ind" "⌷"] ; index
+    ;; ["squ" "⌷"]
+    ;; ["key" "⌸"]
+    ;; ["que" "⌸"]
+    ;; ["sten" "⌺"]
+    ;; ["qudi" "⌺"]
+    ;; ["com" "⍝"]
+    ;; ["c" "⍝"]
 
 
 		;; Haskell
@@ -535,22 +535,13 @@
     ["frr" "foldr"]
     ["eq" "equals?"]
     ["neq" "not-equals?"]
-    ;; ["neqq" "≢"]
     ["til" "∼"]
-    ["p" "⍴"] ; rho
-    ["r" "⍴"] ; rho
-    ["w" "⍵"] ; omega
-    ["w_" "⍹"]
-    ["i" "⍳"] ; iota
-    ["i_" "⍸"]
-    ["a" "⍺"] ; alpha
-    ["a_" "⍶"]
+    ["p" "length"] ; rho
+    ["r" "length"] ; rho
+    ["i" "build-list"] ; iota
+    ;; ["i_" "⍸"]
     ["es" "∊"]
-    ["e_" "⋸"]
-    ["in_" "⋸"]
-    ["flr" "⌊"]
-    ["cei" "⌈"]
-    ["inc" "∆"]
+    ;; ["e_" "⋸"]
     ["j" "compose1"]
     ["j_" "compose"]
     ["rev" "reverse"]
@@ -560,20 +551,12 @@
     ["gru" "sort"]
     ["sou" "sort"]
     ["fmt" "format"]
-    ["exc" "⍎"]
+    ["exc" "eval"]
     ["at" "@"]
-    ["Ib" "⌶"]
-    ["dia" "¨"]
-    ["strd" "⍣"]
-    ["smrk" "⍨"]
-    ["hoot" "⍤"]
-    ["holl" "⍥"]
-    ["qua" "⎕"]
-    ["squ" "⌷"]
-    ["que" "⌸"]
-    ["qudi" "⌺"]
-    ["acom" "⍝"]
-    ["acm" "⍝"]
+    ;; ["IB" "⌶"]
+    ;; ["Ib" "⌶"]
+    ;; ["ib" "⌶"]
+    ["map" "¨"]
 
 
 
