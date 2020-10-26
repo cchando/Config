@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+		 vimscript
 		 racket
 		 asciidoc
      javascript
@@ -51,7 +52,7 @@ values."
      ;; markdown
      ;; org
      (shell :variables
-						shell-default-shell 'eshell ; eshell shell term ansi-term (default on Linux/macOS) multi-term vterm
+						shell-default-shell 'vterm ; eshell shell term ansi-term (default on Linux/macOS) multi-term vterm
 						close-window-with-terminal t
             shell-default-height 20
             shell-default-position 'bottom)
@@ -1003,25 +1004,14 @@ you should place your code here."
 	(evil-previous-line))
 
 
-(define-key key-translation-map (kbd "<f1>") (kbd "•"))
-
-;; (define-key evil-visual-state-map (kbd "{") 'vile-backward-paragraph)
-;; (define-key evil-visual-state-map (kbd "}") 'vile-forward-paragraph)
-;; (define-key evil-visual-state-map (kbd "<SPC>oe") 'evil-backward-paragraph)
-;; (define-key evil-visual-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
-
-
-;; (define-key evil-normal-state-map (kbd "{") 'vile-backward-paragraph)
-;; (define-key evil-normal-state-map (kbd "}") 'vile-forward-paragraph)
-;; (define-key evil-normal-state-map (kbd "<SPC>oe") 'evil-backward-paragraph)
-;; (define-key evil-normal-state-map (kbd "<SPC>or") 'evil-forward-paragraph)
+(define-key key-translation-map (kbd "<f1>") (kbd "•")) ;; example
 
 ;; TODO: write vile motion-command similar to "ds(" that, when executed inside a set of parenthesis, deletes everything
 ;;     in the immediately-surrounding set of parentheses. Just like with evil-surround, have two options,
 ;;     one of which keeps the surrounding parentheses themselves, and one of which discards them.
 ;;     This is very helpful when you add e.g. a cast statement like
 ;;         (cast (hash-ref stockmap stock) (Listof Candle))
-;;     except it's a longer expression that wraps to the next line, and you later want to remove the surrounding
+;;     except it's a longer expression that wraps to the next line, and you later want to remove the surrounding expression.
 
 ;; visual-state mappings
 (define-key evil-visual-state-map (kbd "(") 'evil-backward-paragraph)
@@ -1071,8 +1061,8 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
-(spacemacs/set-leader-keys (kbd "tP") 'smartparens)
-(spacemacs/set-leader-keys (kbd "tp") 'pretty-mode)
+(spacemacs/set-leader-keys (kbd "tp") 'smartparens)
+;; (spacemacs/set-leader-keys (kbd "tP") 'pretty-mode)
 (spacemacs/set-leader-keys (kbd "bh") 'previous-buffer)
 (spacemacs/set-leader-keys (kbd "bl") 'next-buffer)
 (spacemacs/set-leader-keys (kbd "gm") 'magit-dispatch) ;; replace obsolete magit-dispatch-popup
@@ -1083,6 +1073,7 @@ you should place your code here."
 (spacemacs/set-leader-keys (kbd "ts") 'prettify-symbols-mode)
 (spacemacs/set-leader-keys (kbd "kw") 'evil-window-up) ; shadow evil-lisp-state-wrap binding
 (spacemacs/set-leader-keys (kbd "hw") 'helm-man-woman)
+(spacemacs/set-leader-keys (kbd "bH") 'spacemacs/home)
 ;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
 ;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
 ;; (define-key evil-normal-state-map (kbd "M-d") nil) ;; disable kill-word
@@ -1108,6 +1099,14 @@ you should place your code here."
 (define-key cm (kbd "r") 'vile-forward-paragraph)
 (define-key cm (kbd "n") 'org-timer-set-timer)
 (define-key cm (kbd "N") 'toggle-timer-bell)
+
+;; vim-script-like commands
+;; (define-key evil-normal-state-map (kbd "mdoi") (cmd (evil-ex-normal (line-beginning-position) (line-beginning-position) "dtl")))
+;; (define-key evil-normal-state-map (kbd "mdoi") (cmd (evil-ex-normal (line-beginning-position) (line-end-position) "T(T(dt(gmldt)")))
+;; (define-key evil-normal-state-map (kbd "mdoo") (cmd (evil-ex-normal (line-beginning-position) (line-end-position) "T(T(dt(gmdt)")))
+
+
+
 
 (setq org-timer-default-timer 1)
 
@@ -1317,7 +1316,7 @@ you should place your code here."
      (60 . evil-surround-read-tag)
      (102 . evil-surround-function)))
  '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#010F1D")
+ '(fci-rule-color "#010F1D" t)
  '(global-evil-search-highlight-persist nil)
  '(global-xah-math-input-mode t)
  '(highlight-changes-colors '("#EF5350" "#7E57C2"))
@@ -1332,7 +1331,7 @@ you should place your code here."
      ("#010F1D" . 100)))
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
-   '(nix-mode auto-sudoedit sudo-edit org-noter xah-math-input dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))
+   '(vimrc-mode dactyl-mode nix-mode auto-sudoedit sudo-edit org-noter xah-math-input dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)

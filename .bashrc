@@ -34,6 +34,8 @@ alias rollback='nix-env --rollback'
 alias rm='mv -t /home/cameron/.trash'
 alias rmu='rm' # remove unsafe
 alias inst='nix-env -iA'
+alias nist='nix-env -iA'
+alias isnt='nix-env -iA'
 alias lgen='nix-env --list-generations'
 alias sgen='nix-env --switch-generation'
 alias deletegen='nix-env --delete-generations'
@@ -66,7 +68,7 @@ alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
 
 # Misc
 
-# alias ydl='nohup "youtube-dl -x --no-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3" &>/dev/null &'
+# alias ydl='nohup youtube-dl -x --no-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3 &>/dev/null &'
 # alias ydlp='nohup "youtube-dl -cix --yes-playlist -o "~/Music/youtube-dl/%(playlist)s/%(title)s.%(ext)s" --audio-format mp3" &>/dev/null &'
 # alias ydlv='nohup "youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"" &>/dev/null &'
 # alias ydlpv='nohup "youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"" &>/dev/null &'

@@ -568,8 +568,21 @@
 		;; If it is parameterized, it has a bold letter.
 		;;     Normal parameterized types (Listof, Vectorof, Pairof, HashTable, etc) are slanted.
 		;;     Fixed parameterized types akin to tuples (List, Vector, etc) are upright
-		;; The exception is Symbol, which is bold/italic, which String is double-struck.
+		;; ADT constructors, (Just, True, etc) are slanted but not bold
+		;; The exception is Symbol, which is bold/italic, while String is double-struck, in order to differentiate the two.
 
+		["M" "𝑴"]
+		["JU" "𝐽"]
+		("NO" "𝑁")
+		("EI" "𝑬")
+		("RI" "𝑅")
+		("LE" "𝐿")
+    ["T" "𝑇"]
+    ["F" "𝐹"]
+    ;; ["T" "𝑻"]
+    ;; ["F" "𝑭"]
+    ["B" "𝔹"]
+    ["O" "𝑴"]
     ["N" "ℕ"]
     ["IN" "𝐈"]
     ["In" "𝐈"]
@@ -586,8 +599,6 @@
     ;; ["Pa" "Pair"]
     ["Pa" "𝐏"]
     ;; ["Pa" "𝑷"]
-    ["M" "𝑴"]
-    ["O" "𝑴"]
     ["Rn" "ℝ⁻"]
     ["Rn0" "ℝ⁰⁻"]
     ["R" "ℝ"]
@@ -598,9 +609,6 @@
     ["Fl" "Fl"]
     ["Flp0" "Fl⁰⁺"]
     ["Flp" "Fl⁺"]
-    ["T" "𝑻"]
-    ["F" "𝑭"]
-    ["B" "𝔹"]
     ["str" "𝕊"]
     ["STR" "𝕊"]
     ["sy" "𝑺"]
@@ -618,6 +626,18 @@
     ["JS" "JSExpr"]
     ["JH" "JSHash"]
 
+		["Maybe" "𝑴"]
+		["Just" "𝐽"]
+		("Nothing" "𝑁")
+		("Either" "𝑬")
+		("Right" "𝑅")
+		("Left" "𝐿")
+    ["T" "𝑇"]
+    ["F" "𝐹"]
+    ;; ["T" "𝑻"]
+    ;; ["F" "𝑭"]
+    ;; ["B" "𝐁"]
+    ["O" "𝑴"]
     ;; ["N" "𝐍"]
     ;; ["IN" "𝐈"]
     ;; ["In" "𝐈"]
@@ -632,8 +652,6 @@
     ;; ["V" "𝑽"]
     ;; ["V'" "𝗩"]
     ;; ["Pa" "Pair"]
-    ;; ["M" "𝑴"]
-    ;; ["O" "𝑴"]
     ;; ["Rn" "𝐑⁻"]
     ;; ["Rn0" "𝐑⁰⁻"]
     ;; ["R" "𝐑"]
@@ -645,9 +663,6 @@
     ;; ["Fl" "Fl"]
     ;; ["Flp0" "Fl⁰⁺"]
     ;; ["Flp" "Fl⁺"]
-    ;; ["T" "𝑻"]
-    ;; ["F" "𝑭"]
-    ;; ["B" "𝐁"]
     ;; ["St" "𝕊"]
     ;; ["Sy" "𝑺"]
     ;; ["H" "𝑯"]
@@ -665,48 +680,53 @@
 
 ;; ----------------------------------------------
 
-    ;; ["N" "Natural"]
-    ;; ["IN" "Index"]
-    ;; ["In" "Index"]
-    ;; ["Com" "Number"] ; Complex number
-    ;; ["Zn" "Negative-Integer"]
-    ;; ["Zn0" "Nonpositive-Integer"]
-    ;; ["Z" "Integer"]
-    ;; ["Zp0" "Nonnegative-Integer"]
-    ;; ["Zp" "Positive-Integer"]
-    ;; ["L" "Listof"]
-    ;; ["L'" "List"]
-    ;; ["V" "Vectorof"]
-    ;; ["V'" "Vector"]
-    ;; ["Pa" "Pair"]
-    ;; ["M" "Maybe"]
-    ;; ["O" "Option"]
-    ;; ["FLn" "Negative-Float"]
-    ;; ["Fln0" "Nonpositive-Float"]
-    ;; ["Fl" "Float"]
-    ;; ["Flp0" "Nonnegative-Float"]
-    ;; ["Flp" "Positive-Float"]
-    ;; ["Ren" "Negative-Real"]
-    ;; ["Ren0" "Nonpositive-Real"]
-    ;; ["Re" "Real"]
-    ;; ["Rep0" "Nonnegative-Real"]
-    ;; ["Rep" "Positive-Real"]
-    ;; ["T" "True"]
-    ;; ["F" "False"]
-    ;; ["B" "Boolean"]
-    ;; ["St" "String"]
-    ;; ["Sy" "Symbol"]
-    ;; ["H" "HashTable"]
-    ;; ["Hi" "ImmutableHashTable"]
-    ;; ["Hm" "MutableHashTable"]
-    ;; ["Qn" "Negative-Exact-Rational"]
-    ;; ["Qn0" "Nonpositive-Exact-Rational"]
-    ;; ["Q" "Exact-Rational"]
-    ;; ["Qp0" "Nonnegative-Exact-Rational"]
-    ;; ["Qp" "Positive-Exact-Rational"]
-    ;; ["L^" "Non-Empty-List"]
-    ;; ["JS" "JSExpr"]
-    ;; ["JH" "JSHash"]
+		;; ["M" "Maybe"]
+		;; ["JU" "Just"]
+		;; ("NO" "Nothing")
+		;; ("EI" "Either")
+		;; ("RI" "Right")
+		;; ("LE" "Left")
+		;; ["T" "True"]
+		;; ["F" "False"]
+		;; ["B" "Boolean"]
+		;; ["O" "Option"]
+		;; ["N" "Natural"]
+		;; ["IN" "Index"]
+		;; ["In" "Index"]
+		;; ["Com" "Number"] ; Complex number
+		;; ["Zn" "Negative-Integer"]
+		;; ["Zn0" "Nonpositive-Integer"]
+		;; ["Z" "Integer"]
+		;; ["Zp0" "Nonnegative-Integer"]
+		;; ["Zp" "Positive-Integer"]
+		;; ["L" "Listof"]
+		;; ["L'" "List"]
+		;; ["V" "Vectorof"]
+		;; ["V'" "Vector"]
+		;; ["Pa" "Pair"]
+		;; ["FLn" "Negative-Float"]
+		;; ["Fln0" "Nonpositive-Float"]
+		;; ["Fl" "Float"]
+		;; ["Flp0" "Nonnegative-Float"]
+		;; ["Flp" "Positive-Float"]
+		;; ["Ren" "Negative-Real"]
+		;; ["Ren0" "Nonpositive-Real"]
+		;; ["Re" "Real"]
+		;; ["Rep0" "Nonnegative-Real"]
+		;; ["Rep" "Positive-Real"]
+		;; ["St" "String"]
+		;; ["Sy" "Symbol"]
+		;; ["H" "HashTable"]
+		;; ["Hi" "ImmutableHashTable"]
+		;; ["Hm" "MutableHashTable"]
+		;; ["Qn" "Negative-Exact-Rational"]
+		;; ["Qn0" "Nonpositive-Exact-Rational"]
+		;; ["Q" "Exact-Rational"]
+		;; ["Qp0" "Nonnegative-Exact-Rational"]
+		;; ["Qp" "Positive-Exact-Rational"]
+		;; ["L^" "Non-Empty-List"]
+		;; ["JS" "JSExpr"]
+		;; ["JH" "JSHash"]
 
 		))
 

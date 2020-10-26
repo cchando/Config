@@ -75,8 +75,6 @@
   };
 
 
-# nixpkgs.config.allowUnfree = true;
-
   nixpkgs.config = {
     # Allow proprietary packages
     allowUnfree = true;
@@ -272,6 +270,7 @@
       hexcurse # better than hexedit at least
 
       # browsers / viewers
+      mpd vimpc
       vlc mcomix gpicview cmus qpdfview
       haxor-news newsboat
       gtk2fontsel gucharmap
@@ -281,7 +280,7 @@
       google-chrome
       chromium
       luakit
-#     otter-browser # best of opera
+      otter-browser # best of opera
 #     palemoon # forked from firefox. supports legacy, more capable extensions, plus themes!
       # these may be libs, not exes, though that contrasts the nixos docs: dleyna-server python27Packages.weboob python27Packages.twill perl528Packages.HTMLClean
 
