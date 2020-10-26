@@ -61,6 +61,8 @@
 
 
 (define-type (Non-Empty-List a) (Pairof a (Listof a)))
+(define-type (NEList a) (Non-Empty-List a))
+(define-type (𝑳^ a) (Non-Empty-List a))
 (define id identity)
 (define ≡ equal?)
 (define head first)
@@ -124,11 +126,14 @@
 (define ⍎ eval)
 (define ⫶ curry)
 (define <<< compose1)
-(define-type (NEList a) (Non-Empty-List a))
-(define-type (𝑳^ a) (NEList a))
 
 
+;; TODO: write ∃ (more different findf) that takes an (𝔸 -> 𝔸) rather than (𝔸 -> 𝔹)
+;;       -- this way we can give it e.g. (λ v. ∧ (≡ v (hash-ref h k)) v)
 
+;; TODO: refactor "any-val-assoc" function using the ∃ (more different findf) function
+
+;; TODO: write safe-hash-ref (actually shadow hash-ref) -- automatically use (hash-ref h k #false)
 
 ;; TODO: find out how to define these (multi-variadic)
 ;; (define-type Tuple (∀ (a b ...) (List a b ... b)))
@@ -363,30 +368,30 @@
 (define filter-map ¨∘⊇)
 
 
-;; checks whether (hash-ref h k) == v for any v in vs. If so, give the v, else give #false.
-(: hash-match-vals : ∀ (a b) (HashTable a b) a (Listof b) -> (Option b))
-(define (hash-match-vals h k vs)
+;; if ∃ v' ∈ vs | v' == (hash-ref h k), then give (the 1st matching) v', else #f
+(: any-val-assoc : ∀ (a b) (HashTable a b) a (Listof b) -> (Option b))
+(define (any-val-assoc h k vs)
   (ormap (λ ([v : b]) (∧ (equal? v ((inst hash-ref a b) h k #f)) v)) vs))
 
 
 ;; extract a list of vals from list of hashes, given a single key
-(: σ (∀ (a b) (case→
+(: select (∀ (a b) (case→
                  ((Listof (HashTable a b)) a -> (Listof b))
                  ((Listof (HashTable a b)) a False -> (Listof (Option b))))))
-(define σ (case-λ
+(define select (case-λ
         [(hs key) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b) h key)) hs)]
         [(hs key false) (map (λ ([h : (HashTable a b)]) ((inst hash-ref a b #f) h key #f)) hs)]))
-(define select σ)
+(define σ select)
 
 
 ;; filter hs for those hashes for which k is associated with one of the values in vs
-(: σ. : ∀ (a b) (Listof (HashTable a b)) a (Listof b) -> (Listof (HashTable a b)))
-(define (σ. hs k vs)
+(: filter-hashes : ∀ (a b) a (Listof b) (Listof (HashTable a b)) -> (Listof (HashTable a b)))
+(define (filter-hashes k vs hs)
   (filter (λ ([h : (HashTable a b)])
             (∧ (∃ (λ ([v : b]) (=? v (hash-ref h k #f))) vs)
                h))
           hs))
-(define filter-hash σ.)
+(define σ. filter-hashes)
 
 ;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
 ;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (U v #false).

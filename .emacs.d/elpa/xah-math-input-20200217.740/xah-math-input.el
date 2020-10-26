@@ -225,14 +225,17 @@
     ["aU" "⋃"]
     ["II" "⋂"]
     ["aI" "⋂"]
-    ["C" "⊂"]
-    ["C_" "⊆"]
-    ["Cl" "⊃"]
-    ["C_l" "⊇"]
-    ["Cn" "⊄"]
-    ["nC" "⊄"]
-    ["Cnl" "⊅"]
-    ["C_nl" "⊉"]
+    ;; ["c" "⊂"]
+    ;; ["c_" "⊆"]
+    ;; ["cb" "⊆"]
+    ;; ["cl" "⊃"]
+    ;; ["c_l" "⊇"]
+    ;; ["cbl" "⊇"]
+    ;; ["cn" "⊄"]
+    ;; ["nc" "⊄"]
+    ;; ["cnl" "⊅"]
+    ;; ["c_nl" "⊉"]
+    ;; ["cbnl" "⊉"]
     ["sc" "∁"]
     ["comp" "∁"]
     ["scom" "∁"]
@@ -242,17 +245,17 @@
     ["fora" "∀"]
     ["All" "∀"]
     ;; ["all" "∀"]
-    ["exi" "∃"]
-    ["any" "∃"]
-    ["some" "∃"]
-    ["nex" "∄"]
-    ["none" "∄"]
-    ["in" "∈"]
-    ["nin" "∉"]
+    ;; ["exi" "∃"]
+    ;; ["any" "∃"]
+    ;; ["some" "∃"]
+    ;; ["nex" "∄"]
+    ;; ["none" "∄"]
+    ;; ["in" "∈"]
+    ;; ["nin" "∉"]
     ["con" "∋"]
     ["cont" "∋"]
     ["ncon" "∌"]
-    ["j" "∘"] ; jot (composition)
+    ;; ["j" "∘"] ; jot (composition)
     ["and" "∧"]
     ["or" "∨"]
     ["nor" "⊽"]
@@ -328,146 +331,155 @@
     ["o-" "⟜"]
     ["-o" "⊸"]
     ["o-o" "⧟"]
+    ["o-." "⊶"]
+    [".-o" "⊷"]
     ;; ["cur" "⫶"] ; curry
 
 
 
-		;; ;; APL
-    ;; ["al" "←"]
-    ;; ["ar" "→"]
-    ;; ["au" "↑"]
-    ;; ["ad" "↓"]
-    ;; ["=" "←"]
-    ;; ["take" "↑"]
-    ;; ["tak" "↑"] ; take
-    ;; ["ta" "↑"] ; take
-    ;; ["mix" "↑"]
-    ;; ["drop" "↓"]
-    ;; ["dro" "↓"] ; drop
-    ;; ["dr" "↓"] ; drop
-    ;; ["spl" "↓"] ; split
-    ;; ["head" "⊃"]
-    ;; ["pick" "⊃"]
-    ;; ["encl" "⊂"] ; enclose
-    ;; ["paen" "⊂"] ; partitioned enclose
-    ;; ["nest" "⊆"]
-    ;; ["part" "⊆"] ; partition
-    ;; ["no" "~"] ; not
-    ;; ["wo" "~"] ; without
-    ;; ["lv" "⍅"]
-    ;; ["rv" "⍆"]
-    ;; ["uv" "⍏"]
-    ;; ["dv" "⍖"]
-    ;; ["div" "÷"]
-    ;; ["x'" "×"]
-    ;; ["-" "−"]
-    ;; ["log" "⍟"]
-    ;; ["eq" "≡"]
-    ;; ["dep" "≡"] ; depth
-    ;; ["mat" "≡"] ; match
-    ;; ["neq" "≢"]
-    ;; ["til" "∼"]
-    ;; ["p" "⍴"] ; rho
-    ;; ["r" "⍴"] ; rho
-    ;; ["w" "⍵"] ; omega
-    ;; ["w_" "⍹"]
-    ;; ["i" "⍳"] ; iota
-    ;; ["i_" "⍸"]
-    ;; ["a" "⍺"] ; alpha
-    ;; ["a_" "⍶"]
-    ;; ["enl" "∊"] ; enlist
-    ;; ["en" "∊"] ; enlist
-    ;; ["es" "∊"]
-    ;; ["se" "∊"]
-    ;; ["find" "⋸"]
-    ;; ["e_" "⋸"]
-    ;; ["in_" "⋸"]
-    ;; ["flr" "⌊"] ; floor
-    ;; ["min" "⌊"]
-    ;; ["cei" "⌈"] ; ceiling
-    ;; ["max" "⌈"]
-		;; ["lcm" "∧"] ; lowest common denomenator
-		;; ["gcd" "∨"] ; greatest common divisor
-		;; ["conj" "+"] ; conjugate
-		;; ["neg" "-"] ; negate
-		;; ["nega" "-"] ; negate
-		;; ["dire" "×"] ; direction
-		;; ["dir" "×"] ; direction
-    ;; ["mag" "∣"] ; magnitude
-    ;; ["norm" "∣"] ; magnitude
-    ;; ["res" "∣"] ; residue
-    ;; ["inc" "∆"] ; increment
-    ;; ["delta" "∆"]
-    ;; ["del" "∇"]
-    ;; ["nab" "∇"] ; nabla
-    ;; ["j_" "⍛"]
-    ;; ["enc" "⊤"] ; encode
-    ;; ["enco" "⊤"] ; encode
-    ;; ["dec" "⊥"] ; decode
-    ;; ["deco" "⊥"] ; decode
-    ;; ["left" "⊣"]
-    ;; ["lef" "⊣"] ; left
-    ;; ["righ" "⊢"] ; right
-    ;; ["ri" "⊢"] ; right
-    ;; ["rig" "⊢"] ; right
-    ;; ["mdv" "⌹"] ; matrix divide
-    ;; ["min" "⌹"] ; matrix inverse
-    ;; ["minv" "⌹"] ; matrix inverse
-    ;; ["o" "○"] ; APL pi-times (not composition)
-    ;; ["trig" "○"] ; trigonometric functions
-    ;; ["o_" "⍜"]
-    ;; ["ro" "⌽"]
-    ;; ["rot" "⌽"]
-    ;; ["rev" "⌽"]
-    ;; ["rof" "⊖"]
-    ;; ["tra" "⍉"]
-    ;; ["xf" "⍀"] ; expand 1st
-    ;; ["sf" "⍀"] ; scan 1st
-    ;; ["rf" "⌿"] ; [replicate / reduce] 1st
-    ;; ["ref" "⌿"] ; [replicate / reduce] 1st
-    ;; ["repf" "⌿"] ; replicate 1st
-    ;; ["redf" "⌿"] ; reduce 1st
-    ;; ["gu" "⍋"]
-    ;; ["gd" "⍒"]
-    ;; ["gru" "⍋"]
-    ;; ["grd" "⍒"]
-    ;; ["sou" "⍋"]
-    ;; ["sod" "⍒"]
-    ;; ["nn" "¯"]
-    ;; ["zil" "⍬"]
-    ;; [",_" "⍪"]
-    ;; ["fmt" "⍕"]
-    ;; ["exc" "⍎"]
-    ;; ["at" "@"]
-    ;; ["IB" "⌶"]
-    ;; ["Ib" "⌶"]
-    ;; ["ib" "⌶"]
-    ;; ["map" "¨"]
-    ;; ["each" "¨"]
-    ;; ["dia" "¨"]
-    ;; ["pwr" "⍣"]
-    ;; ["strd" "⍣"]
-    ;; ["flip" "⍨"]
-    ;; ["smrk" "⍨"]
-    ;; ["rank" "⍤"]
-    ;; ["hoot" "⍤"]
-    ;; ["sep" "◇"] ; statement separator
-    ;; ["dia" "◇"]
-    ;; ["holl" "⍥"]
-    ;; ["vari" "⍠"] ; variant
-    ;; ["opt" "⍠"] ; option
-    ;; ["quc" "⍠"]
-    ;; ["qua" "⎕"]
-    ;; ["sys" "⎕"]
-    ;; ["mat" "⌷"] ; materialize
-    ;; ["ind" "⌷"] ; index
-    ;; ["squ" "⌷"]
-    ;; ["key" "⌸"]
-    ;; ["que" "⌸"]
-    ;; ["sten" "⌺"]
-    ;; ["qudi" "⌺"]
-    ;; ["com" "⍝"]
-    ;; ["c" "⍝"]
+		;; APL
+    ["al" "←"]
+    ["ar" "→"]
+    ["au" "↑"]
+    ["ad" "↓"]
+    ["take" "↑"]
+    ["tak" "↑"] ; take
+    ["ta" "↑"] ; take
+    ["mix" "↑"]
+    ["drop" "↓"]
+    ["dro" "↓"] ; drop
+    ["dr" "↓"] ; drop
+    ["spl" "↓"] ; split
+    ["head" "⊃"]
+    ["pick" "⊃"]
+    ["encl" "⊂"] ; enclose
+    ["paen" "⊂"] ; partitioned enclose
+    ["nest" "⊆"]
+    ["part" "⊆"] ; partition
+    ["no" "~"] ; not
+    ["wo" "~"] ; without
+    ["lv" "⍅"]
+    ["rv" "⍆"]
+    ["uv" "⍏"]
+    ["dv" "⍖"]
+    ["div" "÷"]
+    ["x'" "×"]
+    ["-" "−"]
+    ["log" "⍟"]
+    ["eq" "≡"]
+    ["dep" "≡"] ; depth
+    ["mat" "≡"] ; match
+    ["neq" "≢"]
+    ["til" "∼"]
+    ["no" "∼"]
+    ["p" "⍴"] ; rho
+    ["r" "⍴"] ; rho
+    ["w" "⍵"] ; omega
+    ["w_" "⍹"]
+    ["i" "⍳"] ; iota
+    ["i_" "⍸"]
+    ["a" "⍺"] ; alpha
+    ["a_" "⍶"]
+    ["enl" "∊"] ; enlist
+    ["en" "∊"] ; enlist
+    ["es" "∊"]
+    ["se" "∊"]
+    ["find" "⋸"]
+    ["e_" "⋸"]
+    ["en_" "⋸"]
+    ["in_" "⋸"]
+    ["flr" "⌊"] ; floor
+    ["min" "⌊"]
+    ["cei" "⌈"] ; ceiling
+    ["max" "⌈"]
+		["lcm" "∧"] ; lowest common denomenator
+		["gcd" "∨"] ; greatest common divisor
+		["conj" "+"] ; conjugate
+		["neg" "-"] ; negate
+		["nega" "-"] ; negate
+		["dire" "×"] ; direction
+		["dir" "×"] ; direction
+    ["mag" "∣"] ; magnitude
+    ["norm" "∣"] ; magnitude
+    ["res" "∣"] ; residue
+    ["inc" "∆"] ; increment
+    ["delta" "∆"]
+    ["del" "∇"]
+    ["nab" "∇"] ; nabla
+    ["j_" "⍛"]
+    ["enc" "⊤"] ; encode
+    ["enco" "⊤"] ; encode
+    ["dec" "⊥"] ; decode
+    ["deco" "⊥"] ; decode
+    ["left" "⊣"]
+    ["lef" "⊣"] ; left
+    ["righ" "⊢"] ; right
+    ["ri" "⊢"] ; right
+    ["rig" "⊢"] ; right
+    ["mdv" "⌹"] ; matrix divide
+    ["min" "⌹"] ; matrix inverse
+    ["minv" "⌹"] ; matrix inverse
+    ["o" "○"] ; APL pi-times (not composition)
+    ["trig" "○"] ; trigonometric functions
+    ["o_" "⍜"]
+    ["ro" "⌽"]
+    ["rot" "⌽"]
+    ["rev" "⌽"]
+    ["rof" "⊖"]
+    ["tra" "⍉"]
+    ["xf" "⍀"] ; expand 1st
+    ["sf" "⍀"] ; scan 1st
+    ["rf" "⌿"] ; [replicate / reduce] 1st
+    ["ref" "⌿"] ; [replicate / reduce] 1st
+    ["repf" "⌿"] ; replicate 1st
+    ["redf" "⌿"] ; reduce 1st
+    ["gu" "⍋"]
+    ["gd" "⍒"]
+    ["gru" "⍋"]
+    ["grd" "⍒"]
+    ["sou" "⍋"]
+    ["sod" "⍒"]
+    ["nn" "¯"]
+    ["zil" "⍬"]
+    [",_" "⍪"]
+    ["fmt" "⍕"]
+    ["exc" "⍎"]
+    ["at" "@"]
+    ["IB" "⌶"]
+    ["Ib" "⌶"]
+    ["ib" "⌶"]
+    ["map" "¨"]
+    ["each" "¨"]
+    ["dia" "¨"]
+    ["pwr" "⍣"]
+    ["strd" "⍣"]
+    ["flip" "⍨"]
+    ["smrk" "⍨"]
+    ["rank" "⍤"]
+    ["hoot" "⍤"]
+    ["sep" "◇"] ; statement separator
+    ["dia" "◇"]
+    ["holl" "⍥"]
+    ["vari" "⍠"] ; variant
+    ["opt" "⍠"] ; option
+    ["quc" "⍠"]
+    ["qua" "⎕"]
+    ["sys" "⎕"]
+    ["mat" "⌷"] ; materialize
+    ["ind" "⌷"] ; index
+    ["squ" "⌷"]
+    ["key" "⌸"]
+    ["que" "⌸"]
+    ["sten" "⌺"]
+    ["qudi" "⌺"]
+    ["com" "⍝"]
+    ["c" "⍝"]
+
+
+
+		;; elisp
+		("lam" "λ")
+
 
 
 		;; Haskell
@@ -477,88 +489,83 @@
 
 
 		;; Racket
-    ("t" "#t" )
-    ("f" "#f" )
-    ("++" "cons" )
-    (":" "cons" )
-    ["flr" "exact-floor"]
-    ["cei" "exact-ceiling"]
-    ["flrr" "floor"] ; result is Real
-    ["flrs" "floor"] ; result is Real
-    ["ceir" "ceiling"] ; result is Real
-    ["ceis" "ceiling"] ; result is Real
-    ["cur" "curry"] ; curry
-    ["fil" "filter"] ; filter
-    ["fno" "filter-not"] ; filter-not
-    ["repl" "replicate"]
-    ["cat" "concat"]
-    ["ap" "append"]
-    ["zipw" "zip-with"]
-    ["zw" "zip-with"]
-    ["ir" "in-range?"]
-    ["csae" "case"] ; catch typo
-    ["casea" "case->"]
-    ["csaea" "case->"] ; catch typo
-    ["casel" "case-λ"]
-    ["csael" "case-λ"] ; catch typo
-    ["lsit" "list"] ; catch typo
-    ["let" "let*"]
-    ["for" "∀:"]
-    ["forn" "∀*:"] "nested"
-    ["forl" "∀:l"]
-    ["fornl" "∀*:l"]
-    ["forh" "∀:h"]
-    ["fornh" "∀*:h"]
-    ["forv" "∀:v"]
-    ["fornv" "∀*:v"]
-    ["fors" "∀:∑"]
-    ["forns" "∀*:∑"]
-    ["forp" "∀:∏"]
-    ["fornp" "∀*:∏"]
-    ["forse" "∀:s"]
-    ["fornse" "∀*:s"]
-    ["forhe" "∀:hq"]
-    ["fornhe" "∀*:hq"]
-    ["forhv" "∀:hv"]
-    ["fornhv" "∀*:hv"]
-    ["foro" "∀:or"]
-    ["forno" "∀*:or"]
-    ["foran" "∀:and"]
-    ["fornan" "∀*:∧"]
-    ["forfi" "∀:1st"]
-    ["fornfi" "∀*:1st"]
-    ["forla" "∀:last"]
-    ["fornla" "∀*:last"]
-    ["forls" "∀:lists"]
-    ["fornls" "∀*:lists"]
-    ["forfo" "∀:↰"]
-    ["fornfo" "∀*:↰"]
-    ["fll" "foldl"]
-    ["frr" "foldr"]
-    ["eq" "equals?"]
-    ["neq" "not-equals?"]
-    ["til" "∼"]
-    ["p" "length"] ; rho
-    ["r" "length"] ; rho
-    ["i" "build-list"] ; iota
-    ;; ["i_" "⍸"]
-    ["es" "∊"]
-    ;; ["e_" "⋸"]
-    ["j" "compose1"]
-    ["j_" "compose"]
-    ["rev" "reverse"]
-    ["rot" "reverse"]
-    ["gu" "sort"]
-    ["sou" "sort"]
-    ["gru" "sort"]
-    ["sou" "sort"]
-    ["fmt" "format"]
-    ["exc" "eval"]
-    ["at" "@"]
-    ;; ["IB" "⌶"]
-    ;; ["Ib" "⌶"]
-    ;; ["ib" "⌶"]
-    ["map" "¨"]
+		("t" "#t" )
+		("f" "#f" )
+		(":" "cons" )
+		["fll" "foldl"]
+		["frr" "foldr"]
+		["eq" "equals?"]
+		["neq" "not-equals?"]
+		["p" "length"] ; rho
+		["r" "length"] ; rho
+		["i" "build-list"] ; iota
+		["S" "+"]
+		["P" "*"]
+		["%" "modulo"]
+		["j" "compose1"]
+		["j_" "compose"]
+		["rev" "reverse"]
+		["rot" "reverse"]
+		["so" "sort"]
+		["fmt" "format"]
+		["exc" "eval"]
+		["in" "member"]
+		["fm" "¨∘⊇"] ; filter-map
+		["mf" "⊇∘¨"] ; map-filter
+		;; ["fm" "filter-map"] ; filter-map
+		;; ["mf" "map-filter"] ; map-filter
+		["flr" "exact-floor"] ; result is Integer
+		["cei" "exact-ceiling"] ; result is Integer
+		["flrr" "floor"] ; result is Real
+		["flrs" "floor"] ; result is Real
+		["ceir" "ceiling"] ; result is Real
+		["ceis" "ceiling"] ; result is Real
+		["cur" "curry"]
+		["fil" "filter"]
+		["fno" "filter-not"]
+		["repl" "replicate"]
+		["cat" "concat"]
+		["ap" "append"]
+		["zipw" "zip-with"]
+		["zw" "zip-with"]
+		["ir" "in-range?"]
+		["csae" "case"] ; catch typo
+		["casea" "case->"]
+		["csaea" "case->"] ; catch typo
+		["casel" "case-λ"]
+		["csael" "case-λ"] ; catch typo
+		["lsit" "list"] ; catch typo
+		["let" "let*"]
+		["for" "∀:"]
+		["forn" "∀*:"] "nested"
+		["forl" "∀:l"]
+		["fornl" "∀*:l"]
+		["forh" "∀:h"]
+		["fornh" "∀*:h"]
+		["forv" "∀:v"]
+		["fornv" "∀*:v"]
+		["fors" "∀:∑"]
+		["forns" "∀*:∑"]
+		["forp" "∀:∏"]
+		["fornp" "∀*:∏"]
+		["forse" "∀:s"]
+		["fornse" "∀*:s"]
+		["forhe" "∀:hq"]
+		["fornhe" "∀*:hq"]
+		["forhv" "∀:hv"]
+		["fornhv" "∀*:hv"]
+		["foro" "∀:or"]
+		["forno" "∀*:or"]
+		["foran" "∀:and"]
+		["fornan" "∀*:∧"]
+		["forfi" "∀:1st"]
+		["fornfi" "∀*:1st"]
+		["forla" "∀:last"]
+		["fornla" "∀*:last"]
+		["forls" "∀:lists"]
+		["fornls" "∀*:lists"]
+		["forfo" "∀:↰"]
+		["fornfo" "∀*:↰"]
 
 
 
@@ -567,7 +574,7 @@
 		;; If it's not parameterized (Integer, Natural, Boolean, etc), it has a double-struck letter.
 		;; If it is parameterized, it has a bold letter.
 		;;     Normal parameterized types (Listof, Vectorof, Pairof, HashTable, etc) are slanted.
-		;;     Fixed parameterized types akin to tuples (List, Vector, etc) are upright
+		;;     Fixed parameterized types, akin to tuples (List, Vector, Pair) are upright
 		;; ADT constructors, (Just, True, etc) are slanted but not bold
 		;; The exception is Symbol, which is bold/italic, while String is double-struck, in order to differentiate the two.
 
@@ -577,108 +584,105 @@
 		("EI" "𝑬")
 		("RI" "𝑅")
 		("LE" "𝐿")
-    ["T" "𝑇"]
-    ["F" "𝐹"]
-    ;; ["T" "𝑻"]
-    ;; ["F" "𝑭"]
+    ["T" "𝑻"]
+    ["F" "𝑭"]
     ["B" "𝔹"]
     ["O" "𝑴"]
     ["N" "ℕ"]
     ["IN" "𝐈"]
-    ["In" "𝐈"]
-    ["Nu" "ℂ"]
-    ["Zn" "ℤ⁻"]
-    ["Zn0" "ℤ⁰⁻"]
+    ["NU" "ℂ"]
+    ["CO" "ℂ"]
+    ["COM" "ℂ"]
+    ["ZN" "ℤ⁻"]
+    ["ZN0" "ℤ⁰⁻"]
     ["Z" "ℤ"]
-    ["Zp0" "ℤ⁰⁺"]
-    ["Zp" "ℤ⁺"]
+    ["ZP0" "ℤ⁰⁺"]
+    ["ZP" "ℤ⁺"]
     ["L" "𝑳"]
     ["L'" "𝗟"]
+    ["LF" "𝗟"]
     ["V" "𝑽"]
     ["V'" "𝗩"]
-    ;; ["Pa" "Pair"]
-    ["Pa" "𝐏"]
-    ;; ["Pa" "𝑷"]
-    ["Rn" "ℝ⁻"]
-    ["Rn0" "ℝ⁰⁻"]
+    ["VF" "𝗩"]
+    ["PA" "𝐏"]
+    ["RN" "ℝ⁻"]
+    ["RN0" "ℝ⁰⁻"]
     ["R" "ℝ"]
-    ["Rp0" "ℝ⁰⁺"]
-    ["Rp" "ℝ⁺"]
-    ["Fln" "Fl⁻"]
-    ["Fln0" "Fl⁰⁻"]
-    ["Fl" "Fl"]
-    ["Flp0" "Fl⁰⁺"]
-    ["Flp" "Fl⁺"]
-    ["str" "𝕊"]
+    ["RP0" "ℝ⁰⁺"]
+    ["RP" "ℝ⁺"]
+    ["FLN" "Fl⁻"]
+    ["FLN0" "Fl⁰⁻"]
+    ["FL" "Fl"]
+    ["FLP0" "Fl⁰⁺"]
+    ["FLP" "Fl⁺"]
     ["STR" "𝕊"]
-    ["sy" "𝑺"]
     ["SY" "𝑺"]
     ["H" "𝑯"]
-    ["Hi" "𝑯i"]
-    ["Hm" "𝑯m"]
+    ["HI" "𝑯i"]
+    ["HM" "𝑯m"]
     ["A" "𝔸"]
-    ["Qn" "ℚ⁻"]
-    ["Qn0" "ℚ⁰⁻"]
+    ["QN" "ℚ⁻"]
+    ["QN0" "ℚ⁰⁻"]
     ["Q" "ℚ"]
-    ["Qp0" "ℚ⁰⁺"]
-    ["Qp" "ℚ⁺"]
+    ["QP0" "ℚ⁰⁺"]
+    ["QP" "ℚ⁺"]
     ["L^" "𝑳^"]
     ["JS" "JSExpr"]
     ["JH" "JSHash"]
 
-		["Maybe" "𝑴"]
-		["Just" "𝐽"]
-		("Nothing" "𝑁")
-		("Either" "𝑬")
-		("Right" "𝑅")
-		("Left" "𝐿")
-    ["T" "𝑇"]
-    ["F" "𝐹"]
-    ;; ["T" "𝑻"]
-    ;; ["F" "𝑭"]
-    ;; ["B" "𝐁"]
-    ["O" "𝑴"]
-    ;; ["N" "𝐍"]
-    ;; ["IN" "𝐈"]
-    ;; ["In" "𝐈"]
-    ;; ["Nu" "ℂ"]
-    ;; ["Zn" "𝐙⁻"]
-    ;; ["Zn0" "𝐙⁰⁻"]
-    ;; ["Z" "𝐙"]
-    ;; ["Zp0" "𝐙⁰⁺"]
-    ;; ["Zp" "𝐙⁺"]
-    ;; ["L" "𝑳"]
-    ;; ["L'" "𝗟"]
-    ;; ["V" "𝑽"]
-    ;; ["V'" "𝗩"]
-    ;; ["Pa" "Pair"]
-    ;; ["Rn" "𝐑⁻"]
-    ;; ["Rn0" "𝐑⁰⁻"]
-    ;; ["R" "𝐑"]
-    ;; ["Rp0" "𝐑⁰⁺"]
-    ;; ["Rp" "𝐑⁺"]
-    ;; ["Rp" "ℝ⁺"]
-    ;; ["Fln" "Fl⁻"]
-    ;; ["Fln0" "Fl⁰⁻"]
-    ;; ["Fl" "Fl"]
-    ;; ["Flp0" "Fl⁰⁺"]
-    ;; ["Flp" "Fl⁺"]
-    ;; ["St" "𝕊"]
-    ;; ["Sy" "𝑺"]
-    ;; ["H" "𝑯"]
-    ;; ["Hi" "𝑯i"]
-    ;; ["Hn" "𝑯m"]
-    ;; ["A" "𝐀"]
-    ;; ["Qn" "𝐐⁻"]
-    ;; ["Qn0" "𝐐⁰⁻"]
-    ;; ["Q" "𝐐"]
-    ;; ["Qp0" "𝐐⁰⁺"]
-    ;; ["Qp" "𝐐⁺"]
-    ;; ["L^" "𝑳^"]
-    ;; ["JS" "JSExpr"]
-    ;; ["JH" "JSHash"]
+		;; ----------------------------------------------
 
-;; ----------------------------------------------
+		;; ["M" "𝑴"]
+		;; ["JU" "𝐽"]
+		;; ("NO" "𝑁")
+		;; ("EI" "𝑬")
+		;; ("RI" "𝑅")
+		;; ("LE" "𝐿")
+		;; ["T" "𝑻"]
+		;; ["F" "𝑭"]
+		;; ["B" "𝐁"]
+		;; ["O" "𝑴"]
+		;; ["N" "𝐍"]
+		;; ["IN" "𝐈"]
+		;; ["NU" "ℂ"]
+		;; ["CO" "ℂ"]
+		;; ["COM" "ℂ"]
+		;; ["ZN" "𝐙⁻"]
+		;; ["ZN0" "𝐙⁰⁻"]
+		;; ["Z" "𝐙"]
+		;; ["ZP0" "𝐙⁰⁺"]
+		;; ["ZP" "𝐙⁺"]
+		;; ["L" "𝑳"]
+		;; ["L'" "𝗟"]
+		;; ["V" "𝑽"]
+		;; ["V'" "𝗩"]
+		;; ["PA" "Pair"]
+		;; ["RN" "𝐑⁻"]
+		;; ["RN0" "𝐑⁰⁻"]
+		;; ["R" "𝐑"]
+		;; ["RP0" "𝐑⁰⁺"]
+		;; ["RP" "𝐑⁺"]
+		;; ["FLN" "Fl⁻"]
+		;; ["FLN0" "Fl⁰⁻"]
+		;; ["FL" "Fl"]
+		;; ["FLP0" "Fl⁰⁺"]
+		;; ["FLP" "Fl⁺"]
+		;; ["ST" "𝕊"]
+		;; ["SY" "𝑺"]
+		;; ["H" "𝑯"]
+		;; ["HI" "𝑯i"]
+		;; ["HM" "𝑯m"]
+		;; ["A" "𝐀"]
+		;; ["QN" "𝐐⁻"]
+		;; ["QN0" "𝐐⁰⁻"]
+		;; ["Q" "𝐐"]
+		;; ["QP0" "𝐐⁰⁺"]
+		;; ["QP" "𝐐⁺"]
+		;; ["L^" "𝑳^"]
+		;; ["JS" "JSExpr"]
+		;; ["JH" "JSHash"]
+
+    ;; ----------------------------------------------
 
 		;; ["M" "Maybe"]
 		;; ["JU" "Just"]
@@ -693,37 +697,39 @@
 		;; ["N" "Natural"]
 		;; ["IN" "Index"]
 		;; ["In" "Index"]
-		;; ["Com" "Number"] ; Complex number
-		;; ["Zn" "Negative-Integer"]
-		;; ["Zn0" "Nonpositive-Integer"]
+		;; ["NU" "Number"]
+		;; ["CO" "Complex"]
+		;; ["COM" "Complex"]
+		;; ["ZN" "Negative-Integer"]
+		;; ["ZN0" "Nonpositive-Integer"]
 		;; ["Z" "Integer"]
-		;; ["Zp0" "Nonnegative-Integer"]
-		;; ["Zp" "Positive-Integer"]
+		;; ["ZP0" "Nonnegative-Integer"]
+		;; ["ZP" "Positive-Integer"]
 		;; ["L" "Listof"]
 		;; ["L'" "List"]
 		;; ["V" "Vectorof"]
 		;; ["V'" "Vector"]
-		;; ["Pa" "Pair"]
-		;; ["FLn" "Negative-Float"]
-		;; ["Fln0" "Nonpositive-Float"]
-		;; ["Fl" "Float"]
-		;; ["Flp0" "Nonnegative-Float"]
-		;; ["Flp" "Positive-Float"]
-		;; ["Ren" "Negative-Real"]
-		;; ["Ren0" "Nonpositive-Real"]
-		;; ["Re" "Real"]
-		;; ["Rep0" "Nonnegative-Real"]
-		;; ["Rep" "Positive-Real"]
-		;; ["St" "String"]
-		;; ["Sy" "Symbol"]
+		;; ["PA" "Pair"]
+		;; ["FLN" "Negative-Float"]
+		;; ["FLN0" "Nonpositive-Float"]
+		;; ["FL" "Float"]
+		;; ["FLP0" "Nonnegative-Float"]
+		;; ["FLP" "Positive-Float"]
+		;; ["RN" "Negative-Real"]
+		;; ["RN0" "Nonpositive-Real"]
+		;; ["R" "Real"]
+		;; ["RP0" "Nonnegative-Real"]
+		;; ["RP" "Positive-Real"]
+		;; ["ST" "String"]
+		;; ["SY" "Symbol"]
 		;; ["H" "HashTable"]
-		;; ["Hi" "ImmutableHashTable"]
-		;; ["Hm" "MutableHashTable"]
-		;; ["Qn" "Negative-Exact-Rational"]
-		;; ["Qn0" "Nonpositive-Exact-Rational"]
+		;; ["HI" "ImmutableHashTable"]
+		;; ["HM" "MutableHashTable"]
+		;; ["QN" "Negative-Exact-Rational"]
+		;; ["QN0" "Nonpositive-Exact-Rational"]
 		;; ["Q" "Exact-Rational"]
-		;; ["Qp0" "Nonnegative-Exact-Rational"]
-		;; ["Qp" "Positive-Exact-Rational"]
+		;; ["QP0" "Nonnegative-Exact-Rational"]
+		;; ["QP" "Positive-Exact-Rational"]
 		;; ["L^" "Non-Empty-List"]
 		;; ["JS" "JSExpr"]
 		;; ["JH" "JSHash"]

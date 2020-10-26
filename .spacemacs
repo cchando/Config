@@ -441,6 +441,7 @@ you should place your code here."
 	(set-fontset-font "fontset-default" #x2319 "DejaVu Math TeX Gyre") ; ⌙
 	(set-fontset-font "fontset-default" '(#x2A00 . #x2AFF) "DejaVu Sans") ;; ⨁ ⨂ ⩽ ⩾ ⨌ etc
 	(set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans") ;; ∴ ∵
+	(set-fontset-font "fontset-default" #x29FA "DejaVu Sans") ;; ⧺
 	;; (set-fontset-font "fontset-default" '(#x2234 . #x2235) "-PfEd-DejaVu Sans-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1") ; ∴ ∵
 	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C3) "DejaVu Sans") ;; ⋀ ⋁ ⋂ ⋃
 	;; (set-fontset-font "fontset-default" '(#x22C0 . #x22C1) "FreeSans") ;; ⋀ ⋁
@@ -472,6 +473,7 @@ you should place your code here."
 	;; (set-fontset-font "fontset-default" '(#x235A . #x235C) "DejaVu Sans Mono") ; ⍚ ⍛ ⍜
 	;; (set-fontset-font "fontset-default" #x233D "DejaVu Sans Mono") ; ⌽
 	;; (set-fontset-font "fontset-default" '(#x2234 . #x2235) "DejaVu Sans") ;; ∴ ∵
+	;; (set-fontset-font "fontset-default" #x29FA "DejaVu Sans") ;; ⧺
 	;; ;; (set-fontset-font "fontset-default" '(#x2234 . #x2235) "-PfEd-DejaVu Sans-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1") ; ∴ ∵
 	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSans") ; arrows
 	;; ;; (set-fontset-font "fontset-default" '(#x2190 . #x21FF) "FreeSerif") ; arrows
@@ -665,7 +667,7 @@ you should place your code here."
 	(remove-hook 'prog-mode-hook 'hasklig-mode)
 
 	;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
-	;;  <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|> != !==
+	;; <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|> != !==
 
 
 	(add-hook
@@ -741,8 +743,8 @@ you should place your code here."
 						 ("string-append" .    "⧺")
 						 ("string-append*" .    "⧺")
 						 ("curry" .   "⫶") ; ⫶ ⋮ ⦙
-						 ("."  .   "∘") ; infix use
 						 ("compose1" .  "⍛")
+						 ;; ("."  .   "∘") ; haskell infix use
 						 ;; ("powerset" .  "℘")
 						 ;; ("cross" .    "⨯")
 						 ;; ("del" .  "∇")
@@ -815,12 +817,17 @@ you should place your code here."
 						 ;; ("Nonnegative-Exact-Rational"  .  "ℚ")
 						 ;; ("Positive-Exact-Rational"  .  "ℚ")
 						 ;; ("Set" .      "𝑺")
-						 ;; ("Top" .      "⟙")
-						 ;; ("Bottom" .   "⟘")
 						 ;; ("Tuple" .    "⊗")
+						 ;; ("HashTableTop" .    "𝐇")
+						 ;; ("Immutable-HashTable" .    "𝑯")
+						 ;; ("Mutable-HashTable" .    "𝑯")
+						 ;; ("Hash" .    "𝑯")
+						 ;; ("HashMap" .    "𝑯")
 						 ;; ("True" .     "𝑻")
 						 ;; ("#true" .     "𝑻")
 						 ;; ("#false" .    "𝑭")
+						 ;; ("Top" .      "⟙")
+						 ;; ("Bottom" .   "⟘")
 						 ;; --- ADTs ---
 						 ("Maybe"  .  "𝑴")
 						 ("Just"  .  "𝐽")
@@ -828,11 +835,6 @@ you should place your code here."
 						 ("Either"  .  "𝑬")
 						 ("Right"  .  "𝑅")
 						 ("Left"  .  "𝐿")
-						 ;; ("HashTableTop" .    "𝐇")
-						 ;; ("Immutable-HashTable" .    "𝑯")
-						 ;; ("Mutable-HashTable" .    "𝑯")
-						 ;; ("Hash" .    "𝑯")
-						 ;; ("HashMap" .    "𝑯")
 						 ;; --- Equality ---
 						 ;; ("!=" .     "≠") ;
 						 ;; ("<=" .      "⩽") ;≤ ⩽
@@ -867,7 +869,7 @@ you should place your code here."
 						 ;; ("Union" .      "⋃")
 						 ;; ("∪" .      "⋃")
 						 ;; ("Intersection" .      "⋂")
-						 ;; ("∩" .      "⋂")
+						 ("∩" .      "⋂")
 						 ;; ("complement" .      "∁")
 						 ))))  ;ends add-hook for prettify-symbols-alist
 
@@ -1004,7 +1006,6 @@ you should place your code here."
 	(evil-previous-line))
 
 
-(define-key key-translation-map (kbd "<f1>") (kbd "•")) ;; example
 
 ;; TODO: write vile motion-command similar to "ds(" that, when executed inside a set of parenthesis, deletes everything
 ;;     in the immediately-surrounding set of parentheses. Just like with evil-surround, have two options,
@@ -1013,15 +1014,21 @@ you should place your code here."
 ;;         (cast (hash-ref stockmap stock) (Listof Candle))
 ;;     except it's a longer expression that wraps to the next line, and you later want to remove the surrounding expression.
 
+
+;; Global key bindings
+;; (global-set-key (kbd "C-n") 'keyboard-quit)
+
+
+;; key translation
+(define-key key-translation-map (kbd "<f1>") (kbd "•")) ;; example
+
+
 ;; visual-state mappings
 (define-key evil-visual-state-map (kbd "(") 'evil-backward-paragraph)
 (define-key evil-visual-state-map (kbd ")") 'evil-forward-paragraph)
 
-;; key translation
-(define-key key-translation-map (kbd "<C>") (kbd "<escape>"))
 
 ;; normal-state mappings
-;; (global-set-key (kbd "C-n") 'keyboard-quit)
 (define-key evil-normal-state-map (kbd "\\") 'isearch-forward-word)
 (define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
 (define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro) ; q for evil-record-macro
@@ -1101,7 +1108,7 @@ you should place your code here."
 (define-key cm (kbd "N") 'toggle-timer-bell)
 
 ;; vim-script-like commands
-;; (define-key evil-normal-state-map (kbd "mdoi") (cmd (evil-ex-normal (line-beginning-position) (line-beginning-position) "dtl")))
+;; (define-key evil-normal-state-map (kbd "mdoi") (lambda ))
 ;; (define-key evil-normal-state-map (kbd "mdoi") (cmd (evil-ex-normal (line-beginning-position) (line-end-position) "T(T(dt(gmldt)")))
 ;; (define-key evil-normal-state-map (kbd "mdoo") (cmd (evil-ex-normal (line-beginning-position) (line-end-position) "T(T(dt(gmdt)")))
 
@@ -1277,61 +1284,63 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
-   ["#19171c" "#be4678" "#2a9292" "#a06e3b" "#576ddb" "#955ae7" "#576ddb" "#8b8792"])
+	 ["#19171c" "#be4678" "#2a9292" "#a06e3b" "#576ddb" "#955ae7" "#576ddb" "#8b8792"])
  '(compilation-message-face 'default)
+ '(custom-safe-themes
+	 '("cba5ebfabc6456e4bbd68e0394d176161e1db063c6ca24c23b9828af0bdd7411" "04dd0236a367865e591927a3810f178e8d33c372ad5bfef48b5ce90d4b476481" "13880fa28757754bc40c85b05689c801ddaa877f2fe65abf1779f37776281ef1" "bbb521edff9940ba05aeeb49f9b247e95e1cb03bd78de18122f13500bda6514f" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
  '(ensime-sem-high-faces
-   '((var :foreground "#000000" :underline
-          (:style wave :color "yellow"))
-     (val :foreground "#000000")
-     (varField :foreground "#600e7a" :slant italic)
-     (valField :foreground "#600e7a" :slant italic)
-     (functionCall :foreground "#000000" :slant italic)
-     (implicitConversion :underline
-                         (:color "#c0c0c0"))
-     (implicitParams :underline
-                     (:color "#c0c0c0"))
-     (operator :foreground "#000080")
-     (param :foreground "#000000")
-     (class :foreground "#20999d")
-     (trait :foreground "#20999d" :slant italic)
-     (object :foreground "#5974ab" :slant italic)
-     (package :foreground "#000000")
-     (deprecated :strike-through "#000000")))
+	 '((var :foreground "#000000" :underline
+					(:style wave :color "yellow"))
+		 (val :foreground "#000000")
+		 (varField :foreground "#600e7a" :slant italic)
+		 (valField :foreground "#600e7a" :slant italic)
+		 (functionCall :foreground "#000000" :slant italic)
+		 (implicitConversion :underline
+												 (:color "#c0c0c0"))
+		 (implicitParams :underline
+										 (:color "#c0c0c0"))
+		 (operator :foreground "#000080")
+		 (param :foreground "#000000")
+		 (class :foreground "#20999d")
+		 (trait :foreground "#20999d" :slant italic)
+		 (object :foreground "#5974ab" :slant italic)
+		 (package :foreground "#000000")
+		 (deprecated :strike-through "#000000")))
  '(evil-snipe-enable-highlight nil)
  '(evil-snipe-enable-incremental-highlight nil)
  '(evil-surround-pairs-alist
-   '((105 "(" . ")")
-     (108 "[" . "]")
-     (40 "( " . " )")
-     (91 "[ " . " ]")
-     (123 "{ " . " }")
-     (41 "(" . ")")
-     (93 "[" . "]")
-     (125 "{" . "}")
-     (35 "#{" . "}")
-     (98 "(" . ")")
-     (66 "{" . "}")
-     (62 "<" . ">")
-     (116 . evil-surround-read-tag)
-     (60 . evil-surround-read-tag)
-     (102 . evil-surround-function)))
+	 '((105 "(" . ")")
+		 (108 "[" . "]")
+		 (40 "( " . " )")
+		 (91 "[ " . " ]")
+		 (123 "{ " . " }")
+		 (41 "(" . ")")
+		 (93 "[" . "]")
+		 (125 "{" . "}")
+		 (35 "#{" . "}")
+		 (98 "(" . ")")
+		 (66 "{" . "}")
+		 (62 "<" . ">")
+		 (116 . evil-surround-read-tag)
+		 (60 . evil-surround-read-tag)
+		 (102 . evil-surround-function)))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#010F1D" t)
  '(global-evil-search-highlight-persist nil)
  '(global-xah-math-input-mode t)
  '(highlight-changes-colors '("#EF5350" "#7E57C2"))
  '(highlight-tail-colors
-   '(("#010F1D" . 0)
-     ("#B44322" . 20)
-     ("#34A18C" . 30)
-     ("#3172FC" . 50)
-     ("#B49C34" . 60)
-     ("#B44322" . 70)
-     ("#8C46BC" . 85)
-     ("#010F1D" . 100)))
+	 '(("#010F1D" . 0)
+		 ("#B44322" . 20)
+		 ("#34A18C" . 30)
+		 ("#3172FC" . 50)
+		 ("#B49C34" . 60)
+		 ("#B44322" . 70)
+		 ("#8C46BC" . 85)
+		 ("#010F1D" . 100)))
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
-   '(vimrc-mode dactyl-mode nix-mode auto-sudoedit sudo-edit org-noter xah-math-input dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))
+	 '(vimrc-mode dactyl-mode nix-mode auto-sudoedit sudo-edit org-noter xah-math-input dyalog-mode zenburn-theme zen-and-art-theme white-sand-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme molokai-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme anti-zenburn-theme ample-zen-theme flucui-dark-theme lab-dark-theme hasklig-mode pretty-mode sublime-themes solarized-theme occidental-theme moe-theme light-soap-theme lab-themes intellij-theme heroku-theme flucui-themes flatui-theme fira-code-mode color-theme-sanityinc-tomorrow color-theme-modern base16-theme apropospriate-theme ample-theme alect-themes afternoon-theme yapfify racket-mode pos-tip faceup pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic adoc-mode markup-faces xterm-color shell-pop multi-term helm-company helm-c-yasnippet fuzzy eshell-z eshell-prompt-extras esh-help company-tern tern company-statistics clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient evil-snipe parinfer tldr disable-mouse atom-one-dark-theme underwater-theme night-owl-theme monochrome-theme web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode psci purescript-mode psc-ide flycheck company dash-functional clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))
  '(pos-tip-background-color "#FFF9DC")
  '(pos-tip-foreground-color "#011627")
  '(psc-ide-add-import-on-completion t t)
@@ -1339,46 +1348,46 @@ you should place your code here."
  '(standard-indent 4)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   '((20 . "#C792EA")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#FFEB95")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#F78C6C")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#7FDBCA")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#82AAFF")))
+	 '((20 . "#C792EA")
+		 (40 . "#CF4F1F")
+		 (60 . "#C26C0F")
+		 (80 . "#FFEB95")
+		 (100 . "#AB8C00")
+		 (120 . "#A18F00")
+		 (140 . "#989200")
+		 (160 . "#8E9500")
+		 (180 . "#F78C6C")
+		 (200 . "#729A1E")
+		 (220 . "#609C3C")
+		 (240 . "#4E9D5B")
+		 (260 . "#3C9F79")
+		 (280 . "#7FDBCA")
+		 (300 . "#299BA6")
+		 (320 . "#2896B5")
+		 (340 . "#2790C3")
+		 (360 . "#82AAFF")))
  '(vc-annotate-color-↦
-   '((20 . "#C792EA")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#FFEB95")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#F78C6C")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#7FDBCA")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#82AAFF")))
+	 '((20 . "#C792EA")
+		 (40 . "#CF4F1F")
+		 (60 . "#C26C0F")
+		 (80 . "#FFEB95")
+		 (100 . "#AB8C00")
+		 (120 . "#A18F00")
+		 (140 . "#989200")
+		 (160 . "#8E9500")
+		 (180 . "#F78C6C")
+		 (200 . "#729A1E")
+		 (220 . "#609C3C")
+		 (240 . "#4E9D5B")
+		 (260 . "#3C9F79")
+		 (280 . "#7FDBCA")
+		 (300 . "#299BA6")
+		 (320 . "#2896B5")
+		 (340 . "#2790C3")
+		 (360 . "#82AAFF")))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
-   '(unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF")))
+	 '(unspecified "#011627" "#010F1D" "#DC2E29" "#EF5350" "#D76443" "#F78C6C" "#D8C15E" "#FFEB95" "#5B8FFF" "#82AAFF" "#AB69D7" "#C792EA" "#AFEFE2" "#7FDBCA" "#D6DEEB" "#FFFFFF")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
