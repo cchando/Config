@@ -5,7 +5,7 @@
                   [filter-map orig:filter-map]
                   [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝔸] [Boolean 𝔹]
                   [Listof 𝑳] [List 𝗟] [Option 𝑴] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
-                  [Natural ℕ] [Number ℂ] [Index 𝕀] [Negative-Integer ℤ⁻] [Nonpositive-Integer ℤ⁻] [Integer ℤ] [Nonnegative-Integer ℤ⁰⁺] [Positive-Integer ℤ⁺]
+                  [Natural ℕ] [Number ℂ] [Index 𝕀] [Negative-Integer ℤ⁰⁻] [Nonpositive-Integer ℤ⁻] [Integer ℤ] [Nonnegative-Integer ℤ⁰⁺] [Positive-Integer ℤ⁺]
                   [Negative-Float Fl⁻] [Nonpositive-Float Fl⁰⁻] [Float Fl] [Nonnegative-Float Fl⁰⁺] [Positive-Float Fl⁺]
                   [Negative-Exact-Rational ℚ⁻] [Nonnegative-Exact-Rational ℚ⁰⁻] [Negative-Exact-Rational ℚ]
                   [Nonnegative-Exact-Rational ℚ⁰⁺] [Negative-Exact-Rational ℚ⁺]
@@ -20,7 +20,7 @@
                   [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:fold] [for*/fold ∀*:fold]))
 (require cond-strict)
 (require (only-in typed-map [map map] [foldl infer:foldl] [foldr infer:foldr]))
-;; (require/typed
+;; (require
 ;;     srfi/87 ;; "=>" in case clauses
 ;;   srfi/71 ;; extended 'let' syntax for defining multiple names
 ;;   srfi/61 ;; more general cond clause
@@ -77,7 +77,7 @@
 (define ∏ *)
 (define √ sqrt)
 (define % modulo)
-(define | abs)
+(define ∣ abs)
 (define ⩽ <=)
 (define ⩾ >=)
 (define ∈ member)
@@ -202,11 +202,23 @@
 (define !! ‼)
 
 
-(: snoc : ∀ (a) [Listof a] a -> [List^ a])
+(: snoc : ∀ (a) [Listof a] a -> [𝑳^ a])
 (define (snoc xs x)
   (? (empty? xs)
      [list x]
      [cons (head xs) (snoc (tail xs) x)]))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -331,6 +343,22 @@
 ;; (: zip-with : ∀ (a b c) (a b -> c) (Listof a) (Listof b) -> (Listof c))
 ;; (define (zip-with f xs ys) (<$> f xs ys))
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (: zip-with (∀ (a b c d) (case→
                         ((a b -> c) (Listof a) (Listof b) -> (Listof c))
                         ((a b c -> d) (Listof a) (Listof b) (Listof c) -> (Listof d)))))
@@ -339,8 +367,8 @@
 
 
 (: unzip : ∀ (a b) (Listof (Pair a b)) -> (Pair (Listof a) (Listof b)))
-(define (unzip ps) (⮲ (λ ([p : (Pair a b)] [acc : (Pair (Listof a) (Listof b))])
-                   (pair (⍠ (car p) (car acc)) (⍠ (cdr p) (cdr acc))))
+(define (unzip ps) (foldl (λ ([p : (Pair a b)] [acc : (Pair (Listof a) (Listof b))])
+                   (pair (cons (car p) (car acc)) (cons (cdr p) (cdr acc))))
                  (ann (pair '[] '[]) (Pair (Listof a) (Listof b)))
                  ps))
 
@@ -388,28 +416,33 @@
 (: filter-hashes : ∀ (a b) a (Listof b) (Listof (HashTable a b)) -> (Listof (HashTable a b)))
 (define (filter-hashes k vs hs)
   (filter (λ ([h : (HashTable a b)])
-            (∧ (∃ (λ ([v : b]) (=? v (hash-ref h k #f))) vs)
+            (and (findf (λ ([v : b]) (equal?  v (hash-ref h k #f))) vs)
                h))
           hs))
 (define σ. filter-hashes)
 
-;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
-;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (U v #false).
-;; (: hash-match-vals (∀ (a b) (case->
-;;                           ((HashTable a b) a (Listof b) -> (U b False))
-;;                           ((Listof (HashTable a b)) a (Listof b) -> (Listof (U b False))))))
-;; (define hash-match-vals (case-lambda
-;;                      [(h k vs) (ormap (λ ([v : b])
-;;                                     (and (equal? v ((inst hash-ref a b) h k #f)) v)) vs)]
-;;                      [(hs k vs) (map (λ ([h : (HashTable a b)])
-;;                                      (ormap (λ ([v : b])
-;;                                           (and (equal? v ((inst hash-ref a b) h k #f)) v))
-;;                                         vs))
-;;                                    hs)]))
+;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
+;; given list of hashes, checks the above for each hash, and gives the corresponding list of (U v #false).
+(: hash-match-vals (∀ (a b) (case->
+                          ((HashTable a b) a (Listof b) -> (U b False))
+                          ((Listof (HashTable a b)) a (Listof b) -> (Listof (U b False))))))
+(define hash-match-vals (case-λ
+                     [(h k vs) (ormap (λ ([v : b])
+                                    (and (equal? v ((inst hash-ref a b) h k #f)) v)) vs)]
+                     [(hs k vs) (map (λ ([h : (HashTable a b)])
+                                     (ormap (λ ([v : b])
+                                          (and (equal? v ((inst hash-ref a b) h k #f)) v))
+                                        vs))
+                                   hs)]))
+
+
+
+
+
 
 
 ;; ;; variadic versions of map-filter (TODO: (learning exercise) implement for map-filter and filter-map)
-;; (: map-filter (∀ (c a b ...) (-> (-> a b ... b (U False c)) (c -> Any) (Listof a) (Listof b) ... b (Listof c))))
+;; (: map-filter (∀ (c a b ...) (-> (-> a b ... b (U c False)) (c -> Any) (Listof a) (Listof b) ... b (Listof c))))
 ;; (define (map-filter f pred xs . rss)
 ;;   (apply (curry filter-map (λ #:∀ (b ...) [xs : (List* a b ... b)] (let ([res (apply f xs)]) (and (pred res) res)))) (cons xs rss)))
 

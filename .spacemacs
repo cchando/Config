@@ -693,7 +693,7 @@ you should place your code here."
 						 ("take" .     "↑") ;
 						 ("drop" .     "↓") ;
 						 ("modulo" .      "%")
-						 ("abs" .      "|")
+						 ("abs" .      "∣")
 						 ("+" .    "∑")
 						 ("sum" .   "∑")
 						 ("*" .    "∏")
