@@ -1069,6 +1069,7 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
+
 (spacemacs/set-leader-keys (kbd "tp") 'smartparens)
 ;; (spacemacs/set-leader-keys (kbd "tP") 'pretty-mode)
 (spacemacs/set-leader-keys (kbd "bh") 'previous-buffer)
@@ -1082,15 +1083,20 @@ you should place your code here."
 (spacemacs/set-leader-keys (kbd "kw") 'evil-window-up) ; shadow evil-lisp-state-wrap binding
 (spacemacs/set-leader-keys (kbd "hw") 'helm-man-woman)
 (spacemacs/set-leader-keys (kbd "bH") 'spacemacs/home)
+(spacemacs/set-leader-keys (kbd "'") 'spacemacs/shell-pop-ansi-term)
+(spacemacs/set-leader-keys (kbd "\"") 'ansi-term)
+
 ;; (define-key evil-normal-state-map (kbd "gr") 'cider-load-buffer)
 ;; (define-key evil-normal-state-map (kbd "gR") 'spacemacs/cider-send-buffer-in-repl-and-focus)
 ;; (define-key evil-normal-state-map (kbd "M-d") nil) ;; disable kill-word
 ;; (define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
 ;; (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-;; (evil-define-key evil-magit-state magit-mode-map "?" 'evil-search-backward)
 ;; (define-key evil-normal-state-map (kbd "C-f") nil)
 ;; (define-key evil-normal-state-map (kbd "C-b") nil)
 ;; (define-key evil-normal-state-map (kbd "C-p") 'replace-from-register-0)
+
+;; (evil-define-key evil-magit-state magit-mode-map "?" 'evil-search-backward)
+
 (define-key evil-normal-state-map (kbd "gr") 'racket-run)
 (define-key evil-normal-state-map (kbd "gR") 'racket-run-and-switch-to-repl)
 
