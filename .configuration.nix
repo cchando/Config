@@ -239,7 +239,7 @@
       tikzit #mathematical graphs
       gimp inkscape #image
       lyx #texmaker texstudio gummi #latex
-      libreoffice #office shit
+      libreoffice
       #eagle (non-free) #pcb & schematics
       massren #emv "mass rename" filepaths
       #masterpdfeditor (non-free)
@@ -393,12 +393,20 @@
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
 
-  # Define a user account. Remember to set a password with ‘passwd’.
+    # Define a user account. Remember to set a password with ‘passwd’.
     users.users.cameron = {
-     #shell = pkgs.dash;
+      #shell = pkgs.dash;
       isNormalUser = true;
       extraGroups = [ "wheel" "sway" "fuse" ];
     };
+
+
+    security.sudo.extraRules = [
+      # Allow execution of brightnessctl & rfkill without a password
+      { users = ["cameron"];
+        commands = [ { command = "brightnessctl";
+                       options = [ "SETENV" "NOPASSWD" ]; } ]; } ];
+
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
