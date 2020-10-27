@@ -78,6 +78,8 @@ alias ydlp='youtube-dl -cix --yes-playlist -o "~/Music/youtube-dl/%(playlist)s/%
 alias ydlv='youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 
+alias wifioff='sudo rfkill block all'
+alias wifion='sudo rfkill unblock all'
 alias r='command' # "raw"
 alias show='alias'
 alias et='emacs -nw'
@@ -127,7 +129,6 @@ alias s='git switch'
 alias st='git status'
 alias com='git commit'
 alias grm='git rm'
-# alias untr='git rm --cached' # "git untrack"
 alias grc='git rm --cached' # "git untrack"
 alias br='git branch'
 alias cbr='git switch -c'
