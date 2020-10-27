@@ -264,6 +264,7 @@
 	["nex" "∄ "]
 	["none" "∄ "]
 	["in" "∈ "]
+	["mem" "∈ "]
 	["nin" "∉ "]
 	["con" "∋ "]
 	["cont" "∋ "]
@@ -512,6 +513,10 @@
 	;; Racket
 	["t" "#t"]
 	["f" "#f"]
+	["em" "'()"]
+	["emp" "'()"]
+	;; ["em" "empty"]
+	;; ["emp" "empty"]
 	["le" "<= "]
 	["gr" ">= "]
 	["pick" "!! "]
@@ -526,10 +531,6 @@
 	["rem" "remove "]
 	["rems" "remove* "]
 	["rem*" "remove* "]
-	["em" "'() "]
-	["emp" "'() "]
-	;; ["em" "empty "]
-	;; ["emp" "empty "]
 	[":" "cons "]
 	["fll" "foldl "]
 	["frr" "foldr "]
@@ -553,9 +554,10 @@
 	["exi" "findf "]
 	["any" "findf "]
 	["some" "findf "]
-	["nex" "findf "]
-	["none" "findf "]
+	["nex" "none "]
+	["none" "none "]
 	["in" "member "]
+	["mem" "member "]
 	["fm" "¨∘⊇ "] ; filter-map
 	["mf" "⊇∘¨ "] ; map-filter
 	;; ["fm" "filter-map "] ; filter-map

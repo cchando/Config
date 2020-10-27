@@ -2,9 +2,9 @@
 #lang aful typed/racket
 (provide (all-defined-out))
 (require (only-in typed/racket
-                  [filter-map orig:filter-map]
-                  [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝔸] [Boolean 𝔹]
-                  [Listof 𝑳] [List 𝗟] [Option 𝑴] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
+                  [filter-map orig:filter-map] [foldl orig:foldl] [foldr orig:foldr]
+                  [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝔸] [Boolean 𝔹] [Option 𝑴]
+                  [Listof 𝑳] [List 𝗟] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
                   [Natural ℕ] [Number ℂ] [Index 𝕀] [Negative-Integer ℤ⁰⁻] [Nonpositive-Integer ℤ⁻] [Integer ℤ] [Nonnegative-Integer ℤ⁰⁺] [Positive-Integer ℤ⁺]
                   [Negative-Float Fl⁻] [Nonpositive-Float Fl⁰⁻] [Float Fl] [Nonnegative-Float Fl⁰⁺] [Positive-Float Fl⁺]
                   [Negative-Exact-Rational ℚ⁻] [Nonnegative-Exact-Rational ℚ⁰⁻] [Negative-Exact-Rational ℚ]
@@ -33,13 +33,13 @@
 
 ;; (require (only-in typed/racket
 ;;                   [filter-map orig:filter-map]
-;;                   ;; [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝐀] [Boolean 𝐁]
-;;                   [Listof 𝑳] [List 𝗟] [Option 𝑴] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
-;;                   [Natural 𝐍] [Number ℂ] [Index 𝐈] [Negative-Integer 𝐙⁻] [Nonpositive-Integer 𝐙⁰⁻] [Integer 𝐙] [Nonnegative-Integer 𝐙⁰⁺] [Positive-Integer 𝐙⁺]
-;;                   ;; [Negative-Float 𝐑⁻] [Nonpositive-Float 𝐑⁰⁻] [Float 𝐑] [Nonnegative-Float 𝐑⁰⁺] [Positive-Float 𝐑⁺]
-;;                   [Negative-Exact-Rational 𝐐⁻] [Nonnegative-Exact-Rational 𝐐⁰⁻] [Negative-Exact-Rational 𝐐]
-;;                   [Nonnegative-Exact-Rational 𝐐⁰⁺] [Negative-Exact-Rational 𝐐⁺]
-;;                   ;; [Negative-Real Real⁻] [Nonpositive-Float Real⁰⁻] [Real Real] [Nonnegative-Real Real⁰⁺] [Positive-Real Real⁺]
+;;                   [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝔸] [Boolean 𝔹] [Option 𝑴]
+;;                   [Listof 𝑳] [List 𝗟] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
+;;                   [Natural ℕ] [Number ℂ] [Index 𝕀] [Negative-Integer ℤ⁰⁻] [Nonpositive-Integer ℤ⁻] [Integer ℤ] [Nonnegative-Integer ℤ⁰⁺] [Positive-Integer ℤ⁺]
+;;                   [Negative-Float Fl⁻] [Nonpositive-Float Fl⁰⁻] [Float Fl] [Nonnegative-Float Fl⁰⁺] [Positive-Float Fl⁺]
+;;                   [Negative-Exact-Rational ℚ⁻] [Nonnegative-Exact-Rational ℚ⁰⁻] [Negative-Exact-Rational ℚ]
+;;                   [Nonnegative-Exact-Rational ℚ⁰⁺] [Negative-Exact-Rational ℚ⁺]
+;;                   [Negative-Real ℝ⁻] [Nonpositive-Float ℝ⁰⁻] [Real ℝ] [Nonnegative-Real ℝ⁰⁺] [Positive-Real ℝ⁺]
 ;;                   [let* ∴] [if ?] [case-lambda case-λ] [and ∧] [or ∨] [nor ⊽] [nand ⊼]
 ;;                   [list-ref ‼] [first head] [rest tail] [cons :] [empty ∅] [length ρ] [build-list ι]
 ;;                   [sort ⍋] [reverse ⌽] [and ∧] [or ∨] [not ¬] [negate ⌙] [xor ⊻] [nor ⊽] [nand ⊼]
@@ -111,8 +111,6 @@
 (define ⌽ reverse)
 (define ⍳ build-list)
 (define lookup assoc)
-(define / foldl)
-(define /. foldr)
 (define <> append)
 (define <>. append*)
 (define ++ string-append)
@@ -154,21 +152,23 @@
 (define (>>> f g) (<<< g f))
 
 
-(: ∉ (∀ (a b) (->* (b (Listof a)) ((b a -> Any)) Boolean)))
-(define (∉ x xs [eqv-rel equal?]) (¬ (∈ x xs eqv-rel)))
+(: not-member (∀ (a b) (->* (b (Listof a)) ((b a -> Any)) Boolean)))
+(define (not-member x xs [eqv-rel equal?]) (¬ (∈ x xs eqv-rel)))
+(define ∉ not-member)
 
 
-(: ∄ : ∀ (a) (a -> Boolean) (Listof a) -> Boolean)
-(define (∄ pred xs) (¬ (∃ pred xs)))
+(: none : ∀ (a) (a -> Boolean) (Listof a) -> Boolean)
+(define (none pred xs) (¬ (∃ pred xs)))
+(define ∄ none)
 
 
 (: ≠ : Number Number -> Boolean)
 (define (≠ x y) (¬ (= x y)))
 (define /= ≠)
 
-(: ≢ : Any Any -> Boolean)
-(define (≢ x y) (¬ (≡ x y)))
-(define not-equal? ≢)
+(: not-equal? : Any Any -> Boolean)
+(define (not-equal? x y) (¬ (≡ x y)))
+(define ≢ not-equal?)
 
 
 ;; all
@@ -197,9 +197,9 @@
 ;; (define ‼ (flip list-ref))
 ;; (define !! ‼)
 
-(: ‼ : ∀ (a) Integer (Listof a) -> a)
-(define (‼ i xs) (list-ref xs i))
-(define !! ‼)
+(: !! : ∀ (a) Integer (Listof a) -> a)
+(define (!! i xs) (list-ref xs i))
+(define ‼ !!)
 
 
 (: snoc : ∀ (a) [Listof a] a -> [𝑳^ a])
@@ -224,14 +224,13 @@
 
 ;; ;; TEST
 ;; ;; foldl with break
-;; (: ⮲ (∀ (a b) (->* ((a b -> b) b (Listof a)) (#:break Boolean) b)))
-;; (define (⮲ f a xs #:break [bool #t])
+;; (: foldl  (∀ (a b) (->* ((a b -> b) b (Listof a)) (#:break Boolean) b)))
+;; (define ( f a xs #:break [bool #t])
 ;;   ( : go : (Listof a) b -> b )
 ;;   (define (go xs acc)
 ;;     (cond [(∨ (empty? xs) bool) acc]
 ;;           [else (go (tail xs) (f (head xs) acc))]))
 ;;   (go xs a))
-;; (define foldl ⮲)
 
 
 ;; ;; foldl with break
@@ -256,7 +255,6 @@
 ;;            (cond [(∨ (empty? xs) (pred acc)) acc]
 ;;                  [else (go (tail xs) (cons (f (head xs) acc)))]))
 ;;          (go xs a))]))
-;; (define foldl ⮲)
 
 
 ;; ;; foldl1 with break
@@ -279,7 +277,6 @@
 ;;        (cond [(∨ (empty? xs) (pred acc)) acc]
 ;;              [else (go (tail xs) (cons (f (head xs) acc)))]))
 ;;      (go xs empty)]))
-;; (define foldl. ⮲.)
 
 
 ;; ;; foldr with break
@@ -294,7 +291,6 @@
 ;;        (cond [(∨ (empty? xs) (pred (head xs))) empty]
 ;;              [else (go (⍠ (f (head xs) (tail xs))))]))
 ;;      (go (cons a xs))]))
-;; (define foldr ⮳)
 
 
 
@@ -311,12 +307,11 @@
 ;;        (cond [(∨ (empty? xs) (pred (head xs))) empty]
 ;;              [else (go (⍠ (f (head xs) (tail xs))))]))
 ;;      (go (cons a xs))]))
-;; (define foldr. ⮳.)
 
 
 
 
-;; (: zip (∀ (a b c) (case→
+;; (: zip (∀ (a b c) (case->
 ;;                    [(Listof a) (Listof b) -> (Listof (Pair a b))]
 ;;                    [(Listof a) (Listof b) (Listof c) -> (Listof (List a b c))])))
 ;; (define zip (case-λ
@@ -396,12 +391,6 @@
 (define filter-map ¨∘⊇)
 
 
-;; if ∃ v' ∈ vs | v' == (hash-ref h k), then give (the 1st matching) v', else #f
-(: any-val-assoc : ∀ (a b) (HashTable a b) a (Listof b) -> (Option b))
-(define (any-val-assoc h k vs)
-  (ormap (λ ([v : b]) (∧ (equal? v ((inst hash-ref a b) h k #f)) v)) vs))
-
-
 ;; extract a list of vals from list of hashes, given a single key
 (: select (∀ (a b) (case→
                  ((Listof (HashTable a b)) a -> (Listof b))
@@ -421,19 +410,33 @@
           hs))
 (define σ. filter-hashes)
 
-;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
-;; given list of hashes, checks the above for each hash, and gives the corresponding list of (Maybe v)'s.
-(: hash-match-vals (∀ (a b) (case->
-                          ((HashTable a b) a (Listof b) -> (𝑴 b))
-                          ((Listof (HashTable a b)) a (Listof b) -> (Listof (𝑴 b))))))
-(define hash-match-vals (case-λ
-                     [(h k vs) (ormap (λ ([v : b])
-                                    (and (equal? v ((inst hash-ref a b) h k #f)) v)) vs)]
-                     [(hs k vs) (map (λ ([h : (HashTable a b)])
-                                     (ormap (λ ([v : b])
-                                          (and (equal? v ((inst hash-ref a b) h k #f)) v))
-                                        vs))
-                                   hs)]))
+
+;; if ∃ v' ∈ vs | v' == (hash-ref h k), then give (the 1st matching) v', else #f
+;; checks whether key k in hash h is associated with any v among vs. If so, give the v, else give #false.
+(: any-val-assoc : ∀ (a b) (HashTable a b) a (Listof b) -> (Option b))
+(define (any-val-assoc h k vs)
+  (ormap (λ ([v : b]) (∧ (equal? v ((inst hash-ref a b) h k #f)) v)) vs))
+
+
+;; ;; if ∃ v' ∈ vs | v' == (hash-ref h k), then give (the 1st matching) v', else #f
+;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
+;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (Maybe v)'s.
+;; (: any-val-assoc (∀ (a b) (case->
+;;                              ((HashTable a b) a (Listof b) -> (Option b))
+;;                              ((Listof (HashTable a b)) a (Listof b) -> (Listof (Option b))))))
+;; (define any-val-assoc (case-λ
+;;                     [(h k vs) (ormap (λ ([v : b])
+;;                                        (and (equal? v ((inst hash-ref a b) h k #f)) v)) vs)]
+;;                     [(hs k vs) (map (λ ([h : (HashTable a b)])
+;;                                     (ormap (λ ([v : b])
+;;                                              (and (equal? v ((inst hash-ref a b) h k #f)) v))
+;;                                            vs))
+;;                                   hs)]))
+
+
+
+
+
 
 
 

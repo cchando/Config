@@ -856,6 +856,7 @@ you should place your code here."
 						 ("xor" .      "⊻")
 						 ("nor" .      "⊽")
 						 ("nand" .      "⊼")
+						 ("all" .      "∀")
 						 ("findf" .      "∃")
 						 ("memf" .      "∃")
 						 ;; ("some" .      "∃") ;
