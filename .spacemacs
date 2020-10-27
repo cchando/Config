@@ -690,7 +690,6 @@ you should place your code here."
 						 ;; (">=" .    "⩾")
 						 ("exact-ceiling" .     "⌈")
 						 ("exact-floor" .     "⌊")
-						 ("compose" .   "∘")
 						 ("take" .     "↑") ;
 						 ("drop" .     "↓") ;
 						 ("modulo" .      "%")
@@ -710,6 +709,8 @@ you should place your code here."
 						 ("tail" .     "↓")
 						 ("take" .      "↑")
 						 ("drop" .      "↓")
+						 ("compose1" .  "∘")
+						 ("compose" .  "⍛")
 						 ("log" .      "⍟")
 						 ("select" .      "σ")
 						 ("flip" .      "⍨")
@@ -725,7 +726,7 @@ you should place your code here."
 						 ("build-list" .      "⍳")
 						 ("ceiling" .     "⌉")
 						 ("floor" .     "⌋")
-						 ("foldl" .  "/")
+						 ("foldl" .  "⮢")
 						 ("foldr" .  "⮣")
 						 ("sort" .     "⍋")
 						 ("remove*" .      "∖")
@@ -747,7 +748,6 @@ you should place your code here."
 						 ("string-append" .    "⧺")
 						 ("string-append*" .    "⧺")
 						 ("curry" .   "⫶") ; ⫶ ⋮ ⦙
-						 ("compose1" .  "∘")
 						 ;; ("compose1" .  "⋘")
 						 ;; ("compose" .  "⍛")
 						 ;; ("."  .   "∘") ; haskell infix use
@@ -863,6 +863,7 @@ you should place your code here."
 						 ;; --- Set Logic ---
 						 ("empty" .      "∅")
 						 ("'()" .      "∅")
+						 ("'[]" .      "∅")
 						 ("(set)" .      "∅")
 						 ("null" .      "∅")
 						 ("elem" .      "∈")
@@ -873,7 +874,7 @@ you should place your code here."
 						 ;; ("not in" .   #x2209)
 						 ;; ("element" .      "∈")
 						 ;; ("Union" .      "⋃")
-						 ;; ("∪" .      "⋃")
+						 ("∪" .      "⋃")
 						 ;; ("Intersection" .      "⋂")
 						 ("∩" .      "⋂")
 						 ;; ("complement" .      "∁")
@@ -1299,7 +1300,7 @@ you should place your code here."
 	 ["#19171c" "#be4678" "#2a9292" "#a06e3b" "#576ddb" "#955ae7" "#576ddb" "#8b8792"])
  '(compilation-message-face 'default)
  '(custom-safe-themes
-	 '("cba5ebfabc6456e4bbd68e0394d176161e1db063c6ca24c23b9828af0bdd7411" "04dd0236a367865e591927a3810f178e8d33c372ad5bfef48b5ce90d4b476481" "13880fa28757754bc40c85b05689c801ddaa877f2fe65abf1779f37776281ef1" "bbb521edff9940ba05aeeb49f9b247e95e1cb03bd78de18122f13500bda6514f" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
+	 '("0feb7052df6cfc1733c1087d3876c26c66410e5f1337b039be44cb406b6187c6" "cba5ebfabc6456e4bbd68e0394d176161e1db063c6ca24c23b9828af0bdd7411" "04dd0236a367865e591927a3810f178e8d33c372ad5bfef48b5ce90d4b476481" "13880fa28757754bc40c85b05689c801ddaa877f2fe65abf1779f37776281ef1" "bbb521edff9940ba05aeeb49f9b247e95e1cb03bd78de18122f13500bda6514f" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
  '(ensime-sem-high-faces
 	 '((var :foreground "#000000" :underline
 					(:style wave :color "yellow"))

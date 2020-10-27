@@ -499,126 +499,127 @@
 (xah-math-input--add-to-hash
  [
 
-		;; elisp
-		("lam" "λ")
+	;; elisp
+	("lam" "λ")
 
 
-		;; Haskell
-		("fmap" "↥")
-		;; ("fmap" "↦")
+	;; Haskell
+	("fmap" "↥")
+	;; ("fmap" "↦")
 
 
-		;; Racket
-		["le" "<= "]
-		["gr" ">= "]
-		["pick" "!! "]
-		["not" "not "]
-		["nega" "negate "]
-		["and" "and "]
-		["or" "or "]
-		["nor" "nor "]
-		["nand" "nand "]
-		["xor" "xor "]
-		["abs" "abs "]
-		["rem" "remove "]
-		["rems" "remove* "]
-		["rem*" "remove* "]
-		["em" "'() "]
-		["emp" "'() "]
-		;; ["em" "empty "]
-		;; ["emp" "empty "]
-		["t" "#t"]
-		["f" "#f"]
-		[":" "cons"]
-		["fll" "foldl "]
-		["frr" "foldr "]
-		["eq" "equals? "]
-		["neq" "not-equals? "]
-		["p" "length "] ; rho
-		["r" "length "] ; rho
-		["i" "build-list "] ; iota
-		["S" "+ "]
-		["P" "* "]
-		["%" "modulo "]
-		["j" "compose1 "]
-		["j_" "compose "]
-		["rev" "reverse "]
-		["rot" "reverse "]
-		["so" "sort "]
-		["fmt" "format "]
-		["exc" "eval "]
-		["in" "member "]
-		["fm" "¨∘⊇ "] ; filter-map
-		["mf" "⊇∘¨ "] ; map-filter
-		;; ["fm" "filter-map "] ; filter-map
-		;; ["mf" "map-filter "] ; map-filter
-		["flr" "exact-floor "] ; result is Integer
-		["cei" "exact-ceiling "] ; result is Integer
-		["flrr" "floor "] ; result is Real
-		["flrs" "floor "] ; result is Real
-		["ceir" "ceiling "] ; result is Real
-		["ceis" "ceiling "] ; result is Real
-		["cur" "curry "]
-		["fil" "filter "]
-		["fno" "filter-not "]
-		["repl" "replicate "]
-		["cat" "concat "]
-		["ap" "append "]
-		["zipw" "zip-with "]
-		["zw" "zip-with "]
-		["ir" "in-range? "]
-		["csae" "case "] ; catch typo
-		["casea" "case-> "]
-		["csaea" "case-> "] ; catch typo
-		["casel" "case-λ "]
-		["csael" "case-λ "] ; catch typo
-		["lsit" "list "] ; catch typo
-		["let" "let* "]
-		["for" "∀: "]
-		["forn" "∀*: "] "nested"
-		["forl" "∀:l "]
-		["fornl" "∀*:l "]
-		["forh" "∀:h "]
-		["fornh" "∀*:h "]
-		["forv" "∀:v "]
-		["fornv" "∀*:v "]
-		["fors" "∀:∑ "]
-		["forns" "∀*:∑ "]
-		["forp" "∀:∏ "]
-		["fornp" "∀*:∏ "]
-		["forse" "∀:s "]
-		["fornse" "∀*:s "]
-		["forhe" "∀:hq "]
-		["fornhe" "∀*:hq "]
-		["forhv" "∀:hv "]
-		["fornhv" "∀*:hv "]
-		["foro" "∀:or "]
-		["forno" "∀*:or "]
-		["foran" "∀:and "]
-		["fornan" "∀*:∧ "]
-		["forfi" "∀:1st "]
-		["fornfi" "∀*:1st "]
-		["forla" "∀:last "]
-		["fornla" "∀*:last "]
-		["forls" "∀:lists "]
-		["fornls" "∀*:lists "]
-		["forfo" "∀:↰ "]
-		["fornfo" "∀*:↰ "]
-		["for*" "∀*: "]
-		["for*l" "∀*:l "]
-		["for*h" "∀*:h "]
-		["for*v" "∀*:v "]
-		["for*s" "∀*:∑ "]
-		["for*p" "∀*:∏ "]
-		["for*se" "∀*:s "]
-		["for*he" "∀*:hq "]
-		["for*hv" "∀*:hv "]
-		["for*o" "∀*:or "]
-		["for*an" "∀*:∧ "]
-		["for*fi" "∀*:1st "]
-		["for*la" "∀*:last "]
-		["for*ls" "∀*:lists "]
-		["for*fo" "∀*:↰ "]
+	;; Racket
+	["le" "<= "]
+	["gr" ">= "]
+	["pick" "!! "]
+	["not" "not "]
+	["nega" "negate "]
+	["and" "and "]
+	["or" "or "]
+	["nor" "nor "]
+	["nand" "nand "]
+	["xor" "xor "]
+	["abs" "abs "]
+	["rem" "remove "]
+	["rems" "remove* "]
+	["rem*" "remove* "]
+	["em" "'() "]
+	["emp" "'() "]
+	;; ["em" "empty "]
+	;; ["emp" "empty "]
+	["t" "#t"]
+	["f" "#f"]
+	[":" "cons"]
+	["fll" "foldl "]
+	["frr" "foldr "]
+	["eq" "equals? "]
+	["neq" "not-equals? "]
+	["p" "length "] ; rho
+	["r" "length "] ; rho
+	["i" "build-list "] ; iota
+	["S" "+ "]
+	["P" "* "]
+	["%" "modulo "]
+	["j" "compose1 "]
+	["j_" "compose "]
+	["flip" "flip "]
+	["rev" "reverse "]
+	["rot" "reverse "]
+	["so" "sort "]
+	["fmt" "format "]
+	["exc" "eval "]
+	["in" "member "]
+	["fm" "¨∘⊇ "] ; filter-map
+	["mf" "⊇∘¨ "] ; map-filter
+	;; ["fm" "filter-map "] ; filter-map
+	;; ["mf" "map-filter "] ; map-filter
+	["flr" "exact-floor "] ; result is Integer
+	["cei" "exact-ceiling "] ; result is Integer
+	["flrr" "floor "] ; result is Real
+	["flrs" "floor "] ; result is Real
+	["ceir" "ceiling "] ; result is Real
+	["ceis" "ceiling "] ; result is Real
+	["cur" "curry "]
+	["fil" "filter "]
+	["fno" "filter-not "]
+	["repl" "replicate "]
+	["cat" "concat "]
+	["ap" "append "]
+	["zipw" "zip-with "]
+	["zw" "zip-with "]
+	["ir" "in-range? "]
+	["csae" "case "] ; catch typo
+	["casea" "case-> "]
+	["csaea" "case-> "] ; catch typo
+	["casel" "case-λ "]
+	["csael" "case-λ "] ; catch typo
+	["lsit" "list "] ; catch typo
+	["let" "let* "]
+	["for" "∀: "]
+	["forn" "∀*: "] "nested"
+	["forl" "∀:l "]
+	["fornl" "∀*:l "]
+	["forh" "∀:h "]
+	["fornh" "∀*:h "]
+	["forv" "∀:v "]
+	["fornv" "∀*:v "]
+	["fors" "∀:∑ "]
+	["forns" "∀*:∑ "]
+	["forp" "∀:∏ "]
+	["fornp" "∀*:∏ "]
+	["forse" "∀:s "]
+	["fornse" "∀*:s "]
+	["forhe" "∀:hq "]
+	["fornhe" "∀*:hq "]
+	["forhv" "∀:hv "]
+	["fornhv" "∀*:hv "]
+	["foro" "∀:or "]
+	["forno" "∀*:or "]
+	["foran" "∀:and "]
+	["fornan" "∀*:∧ "]
+	["forfi" "∀:1st "]
+	["fornfi" "∀*:1st "]
+	["forla" "∀:last "]
+	["fornla" "∀*:last "]
+	["forls" "∀:lists "]
+	["fornls" "∀*:lists "]
+	["forfo" "∀:↰ "]
+	["fornfo" "∀*:↰ "]
+	["for*" "∀*: "]
+	["for*l" "∀*:l "]
+	["for*h" "∀*:h "]
+	["for*v" "∀*:v "]
+	["for*s" "∀*:∑ "]
+	["for*p" "∀*:∏ "]
+	["for*se" "∀*:s "]
+	["for*he" "∀*:hq "]
+	["for*hv" "∀*:hv "]
+	["for*o" "∀*:or "]
+	["for*an" "∀*:∧ "]
+	["for*fi" "∀*:1st "]
+	["for*la" "∀*:last "]
+	["for*ls" "∀*:lists "]
+	["for*fo" "∀*:↰ "]
 
 ])
 
@@ -626,7 +627,7 @@
 (xah-math-input--add-to-hash
  [
 
-    ;; --- Types ---
+		;; --- Types ---
 		;; If it's not parameterized (Integer, Natural, Boolean, etc), it has a double-struck letter.
 		;; If it is parameterized, it has a bold letter.
 		;;     Normal parameterized types (Listof, Vectorof, Pairof, HashTable, etc) are slanted.
