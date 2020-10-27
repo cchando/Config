@@ -686,6 +686,8 @@ you should place your code here."
 						 ("cast"   .   "⭆")
 						 ("for" .      "∀")
 						 ;; --- Functional ---
+						 ;; ("<=" .    "⩽")
+						 ;; (">=" .    "⩾")
 						 ("exact-ceiling" .     "⌈")
 						 ("exact-floor" .     "⌊")
 						 ("compose" .   "∘")
@@ -697,8 +699,9 @@ you should place your code here."
 						 ("sum" .   "∑")
 						 ("*" .    "∏")
 						 ("/" .    "÷")
-						 ("sqrt" .    "√") ;
+						 ("sqrt" .    "√")
 						 ;; --- decent-readability-to-others separater ---
+						 ;; ("list-ref" .     "!!") ;‼
 						 ("if" .     "?")
 						 ("let*" .     "∴")
 						 ("where" .     "∵")
@@ -723,7 +726,7 @@ you should place your code here."
 						 ("ceiling" .     "⌉")
 						 ("floor" .     "⌋")
 						 ("foldl" .  "/")
-						 ("foldr" .  "⮳")
+						 ("foldr" .  "⮣")
 						 ("sort" .     "⍋")
 						 ("remove*" .      "∖")
 						 ("apply" .   "↥")
@@ -744,7 +747,9 @@ you should place your code here."
 						 ("string-append" .    "⧺")
 						 ("string-append*" .    "⧺")
 						 ("curry" .   "⫶") ; ⫶ ⋮ ⦙
-						 ("compose1" .  "⍛")
+						 ("compose1" .  "∘")
+						 ;; ("compose1" .  "⋘")
+						 ;; ("compose" .  "⍛")
 						 ;; ("."  .   "∘") ; haskell infix use
 						 ;; ("powerset" .  "℘")
 						 ;; ("cross" .    "⨯")
@@ -838,10 +843,10 @@ you should place your code here."
 						 ("Left"  .  "𝐿")
 						 ;; --- Equality ---
 						 ;; ("!=" .     "≠") ;
-						 ;; ("<=" .      "⩽") ;≤ ⩽
-						 ;; (">=" .      "⩾") ;≥ ⩾
-						 ;; ("≤" .      "⩽") ;≤ ⩽
-						 ;; ("≥" .      "⩾") ;≥ ⩾
+						 ("<=" .      "⩽") ;≤ ⩽
+						 (">=" .      "⩾") ;≥ ⩾
+						 ("≤" .      "⩽") ;≤ ⩽
+						 ("≥" .      "⩾") ;≥ ⩾
 						 ;; ("not equal" . "≠")
 						 ;; --- Predicate Logic ---
 						 ("not" .      "¬")

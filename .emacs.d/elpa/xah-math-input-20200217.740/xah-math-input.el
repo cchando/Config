@@ -107,379 +107,400 @@
 	 ["cam" "Cameron"]
 	 ["cac" "Cameron Chandoke"]
 
-    ;; internet abbrev
-    ["afaik" "as far as i know"]
-    ["atm" "at the moment"]
-    ["dfb" "difference between"]
-    ["ty" "thank you"]
-    ["ui" "user interface"]
-    ["und" "understand"]
-    ["ur" "you are"]
-    ["btw" "by the way"]
-    ["ie" "i.e.,"]
-    ["eg" "e.g.,"]
+	 ;; internet abbrev
+	 ["afaik" "as far as i know"]
+	 ["atm" "at the moment"]
+	 ["dfb" "difference between"]
+	 ["ty" "thank you"]
+	 ["ui" "user interface"]
+	 ["und" "understand"]
+	 ["ur" "you are"]
+	 ["btw" "by the way"]
+	 ["ie" "i.e.,"]
+	 ["eg" "e.g.,"]
 
-    ["cant" "can't"]
-    ["didnt" "didn't"]
-    ["dont" "don't"]
+	 ["cant" "can't"]
+	 ["didnt" "didn't"]
+	 ["dont" "don't"]
 
-    ;; english word abbrev
-    ["ann" "announcement"]
-    ["arg" "argument"]
-    ["autom" "automatic"]
-    ["bc" "because"]
-    ["bg" "background"]
-    ["bt" "between"]
-    ["math" "mathematics"]
+	 ;; english word abbrev
+	 ["ann" "announcement"]
+	 ["arg" "argument"]
+	 ["autom" "automatic"]
+	 ["bc" "because"]
+	 ["bg" "background"]
+	 ["bt" "between"]
+	 ["math" "mathematics"]
 
-    ;; computing
-    ["ahk" "AutoHotkey"]
-    ["cfg" "context-free grammar"]
-    ["cj" "Clojure"]
-    ["csi" "computer science"]
+	 ;; computing
+	 ["ahk" "AutoHotkey"]
+	 ["cfg" "context-free grammar"]
+	 ["cj" "Clojure"]
+	 ["csi" "computer science"]
 
-    ;; tech company
-    ["gc" "Google Chrome"]
-    ["gm" "Google Map"]
-    ["macos" "Mac OS"]
-    ["msw" "Microsoft Windows"]
+	 ;; tech company
+	 ["gc" "Google Chrome"]
+	 ["gm" "Google Map"]
+	 ["macos" "Mac OS"]
+	 ["msw" "Microsoft Windows"]
 
-    ;; programing
-    ["ev" "environment variable"]
-    ["ipa" "IP address"]
-    ["jvm" "Java Virtual Machine"]
-    ["rsi" "repetitive-strain injury"]
-    ["subdir" "sub-directory"]
-    ["subf" "sub-folder"]
-    ["wd" "web development"]
+	 ;; programing
+	 ["ev" "environment variable"]
+	 ["ipa" "IP address"]
+	 ["jvm" "Java Virtual Machine"]
+	 ["rsi" "repetitive-strain injury"]
+	 ["subdir" "sub-directory"]
+	 ["subf" "sub-folder"]
+	 ["wd" "web development"]
 
-    ["db" "database"]
-    ["guif" "graphical user interface"]
-    ["gui" "GUI"]
-    ["oopf" "object oriented programing"]
-    ["oop" "OOP"]
+	 ["db" "database"]
+	 ["guif" "graphical user interface"]
+	 ["gui" "GUI"]
+	 ["oopf" "object oriented programing"]
+	 ["oop" "OOP"]
 
-    ["osf" "operating system"]
-    ["os" "OS"]
+	 ["osf" "operating system"]
+	 ["os" "OS"]
 
-    ;; programming
-    ["eqe" "=="]
-    ["ret" "return"]
-    ["utf8" "-*- coding: utf-8 -*-"]
+	 ;; programming
+	 ["eqe" "=="]
+	 ["ret" "return"]
+	 ["utf8" "-*- coding: utf-8 -*-"]
 
-		;; catch typos
-    ["pwoer" "power"]
+	 ;; catch typos
+	 ["pwoer" "power"]
+	 ["lsit" "list"]
+	 ["csae" "case"]
 
-    ;; regex
-		;; digits
-		["xAZ" "\\([A-Za-z0-9]+\\)"]
-    ["xPhone" "/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b$/"]
-    ["xWholenums" "/^\d+$/"]
-    ["xDec" "/^\d*\.\d+$/"]
-    ["xWhole+dec" "/^-?\d*(\.\d+)?$/"]
-    ["xWhole+dec+frac" "/[-]?[0-9]+[,.]?[0-9]*([\/][0-9]+[,.]?[0-9]*)*/"]
-		;; alphanumeric
-    ["xAN-nospace" "/^[a-zA-Z0-9]*$/"]
-    ["xAN" "/^[a-zA-Z0-9 ]*$/"]
-		;; email
-    ["xEmail" "/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,5})$/"]
-    ["xEmailc" "/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/"]
-    ["xEmailu" "/^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/"]
-		;; Time Format HH:MM 12-hour, optional leading 0
-    ["xHH:MM-12h-0o" "/^(0?[1-9]|1[0-2]):[0-5][0-9]$/"]
-		;; Time Format HH:MM 12-hour, optional leading 0, Meridiems [AM/PM]
-    ["xHH:MM-12h-0o-AP" "/((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))/"]
-		;; match duplicates in a string
-    ["xStringdups" "/(\b\w+\b)(?=.*\b\1\b)/"]
-		;; file path w/ filename & extension
-    ["xPathNameExt" "/((\/|\\|\/\/|https?:\\\\|https?:\/\/)[a-z0-9 _@\-^!#$%&+={}.\/\\\[\]]+)+\.[a-z]+$/"]
-		;; file path w/ optional filename, extension
-    ["xPathonamEext" "/^(.+)/([^/]+)$/"]
-		;; file name w/ 3-char extension
-    ["xFileNameExt3" "/^[\w,\s-]+\.[A-Za-z]{3}$/"]
-		;; social security number
-		;; can use either hypen(-) or space( ) character as separator
-    ["xSSN" "/^((?!219-09-9999|078-05-1120)(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4})|((?!219 09 9999|078 05 1120)(?!666|000|9\d{2})\d{3} (?!00)\d{2} (?!0{4})\d{4})|((?!219099999|078051120)(?!666|000|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4})$/"]
-		;; passport
-    ["xPassport" "/^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/"]
+))
 
 
 
-    ;; misc. unicode
-    ["mda" "—"]
-    ["nda" "–"]
-    ["dlim" "-----------------------------------------------------------------------------------"]
-    ["bul" "•"]
-    ["aub" "↥"]
-    ["arb" "↦"]
-    ["alb" "↤"]
-    ["adb" "↧"]
+(xah-math-input--add-to-hash
+ [
+
+ ;; regex
+
+	;; digits
+	["xAZ" "\\([A-Za-z0-9]+\\)"]
+	["xPhone" "/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b$/"]
+	["xWholenums" "/^\d+$/"]
+	["xDec" "/^\d*\.\d+$/"]
+	["xWhole+dec" "/^-?\d*(\.\d+)?$/"]
+	["xWhole+dec+frac" "/[-]?[0-9]+[,.]?[0-9]*([\/][0-9]+[,.]?[0-9]*)*/"]
+	;; alphanumeric
+	["xAN-nospace" "/^[a-zA-Z0-9]*$/"]
+	["xAN" "/^[a-zA-Z0-9 ]*$/"]
+	;; email
+	["xEmail" "/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,5})$/"]
+	["xEmailc" "/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/"]
+	["xEmailu" "/^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/"]
+	;; Time Format HH:MM 12-hour, optional leading 0
+	["xHH:MM-12h-0o" "/^(0?[1-9]|1[0-2]):[0-5][0-9]$/"]
+	;; Time Format HH:MM 12-hour, optional leading 0, Meridiems [AM/PM]
+	["xHH:MM-12h-0o-AP" "/((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))/"]
+	;; match duplicates in a string
+	["xStringdups" "/(\b\w+\b)(?=.*\b\1\b)/"]
+	;; file path w/ filename & extension
+	["xPathNameExt" "/((\/|\\|\/\/|https?:\\\\|https?:\/\/)[a-z0-9 _@\-^!#$%&+={}.\/\\\[\]]+)+\.[a-z]+$/"]
+	;; file path w/ optional filename, extension
+	["xPathonamEext" "/^(.+)/([^/]+)$/"]
+	;; file name w/ 3-char extension
+	["xFileNameExt3" "/^[\w,\s-]+\.[A-Za-z]{3}$/"]
+	;; social security number
+	;; can use either hypen(-) or space( ) character as separator
+	["xSSN" "/^((?!219-09-9999|078-05-1120)(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4})|((?!219 09 9999|078 05 1120)(?!666|000|9\d{2})\d{3} (?!00)\d{2} (?!0{4})\d{4})|((?!219099999|078051120)(?!666|000|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4})$/"]
+	;; passport
+	["xPassport" "/^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/"]
+
+])
 
 
 
-    ;; Mathematics
-    ["U" "∪"]
-    ["I" "∩"]
-    ["inter" "∩"]
-    ["UU" "⋃"]
-    ["aU" "⋃"]
-    ["II" "⋂"]
-    ["aI" "⋂"]
-    ;; ["c" "⊂"]
-    ;; ["c_" "⊆"]
-    ;; ["cb" "⊆"]
-    ;; ["cl" "⊃"]
-    ;; ["c_l" "⊇"]
-    ;; ["cbl" "⊇"]
-    ;; ["cn" "⊄"]
-    ;; ["nc" "⊄"]
-    ;; ["cnl" "⊅"]
-    ;; ["c_nl" "⊉"]
-    ;; ["cbnl" "⊉"]
-    ["sc" "∁"]
-    ["comp" "∁"]
-    ["scom" "∁"]
-    ["\\" "∖"]
-    ["setm" "∖"]
-    ["smin" "∖"]
-    ["fora" "∀"]
-    ["All" "∀"]
-    ;; ["all" "∀"]
-    ;; ["exi" "∃"]
-    ;; ["any" "∃"]
-    ;; ["some" "∃"]
-    ;; ["nex" "∄"]
-    ;; ["none" "∄"]
-    ;; ["in" "∈"]
-    ;; ["nin" "∉"]
-    ["con" "∋"]
-    ["cont" "∋"]
-    ["ncon" "∌"]
-    ;; ["j" "∘"] ; jot (composition)
-    ["and" "∧"]
-    ["or" "∨"]
-    ["nor" "⊽"]
-    ["nand" "⊼"]
-    ["xor" "⊻"]
-    ["Or" "⋁"]
-    ["OR" "⋁"]
-    ["AND" "⋀"]
-    ["let" "∴"]
-    ["where" "∵"]
-    ["wh" "∵"]
-    ["em" "∅"]
-    ["emp" "∅"]
-    ["cro" "⨯"]
-    ["le" "⩽"]
-    ["gr" "⩾"]
-    ["le'" "≤"]
-    ["ge'" "≥"]
-    ["not" "¬"]
-    ["nega" "⌙"]
-    ["abs" "∣"]
-    ["neq" "≠"]
-    ["S" "∑"]
-    ["P" "∏"]
-    ["cop" "∐"]
-    ["acop" "⨿"]
-    ["G" "𝚪"]
-    ["l" "λ"]
-    ["pi" "𝛑"]
-    ["eul" "ℯ"]
-    ["eul'" "ℇ"]
-		["planck" "ℎ"]
-		["pla" "ℎ"]
-    ["g" "𝛄"]
-    ["est" "℮"]
-    ["fourier" "ℱ"]
-    ["ft" "ℱ"]
-    ["int" "∫"]
-    ["ii" "∬"]
-    ["iii" "∭"]
-    ["iiii" "⨌"]
-    ["io" "∮"]
-    ["iio" "∯"]
-    ["iiio" "∰"]
-    ["icl" "∱"]
-    ["iacl" "⨑"]
-    ["iocl" "∲"]
-    ["ioacl" "∳"]
-    ["intf" "⨍"]
-    ["prec" "≺"]
-    ["succ" "≻"]
-    ["prer" "⊰"]
-    ["sucr" "⊱"]
-    ["pro" "∷"]
-    ["prop" "∝"]
-    ["inf" "∞"]
-    ["o+" "⊕"]
-    ["o--" "⊖"]
-    ["o*" "⊛"]
-    ["od" "⨸"]
-    ["o/" "⊘"]
-    ["cir+" "⊕"]
-    ["cir-" "⊕"]
-    ["cirx" "⊗"]
-    ["cir*" "⊛"]
-    ["cird" "⨸"]
-    ["cir/" "⊘"]
-    ;; ["maps" "↦"]
-    ["bagl" "⟅"]
-    ["bagr" "⟆"]
-    ["inbag" "⋿"]
-		["power" "℘"]
-    ["o-" "⟜"]
-    ["-o" "⊸"]
-    ["o-o" "⧟"]
-    ["o-." "⊶"]
-    [".-o" "⊷"]
-    ;; ["cur" "⫶"] ; curry
+(xah-math-input--add-to-hash
+ [
+	;; misc. unicode
+	["mda" "—"]
+	["nda" "–"]
+	["dlim" "-----------------------------------------------------------------------------------"]
+	["bul" "•"]
+	["aub" "↥"]
+	["arb" "↦"]
+	["alb" "↤"]
+	["adb" "↧"]
+
+
+	;; Mathematics
+	["U" "∪ "]
+	["I" "∩ "]
+	["inter" "∩ "]
+	["UU" "⋃ "]
+	["aU" "⋃ "]
+	["II" "⋂ "]
+	["aI" "⋂ "]
+	;; ["c" "⊂ "]
+	;; ["c_" "⊆ "]
+	;; ["cb" "⊆ "]
+	;; ["cl" "⊃ "]
+	;; ["c_l" "⊇ "]
+	;; ["cbl" "⊇ "]
+	;; ["cn" "⊄ "]
+	;; ["nc" "⊄ "]
+	;; ["cnl" "⊅ "]
+	;; ["c_nl" "⊉ "]
+	;; ["cbnl" "⊉ "]
+	["sc" "∁ "]
+	["comp" "∁ "]
+	["scom" "∁ "]
+	["\\" "∖ "]
+	["setm" "∖ "]
+	["smin" "∖ "]
+	["fora" "∀ "]
+	["All" "∀ "]
+	;; ["all" "∀ "]
+	;; ["exi" "∃ "]
+	;; ["any" "∃ "]
+	;; ["some" "∃ "]
+	;; ["nex" "∄ "]
+	;; ["none" "∄ "]
+	;; ["in" "∈ "]
+	;; ["nin" "∉ "]
+	["con" "∋ "]
+	["cont" "∋ "]
+	["ncon" "∌ "]
+	;; ["j" "∘ "] ; jot (composition)
+	["and" "∧ "]
+	["or" "∨ "]
+	["nor" "⊽ "]
+	["nand" "⊼ "]
+	["xor" "⊻ "]
+	["OR" "⋁ "]
+	["AND" "⋀ "]
+	;; ["let" "∴ "]
+	["where" "∵ "]
+	["wh" "∵ "]
+	["em" "∅ "]
+	["emp" "∅ "]
+	["le" "⩽ "]
+	["gr" "⩾ "]
+	["le'" "≤ "]
+	["ge'" "≥ "]
+	["not" "¬ "]
+	["nega" "⌙ "]
+	["abs" "∣ "]
+	["neq" "≠ "]
+	["S" "∑ "]
+	["P" "∏ "]
+	["cop" "∐ "]
+	["acop" "⨿ "]
+	["cro" "⨯ "]
+	["G" "𝚪 "]
+	["l" "λ "]
+	["pi" "𝛑"]
+	["eul" "ℯ "]
+	["eul'" "ℇ "]
+	["planck" "ℎ "]
+	["pla" "ℎ "]
+	["g" "𝛄 "]
+	["est" "℮ "]
+	["fourier" "ℱ "]
+	["ft" "ℱ "]
+	["int" "∫ "]
+	["ii" "∬ "]
+	["iii" "∭ "]
+	["iiii" "⨌ "]
+	["io" "∮ "]
+	["iio" "∯ "]
+	["iiio" "∰ "]
+	["icl" "∱ "]
+	["iacl" "⨑ "]
+	["iocl" "∲ "]
+	["ioacl" "∳ "]
+	["intf" "⨍ "]
+	["prec" "≺ "]
+	["succ" "≻ "]
+	["prer" "⊰ "]
+	["sucr" "⊱ "]
+	["pro" "∷ "]
+	["prop" "∝ "]
+	["inf" "∞ "]
+	["o+" "⊕ "]
+	["o--" "⊖ "]
+	["o*" "⊛ "]
+	["od" "⨸ "]
+	["o/" "⊘ "]
+	["cir+" "⊕ "]
+	["cir-" "⊕ "]
+	["cirx" "⊗ "]
+	["cir*" "⊛ "]
+	["cird" "⨸ "]
+	["cir/" "⊘ "]
+	;; ["maps" "↦ "]
+	["bagl" "⟅ "]
+	["bagr" "⟆ "]
+	["inbag" "⋿ "]
+	["power" "℘ "]
+	["o-" "⟜ "]
+	["-o" "⊸ "]
+	["o-o" "⧟ "]
+	["o-." "⊶ "]
+	[".-o" "⊷ "]
+	;; ["cur" "⫶ "] ; curry
+
+])
 
 
 
-		;; APL
-    ["al" "←"]
-    ["ar" "→"]
-    ["au" "↑"]
-    ["ad" "↓"]
-    ["take" "↑"]
-    ["tak" "↑"] ; take
-    ["ta" "↑"] ; take
-    ["mix" "↑"]
-    ["drop" "↓"]
-    ["dro" "↓"] ; drop
-    ["dr" "↓"] ; drop
-    ["spl" "↓"] ; split
-    ["head" "⊃"]
-    ["pick" "⊃"]
-    ["encl" "⊂"] ; enclose
-    ["paen" "⊂"] ; partitioned enclose
-    ["nest" "⊆"]
-    ["part" "⊆"] ; partition
-    ["no" "~"] ; not
-    ["wo" "~"] ; without
-    ["lv" "⍅"]
-    ["rv" "⍆"]
-    ["uv" "⍏"]
-    ["dv" "⍖"]
-    ["div" "÷"]
-    ["x'" "×"]
-    ["-" "−"]
-    ["log" "⍟"]
-    ["eq" "≡"]
-    ["dep" "≡"] ; depth
-    ["mat" "≡"] ; match
-    ["neq" "≢"]
-    ["til" "∼"]
-    ["no" "∼"]
-    ["p" "⍴"] ; rho
-    ["r" "⍴"] ; rho
-    ["w" "⍵"] ; omega
-    ["w_" "⍹"]
-    ["i" "⍳"] ; iota
-    ["i_" "⍸"]
-    ["a" "⍺"] ; alpha
-    ["a_" "⍶"]
-    ["enl" "∊"] ; enlist
-    ["en" "∊"] ; enlist
-    ["es" "∊"]
-    ["se" "∊"]
-    ["find" "⋸"]
-    ["e_" "⋸"]
-    ["en_" "⋸"]
-    ["in_" "⋸"]
-    ["flr" "⌊"] ; floor
-    ["min" "⌊"]
-    ["cei" "⌈"] ; ceiling
-    ["max" "⌈"]
-		["lcm" "∧"] ; lowest common denomenator
-		["gcd" "∨"] ; greatest common divisor
-		["conj" "+"] ; conjugate
-		["neg" "-"] ; negate
-		["nega" "-"] ; negate
-		["dire" "×"] ; direction
-		["dir" "×"] ; direction
-    ["mag" "∣"] ; magnitude
-    ["norm" "∣"] ; magnitude
-    ["res" "∣"] ; residue
-    ["inc" "∆"] ; increment
-    ["delta" "∆"]
-    ["del" "∇"]
-    ["nab" "∇"] ; nabla
-    ["j_" "⍛"]
-    ["enc" "⊤"] ; encode
-    ["enco" "⊤"] ; encode
-    ["dec" "⊥"] ; decode
-    ["deco" "⊥"] ; decode
-    ["left" "⊣"]
-    ["lef" "⊣"] ; left
-    ["righ" "⊢"] ; right
-    ["ri" "⊢"] ; right
-    ["rig" "⊢"] ; right
-    ["mdv" "⌹"] ; matrix divide
-    ["min" "⌹"] ; matrix inverse
-    ["minv" "⌹"] ; matrix inverse
-    ["o" "○"] ; APL pi-times (not composition)
-    ["trig" "○"] ; trigonometric functions
-    ["o_" "⍜"]
-    ["ro" "⌽"]
-    ["rot" "⌽"]
-    ["rev" "⌽"]
-    ["rof" "⊖"]
-    ["tra" "⍉"]
-    ["xf" "⍀"] ; expand 1st
-    ["sf" "⍀"] ; scan 1st
-    ["rf" "⌿"] ; [replicate / reduce] 1st
-    ["ref" "⌿"] ; [replicate / reduce] 1st
-    ["repf" "⌿"] ; replicate 1st
-    ["redf" "⌿"] ; reduce 1st
-    ["gu" "⍋"]
-    ["gd" "⍒"]
-    ["gru" "⍋"]
-    ["grd" "⍒"]
-    ["sou" "⍋"]
-    ["sod" "⍒"]
-    ["nn" "¯"]
-    ["zil" "⍬"]
-    [",_" "⍪"]
-    ["fmt" "⍕"]
-    ["exc" "⍎"]
-    ["at" "@"]
-    ["IB" "⌶"]
-    ["Ib" "⌶"]
-    ["ib" "⌶"]
-    ["map" "¨"]
-    ["each" "¨"]
-    ["dia" "¨"]
-    ["pwr" "⍣"]
-    ["strd" "⍣"]
-    ["flip" "⍨"]
-    ["smrk" "⍨"]
-    ["rank" "⍤"]
-    ["hoot" "⍤"]
-    ["sep" "◇"] ; statement separator
-    ["dia" "◇"]
-    ["holl" "⍥"]
-    ["vari" "⍠"] ; variant
-    ["opt" "⍠"] ; option
-    ["quc" "⍠"]
-    ["qua" "⎕"]
-    ["sys" "⎕"]
-    ["mat" "⌷"] ; materialize
-    ["ind" "⌷"] ; index
-    ["squ" "⌷"]
-    ["key" "⌸"]
-    ["que" "⌸"]
-    ["sten" "⌺"]
-    ["qudi" "⌺"]
-    ["com" "⍝"]
-    ["c" "⍝"]
+(xah-math-input--add-to-hash
+ [
+
+	;; APL
+	["al" "←"]
+	["ar" "→"]
+	["au" "↑"]
+	["ad" "↓"]
+	["take" "↑"]
+	["tak" "↑"] ; take
+	["ta" "↑"] ; take
+	["mix" "↑"]
+	["drop" "↓"]
+	["dro" "↓"] ; drop
+	["dr" "↓"] ; drop
+	["spl" "↓"] ; split
+	["head" "⊃"]
+	["pick" "⊃"]
+	["encl" "⊂"] ; enclose
+	["paen" "⊂"] ; partitioned enclose
+	["nest" "⊆"]
+	["part" "⊆"] ; partition
+	["no" "~"] ; not
+	["wo" "~"] ; without
+	["lv" "⍅"]
+	["rv" "⍆"]
+	["uv" "⍏"]
+	["dv" "⍖"]
+	["div" "÷"]
+	["x'" "×"]
+	["-" "−"]
+	["log" "⍟"]
+	["eq" "≡"]
+	["dep" "≡"] ; depth
+	["mat" "≡"] ; match
+	["neq" "≢"]
+	["til" "∼"]
+	["no" "∼"]
+	["p" "⍴"] ; rho
+	["r" "⍴"] ; rho
+	["w" "⍵"] ; omega
+	["w_" "⍹"]
+	["i" "⍳"] ; iota
+	["i_" "⍸"]
+	["a" "⍺"] ; alpha
+	["a_" "⍶"]
+	["enl" "∊"] ; enlist
+	["en" "∊"] ; enlist
+	["es" "∊"]
+	["se" "∊"]
+	["find" "⋸"]
+	["e_" "⋸"]
+	["en_" "⋸"]
+	["in_" "⋸"]
+	["flr" "⌊"] ; floor
+	["min" "⌊"]
+	["cei" "⌈"] ; ceiling
+	["max" "⌈"]
+	["lcm" "∧"] ; lowest common denomenator
+	["gcd" "∨"] ; greatest common divisor
+	["conj" "+"] ; conjugate
+	["neg" "-"] ; negate
+	["nega" "-"] ; negate
+	["dire" "×"] ; direction
+	["dir" "×"] ; direction
+	["mag" "∣"] ; magnitude
+	["norm" "∣"] ; magnitude
+	["res" "∣"] ; residue
+	["inc" "∆"] ; increment
+	["delta" "∆"]
+	["del" "∇"]
+	["nab" "∇"] ; nabla
+	["j_" "⍛"]
+	["enc" "⊤"] ; encode
+	["enco" "⊤"] ; encode
+	["dec" "⊥"] ; decode
+	["deco" "⊥"] ; decode
+	["left" "⊣"]
+	["lef" "⊣"] ; left
+	["righ" "⊢"] ; right
+	["ri" "⊢"] ; right
+	["rig" "⊢"] ; right
+	["mdv" "⌹"] ; matrix divide
+	["min" "⌹"] ; matrix inverse
+	["minv" "⌹"] ; matrix inverse
+	["o" "○"] ; APL pi-times (not composition)
+	["trig" "○"] ; trigonometric functions
+	["o_" "⍜"]
+	["ro" "⌽"]
+	["rot" "⌽"]
+	["rev" "⌽"]
+	["rof" "⊖"]
+	["tra" "⍉"]
+	["xf" "⍀"] ; expand 1st
+	["sf" "⍀"] ; scan 1st
+	["rf" "⌿"] ; [replicate / reduce] 1st
+	["ref" "⌿"] ; [replicate / reduce] 1st
+	["repf" "⌿"] ; replicate 1st
+	["redf" "⌿"] ; reduce 1st
+	["gu" "⍋"]
+	["gd" "⍒"]
+	["gru" "⍋"]
+	["grd" "⍒"]
+	["sou" "⍋"]
+	["sod" "⍒"]
+	["nn" "¯"]
+	["zil" "⍬"]
+	[",_" "⍪"]
+	["fmt" "⍕"]
+	["exc" "⍎"]
+	["at" "@"]
+	["IB" "⌶"]
+	["Ib" "⌶"]
+	["ib" "⌶"]
+	["map" "¨"]
+	["each" "¨"]
+	["dia" "¨"]
+	["pwr" "⍣"]
+	["strd" "⍣"]
+	["flip" "⍨"]
+	["smrk" "⍨"]
+	["rank" "⍤"]
+	["hoot" "⍤"]
+	["sep" "◇"] ; statement separator
+	["dia" "◇"]
+	["holl" "⍥"]
+	["vari" "⍠"] ; variant
+	["opt" "⍠"] ; option
+	["quc" "⍠"]
+	["qua" "⎕"]
+	["sys" "⎕"]
+	["mat" "⌷"] ; materialize
+	["ind" "⌷"] ; index
+	["squ" "⌷"]
+	["key" "⌸"]
+	["que" "⌸"]
+	["sten" "⌺"]
+	["qudi" "⌺"]
+	["com" "⍝"]
+	["c" "⍝"]
+
+])
 
 
+
+(xah-math-input--add-to-hash
+ [
 
 		;; elisp
 		("lam" "λ")
-
 
 
 		;; Haskell
@@ -487,88 +508,123 @@
 		;; ("fmap" "↦")
 
 
-
 		;; Racket
-		("t" "#t" )
-		("f" "#f" )
-		(":" "cons" )
-		["fll" "foldl"]
-		["frr" "foldr"]
-		["eq" "equals?"]
-		["neq" "not-equals?"]
-		["p" "length"] ; rho
-		["r" "length"] ; rho
-		["i" "build-list"] ; iota
-		["S" "+"]
-		["P" "*"]
-		["%" "modulo"]
-		["j" "compose1"]
-		["j_" "compose"]
-		["rev" "reverse"]
-		["rot" "reverse"]
-		["so" "sort"]
-		["fmt" "format"]
-		["exc" "eval"]
-		["in" "member"]
-		["fm" "¨∘⊇"] ; filter-map
-		["mf" "⊇∘¨"] ; map-filter
-		;; ["fm" "filter-map"] ; filter-map
-		;; ["mf" "map-filter"] ; map-filter
-		["flr" "exact-floor"] ; result is Integer
-		["cei" "exact-ceiling"] ; result is Integer
-		["flrr" "floor"] ; result is Real
-		["flrs" "floor"] ; result is Real
-		["ceir" "ceiling"] ; result is Real
-		["ceis" "ceiling"] ; result is Real
-		["cur" "curry"]
-		["fil" "filter"]
-		["fno" "filter-not"]
-		["repl" "replicate"]
-		["cat" "concat"]
-		["ap" "append"]
-		["zipw" "zip-with"]
-		["zw" "zip-with"]
-		["ir" "in-range?"]
-		["csae" "case"] ; catch typo
-		["casea" "case->"]
-		["csaea" "case->"] ; catch typo
-		["casel" "case-λ"]
-		["csael" "case-λ"] ; catch typo
-		["lsit" "list"] ; catch typo
-		["let" "let*"]
-		["for" "∀:"]
-		["forn" "∀*:"] "nested"
-		["forl" "∀:l"]
-		["fornl" "∀*:l"]
-		["forh" "∀:h"]
-		["fornh" "∀*:h"]
-		["forv" "∀:v"]
-		["fornv" "∀*:v"]
-		["fors" "∀:∑"]
-		["forns" "∀*:∑"]
-		["forp" "∀:∏"]
-		["fornp" "∀*:∏"]
-		["forse" "∀:s"]
-		["fornse" "∀*:s"]
-		["forhe" "∀:hq"]
-		["fornhe" "∀*:hq"]
-		["forhv" "∀:hv"]
-		["fornhv" "∀*:hv"]
-		["foro" "∀:or"]
-		["forno" "∀*:or"]
-		["foran" "∀:and"]
-		["fornan" "∀*:∧"]
-		["forfi" "∀:1st"]
-		["fornfi" "∀*:1st"]
-		["forla" "∀:last"]
-		["fornla" "∀*:last"]
-		["forls" "∀:lists"]
-		["fornls" "∀*:lists"]
-		["forfo" "∀:↰"]
-		["fornfo" "∀*:↰"]
+		["le" "<= "]
+		["gr" ">= "]
+		["pick" "!! "]
+		["not" "not "]
+		["nega" "negate "]
+		["and" "and "]
+		["or" "or "]
+		["nor" "nor "]
+		["nand" "nand "]
+		["xor" "xor "]
+		["abs" "abs "]
+		["rem" "remove "]
+		["rems" "remove* "]
+		["rem*" "remove* "]
+		["em" "'() "]
+		["emp" "'() "]
+		;; ["em" "empty "]
+		;; ["emp" "empty "]
+		["t" "#t"]
+		["f" "#f"]
+		[":" "cons"]
+		["fll" "foldl "]
+		["frr" "foldr "]
+		["eq" "equals? "]
+		["neq" "not-equals? "]
+		["p" "length "] ; rho
+		["r" "length "] ; rho
+		["i" "build-list "] ; iota
+		["S" "+ "]
+		["P" "* "]
+		["%" "modulo "]
+		["j" "compose1 "]
+		["j_" "compose "]
+		["rev" "reverse "]
+		["rot" "reverse "]
+		["so" "sort "]
+		["fmt" "format "]
+		["exc" "eval "]
+		["in" "member "]
+		["fm" "¨∘⊇ "] ; filter-map
+		["mf" "⊇∘¨ "] ; map-filter
+		;; ["fm" "filter-map "] ; filter-map
+		;; ["mf" "map-filter "] ; map-filter
+		["flr" "exact-floor "] ; result is Integer
+		["cei" "exact-ceiling "] ; result is Integer
+		["flrr" "floor "] ; result is Real
+		["flrs" "floor "] ; result is Real
+		["ceir" "ceiling "] ; result is Real
+		["ceis" "ceiling "] ; result is Real
+		["cur" "curry "]
+		["fil" "filter "]
+		["fno" "filter-not "]
+		["repl" "replicate "]
+		["cat" "concat "]
+		["ap" "append "]
+		["zipw" "zip-with "]
+		["zw" "zip-with "]
+		["ir" "in-range? "]
+		["csae" "case "] ; catch typo
+		["casea" "case-> "]
+		["csaea" "case-> "] ; catch typo
+		["casel" "case-λ "]
+		["csael" "case-λ "] ; catch typo
+		["lsit" "list "] ; catch typo
+		["let" "let* "]
+		["for" "∀: "]
+		["forn" "∀*: "] "nested"
+		["forl" "∀:l "]
+		["fornl" "∀*:l "]
+		["forh" "∀:h "]
+		["fornh" "∀*:h "]
+		["forv" "∀:v "]
+		["fornv" "∀*:v "]
+		["fors" "∀:∑ "]
+		["forns" "∀*:∑ "]
+		["forp" "∀:∏ "]
+		["fornp" "∀*:∏ "]
+		["forse" "∀:s "]
+		["fornse" "∀*:s "]
+		["forhe" "∀:hq "]
+		["fornhe" "∀*:hq "]
+		["forhv" "∀:hv "]
+		["fornhv" "∀*:hv "]
+		["foro" "∀:or "]
+		["forno" "∀*:or "]
+		["foran" "∀:and "]
+		["fornan" "∀*:∧ "]
+		["forfi" "∀:1st "]
+		["fornfi" "∀*:1st "]
+		["forla" "∀:last "]
+		["fornla" "∀*:last "]
+		["forls" "∀:lists "]
+		["fornls" "∀*:lists "]
+		["forfo" "∀:↰ "]
+		["fornfo" "∀*:↰ "]
+		["for*" "∀*: "]
+		["for*l" "∀*:l "]
+		["for*h" "∀*:h "]
+		["for*v" "∀*:v "]
+		["for*s" "∀*:∑ "]
+		["for*p" "∀*:∏ "]
+		["for*se" "∀*:s "]
+		["for*he" "∀*:hq "]
+		["for*hv" "∀*:hv "]
+		["for*o" "∀*:or "]
+		["for*an" "∀*:∧ "]
+		["for*fi" "∀*:1st "]
+		["for*la" "∀*:last "]
+		["for*ls" "∀*:lists "]
+		["for*fo" "∀*:↰ "]
+
+])
 
 
-
+(xah-math-input--add-to-hash
+ [
 
     ;; --- Types ---
 		;; If it's not parameterized (Integer, Natural, Boolean, etc), it has a double-struck letter.
@@ -578,169 +634,259 @@
 		;; ADT constructors, (Just, True, etc) are slanted but not bold
 		;; The exception is Symbol, which is bold/italic, while String is double-struck, in order to differentiate the two.
 
-		["M" "𝑴"]
-		["JU" "𝐽"]
-		("NO" "𝑁")
-		("EI" "𝑬")
-		("RI" "𝑅")
-		("LE" "𝐿")
-    ["T" "𝑻"]
-    ["F" "𝑭"]
-    ["B" "𝔹"]
-    ["O" "𝑴"]
-    ["N" "ℕ"]
-    ["IN" "𝐈"]
-    ["NU" "ℂ"]
-    ["CO" "ℂ"]
-    ["COM" "ℂ"]
-    ["ZN" "ℤ⁻"]
-    ["ZN0" "ℤ⁰⁻"]
-    ["Z" "ℤ"]
-    ["ZP0" "ℤ⁰⁺"]
-    ["ZP" "ℤ⁺"]
-    ["L" "𝑳"]
-    ["L'" "𝗟"]
-    ["LF" "𝗟"]
-    ["V" "𝑽"]
-    ["V'" "𝗩"]
-    ["VF" "𝗩"]
-    ["PA" "𝐏"]
-    ["RN" "ℝ⁻"]
-    ["RN0" "ℝ⁰⁻"]
-    ["R" "ℝ"]
-    ["RP0" "ℝ⁰⁺"]
-    ["RP" "ℝ⁺"]
-    ["FLN" "Fl⁻"]
-    ["FLN0" "Fl⁰⁻"]
-    ["FL" "Fl"]
-    ["FLP0" "Fl⁰⁺"]
-    ["FLP" "Fl⁺"]
-    ["STR" "𝕊"]
-    ["SY" "𝑺"]
-    ["H" "𝑯"]
-    ["HI" "𝑯i"]
-    ["HM" "𝑯m"]
-    ["A" "𝔸"]
-    ["QN" "ℚ⁻"]
-    ["QN0" "ℚ⁰⁻"]
-    ["Q" "ℚ"]
-    ["QP0" "ℚ⁰⁺"]
-    ["QP" "ℚ⁺"]
-    ["L^" "𝑳^"]
-    ["JS" "JSExpr"]
-    ["JH" "JSHash"]
+	["M" "𝑴"]
+	["JU" "𝐽"]
+	("NO" "𝑁")
+	("EI" "𝑬")
+	("RI" "𝑅")
+	("LE" "𝐿")
+	["T" "𝑻"]
+	["F" "𝑭"]
+	["B" "𝔹"]
+	["O" "𝑴"]
+	["N" "ℕ"]
+	["IN" "𝐈"]
+	["NU" "ℂ"]
+	["CO" "ℂ"]
+	["COM" "ℂ"]
+	["Z-" "ℤ⁻"]
+	["Z-0" "ℤ⁰⁻"]
+	["Z" "ℤ"]
+	["Z+0" "ℤ⁰⁺"]
+	["Z+" "ℤ⁺"]
+	["R-" "ℝ⁻"]
+	["R-0" "ℝ⁰⁻"]
+	["R" "ℝ"]
+	["R+0" "ℝ⁰⁺"]
+	["R+" "ℝ⁺"]
+	["Q-" "ℚ⁻"]
+	["Q-0" "ℚ⁰⁻"]
+	["Q" "ℚ"]
+	["Q+0" "ℚ⁰⁺"]
+	["Q+" "ℚ⁺"]
+	["Fl-" "Fl⁻"]
+	["Fl-0" "Fl⁰⁻"]
+	["Fl" "Fl"]
+	["Fl+0" "Fl⁰⁺"]
+	["Fl+" "Fl⁺"]
+	["L" "𝑳"]
+	["L'" "𝗟"]
+	["LF" "𝗟"]
+	["V" "𝑽"]
+	["V'" "𝗩"]
+	["VF" "𝗩"]
+	["PA" "𝐏"]
+	["STR" "𝕊"]
+	["SY" "𝑺"]
+	["H" "𝑯"]
+	["HI" "𝑯i"]
+	["HM" "𝑯m"]
+	["A" "𝔸"]
+	["L^" "𝑳^"]
+	["JS" "JSExpr"]
+	["JH" "JSHash"]
+	["Z-" "ℤ⁻"]
+	["Z0-" "ℤ⁰⁻"]
+	["Z" "ℤ"]
+	["Z0+" "ℤ⁰⁺"]
+	["Z+" "ℤ⁺"]
+	["R-" "ℝ⁻"]
+	["R0-" "ℝ⁰⁻"]
+	["R" "ℝ"]
+	["R0+" "ℝ⁰⁺"]
+	["R+" "ℝ⁺"]
+	["Q-" "ℚ⁻"]
+	["Q0-" "ℚ⁰⁻"]
+	["Q" "ℚ"]
+	["Q0+" "ℚ⁰⁺"]
+	["Q+" "ℚ⁺"]
+	["Fl-" "Fl⁻"]
+	["Fl0-" "Fl⁰⁻"]
+	["Fl" "Fl"]
+	["Fl0+" "Fl⁰⁺"]
+	["Fl+" "Fl⁺"]
+	["ZN" "ℤ⁻"]
+	["ZN0" "ℤ⁰⁻"]
+	["Z" "ℤ"]
+	["ZP0" "ℤ⁰⁺"]
+	["ZP" "ℤ⁺"]
+	["RN" "ℝ⁻"]
+	["RN0" "ℝ⁰⁻"]
+	["R" "ℝ"]
+	["RP0" "ℝ⁰⁺"]
+	["RP" "ℝ⁺"]
+	["QN" "ℚ⁻"]
+	["QN0" "ℚ⁰⁻"]
+	["Q" "ℚ"]
+	["QP0" "ℚ⁰⁺"]
+	["QP" "ℚ⁺"]
+	["FLN" "Fl⁻"]
+	["FLN0" "Fl⁰⁻"]
+	["FL" "Fl"]
+	["FLP0" "Fl⁰⁺"]
+	["FLP" "Fl⁺"]
 
 		;; ----------------------------------------------
 
-		;; ["M" "𝑴"]
-		;; ["JU" "𝐽"]
-		;; ("NO" "𝑁")
-		;; ("EI" "𝑬")
-		;; ("RI" "𝑅")
-		;; ("LE" "𝐿")
-		;; ["T" "𝑻"]
-		;; ["F" "𝑭"]
-		;; ["B" "𝐁"]
-		;; ["O" "𝑴"]
-		;; ["N" "𝐍"]
-		;; ["IN" "𝐈"]
-		;; ["NU" "ℂ"]
-		;; ["CO" "ℂ"]
-		;; ["COM" "ℂ"]
-		;; ["ZN" "𝐙⁻"]
-		;; ["ZN0" "𝐙⁰⁻"]
-		;; ["Z" "𝐙"]
-		;; ["ZP0" "𝐙⁰⁺"]
-		;; ["ZP" "𝐙⁺"]
-		;; ["L" "𝑳"]
-		;; ["L'" "𝗟"]
-		;; ["V" "𝑽"]
-		;; ["V'" "𝗩"]
-		;; ["PA" "Pair"]
-		;; ["RN" "𝐑⁻"]
-		;; ["RN0" "𝐑⁰⁻"]
-		;; ["R" "𝐑"]
-		;; ["RP0" "𝐑⁰⁺"]
-		;; ["RP" "𝐑⁺"]
-		;; ["FLN" "Fl⁻"]
-		;; ["FLN0" "Fl⁰⁻"]
-		;; ["FL" "Fl"]
-		;; ["FLP0" "Fl⁰⁺"]
-		;; ["FLP" "Fl⁺"]
-		;; ["ST" "𝕊"]
-		;; ["SY" "𝑺"]
-		;; ["H" "𝑯"]
-		;; ["HI" "𝑯i"]
-		;; ["HM" "𝑯m"]
-		;; ["A" "𝐀"]
-		;; ["QN" "𝐐⁻"]
-		;; ["QN0" "𝐐⁰⁻"]
-		;; ["Q" "𝐐"]
-		;; ["QP0" "𝐐⁰⁺"]
-		;; ["QP" "𝐐⁺"]
-		;; ["L^" "𝑳^"]
-		;; ["JS" "JSExpr"]
-		;; ["JH" "JSHash"]
+	;; ["M" "𝑴"]
+	;; ["JU" "𝐽"]
+	;; ("NO" "𝑁")
+	;; ("EI" "𝑬")
+	;; ("RI" "𝑅")
+	;; ("LE" "𝐿")
+	;; ["T" "𝑻"]
+	;; ["F" "𝑭"]
+	;; ["B" "𝐁"]
+	;; ["O" "𝑴"]
+	;; ["N" "𝐍"]
+	;; ["IN" "𝐈"]
+	;; ["NU" "ℂ"]
+	;; ["CO" "ℂ"]
+	;; ["COM" "ℂ"]
+	;; ["ZN" "𝐙⁻"]
+	;; ["ZN0" "𝐙⁰⁻"]
+	;; ["Z" "𝐙"]
+	;; ["ZP0" "𝐙⁰⁺"]
+	;; ["ZP" "𝐙⁺"]
+	;; ["L" "𝑳"]
+	;; ["L'" "𝗟"]
+	;; ["V" "𝑽"]
+	;; ["V'" "𝗩"]
+	;; ["PA" "Pair"]
+	;; ["RN" "𝐑⁻"]
+	;; ["RN0" "𝐑⁰⁻"]
+	;; ["R" "𝐑"]
+	;; ["RP0" "𝐑⁰⁺"]
+	;; ["RP" "𝐑⁺"]
+	;; ["FLN" "Fl⁻"]
+	;; ["FLN0" "Fl⁰⁻"]
+	;; ["FL" "Fl"]
+	;; ["FLP0" "Fl⁰⁺"]
+	;; ["FLP" "Fl⁺"]
+	;; ["ST" "𝕊"]
+	;; ["SY" "𝑺"]
+	;; ["H" "𝑯"]
+	;; ["HI" "𝑯i"]
+	;; ["HM" "𝑯m"]
+	;; ["A" "𝐀"]
+	;; ["QN" "𝐐⁻"]
+	;; ["QN0" "𝐐⁰⁻"]
+	;; ["Q" "𝐐"]
+	;; ["QP0" "𝐐⁰⁺"]
+	;; ["QP" "𝐐⁺"]
+	;; ["L^" "𝑳^"]
+	;; ["JS" "JSExpr"]
+	;; ["JH" "JSHash"]
 
-    ;; ----------------------------------------------
+	;; ----------------------------------------------
 
-		;; ["M" "Maybe"]
-		;; ["JU" "Just"]
-		;; ("NO" "Nothing")
-		;; ("EI" "Either")
-		;; ("RI" "Right")
-		;; ("LE" "Left")
-		;; ["T" "True"]
-		;; ["F" "False"]
-		;; ["B" "Boolean"]
-		;; ["O" "Option"]
-		;; ["N" "Natural"]
-		;; ["IN" "Index"]
-		;; ["In" "Index"]
-		;; ["NU" "Number"]
-		;; ["CO" "Complex"]
-		;; ["COM" "Complex"]
-		;; ["ZN" "Negative-Integer"]
-		;; ["ZN0" "Nonpositive-Integer"]
-		;; ["Z" "Integer"]
-		;; ["ZP0" "Nonnegative-Integer"]
-		;; ["ZP" "Positive-Integer"]
-		;; ["L" "Listof"]
-		;; ["L'" "List"]
-		;; ["V" "Vectorof"]
-		;; ["V'" "Vector"]
-		;; ["PA" "Pair"]
-		;; ["FLN" "Negative-Float"]
-		;; ["FLN0" "Nonpositive-Float"]
-		;; ["FL" "Float"]
-		;; ["FLP0" "Nonnegative-Float"]
-		;; ["FLP" "Positive-Float"]
-		;; ["RN" "Negative-Real"]
-		;; ["RN0" "Nonpositive-Real"]
-		;; ["R" "Real"]
-		;; ["RP0" "Nonnegative-Real"]
-		;; ["RP" "Positive-Real"]
-		;; ["ST" "String"]
-		;; ["SY" "Symbol"]
-		;; ["H" "HashTable"]
-		;; ["HI" "ImmutableHashTable"]
-		;; ["HM" "MutableHashTable"]
-		;; ["QN" "Negative-Exact-Rational"]
-		;; ["QN0" "Nonpositive-Exact-Rational"]
-		;; ["Q" "Exact-Rational"]
-		;; ["QP0" "Nonnegative-Exact-Rational"]
-		;; ["QP" "Positive-Exact-Rational"]
-		;; ["L^" "Non-Empty-List"]
-		;; ["JS" "JSExpr"]
-		;; ["JH" "JSHash"]
+	;; ["M" "Maybe"]
+	;; ["JU" "Just"]
+	;; ("NO" "Nothing")
+	;; ("EI" "Either")
+	;; ("RI" "Right")
+	;; ("LE" "Left")
+	;; ["T" "True"]
+	;; ["F" "False"]
+	;; ["B" "Boolean"]
+	;; ["O" "Option"]
+	;; ["N" "Natural"]
+	;; ["IN" "Index"]
+	;; ["In" "Index"]
+	;; ["NU" "Number"]
+	;; ["CO" "Complex"]
+	;; ["COM" "Complex"]
+	;; ["ZN" "Negative-Integer"]
+	;; ["ZN0" "Nonpositive-Integer"]
+	;; ["Z" "Integer"]
+	;; ["ZP0" "Nonnegative-Integer"]
+	;; ["ZP" "Positive-Integer"]
+	;; ["L" "Listof"]
+	;; ["L'" "List"]
+	;; ["V" "Vectorof"]
+	;; ["V'" "Vector"]
+	;; ["PA" "Pair"]
+	;; ["FLN" "Negative-Float"]
+	;; ["FLN0" "Nonpositive-Float"]
+	;; ["FL" "Float"]
+	;; ["FLP0" "Nonnegative-Float"]
+	;; ["FLP" "Positive-Float"]
+	;; ["RN" "Negative-Real"]
+	;; ["RN0" "Nonpositive-Real"]
+	;; ["R" "Real"]
+	;; ["RP0" "Nonnegative-Real"]
+	;; ["RP" "Positive-Real"]
+	;; ["ST" "String"]
+	;; ["SY" "Symbol"]
+	;; ["H" "HashTable"]
+	;; ["HI" "ImmutableHashTable"]
+	;; ["HM" "MutableHashTable"]
+	;; ["QN" "Negative-Exact-Rational"]
+	;; ["QN0" "Nonpositive-Exact-Rational"]
+	;; ["Q" "Exact-Rational"]
+	;; ["QP0" "Nonnegative-Exact-Rational"]
+	;; ["QP" "Positive-Exact-Rational"]
+	;; ["L^" "Non-Empty-List"]
+	;; ["JS" "JSExpr"]
+	;; ["JH" "JSHash"]
 
-		))
+	;; ["M" "Maybe"]
+	;; ["JU" "Just"]
+	;; ("NO" "Nothing")
+	;; ("EI" "Either")
+	;; ("RI" "Right")
+	;; ("LE" "Left")
+	;; ["T" "True"]
+	;; ["F" "False"]
+	;; ["B" "Boolean"]
+	;; ["O" "Option"]
+	;; ["N" "Natural"]
+	;; ["IN" "Index"]
+	;; ["In" "Index"]
+	;; ["NU" "Number"]
+	;; ["CO" "Complex"]
+	;; ["COM" "Complex"]
+	;; ["ZN" "Negative-Integer⁻"]
+	;; ["ZN0" "Nonpositive-Integer⁰⁻"]
+	;; ["Z" "Integer"]
+	;; ["ZP0" "Nonnegative-Integer⁰⁺"]
+	;; ["ZP" "Positive-Integer⁺"]
+	;; ["L" "Listof"]
+	;; ["L'" "List"]
+	;; ["V" "Vectorof"]
+	;; ["V'" "Vector"]
+	;; ["PA" "Pair"]
+	;; ["FLN" "Negative-Float⁻"]
+	;; ["FLN0" "Nonpositive-Float⁰⁻"]
+	;; ["FL" "Float"]
+	;; ["FLP0" "Nonnegative-Float⁰⁺"]
+	;; ["FLP" "Positive-Float⁺"]
+	;; ["RN" "Negative-Real⁻"]
+	;; ["RN0" "Nonpositive-Real⁰⁻"]
+	;; ["R" "Real"]
+	;; ["RP0" "Nonnegative-Real⁰⁺"]
+	;; ["RP" "Positive-Real⁺"]
+	;; ["ST" "String"]
+	;; ["SY" "Symbol"]
+	;; ["H" "HashTable"]
+	;; ["HI" "ImmutableHashTable"]
+	;; ["HM" "MutableHashTable"]
+	;; ["QN" "Negative-Exact-Rational⁻"]
+	;; ["QN0" "Nonpositive-Exact-Rational⁰⁻"]
+	;; ["Q" "Exact-Rational"]
+	;; ["QP0" "Nonnegative-Exact-Rational⁰⁺"]
+	;; ["QP" "Positive-Exact-Rational⁺"]
+	;; ["L^" "Non-Empty-List"]
+	;; ["JS" "JSExpr"]
+	;; ["JH" "JSHash"]
+
+	])
 
 
 
 (xah-math-input--add-to-hash
  [
-  ["deg" "°"]
+	["deg" "°"]
   ["micro" "µ"]
   ["mdot" "·"]
   ["1/4" "¼"]
