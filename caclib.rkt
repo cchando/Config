@@ -422,10 +422,10 @@
 (define σ. filter-hashes)
 
 ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
-;; given list of hashes, checks the above for each hash, and gives the corresponding list of (U v #false).
+;; given list of hashes, checks the above for each hash, and gives the corresponding list of (Maybe v)'s.
 (: hash-match-vals (∀ (a b) (case->
-                          ((HashTable a b) a (Listof b) -> (U b False))
-                          ((Listof (HashTable a b)) a (Listof b) -> (Listof (U b False))))))
+                          ((HashTable a b) a (Listof b) -> (𝑴 b))
+                          ((Listof (HashTable a b)) a (Listof b) -> (Listof (𝑴 b))))))
 (define hash-match-vals (case-λ
                      [(h k vs) (ormap (λ ([v : b])
                                     (and (equal? v ((inst hash-ref a b) h k #f)) v)) vs)]
