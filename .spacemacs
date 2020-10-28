@@ -1037,6 +1037,7 @@ you should place your code here."
 
 
 ;; normal-state mappings
+;; TODO: map gb -> toggle-between-this-buffer-and-most-recently-visited-buffer (write this function)
 (define-key evil-normal-state-map (kbd "\\") 'isearch-forward-word)
 (define-key evil-normal-state-map (kbd "C-m") 'spacemacs/evil-insert-line-below)
 (define-key evil-normal-state-map (kbd "C-.") 'call-last-kbd-macro) ; q for evil-record-macro
@@ -1068,6 +1069,7 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "gm") 'evil-jump-item)
 (define-key evil-normal-state-map (kbd "gn") 'spacemacs/enter-ahs-forward)
 (define-key evil-normal-state-map (kbd "gN") 'spacemacs/enter-ahs-backward)
+(define-key evil-normal-state-map (kbd "B") 'evil-backward-word-begin)
 (define-key evil-normal-state-map (kbd "ZQ") 'kill-current-buffer)
 (define-key evil-normal-state-map (kbd "w") 'evil-forward-WORD-begin)
 (define-key evil-normal-state-map (kbd "b") 'evil-backward-WORD-begin)
