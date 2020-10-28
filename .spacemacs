@@ -144,8 +144,9 @@ values."
    dotspacemacs-themes '(
 
 												 ;; --- Dark themes ---
-												 base16-atelier-cave ;; rabi-ribi
+												 ;; spacemacs-dark
 												 flucui-dark ;; based off of lab-dark
+												 ;; base16-atelier-cave ;; rabi-ribi
 												 ;; base16-snazzy ;; similar-ish to atelier-cave
 												 ;; lab-dark
 												 ;; base16-atelier-plateau ;; similar to cave
@@ -157,7 +158,6 @@ values."
 												 ;; night-owl
 												 ;; fogus
 												 ;; graham ;; dark-blue w/ bright orange-gold
-												 ;; spacemacs-dark
 
 												 ;; --- Colored themes ---
 												 moe-light ;; colorful
@@ -859,8 +859,8 @@ you should place your code here."
 						 ("all" .      "∀")
 						 ("findf" .      "∃")
 						 ("memf" .      "∃")
-						 ;; ("some" .      "∃") ;
-						 ;; ("none" .      "∄") ;
+						 ("some" .      "∃")
+						 ("none" .      "∄")
 						 ;; --- Set Logic ---
 						 ("empty" .      "∅")
 						 ("'()" .      "∅")

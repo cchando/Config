@@ -3639,10 +3639,10 @@ vod-server=any
 random=1
 
 # Repeat all (boolean)
-loop=1
+#loop=0
 
 # Repeat current item (boolean)
-#repeat=0
+repeat=1
 
 # Play and exit (boolean)
 #play-and-exit=0
@@ -4203,7 +4203,7 @@ key-audiodelay-down=
 #key-random=r
 
 # Normal/Loop/Repeat (string)
-#global-key-loop=
+global-key-loop=Ctrl+Shift+i
 
 # Normal/Loop/Repeat (string)
 #key-loop=l

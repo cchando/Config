@@ -80,6 +80,7 @@ alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(title)s.%(4
 
 alias wifioff='sudo rfkill block all'
 alias wifion='sudo rfkill unblock all'
+alias size='du -sh'
 alias r='command' # "raw"
 alias show='alias'
 alias et='emacs -nw'
