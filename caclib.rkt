@@ -2,7 +2,7 @@
 #lang aful typed/racket
 (provide (all-defined-out))
 (require (only-in typed/racket
-                  [filter-map orig:filter-map] [foldl orig:foldl] [foldr orig:foldr]
+                  [filter-map orig:filter-map]
                   [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝔸] [Boolean 𝔹] [Option 𝑴]
                   [Listof 𝑳] [List 𝗟] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
                   [Natural ℕ] [Number ℂ] [Index 𝕀] [Negative-Integer ℤ⁰⁻] [Nonpositive-Integer ℤ⁻] [Integer ℤ] [Nonnegative-Integer ℤ⁰⁺] [Positive-Integer ℤ⁺]
@@ -219,13 +219,10 @@
 
 
 
-
-
-
 ;; ;; TEST
 ;; ;; foldl with break
-;; (: foldl  (∀ (a b) (->* ((a b -> b) b (Listof a)) (#:break Boolean) b)))
-;; (define ( f a xs #:break [bool #t])
+;; (: foldl  (∀ (a b) (->* ((a b -> b) b (Listof a)) (#:break (a -> 𝔸)) b)))
+;; (define (foldl f a xs #:break [bool (λ (x : a) #f)])
 ;;   ( : go : (Listof a) b -> b )
 ;;   (define (go xs acc)
 ;;     (cond [(∨ (empty? xs) bool) acc]
@@ -233,28 +230,28 @@
 ;;   (go xs a))
 
 
+;; ;; FIXME: convert from case-λ to ->*
 ;; ;; foldl with break
 ;; ;; can specify predicate on accumulator or on each element
-;; (: ⮲ (∀ (a b) (case→
-;;                [(a b -> b) b (Listof a) -> b]
-;;                [(a b -> b) b (Listof a) (#:break (a -> Any)) -> b]
-;;                [(a b -> b) b (Listof a) (#:break-acc (b -> Any)) -> b])))
-;; (define ⮲ (case-λ
-;;       [(f a xs) (infer:foldl f a xs)]
-;;       [(f a xs pred)
-;;        (begin
-;;          ( : go : (Listof a) b -> b )
-;;          (define (go xs acc)
-;;            (cond [(∨ (empty? xs) (pred (head xs))) acc]
-;;                  [else (go (cons (f (head xs) (tail xs))))]))
-;;          (go xs a))]
-;;       [(f a xs pred)
-;;        (begin
-;;          (: go : (Listof a) b -> b)
-;;          (define (go xs acc)
-;;            (cond [(∨ (empty? xs) (pred acc)) acc]
-;;                  [else (go (tail xs) (cons (f (head xs) acc)))]))
-;;          (go xs a))]))
+;; (: foldl : ∀ (a b) ->* (a b -> b) b (Listof a) [#:break (a -> Any)] [#:break-acc (b -> Any)] b)
+;; (define (foldl f a xs #:break [pred (λ ([x : a]) #f)] #:break-acc [pred-acc (λ ([acc : b]) #f)])
+;;   )
+;; ;;       [(f a xs) (infer:foldl f a xs)]
+;; ;;       [(f a xs #:break pred)
+;; ;;        (: go : (Listof a) b -> b)
+;; ;;        (define (go xs acc)
+;; ;;          (cond [(or (empty? xs) (pred (head xs))) acc]
+;; ;;                [else (go (tail xs) (cons (f (head xs) acc)))]))
+;; ;;        (go xs a)]
+;; ;;       [(f a xs #:break pred)
+;; ;;        (: go : (Listof a) b -> b)
+;; ;;        (define (go xs acc)
+;; ;;          (cond [(∨ (empty? xs) (pred acc)) acc]
+;; ;;                [else (go (tail xs) (cons (f (head xs) acc)))]))
+;; ;;        (go xs a)]
+;; ;;       ))
+
+
 
 
 ;; ;; foldl1 with break
@@ -354,11 +351,12 @@
 
 
 
-(: zip-with (∀ (a b c d) (case→
-                        ((a b -> c) (Listof a) (Listof b) -> (Listof c))
-                        ((a b c -> d) (Listof a) (Listof b) (Listof c) -> (Listof d)))))
-(define zip-with (case-λ [(f xs ys) (map f xs ys)]
-                    [(f xs ys zs) (map f xs ys zs)]))
+(: zip-with (∀ (a b c d) (case->
+                          [(a b -> c) (Listof a) (Listof b) -> (Listof c)]
+                          [(a b c -> d) (Listof a) (Listof b) (Listof c) -> (Listof d)])))
+(define zip-with (case-λ
+             [(f xs ys) (map f xs ys)]
+             [(f xs ys zs) (map f xs ys zs)]))
 
 
 (: unzip : ∀ (a b) (Listof (Pair a b)) -> (Pair (Listof a) (Listof b)))
@@ -418,6 +416,7 @@
   (ormap (λ ([v : b]) (∧ (equal? v ((inst hash-ref a b) h k #f)) v)) vs))
 
 
+;; ;; FIXME
 ;; ;; if ∃ v' ∈ vs | v' == (hash-ref h k), then give (the 1st matching) v', else #f
 ;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
 ;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (Maybe v)'s.
