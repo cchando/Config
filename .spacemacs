@@ -144,7 +144,8 @@ values."
    dotspacemacs-themes '(
 
 												 ;; --- Dark themes ---
-												 ;; spacemacs-dark
+												 spacemacs-dark
+												 base16-solarflare
 												 flucui-dark ;; based off of lab-dark
 												 ;; base16-atelier-cave ;; rabi-ribi
 												 ;; base16-snazzy ;; similar-ish to atelier-cave

@@ -81,16 +81,16 @@ workspace 2 output DP-1-3 HDMI-1 eDP-1
 workspace 3 output DP-1-3 HDMI-1 eDP-1
 workspace 4 output DP-1-3 HDMI-1 eDP-1
 workspace 5 output DP-1-3 HDMI-1 eDP-1
-workspace 6 output DP-1-3 HDMI-1 eDP-1
-workspace 7 output DP-1-3 HDMI-1 eDP-1
-workspace 8 output DP-1-3 HDMI-1 eDP-1
+workspace 6 output HDMI-1 DP-1-3 eDP-1
+workspace 7 output HDMI-1 DP-1-3 eDP-1
+workspace 8 output HDMI-1 DP-1-3 eDP-1
 workspace 9 output HDMI-1 DP-1-3 eDP-1
-workspace 10 output HDMI-1 DP-1-3 eDP-1
+workspace 0 output HDMI-1 DP-1-3 eDP-1
 
 # workspace_auto_back_and_forth yes
 
-bindsym $mod+h workspace prev
-bindsym $mod+l workspace next
+bindsym $mod+h workspace prev_on_output
+bindsym $mod+l workspace next_on_output
 bindsym Ctrl+apostrophe workspace back_and_forth
 bindsym Ctrl+semicolon workspace back_and_forth 
 
@@ -101,8 +101,8 @@ bindsym Ctrl+semicolon workspace back_and_forth
 no_focus [window_role="pop-up"]
 
 # Assign google-chrome-stable to workspace 7
-assign [class="^Google-chrome$"] → 7
-assign [class="^Emacs$"] → 9
+assign [class="^Google-chrome$"] → 1
+assign [class="^Emacs$"] → 5
 # assign [instance="^google-chrome" class="^Google-chrome$"] → 7
 
 # - To get the class and instance, you can use    "xprop | grep 'CLASS'".
@@ -186,15 +186,15 @@ assign [class="^Emacs$"] → 9
     bindsym $mod+n exec nitrogen 
     
     # start vlc
-		# bindsym $mod+Shift+v exec /home/cameron/.i3/vlc-helper 
-		bindsym $mod+v exec /home/cameron/.i3/vlc-helper 
-		bindsym $mod+Shift+v exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf
+		bindsym $mod+Shift+v "exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf; exec sleep 1; [class=^vlc$] move scratchpad"
+		# bindsym $mod+Shift+v exec /home/cameron/.i3/vlc-helper
+		# bindsym $mod+v exec /home/cameron/.i3/vlc-helper
+		# bindsym $mod+Shift+v exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf
 		# bindsym $mod+v [class=^vlc$] move scratchpad
-		# bindsym $mod+Shift+v "exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf; [class=^vlc$] move scratchpad"
     # bindsym $mod+q "workspace 3; exec $term; exec i3-msg border none ; workspace 10"
 
     # volume control
-    bindsym $mod+p exec pavucontrol #pavucontrol-qt
+    bindsym $mod+v exec pavucontrol #pavucontrol-qt
     
     # start kcolorchooser
     bindsym $mod+z exec kcolorchooser
@@ -258,11 +258,29 @@ assign [class="^Emacs$"] → 9
     # disable touchpad 
     bindsym Mod1+Ctrl+m exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0
 
-    # TODO: why doesn't this work?
-    # Take a screenshot upon pressing $mod+x (select an area)
-    bindsym --release $mod+x exec --no-startup-id import /home/cameron/tmp/latest-screenshot.png
+    # # TODO: install similar screenshot program. "import" not in Nix repo
+    # # Take a screenshot upon pressing $mod+x (select an area)
+    # bindsym --release $mod+x exec --no-startup-id import /home/cameron/tmp/latest-screenshot.png
 
-#
+
+
+# 
+# Marks:
+# mark [--add|--replace] [--toggle] <identifier>
+# [con_mark="identifier"] focus
+# unmark <identifier>
+# 
+
+    show_marks no
+
+    # read 1 char and mark the current window with this char
+    bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+
+    # read 1 char and go to the window with the char
+    bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+
+
+
 # Moving around:
 #
     # Move your focus around
@@ -301,7 +319,7 @@ assign [class="^Emacs$"] → 9
     bindsym Ctrl+7 workspace 7
     bindsym Ctrl+8 workspace 8
     bindsym Ctrl+9 workspace 9
-    bindsym Ctrl+0 workspace 10
+    bindsym Ctrl+0 workspace 0
     # move focused container to workspace
     bindsym Ctrl+Shift+1 move container to workspace 1
     bindsym Ctrl+Shift+2 move container to workspace 2
@@ -312,10 +330,11 @@ assign [class="^Emacs$"] → 9
     bindsym Ctrl+Shift+7 move container to workspace 7
     bindsym Ctrl+Shift+8 move container to workspace 8
     bindsym Ctrl+Shift+9 move container to workspace 9
-    # bindsym Ctrl+Shift+0 move container to workspace " "
-    bindsym Ctrl+Shift+0 move container to workspace 10
+    bindsym Ctrl+Shift+0 move container to workspace 0
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default. Non-number names must be quoted as strings.
+    # bindsym Ctrl+1 workspace 1: mail
+    # bindsym Ctrl+Shift+0 move container to workspace " "
 #
 # Layout stuff:
 #
@@ -390,6 +409,7 @@ bar {
     #tray_output none
     position top
     separator_symbol "   "  
+		# i3bar_command i3bar --transparency
     # disable clicking on workspace buttons
     #bindsym button1 nop
     #status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
