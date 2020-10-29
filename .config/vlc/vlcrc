@@ -3744,7 +3744,7 @@ one-instance=1
 #global-key-leave-fullscreen=
 
 # Exit fullscreen (string)
-#key-leave-fullscreen=Esc
+key-leave-fullscreen=Shift+f
 
 # Play/Pause (string)
 global-key-play-pause=Ctrl+Shift+p
@@ -3795,13 +3795,13 @@ global-key-play-pause=Ctrl+Shift+p
 #key-rate-slower-fine=[
 
 # Next (string)
-global-key-next=Ctrl+p
+global-key-next=Ctrl+n
 
 # Next (string)
 #key-next=n	Media Next Track
 
 # Previous (string)
-global-key-prev=Ctrl+n
+global-key-prev=Ctrl+p
 
 # Previous (string)
 #key-prev=p	Media Prev Track
@@ -3882,25 +3882,25 @@ global-key-prev=Ctrl+n
 #global-key-nav-up=
 
 # Navigate up (string)
-#key-nav-up=Up
+key-nav-up=k
 
 # Navigate down (string)
 #global-key-nav-down=
 
 # Navigate down (string)
-#key-nav-down=Down
+key-nav-down=j
 
 # Navigate left (string)
 #global-key-nav-left=
 
 # Navigate left (string)
-#key-nav-left=Left
+key-nav-left=h
 
 # Navigate right (string)
 #global-key-nav-right=
 
 # Navigate right (string)
-#key-nav-right=Right
+key-nav-right=l
 
 # Go to the DVD menu (string)
 #global-key-disc-menu=
@@ -3942,13 +3942,13 @@ global-key-prev=Ctrl+n
 global-key-vol-up=Ctrl+u
 
 # Volume up (string)
-key-vol-up=k
+key-vol-up=
 
 # Volume down (string)
 global-key-vol-down=Ctrl+d
 
 # Volume down (string)
-key-vol-down=j
+key-vol-down=
 
 # Mute (string)
 global-key-vol-mute=Ctrl+Shift+m
@@ -3960,7 +3960,7 @@ key-vol-mute=m
 #global-key-subdelay-up=
 
 # Subtitle delay up (string)
-#key-subdelay-up=h
+key-subdelay-up=
 
 # Subtitle delay down (string)
 #global-key-subdelay-down=
@@ -4008,13 +4008,13 @@ key-vol-mute=m
 #global-key-audiodelay-up=
 
 # Audio delay up (string)
-key-audiodelay-up=
+key-audiodelay-up=a
 
 # Audio delay down (string)
 #global-key-audiodelay-down=
 
 # Audio delay down (string)
-key-audiodelay-down=
+key-audiodelay-down=Shift+a
 
 # Cycle audio track (string)
 #global-key-audio-track=
@@ -4026,7 +4026,7 @@ key-audiodelay-down=
 #global-key-audiodevice-cycle=
 
 # Cycle through audio devices (string)
-#key-audiodevice-cycle=Shift+a
+key-audiodevice-cycle=
 
 # Cycle subtitle track in reverse order (string)
 #global-key-subtitle-revtrack=
@@ -4062,7 +4062,7 @@ key-audiodelay-down=
 #global-key-aspect-ratio=
 
 # Cycle source aspect ratio (string)
-#key-aspect-ratio=a
+key-aspect-ratio=
 
 # Cycle video crop (string)
 #global-key-crop=
@@ -4206,7 +4206,7 @@ key-audiodelay-down=
 global-key-loop=Ctrl+Shift+i
 
 # Normal/Loop/Repeat (string)
-#key-loop=l
+key-loop=
 
 # Shrink the viewpoint field of view (360°) (string)
 #global-key-viewpoint-fov-in=
@@ -4413,7 +4413,7 @@ global-key-loop=Ctrl+Shift+i
 #key-subtitle-text-scale-down=Ctrl+Mouse Wheel Down
 
 # Playlist bookmark 1 (string)
-#bookmark1=
+bookmark1=file:///home/cameron/Music/Night%20in%20the%20Woods%20OST/Snack%20Falcon.mp3
 
 # Playlist bookmark 2 (string)
 #bookmark2=

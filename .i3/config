@@ -1,25 +1,37 @@
 # C file for i3 window manager
 #   
 # Read `man i3` for a complete reference.
+
+# i3 config file (v4)     # ensure that this file is read using the i3 v4.0+ format
+
+
 # exec redshift -l 32.96:-96.67 -t 6500:2500
+
 exec xbanish  # banish mouse cursor when not in use
 exec compton  # enable window transparency
+
 # disable touchpad:
 exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
+
 # disable mouse stick:
 exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
-# set up monitors correctly:
-exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec i3-msg workspace 3 ; exec i3-msg workspace 1
+
+# # set up monitors correctly:
+# exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec i3-msg workspace 3 ; exec i3-msg workspace 1 ; exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+
+#bindsym $mod+n exec i3-msg move workspace 1 ; i3-msg workspace 1
+
 exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+
 # exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/vlad\ diving.jpg
 # exec nitrogen --head=-1 --set-zoom-fill ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg
 # exec nitrogen --head=-1 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg
 # exec nitrogen --restore
 
 
-# TODO: specify not to steal focus
 # Start internet browser on workspace 3, then switch back to workspace 1
 # bindsym $mod+q exec --no-startup-id i3-msg workspace 1; exec $term; workspace 9
+
 
 # --- Syntax: ---
 # default_border normal|none|pixel   # pixel eliminates title bars
@@ -28,20 +40,22 @@ exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.j
 # default_floating_border normal|pixel <px>
 # hide_edge_borders none|vertical|horizontal|both|smart
 
-default_border none
-# default_border pixel 3
-hide_edge_borders smart
-# hide_edge_borders none|vertical|horizontal|both|smart
+    default_border none
+    # default_border pixel 3
+    hide_edge_borders smart
+    # hide_edge_borders none|vertical|horizontal|both|smart
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #757e82
-client.focused_inactive #000000 #5f676a #ffffff #484e50   #000000
-client.unfocused        #000000 #222222 #888888 #292d2e   #000000
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #ffffff
+    # class                 border  backgr. text    indicator child_border
+    client.focused          #4c7899 #285577 #ffffff #2e9ef4   #757e82
+    client.focused_inactive #000000 #5f676a #ffffff #484e50   #000000
+    client.unfocused        #000000 #222222 #888888 #292d2e   #000000
+    client.urgent           #2f343a #900000 #ffffff #900000   #900000
+    client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+    client.background       #ffffff
 
 
+# font Hasklig 11
+# bindsym $mod+v nop   # testing purposes for font errors
 
 
 ### Variables
@@ -74,48 +88,11 @@ set $ibrowser google-chrome-stable
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-bindsym $mod+d exec xrandr --output eDP-1 --off
-bindsym $mod+Shift+d exec xrandr --output eDP-1 --auto
-
-# Assign given workspace to given screen. 1st screen is tried first, etc.
-workspace 1 output DP-1-3 HDMI-1 eDP-1
-workspace 2 output DP-1-3 HDMI-1 eDP-1
-workspace 3 output DP-1-3 HDMI-1 eDP-1
-workspace 4 output DP-1-3 HDMI-1 eDP-1
-workspace 5 output DP-1-3 HDMI-1 eDP-1
-workspace 6 output HDMI-1 DP-1-3 eDP-1
-workspace 7 output HDMI-1 DP-1-3 eDP-1
-workspace 8 output HDMI-1 DP-1-3 eDP-1
-workspace 9 output HDMI-1 DP-1-3 eDP-1
-workspace 0 output HDMI-1 DP-1-3 eDP-1
-
-# workspace_auto_back_and_forth yes
-
-bindsym $mod+h workspace prev_on_output
-bindsym $mod+l workspace next_on_output
-bindsym Ctrl+apostrophe workspace back_and_forth
-bindsym Ctrl+semicolon workspace back_and_forth 
-
-    # # # testing purposes
-    # bindsym $mod+q "workspace 3; exec $term; exec i3-msg border none; workspace 10"
-
-# Prevent popup windows from stealing the focus
-no_focus [window_role="pop-up"]
-
-# Assign google-chrome-stable to workspace 7
-assign [class="^Google-chrome$"] → 1
-assign [class="^Emacs$"] → 5
-# assign [instance="^google-chrome" class="^Google-chrome$"] → 1
-
-# - To get the class and instance, you can use    "xprop | grep 'CLASS'".
-# - After clicking on the window, you will see the following output:
-#     xprop:
-#     WM_CLASS(STRING) = "irssi", "URxvt"
-# - The first part of the WM_CLASS is the instance ("irssi" in this example), the second part is the class ("URxvt" in this example).
-# - Should you have any problems with assignments, make sure to check the i3 logfile first (see https://i3wm.org/docs/debugging.html). It includes more details about the matching process and the window’s actual class, instance and title when starting up.
+    bindsym $mod+d exec xrandr --output eDP-1 --off
+    bindsym $mod+Shift+d exec xrandr --output eDP-1 --auto
 
 
-#bindsym $mod+n exec i3-msg move workspace 1 ; i3-msg workspace 1
+
 
 ### Idle configuration
 #
@@ -151,9 +128,10 @@ assign [class="^Emacs$"] → 5
 #
 # Basics:
 #
-    # TODO: convert this to proper chaining syntax w/ ";" "," and make it automatic rather than a binding
-		# set up screens correctly 
-    bindsym $mod+Shift+p exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 && i3-msg workspace 3 && i3-msg workspace 1
+		# set up dual screens correctly 
+    bindsym $mod+Shift+p exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec i3-msg workspace 3 ; exec i3-msg workspace 1 ; exec sleep 4; exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+		# bindsym $mod+Shift+p "exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec i3-msg workspace 3 ; exec i3-msg workspace 1"
+    # bindsym $mod+Shift+p exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 && i3-msg workspace 3 && i3-msg workspace 1
     
     bindsym $mod+bracketleft exec xrandr --output HDMI-1 --rotate normal
 
@@ -187,12 +165,12 @@ assign [class="^Emacs$"] → 5
     # start wallpaper program
     bindsym $mod+n exec nitrogen 
     
-    # start vlc
-		bindsym $mod+Shift+v "exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf; exec sleep 1; [class=^vlc$] move scratchpad"
-		# bindsym $mod+Shift+v exec /home/cameron/.i3/vlc-helper
-		# bindsym $mod+v exec /home/cameron/.i3/vlc-helper    # testing purposes
-		# bindsym $mod+Shift+v exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf
-		# bindsym $mod+v [class=^vlc$] move scratchpad
+    # start vlc w/ playlist
+		# TODO: why doesn't this work in also moving vlc to scratchpad (or other workspace) in a chained command?
+		bindsym $mod+Shift+v exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf
+		# bindsym $mod+Shift+u "exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf; exec sleep 1; [class=^vlc$] move scratchpad"
+		# bindsym $mod+Shift+u "exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf; exec sleep 1; exec i3-msg [class=^vlc$] move scratchpad"
+		# bindsym $mod+q exec /home/cameron/.i3/vlc-helper    # testing purposes
 
     # volume control
     bindsym $mod+v exec pavucontrol #pavucontrol-qt
@@ -218,9 +196,17 @@ assign [class="^Emacs$"] → 5
     # start emacs (full-height, full-width)
     bindsym $mod+s exec emacs -mm
 
+    # start spacemacs w/ (modded) default config
 		# TODO: find out how to do this correctly
-    # start spacemacs w/ (slightly modded) default config
     # bindsym $mod+Shift+s exec emacs -fs -q -l ~/.spacemacs-default-mod
+
+    # toggle-mute pulseaudio
+    bindsym Ctrl+Return exec pulseaudio-ctl mute
+    bindsym Ctrl+Shift+Return exec pulseaudio-ctl mute
+    # vol up
+    bindsym Ctrl+Shift+u exec pulseaudio-ctl up
+    # vol down
+    bindsym Ctrl+Shift+d exec pulseaudio-ctl down
 
     # redshift off
     bindsym $mod+4 exec redshift -x
@@ -310,9 +296,65 @@ assign [class="^Emacs$"] → 5
 #
 # Workspaces:
 #
+
+# Assign given workspace to given screen. 1st screen is tried first, etc.
+    workspace 1 output DP-1-3 HDMI-1 eDP-1
+    workspace 2 output DP-1-3 HDMI-1 eDP-1
+    workspace 3 output DP-1-3 HDMI-1 eDP-1
+    workspace 4 output DP-1-3 HDMI-1 eDP-1
+    workspace 5 output DP-1-3 HDMI-1 eDP-1
+    workspace 6 output HDMI-1 DP-1-3 eDP-1
+    workspace 7 output HDMI-1 DP-1-3 eDP-1
+    workspace 8 output HDMI-1 DP-1-3 eDP-1
+    workspace 9 output HDMI-1 DP-1-3 eDP-1
+    workspace 10 output HDMI-1 DP-1-3 eDP-1
+    workspace "1:chrome" output DP-1-3 HDMI-1 eDP-1
+    workspace "2:" output DP-1-3 HDMI-1 eDP-1
+    workspace "3:" output DP-1-3 HDMI-1 eDP-1
+    workspace "4:" output DP-1-3 HDMI-1 eDP-1
+    workspace "5:" output DP-1-3 HDMI-1 eDP-1
+    workspace "6:emacs" output HDMI-1 DP-1-3 eDP-1
+    workspace "7:term" output HDMI-1 DP-1-3 eDP-1
+    workspace "8:" output HDMI-1 DP-1-3 eDP-1
+    workspace "9:" output HDMI-1 DP-1-3 eDP-1
+    workspace "10:" output HDMI-1 DP-1-3 eDP-1
+    workspace " " output HDMI-1 DP-1-3 eDP-1
+
+    # workspace_auto_back_and_forth yes
+
+    bindsym $mod+h workspace prev_on_output
+    bindsym $mod+l workspace next_on_output
+    bindsym Ctrl+apostrophe workspace back_and_forth
+    bindsym Ctrl+semicolon workspace back_and_forth 
+    bindsym $mod+apostrophe workspace back_and_forth
+    bindsym $mod+semicolon workspace back_and_forth 
+
+    # # switch to workspace
+		# bindsym Ctrl+1 workspace "1:chrome"
+		# bindsym Ctrl+2 workspace "2:"
+    # bindsym Ctrl+3 workspace "3:"
+    # bindsym Ctrl+4 workspace "4:"
+    # bindsym Ctrl+5 workspace "5:"
+    # bindsym Ctrl+6 workspace "6:emacs"
+    # bindsym Ctrl+7 workspace "7:term"
+    # bindsym Ctrl+8 workspace "8:"
+    # bindsym Ctrl+9 workspace "9:"
+    # bindsym Ctrl+0 workspace "10:"
+    # # move focused container to workspace
+    # bindsym Ctrl+Shift+1 move container to workspace "1:chrome"
+    # bindsym Ctrl+Shift+2 move container to workspace "2:"
+    # bindsym Ctrl+Shift+3 move container to workspace "3:"
+    # bindsym Ctrl+Shift+4 move container to workspace "4:"
+    # bindsym Ctrl+Shift+5 move container to workspace "5:"
+    # bindsym Ctrl+Shift+6 move container to workspace "6:emacs"
+    # bindsym Ctrl+Shift+7 move container to workspace "7:term"
+    # bindsym Ctrl+Shift+8 move container to workspace "8:"
+    # bindsym Ctrl+Shift+9 move container to workspace "9:"
+    # bindsym Ctrl+Shift+0 move container to workspace "10:"
+
     # switch to workspace
-    bindsym Ctrl+1 workspace 1
-    bindsym Ctrl+2 workspace 2
+		bindsym Ctrl+1 workspace 1
+		bindsym Ctrl+2 workspace 2
     bindsym Ctrl+3 workspace 3
     bindsym Ctrl+4 workspace 4
     bindsym Ctrl+5 workspace 5
@@ -320,7 +362,7 @@ assign [class="^Emacs$"] → 5
     bindsym Ctrl+7 workspace 7
     bindsym Ctrl+8 workspace 8
     bindsym Ctrl+9 workspace 9
-    bindsym Ctrl+0 workspace 0
+    bindsym Ctrl+0 workspace 10
     # move focused container to workspace
     bindsym Ctrl+Shift+1 move container to workspace 1
     bindsym Ctrl+Shift+2 move container to workspace 2
@@ -331,11 +373,45 @@ assign [class="^Emacs$"] → 5
     bindsym Ctrl+Shift+7 move container to workspace 7
     bindsym Ctrl+Shift+8 move container to workspace 8
     bindsym Ctrl+Shift+9 move container to workspace 9
-    bindsym Ctrl+Shift+0 move container to workspace 0
+    bindsym Ctrl+Shift+0 move container to workspace 10
+
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default. Non-number names must be quoted as strings.
     # bindsym Ctrl+1 workspace 1: mail
     # bindsym Ctrl+Shift+0 move container to workspace " "
+
+
+#
+# Window focus
+# focus_on_window_activation smart|urgent|focus|none
+#
+    focus_on_window_activation none
+    force_display_urgency_hint 500 ms
+
+
+    # # testing purposes
+    # bindsym $mod+q "workspace 3; exec $term; exec i3-msg border none; workspace 10"
+
+# Prevent popup windows from stealing the focus
+    no_focus [window_role="pop-up"]
+
+# Assign google-chrome-stable to workspace 7
+    assign [class="^Google-chrome$"] → 1
+    assign [class="^Emacs$"] → 6
+# assign [instance="^google-chrome" class="^Google-chrome$"] → 1
+
+# - To get the class and instance, you can use    "xprop | grep 'CLASS'".
+# - After clicking on the window, you will see the following output:
+#     xprop:
+#     WM_CLASS(STRING) = "irssi", "URxvt"
+# - The first part of the WM_CLASS is the instance ("irssi" in this example), the second part is the class ("URxvt" in this example).
+# - Should you have any problems with assignments, make sure to check the i3 logfile first (see https://i3wm.org/docs/debugging.html). It includes more details about the matching process and the window’s actual class, instance and title when starting up.
+
+
+
+
+
+
 #
 # Layout stuff:
 #
@@ -372,6 +448,7 @@ assign [class="^Emacs$"] → 5
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
+    # bindsym Ctrl+Shift+minus "move scratchpad ; move "
     bindsym Ctrl+Shift+minus move scratchpad
 
     bindsym Ctrl+minus scratchpad show
@@ -409,6 +486,7 @@ mouse_warping none
 bar {
     #tray_output none
     position top
+    strip_workspace_numbers yes    # only yes|no
     separator_symbol "   "  
     # # mode dock|hide|invisible
     # # hidden_state hide|show
@@ -416,21 +494,53 @@ bar {
 		mode hide
 		hidden_state hide
 		modifier $mod
-    # disable clicking on workspace buttons
-    #bindsym button1 nop
-    #status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
+    # bindsym button1 nop    # disable clicking on workspace buttons
+    # status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
     status_command i3status #--config ~/.i3status.conf
+
     colors {
+        
+        #
+        # # Syntax:
+        # # <colorclass> <border> <background> <text>
+        #
 
         #---- night-owl ----
         statusline #888888   ###text   ###addb67 --green
         background #011627  
         inactive_workspace #32323200 #32323200 #5c5c5c
-        
+
         # #---- default ----
         # statusline #ffffff
         # background #323232
         # inactive_workspace #32323200 #32323200 #5c5c5c
+
+        #
+				# Supported configurable colors:
+
+        ## focused_background
+        ## Background color of the bar on the currently focused monitor output. If not used, the color will be taken from background.
+
+        ## focused_statusline
+        ## Text color to be used for the statusline on the currently focused monitor output. If not used, the color will be taken from statusline.
+
+        ## focused_separator
+        ## Text color to be used for the separator on the currently focused monitor output. If not used, the color will be taken from separator.
+
+        ## focused_workspace
+        ## Border, background and text color for a workspace button when the workspace has focus.
+
+        ## active_workspace
+        ## Border, background and text color for a workspace button when the workspace is active (visible) on some output, but the focus is on another one. You can only tell this apart from the focused workspace when you are using multiple monitors.
+
+        ## inactive_workspace
+        ## Border, background and text color for a workspace button when the workspace does not have focus and is not active (visible) on any output. This will be the case for most workspaces.
+
+        ## urgent_workspace
+        ## Border, background and text color for a workspace button when the workspace contains a window with the urgency hint set.
+
+        ## binding_mode
+        ## Border, background and text color for the binding mode indicator. If not used, the colors will be taken from urgent_workspace.
 
     }
 }

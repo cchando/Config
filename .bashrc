@@ -79,6 +79,7 @@ alias ydlp='youtube-dl -cix --yes-playlist -o "~/Music/youtube-dl/%(playlist)s/%
 alias ydlv='youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 
+alias alsamutetoggle='amixer -q -D pulse sset Master toggle'
 alias wifioff='sudo rfkill block all'
 alias wifion='sudo rfkill unblock all'
 alias size='du -sh'
@@ -86,6 +87,8 @@ alias lmon='xrandr --current' # list monitors
 alias name='xprop | grep CLASS' # get [instance, class] of whatever window we click on next
 alias r='command' # "raw"
 alias show='alias'
+alias getkey='xev'
+alias key='xev'
 alias ir='i3-msg reload'
 alias et='emacs -nw'
 alias vimode='set -o vi'
