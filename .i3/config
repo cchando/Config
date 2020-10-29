@@ -4,18 +4,20 @@
 # exec redshift -l 32.96:-96.67 -t 6500:2500
 exec xbanish  # banish mouse cursor when not in use
 exec compton  # enable window transparency
+# disable touchpad:
+exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
+# disable mouse stick:
+exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
+# set up monitors correctly:
+exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec i3-msg workspace 3 ; exec i3-msg workspace 1
 exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
 # exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/vlad\ diving.jpg
 # exec nitrogen --head=-1 --set-zoom-fill ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg
 # exec nitrogen --head=-1 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Florida/homes_condos_townhouses/a3ur023uvr.jpg
 # exec nitrogen --restore
-# disable touchpad
-exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
-# disable mouse stick
-exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
 
 
-# TODO: why does this go to 1, then go back to whichever workspace I was on before 1 (not necessarily 9), and then exec $term?
+# TODO: specify not to steal focus
 # Start internet browser on workspace 3, then switch back to workspace 1
 # bindsym $mod+q exec --no-startup-id i3-msg workspace 1; exec $term; workspace 9
 
@@ -103,7 +105,7 @@ no_focus [window_role="pop-up"]
 # Assign google-chrome-stable to workspace 7
 assign [class="^Google-chrome$"] → 1
 assign [class="^Emacs$"] → 5
-# assign [instance="^google-chrome" class="^Google-chrome$"] → 7
+# assign [instance="^google-chrome" class="^Google-chrome$"] → 1
 
 # - To get the class and instance, you can use    "xprop | grep 'CLASS'".
 # - After clicking on the window, you will see the following output:
@@ -177,7 +179,7 @@ assign [class="^Emacs$"] → 5
     bindsym $mod+i exec $ibrowser
     
     # close all google-chrome-stable windows
-    bindsym $mod+Shift+g exec 
+    bindsym $mod+Shift+g [class="^Google-chrome$"] kill
     
     # start encryptr
     bindsym $mod+e exec encryptr
@@ -188,10 +190,9 @@ assign [class="^Emacs$"] → 5
     # start vlc
 		bindsym $mod+Shift+v "exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf; exec sleep 1; [class=^vlc$] move scratchpad"
 		# bindsym $mod+Shift+v exec /home/cameron/.i3/vlc-helper
-		# bindsym $mod+v exec /home/cameron/.i3/vlc-helper
+		# bindsym $mod+v exec /home/cameron/.i3/vlc-helper    # testing purposes
 		# bindsym $mod+Shift+v exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf
 		# bindsym $mod+v [class=^vlc$] move scratchpad
-    # bindsym $mod+q "workspace 3; exec $term; exec i3-msg border none ; workspace 10"
 
     # volume control
     bindsym $mod+v exec pavucontrol #pavucontrol-qt
@@ -214,8 +215,8 @@ assign [class="^Emacs$"] → 5
     # restart i3
     bindsym $mod+Shift+r restart
 
-    # start emacs in fullscreen
-    bindsym $mod+s exec emacs -fs
+    # start emacs (full-height, full-width)
+    bindsym $mod+s exec emacs -mm
 
 		# TODO: find out how to do this correctly
     # start spacemacs w/ (slightly modded) default config
@@ -409,19 +410,27 @@ bar {
     #tray_output none
     position top
     separator_symbol "   "  
-		# i3bar_command i3bar --transparency
+    # # mode dock|hide|invisible
+    # # hidden_state hide|show
+    # # modifier <Modifier>|none
+		mode hide
+		hidden_state hide
+		modifier $mod
     # disable clicking on workspace buttons
     #bindsym button1 nop
     #status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
     status_command i3status #--config ~/.i3status.conf
     colors {
+
         #---- night-owl ----
         statusline #888888   ###text   ###addb67 --green
         background #011627  
-        
-        #---- default ----
-        #statusline #ffffff
-        #background #323232
         inactive_workspace #32323200 #32323200 #5c5c5c
+        
+        # #---- default ----
+        # statusline #ffffff
+        # background #323232
+        # inactive_workspace #32323200 #32323200 #5c5c5c
+
     }
 }

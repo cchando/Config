@@ -31,8 +31,6 @@ alias chupd='nix-channel --update'
 alias upg='nix-env --upgrade'
 alias upgv='nix-env --upgrade --always'
 alias rollback='nix-env --rollback'
-alias rm='mv -t /home/cameron/.trash'
-alias rmu='rm' # remove unsafe
 alias inst='nix-env -iA'
 alias nist='nix-env -iA'
 alias isnt='nix-env -iA'
@@ -47,6 +45,9 @@ alias linst='nix-env -q --installed'
 # program aliases
 alias e='exit'
 alias c='clear'
+alias rm='command mv -t /home/cameron/.trash'
+alias rmu='command rm' # remove unsafe
+alias rmdir='command rm -r' # remove recursive
 alias ls='ls --color=auto'
 alias charmap='gucharmap'
 alias grep='egrep'
@@ -82,7 +83,7 @@ alias wifioff='sudo rfkill block all'
 alias wifion='sudo rfkill unblock all'
 alias size='du -sh'
 alias lmon='xrandr --current' # list monitors
-alias getname='xprop | grep CLASS' # get [instance, class]
+alias name='xprop | grep CLASS' # get [instance, class] of whatever window we click on next
 alias r='command' # "raw"
 alias show='alias'
 alias ir='i3-msg reload'
@@ -95,10 +96,9 @@ alias lfonts='gtk2fontsel'
 alias lst='ps -A | grep'
 alias xr='xrdb -merge ~/.Xdefaults'
 alias bat='acpi'    # or 'upower ...'
-alias music='cmuse'
-alias zip='7z a'
+# alias music='cmuse'
+alias zip='7z a' # zip <NAME>.7z <SOURCE>   # yes, the ".7z" is needed, even though it's semantically redundant
 alias unzip='7z x'
-alias zipt='7z a -tzip'
 alias bhi='sudo brightnessctl set 100%'
 alias bmhi='sudo brightnessctl set 75%'
 alias bmed='sudo brightnessctl set 50%'
@@ -112,19 +112,20 @@ alias sticke="xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -
 function conda-shell {
     nix-shell ~/.conda-shell.nix
 }
+
 #alias mvfiles='find . type f -regextype egrep -regex '.*[a-z]+\.el$' -execdir mv -t dest {} \+'  # example only
 
 # config edits
-alias enc='emacs /etc/nixos/configuration.nix -fs'
-alias eba='emacs ~/.bashrc -fs'
-alias evi='emacs ~/.vimrc -fs'
-alias eiwm='emacs ~/.i3/config -fs'
-alias eis='emacs ~/.i3status.conf -fs'
-alias ete='emacs ~/.config/termite/config -fs'
-alias eki='emacs ~/.config/kitty/kitty.conf -fs'
-alias etm='emacs ~/.tmux.conf -fs'
-alias est='emacs ~/.config/stretchly/config.json -fs'
-# alias es='emacs ~/.config/sway/config -fs'
+alias enc='emacs -nw /etc/nixos/configuration.nix -fs'
+alias eba='emacs -nw ~/.bashrc -fs'
+alias evi='emacs -nw ~/.vimrc -fs'
+alias eiwm='emacs -nw ~/.i3/config -fs'
+alias eis='emacs -nw ~/.i3status.conf -fs'
+alias ete='emacs -nw ~/.config/termite/config -fs'
+alias eki='emacs -nw ~/.config/kitty/kitty.conf -fs'
+alias etm='emacs -nw ~/.tmux.conf -fs'
+alias est='emacs -nw ~/.config/stretchly/config.json -fs'
+# alias es='emacs -nw ~/.config/sway/config -fs'
 
 # git commands
 alias uns='git restore' # "unstage"
@@ -134,10 +135,12 @@ alias st='git status'
 alias com='git commit'
 alias grm='git rm'
 alias grc='git rm --cached' # "git untrack"
+alias rest='git restore'
+alias restore='git restore'
 alias br='git branch'
 alias cbr='git switch -c'
-alias cbrO='echo "use cbr --force"'
-alias cbrF='echo "use cbr --force"'
+alias cbrO='echo "use cbr [-f | --force]"'
+alias cbrF='echo "use cbr [-f | --force]"'
 alias pull='git pull'
 alias pullr='git pull --rebase'
 alias push='git push'
@@ -145,7 +148,6 @@ alias add='git add'
 alias amend='git commit amend'
 alias reba='git rebase'
 alias rebase='git rebase'
-alias res='git reset'
 alias reset='git reset'
 alias log='git log'
 alias logp='git log --pretty=oneline'

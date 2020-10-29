@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf
+i3-msg [class=^vlc$] move scratchpad
