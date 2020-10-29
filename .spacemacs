@@ -1079,7 +1079,7 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
 
-(spacemacs/set-leader-keys (kbd "tp") 'smartparens)
+(spacemacs/set-leader-keys (kbd "tp") 'smartparens-mode)
 ;; (spacemacs/set-leader-keys (kbd "tP") 'pretty-mode)
 (spacemacs/set-leader-keys (kbd "bh") 'previous-buffer)
 (spacemacs/set-leader-keys (kbd "bl") 'next-buffer)
@@ -1325,7 +1325,8 @@ you should place your code here."
  '(evil-snipe-enable-highlight nil)
  '(evil-snipe-enable-incremental-highlight nil)
  '(evil-surround-pairs-alist
-	 '((105 "(" . ")")
+	 '((113 "\"" . "\"")
+		 (105 "(" . ")")
 		 (108 "[" . "]")
 		 (40 "( " . " )")
 		 (91 "[ " . " ]")

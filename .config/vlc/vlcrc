@@ -3639,10 +3639,10 @@ vod-server=any
 random=1
 
 # Repeat all (boolean)
-#loop=0
+loop=1
 
 # Repeat current item (boolean)
-repeat=1
+#repeat=0
 
 # Play and exit (boolean)
 #play-and-exit=0
@@ -3795,13 +3795,13 @@ global-key-play-pause=Ctrl+Shift+p
 #key-rate-slower-fine=[
 
 # Next (string)
-global-key-next=Ctrl+Shift+Right
+global-key-next=Ctrl+p
 
 # Next (string)
 #key-next=n	Media Next Track
 
 # Previous (string)
-global-key-prev=Ctrl+Shift+Left
+global-key-prev=Ctrl+n
 
 # Previous (string)
 #key-prev=p	Media Prev Track
