@@ -16,8 +16,9 @@ exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[
 # disable mouse stick:
 exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
 
-# # set up monitors correctly:
-# exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec i3-msg workspace 3 ; exec i3-msg workspace 1 ; exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+# set up monitors correctly:
+# exec "xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; sleep 4; nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg"
+# exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; i3-msg workspace 1 ; i3-msg workspace 6; exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
 
 #bindsym $mod+n exec i3-msg move workspace 1 ; i3-msg workspace 1
 
@@ -129,7 +130,9 @@ set $ibrowser google-chrome-stable
 # Basics:
 #
 		# set up dual screens correctly 
-    bindsym $mod+Shift+p exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec i3-msg workspace 3 ; exec i3-msg workspace 1 ; exec sleep 4; exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+    bindsym $mod+Shift+p exec "xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; sleep 4; nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg"
+    # bindsym $mod+Shift+p exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+    # bindsym $mod+Shift+p exec "xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; i3-msg workspace 1 ; i3-msg workspace 6 ; sleep 4; nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg"
 		# bindsym $mod+Shift+p "exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 ; exec i3-msg workspace 3 ; exec i3-msg workspace 1"
     # bindsym $mod+Shift+p exec xrandr --output eDP-1 --off --output DP-1-3 --rotate left --output HDMI-1 --rotate right --right-of DP-1-3 && i3-msg workspace 3 && i3-msg workspace 1
     
@@ -322,12 +325,17 @@ set $ibrowser google-chrome-stable
 
     # workspace_auto_back_and_forth yes
 
-    bindsym $mod+h workspace prev_on_output
-    bindsym $mod+l workspace next_on_output
+    bindsym Ctrl+$left workspace prev_on_output
+    bindsym Ctrl+$right workspace next_on_output
     bindsym Ctrl+apostrophe workspace back_and_forth
     bindsym Ctrl+semicolon workspace back_and_forth 
-    bindsym $mod+apostrophe workspace back_and_forth
-    bindsym $mod+semicolon workspace back_and_forth 
+
+    # bindsym $mod+$left workspace prev_on_output
+    # bindsym $mod+$right workspace next_on_output
+    # bindsym Ctrl+apostrophe workspace back_and_forth
+    # bindsym Ctrl+semicolon workspace back_and_forth 
+    # bindsym $mod+apostrophe workspace back_and_forth
+    # bindsym $mod+semicolon workspace back_and_forth 
 
     # # switch to workspace
 		# bindsym Ctrl+1 workspace "1:chrome"
@@ -448,7 +456,6 @@ set $ibrowser google-chrome-stable
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    # bindsym Ctrl+Shift+minus "move scratchpad ; move "
     bindsym Ctrl+Shift+minus move scratchpad
 
     bindsym Ctrl+minus scratchpad show
@@ -491,7 +498,7 @@ bar {
     # # mode dock|hide|invisible
     # # hidden_state hide|show
     # # modifier <Modifier>|none
-		mode hide
+		mode dock
 		hidden_state hide
 		modifier $mod
     # bindsym button1 nop    # disable clicking on workspace buttons
