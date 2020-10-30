@@ -216,6 +216,25 @@
 ])
 
 
+;; (xah-math-input--add-to-hash
+;;  [
+;; 	;; ["ydl" "youtube-dl -x --no-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3'"]
+;; 	;; ["ydl" "'youtube-dl -x --no-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3'"]
+;; ])
+
+
+
+(xah-math-input--add-to-hash
+ [
+
+	["def" "define"]
+	["fn" "define"]
+
+])
+
+
+
+
 
 (xah-math-input--add-to-hash
  [
@@ -521,12 +540,15 @@
 	["casea" "case->"]
 	["csaea" "case->"] ; catch typo
 	["casel" "case-λ"]
+	["caseL" "case-λ"]
 	["csael" "case-λ"] ; catch typo
+	["csaeL" "case-λ"] ; catch typo
 	["le" "<= "]
 	["gr" ">= "]
 	["pick" "!! "]
 	["not" "not "]
-	["nega" "negate "]
+	["neg" "negative? "]
+	["pos" "positive? "]
 	["and" "and "]
 	["or" "or "]
 	["nor" "nor "]
@@ -539,8 +561,8 @@
 	[":" "cons "]
 	["fll" "foldl "]
 	["frr" "foldr "]
-	["eq" "equals? "]
-	["neq" "not-equals? "]
+	["eq" "equal? "]
+	["neq" "not-equal? "]
 	["p" "length "] ; rho
 	["r" "length "] ; rho
 	["i" "build-list "] ; iota

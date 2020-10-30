@@ -716,6 +716,7 @@ you should place your code here."
 						 ("select" .      "σ")
 						 ("flip" .      "⍨")
 						 ("equal?" .      "≡")
+						 ("not-equal?" .      "≢")
 						 ("map" .    "¨") ; ↦ ⮕ ⍈ ¨
 						 ("fmap" .    "↥")
 						 ("maximum" .    "⌈")
@@ -870,6 +871,7 @@ you should place your code here."
 						 ("null" .      "∅")
 						 ("elem" .      "∈")
 						 ("member" .      "∈")
+						 ("not-member" .   "∉")
 						 ("notElem" .   "∉")
 						 ("U" .      "⋃")
 						 ;; ("in" .       #x2208)

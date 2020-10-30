@@ -4197,7 +4197,7 @@ key-aspect-ratio=
 #key-uncrop-right=Alt+Shift+f
 
 # Random (string)
-global-key-random=Ctrl+Shift+r
+global-key-random=Ctrl+r
 
 # Random (string)
 #key-random=r

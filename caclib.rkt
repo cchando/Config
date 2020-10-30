@@ -2,7 +2,7 @@
 #lang aful typed/racket
 (provide (all-defined-out))
 (require (only-in typed/racket
-                  [filter-map orig:filter-map]
+                  [filter-map orig:filter-map] [hash-ref orig:hash-ref]
                   [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝔸] [Boolean 𝔹] [Option 𝑴]
                   [Listof 𝑳] [List 𝗟] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
                   [Natural ℕ] [Number ℂ] [Index 𝕀] [Negative-Integer ℤ⁰⁻] [Nonpositive-Integer ℤ⁻] [Integer ℤ] [Nonnegative-Integer ℤ⁰⁺] [Positive-Integer ℤ⁺]
@@ -81,7 +81,7 @@
 (define ⩽ <=)
 (define ⩾ >=)
 (define ∈ member)
-(define ∃ findf)
+;; (define ∃ findf) ; replaced by "some"
 (define replicate make-list)
 (define concat-map append-map)
 (define remove-1st remove)
@@ -150,6 +150,14 @@
 
 (: >>> : ∀ (a b c) (a -> b) (b -> c) -> (a -> c))
 (define (>>> f g) (<<< g f))
+
+
+;; "More-different findf" that takes an (a -> 𝔸) rather than (a -> 𝔹)
+;;    -- this way we can give it e.g. (λ v. ∧ (≡ v (hash-ref h k)) v)
+(: some : ∀ (a) (a -> 𝔸) (Listof a) -> (Option a))
+(define (some pred xs) (ormap (λ ([x : a]) : (Option a)
+                                 (and (pred x) x)) xs))
+(define ∃ some)
 
 
 (: not-member (∀ (a b) (->* (b (Listof a)) ((b a -> Any)) Boolean)))
@@ -416,21 +424,147 @@
 ;;   (ormap (λ ([v : b]) (∧ (equal? v ((inst hash-ref a b) h k #f)) v)) vs))
 
 
-;; FIXME
-;; if ∃ v' ∈ vs | v' == (hash-ref h k), then give (the 1st matching) v', else #f
-;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
-;; given list of hashes, checks the above for each hash, and gives the corresponding list of (Maybe v)'s.
-(: any-val-assoc (∀ (a b) (case->
-                             ((HashTable a b) a (Listof b) -> (Option b))
-                             ((Listof (HashTable a b)) a (Listof b) -> (Listof (Option b))))))
-(define any-val-assoc (case-λ
-                    [(h k vs) (ormap (λ ([v : b])
-                                       (and (equal? v ((inst hash-ref a b) h k #f)) v)) vs)]
-                    [(hs k vs) (map (λ ([h : (HashTable a b)])
-                                    (ormap (λ ([v : b])
-                                             (and (equal? v ((inst hash-ref a b) h k #f)) v))
-                                           vs))
-                                  hs)]))
+;; ;; FIXME
+;; ;; if ∃ v' ∈ vs | v' == (hash-ref h k), then give (the 1st matching) v', else #f
+;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
+;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (Maybe v)'s.
+;; (: any-val-assoc (∀ (a b) (case->
+;;                              [(HashTable a b) a (Listof b) -> (Option b)]
+;;                              [(Listof (HashTable a b)) a (Listof b) -> (Listof (Option b))])))
+;; (define any-val-assoc (case-λ
+;;                     [(h k vs) (ormap (λ ([v : b])
+;;                                        (and (equal? v ((inst hash-ref a b) h k #f)) v)) vs)]
+;;                     [(hs k vs) (map (λ ([h : (HashTable a b)])
+;;                                     (ormap (λ ([v : b])
+;;                                              (and (equal? v ((inst hash-ref a b) h k #f)) v))
+;;                                            vs))
+;;                                   hs)]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;; TODO: refactor "any-val-assoc" function using the ∃ (more different findf) function
+
+;; TODO: write safe-hash-ref (actually shadow hash-ref) -- automatically use (hash-ref h k #false)
+
+
+;; (: hash-ref (∀ (a b c) (case->
+;;                           ((HashTable a b) a -> (Option b))
+;;                           ((HashTable a b) a (-> c) -> (U b c))
+;;                           (->* (HashTableTop a) (False) Any) ; matches orig:hash-ref
+;;                           (HashTableTop a (-> c) -> Any))))
+;; (define hash-ref (case-λ
+;;                [(h k) (orig:hash-ref h k #f)]
+;;                [(h k thu) (orig:hash-ref h k thu)]
+;;                [(h bool) (orig:hash-ref h bool)] ; matches orig:hash-ref
+;;                [(h k thu) (orig:hash-ref h k thu)]))
+
+;; (: hash-ref (∀ (a b c) (case->
+;;                         []
+;;                         []
+;;                         []
+;;                         [])))
+
+
+
+;; ;; if ∃ v' ∈ vs | v' == (hash-ref h k), then give (the 1st matching) v', else #f
+;; ;; given a single hash, checks whether k is associated with any v among vs. If so, give the v, else give #false.
+;; ;; given list of hashes, checks the above for each hash, and gives the corresponding list of (Maybe v)'s.
+;; (: any-val-assoc (∀ (a b) (case->
+;;                            [(HashTable a b) a (Listof b) -> (Option b)]
+;;                            [(Listof (HashTable a b) a (Listof b) -> (Listof (Option b)))])))
+;; (define any-val-assoc (case-λ
+;;                   [(h k vs) (ormap (λ ([v : b]) : (Option b) (and (equal? v (hash-ref)) )) vs)]
+;;                   [(hs k vs)]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

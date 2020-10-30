@@ -10,6 +10,10 @@ if [ "$(tty)" = "/dev/tty1" ]; then startx; fi
 
 shopt -s extglob dotglob globstar
 
+function conda-shell {
+    nix-shell ~/.conda-shell.nix
+}
+
 # # Notes
 #stat -- display file permissions -- stat -c %A %n
 #lspci -- list PCI bus devices
@@ -77,18 +81,17 @@ alias aip='sudo ip addr add 10.0.0.1/8 dev enp0s31f6'
 alias ydl='youtube-dl -x --no-playlist -o "~/Music/youtube-dl/%(title)s.%(ext)s" --audio-format mp3'
 alias ydlp='youtube-dl -cix --yes-playlist -o "~/Music/youtube-dl/%(playlist)s/%(title)s.%(ext)s" --audio-format mp3'
 alias ydlv='youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
-alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
+alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(playlist)s/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 
-alias alsamutetoggle='amixer -q -D pulse sset Master toggle'
+alias name='xprop | grep CLASS' # get [instance, class] of whatever window we click on next
+alias getkey='xev'
+alias key='xev'
 alias wifioff='sudo rfkill block all'
 alias wifion='sudo rfkill unblock all'
 alias size='du -sh'
 alias lmon='xrandr --current' # list monitors
-alias name='xprop | grep CLASS' # get [instance, class] of whatever window we click on next
 alias r='command' # "raw"
 alias show='alias'
-alias getkey='xev'
-alias key='xev'
 alias ir='i3-msg reload'
 alias et='emacs -nw'
 alias vimode='set -o vi'
@@ -112,9 +115,7 @@ alias br2='sudo brightnessctl set 2%'
 alias br1='sudo brightnessctl set 1%'
 alias pade="xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1"
 alias sticke="xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1"
-function conda-shell {
-    nix-shell ~/.conda-shell.nix
-}
+alias alsamutetoggle='amixer -q -D pulse sset Master toggle'
 
 #alias mvfiles='find . type f -regextype egrep -regex '.*[a-z]+\.el$' -execdir mv -t dest {} \+'  # example only
 
