@@ -1026,7 +1026,7 @@ you should place your code here."
 ;;     except it's a longer expression that wraps to the next line, and you later want to remove the surrounding expression.
 
 
-;; Global key bindings
+;; ;; Global key bindings
 ;; (global-set-key (kbd "C-n") 'keyboard-quit)
 
 

@@ -90,6 +90,7 @@ alias wifioff='sudo rfkill block all'
 alias wifion='sudo rfkill unblock all'
 alias size='du -sh'
 alias lmon='xrandr --current' # list monitors
+alias findp='find . -ipath'
 alias r='command' # "raw"
 alias show='alias'
 alias ir='i3-msg reload'

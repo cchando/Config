@@ -168,11 +168,11 @@ set $ibrowser google-chrome-stable
     bindsym $mod+n exec nitrogen 
     
     # start vlc w/ playlist
-		# TODO: why doesn't this work in also moving vlc to scratchpad (or other workspace) in a chained command?
-		bindsym $mod+Shift+v exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf
-		# bindsym $mod+Shift+u "exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf; exec sleep 1; [class=^vlc$] move scratchpad"
-		# bindsym $mod+Shift+u "exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.xspf; exec sleep 1; exec i3-msg [class=^vlc$] move scratchpad"
-		# bindsym $mod+q exec /home/cameron/.i3/vlc-helper    # testing purposes
+		bindsym $mod+Shift+v exec vlc
+    bindsym $mod+7 exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.m3
+		bindsym $mod+8 exec vlc file:///home/cameron/Music/1-Playlists/focus-playlist.m3u
+		bindsym $mod+9 exec vlc file:///home/cameron/Music/1-Playlists/sonic-playlist.m3u
+		bindsym $mod+0 exec vlc file:///home/cameron/Music/1-Playlists/classical-playlist.m3u
 
     # volume control
     bindsym $mod+v exec pavucontrol #pavucontrol-qt
@@ -211,26 +211,22 @@ set $ibrowser google-chrome-stable
     bindsym Ctrl+Shift+d exec pulseaudio-ctl down
 
     # redshift off
-    bindsym $mod+4 exec redshift -x
+    bindsym $mod+1 exec redshift -x
 
     # redshift 1
-    bindsym $mod+5 exec redshift -x && redshift -O 5700
+    bindsym $mod+2 exec redshift -x && redshift -O 5700
 
     # redshift 2
-    bindsym $mod+6 exec redshift -x && redshift -O 5000
+    bindsym $mod+3 exec redshift -x && redshift -O 5000
 
     # redshift 3
-    bindsym $mod+7 exec redshift -x && redshift -O 4500
+    bindsym $mod+4 exec redshift -x && redshift -O 4500
 
     # redshift 4
-    bindsym $mod+8 exec redshift -x && redshift -O 4000
+    bindsym $mod+5 exec redshift -x && redshift -O 4000
 
     # redshift 5
-    bindsym $mod+9 exec redshift -x && redshift -O 3500
-
-    # redshift 6
-    bindsym $mod+0 exec redshift -x && redshift -O 3000
-
+    bindsym $mod+6 exec redshift -x && redshift -O 3500
 
     # suspend system
     bindsym Mod1+Shift+s exec systemctl suspend
@@ -401,6 +397,14 @@ set $ibrowser google-chrome-stable
 
 # Prevent popup windows from stealing the focus
     no_focus [window_role="pop-up"]
+
+for_window [class="^vlc$"] floating_minimum_size 75 x 50
+for_window [class="^vlc$"] floating_maximum_size 76 x 51
+for_window [class="^vlc$"] floating enable, move position center, move scratchpad
+
+# # # unconstrained floating window size unless otherwise specified for individual apps
+# floating_maximum_size -1 x -1
+
 
 # Assign google-chrome-stable to workspace 7
     # assign [class="^Google-chrome$"] → 1

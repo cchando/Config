@@ -3831,28 +3831,28 @@ global-key-prev=Ctrl+,
 #key-jump+extrashort=Shift+Right
 
 # Short backwards jump (string)
-#global-key-jump-short=
+global-key-jump-short=Ctrl+Left
 
 # Short backwards jump (string)
-#key-jump-short=Alt+Left
+key-jump-short=
 
 # Short forward jump (string)
-#global-key-jump+short=
+global-key-jump+short=Ctrl+Right
 
 # Short forward jump (string)
-#key-jump+short=Alt+Right
+key-jump+short=
 
 # Medium backwards jump (string)
-#global-key-jump-medium=
+global-key-jump-medium=Alt+Left
 
 # Medium backwards jump (string)
-#key-jump-medium=Ctrl+Left
+key-jump-medium=
 
 # Medium forward jump (string)
-#global-key-jump+medium=
+global-key-jump+medium=Alt+Right
 
 # Medium forward jump (string)
-#key-jump+medium=Ctrl+Right
+key-jump+medium=
 
 # Long backwards jump (string)
 #global-key-jump-long=
@@ -4197,7 +4197,7 @@ key-aspect-ratio=
 #key-uncrop-right=Alt+Shift+f
 
 # Random (string)
-global-key-random=Ctrl+y
+global-key-random=Ctrl+Shift+y
 
 # Random (string)
 #key-random=r
