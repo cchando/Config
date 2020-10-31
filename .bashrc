@@ -83,7 +83,7 @@ alias ydlp='youtube-dl -cix --yes-playlist -o "~/Music/youtube-dl/%(playlist)s/%
 alias ydlv='youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(playlist)s/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 
-alias name='xprop | grep CLASS' # get [instance, class] of whatever window we click on next
+alias name='echo -e "Instance, Class, Title:\n" && xprop | grep "WM_CLASS|^WM_NAME"' # get [instance, class, title] of whatever window we click on next
 alias getkey='xev'
 alias key='xev'
 alias wifioff='sudo rfkill block all'

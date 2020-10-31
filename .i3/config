@@ -9,6 +9,7 @@
 
 exec xbanish  # banish mouse cursor when not in use
 exec compton  # enable window transparency
+# exec stretchly
 
 # disable touchpad:
 exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
@@ -181,7 +182,7 @@ set $ibrowser google-chrome-stable
     bindsym $mod+z exec kcolorchooser
     
     # start stretchly
-    bindsym $mod+b exec stretchly
+    bindsym $mod+Shift+b exec stretchly
 
     # start charmap
     bindsym $mod+c exec gucharmap
@@ -209,23 +210,13 @@ set $ibrowser google-chrome-stable
     bindsym Ctrl+Shift+u exec pulseaudio-ctl up
     # vol down
     bindsym Ctrl+Shift+d exec pulseaudio-ctl down
-
-    # redshift off
-    bindsym $mod+1 exec redshift -x
-
-    # redshift 1
+    
+    # # redshift commands:
+    bindsym $mod+1 exec redshift -x # redshift off
     bindsym $mod+2 exec redshift -x && redshift -O 5700
-
-    # redshift 2
     bindsym $mod+3 exec redshift -x && redshift -O 5000
-
-    # redshift 3
     bindsym $mod+4 exec redshift -x && redshift -O 4500
-
-    # redshift 4
     bindsym $mod+5 exec redshift -x && redshift -O 4000
-
-    # redshift 5
     bindsym $mod+6 exec redshift -x && redshift -O 3500
 
     # suspend system
@@ -398,9 +389,16 @@ set $ibrowser google-chrome-stable
 # Prevent popup windows from stealing the focus
     no_focus [window_role="pop-up"]
 
-for_window [class="^vlc$"] floating_minimum_size 75 x 50
-for_window [class="^vlc$"] floating_maximum_size 76 x 51
-for_window [class="^vlc$"] floating enable, move position center, move scratchpad
+# for_window [class="^vlc$"] floating_minimum_size 75 x 50
+# for_window [class="^vlc$"] floating_maximum_size 76 x 51
+for_window [class="^vlc$" \
+            title="([^Simple Preferences])([^Select one or more files to open])([^Save playlist as...])([a-z0-9]+)$"] \
+						floating enable, move position center, move scratchpad
+
+# for_window [class="^vlc$" title="([^Simple Preferences])([^Save playlist as...])([a-z0-9]+)$"] floating enable, move position center, move scratchpad
+
+##### TODO: bizzare case for testing. hides "Select one or more files to open" dialog box & "Simple Preferences" box, but not "Save playlist as..." box
+# for_window [class="^vlc$" title="([^nces])([a-z0-9]+)$"] floating enable, move position center, move scratchpad
 
 # # # unconstrained floating window size unless otherwise specified for individual apps
 # floating_maximum_size -1 x -1
