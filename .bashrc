@@ -83,6 +83,11 @@ alias ydlp='youtube-dl -cix --yes-playlist -o "~/Music/youtube-dl/%(playlist)s/%
 alias ydlv='youtube-dl --no-playlist -o "~/Videos/youtube-dl/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(playlist)s/%(title)s.%(4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 
+# alias emacs-def='git stash push -m "push cac .spacemacs" && mkdir /home/cameron/tmp && mv /home/cameron/.spacemacs /home/cameron/tmp/ && mv -f /home/cameron/spacemacs-default /home/cameron/.spacemacs && emacs -mm'    # "emacs default"
+# alias emacs-cac='git stash pop'
+# # alias emacs-cac='mv -f home/cameron/tmp/.spacemacs  /home/cameron/ && mv -f /home/cameron/spacemacs-default /home/cameron/.spacemacs && emacs -mm'
+
+alias uvi='mv -f /home/cameron/Downloads/vimium-options.json  /home/cameron/.vimium-options.json'
 alias name='echo -e "Instance, Class, Title:\n" && xprop | grep "WM_CLASS|^WM_NAME"' # get [instance, class, title] of whatever window we click on next
 alias getkey='xev'
 alias key='xev'
