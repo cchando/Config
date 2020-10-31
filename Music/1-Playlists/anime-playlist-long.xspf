@@ -1,0 +1,2867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Playlist</title>
+	<trackList>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/marknanb-8a/soncunlshdsoundtrck-8i/19gaitemplmusc-8a.mp3</location>
+			<title>Gaia Temple Music</title>
+			<creator>Mariko Nanba</creator>
+			<album>Sonic Unleashed Soundtrack</album>
+			<trackNum>19</trackNum>
+			<annotation>Sonic Unleashed Soundtrack</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mariko%20Nanba/Sonic%20Unleashed%20Soundtrack/art.jpg</image>
+			<duration>346136</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/kojkondhajmwak-8j/starfox64orignlsoundtrck-9q/39staffcredts-0b.mp3</location>
+			<title>Staff Credits</title>
+			<creator>Koji Kondo, Hajime Wakai</creator>
+			<album>Star Fox 64 Original Soundtrack</album>
+			<trackNum>39</trackNum>
+			<annotation>PCCG-00421</annotation>
+			<duration>308623</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/dannyelfmn-8r/mennblack3orignlmotnpictrsoundtrck-1j/14griffnstepsup-1r.mp3</location>
+			<title>Griffin Steps Up</title>
+			<creator>Danny Elfman</creator>
+			<album>Men in Black 3 (Original Motion Picture Soundtrack)</album>
+			<trackNum>14</trackNum>
+			<duration>101018</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/paulleonrdmorgn-1i/limtlssorignlmotnpictrsound-8z/02psychd-8b.mp3</location>
+			<title>Psyched</title>
+			<creator>Paul Leonard - Morgan</creator>
+			<album>Limitless (Original Motion Picture Soundtrack)</album>
+			<trackNum>2</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Paul%20Leonard%20-%20Morgan/Limitless%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>50942</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>3</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/paulleonrdmorgn-1i/limtlssorignlmotnpictrsound-8z/07limtlss-0b.mp3</location>
+			<title>Limitless</title>
+			<creator>Paul Leonard - Morgan</creator>
+			<album>Limitless (Original Motion Picture Soundtrack)</album>
+			<trackNum>7</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Paul%20Leonard%20-%20Morgan/Limitless%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>89473</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/paulleonrdmorgn-1i/limtlssorignlmotnpictrsound-8z/25happypills-0j.mp3</location>
+			<title>Happy Pills</title>
+			<creator>Paul Leonard - Morgan</creator>
+			<album>Limitless (Original Motion Picture Soundtrack)</album>
+			<trackNum>25</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Paul%20Leonard%20-%20Morgan/Limitless%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>273010</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>5</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/trentreznrndattcsross-9y/thesoclnetwrksoundtrckfrmth-1r/05intrgngpossblts-9b.mp3</location>
+			<title>Intriguing Possibilities</title>
+			<creator>Trent Reznor and Atticus Ross</creator>
+			<album>The Social Network (Soundtrack from the Motion Picture)</album>
+			<trackNum>5</trackNum>
+			<annotation>-terraweigh-[GRG]-</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Trent%20Reznor%20and%20Atticus%20Ross/The%20Social%20Network%20%28Soundtrack%20from%20the%20Motion%20Picture%29/art</image>
+			<duration>264527</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>6</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/trentreznrndattcsross-9y/thesoclnetwrksoundtrckfrmth-1r/08piecsformthwhol-8z.mp3</location>
+			<title>Pieces Form the Whole</title>
+			<creator>Trent Reznor and Atticus Ross</creator>
+			<album>The Social Network (Soundtrack from the Motion Picture)</album>
+			<trackNum>8</trackNum>
+			<annotation>-terraweigh-[GRG]-</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Trent%20Reznor%20and%20Atticus%20Ross/The%20Social%20Network%20%28Soundtrack%20from%20the%20Motion%20Picture%29/art</image>
+			<duration>256324</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>7</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/Tech/02%20In%20Motion%20-%20The%20Social%20Network%20-%20OST%20Soundtrack.mp3</location>
+			<duration>297012</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>8</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/Tech/%5BGokukoku%20no%20Brynhildr%20OST%5D%2021%20-%20Analyze.mp3</location>
+			<duration>106631</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>9</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%201/07%20-%20Etude%20pour%20les%20petites%20supercordes.mp3</location>
+			<title>Étude pour les petites supercordes</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 1</album>
+			<trackNum>7</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>290064</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>10</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%201/08%20-%20Hurry%20Starfish.mp3</location>
+			<title>Hurry Starfish</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 1</album>
+			<trackNum>8</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>258064</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>11</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%201/10%20-%20Shiryoushitsu%20no%20Ochakai.mp3</location>
+			<title>Shiryoushitsu no Ochakai</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 1</album>
+			<trackNum>10</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>238054</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>12</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%201/11%20-%20Toufuu.mp3</location>
+			<title>Toufuu</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 1</album>
+			<trackNum>11</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>212062</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>13</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%201/13%20-%20Yuuigi%20na%20Jikan%20no%20Sugoshi%20Kata.mp3</location>
+			<title>Yuuigi na Jikan no Sugoshi Kata</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 1</album>
+			<trackNum>13</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>200072</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>14</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%201/15%20-%20Dam.mp3</location>
+			<title>Dam</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 1</album>
+			<trackNum>15</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>296072</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>15</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%201/17%20-%20Kaijin%20ni%20Kaesu.mp3</location>
+			<title>Kaijin ni Kaesu</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 1</album>
+			<trackNum>17</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>220056</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>16</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%201/19%20-%20Tsuki%20no%20Isou.mp3</location>
+			<title>Tsuki no Isou</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 1</album>
+			<trackNum>19</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>232072</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>17</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%202/04%20-%20TOE.mp3</location>
+			<title>TOE</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 2</album>
+			<trackNum>4</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>164075</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>18</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%203/01%20-%20Gensou%20II.mp3</location>
+			<title>Gensou II</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 3</album>
+			<trackNum>1</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>114077</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>19</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%203/05%20-%20Yuuigi%20na%20Jikan%20no%20Sugoshi%20Kata%20-guitar-.mp3</location>
+			<title>Yuuigi na Jikan no Sugoshi Kata -guitar-</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 3</album>
+			<trackNum>5</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>201065</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>20</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/%5BDoki%5D%20Clannad%20Original%20Soundtrack%20%28MP3%29/Clannad%20Original%20Soundtrack%20-%20Disk%203/06%20-%20Yuuigi%20na%20Jikan%20no%20Sugoshi%20Kata%20-sax-.mp3</location>
+			<title>Yuuigi na Jikan no Sugoshi Kata -sax-</title>
+			<creator>Key Sounds Label</creator>
+			<album>Clannad Original Soundtrack - Disk 3</album>
+			<trackNum>6</trackNum>
+			<annotation>#doki@irc.rizon.net</annotation>
+			<duration>202057</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>21</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/John%20Wick%202%20OST%20Original%20Soundtrack%20%28320%20kbps%29/Back%20In%20The%20Ground%20%28John%20Wick%20Chapter%202%20OST%29.mp3</location>
+			<title>Back In The Ground (John Wick: Chapter 2 OST)</title>
+			<creator>Tyler Bates, Joel J. Richard</creator>
+			<album>John Wick 2 Soundtrack</album>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tyler%20Bates%2C%20Joel%20J.%20Richard/John%20Wick%202%20Soundtrack/art.jpg</image>
+			<duration>143064</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>22</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/John%20Wick%202%20OST%20Original%20Soundtrack%20%28320%20kbps%29/Guns%20%26%20Turtlenecks%20%28John%20Wick%20Chapter%202%20OST%29.mp3</location>
+			<title>Guns &amp; Turtlenecks (John Wick: Chapter 2 OST)</title>
+			<creator>Tyler Bates, Joel J. Richard</creator>
+			<album>John Wick 2 Soundtrack</album>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tyler%20Bates%2C%20Joel%20J.%20Richard/John%20Wick%202%20Soundtrack/art.jpg</image>
+			<duration>101544</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>23</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/John%20Wick%202%20OST%20Original%20Soundtrack%20%28320%20kbps%29/Man%20Of%20Focus%20%28John%20Wick%20Chapter%202%20OST%29.mp3</location>
+			<title>Man Of Focus (John Wick: Chapter 2 OST)</title>
+			<creator>Tyler Bates, Joel J. Richard</creator>
+			<album>John Wick 2 Soundtrack</album>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tyler%20Bates%2C%20Joel%20J.%20Richard/John%20Wick%202%20Soundtrack/art.jpg</image>
+			<duration>204672</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>24</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/John%20Wick%202%20OST%20Original%20Soundtrack%20%28320%20kbps%29/Razor%20Bath%20%28John%20Wick%20Chapter%202%20OST%29.mp3</location>
+			<title>Razor Bath (John Wick: Chapter 2 OST)</title>
+			<creator>Tyler Bates, Joel J. Richard</creator>
+			<album>John Wick 2 Soundtrack</album>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tyler%20Bates%2C%20Joel%20J.%20Richard/John%20Wick%202%20Soundtrack/art.jpg</image>
+			<duration>329664</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>25</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/01%20-%20One%20out%20Away.mp3</location>
+			<title>One out Away</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>1</trackNum>
+			<annotation>Amazon.com Song ID: 275747292</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>108882</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>26</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/02%20-%20A%20Little%20Bit%20of%20Faith.mp3</location>
+			<title>A Little Bit of Faith</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>2</trackNum>
+			<annotation>Amazon.com Song ID: 275747305</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>69986</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>27</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/03%20-%20Spring%20Training.mp3</location>
+			<title>Spring Training</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>3</trackNum>
+			<annotation>Amazon.com Song ID: 275747302</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>94254</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>28</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/04%20-%20Big%20League.mp3</location>
+			<title>Big League</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>4</trackNum>
+			<annotation>Amazon.com Song ID: 275747300</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>140203</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>29</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/05%20-%20Opening%20Day.mp3</location>
+			<title>Opening Day</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>5</trackNum>
+			<annotation>Amazon.com Song ID: 275747295</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>72258</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>30</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/06%20-%20Losing%20Streak.mp3</location>
+			<title>Losing Streak</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>6</trackNum>
+			<annotation>Amazon.com Song ID: 275747291</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>99504</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>31</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/07%20-%20Can%27t%20Miss%20Prospect.mp3</location>
+			<title>Can&#39;t Miss Prospect</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>7</trackNum>
+			<annotation>Amazon.com Song ID: 275747309</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>125209</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>32</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/08%20-%20Time%20Tested%20Intangibles.mp3</location>
+			<title>Time Tested Intangibles</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>8</trackNum>
+			<annotation>Amazon.com Song ID: 275747307</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>82263</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>33</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/09%20-%20Is%20Losing%20Fun_.mp3</location>
+			<title>Is Losing Fun?</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>9</trackNum>
+			<annotation>Amazon.com Song ID: 275747308</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>53869</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>34</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/10%20-%20Coaching.mp3</location>
+			<title>Coaching</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>10</trackNum>
+			<annotation>Amazon.com Song ID: 275747310</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>61131</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>35</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/11%20-%20It%27s%20a%20Process.mp3</location>
+			<title>It&#39;s a Process</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>11</trackNum>
+			<annotation>Amazon.com Song ID: 275747306</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>112383</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>36</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/12%20-%20More.mp3</location>
+			<title>More</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>12</trackNum>
+			<annotation>Amazon.com Song ID: 275747299</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>97493</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>37</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/13%20-%20The%20Streak.mp3</location>
+			<title>The Streak</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>13</trackNum>
+			<annotation>Amazon.com Song ID: 275747289</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>183880</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>38</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/14%20-%20Turn%20Around.mp3</location>
+			<title>Turn Around</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>14</trackNum>
+			<annotation>Amazon.com Song ID: 275747297</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>48618</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>39</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/15%20-%20Old%20Ground.mp3</location>
+			<title>Old Ground</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>15</trackNum>
+			<annotation>Amazon.com Song ID: 275747303</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>267002</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>40</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/17%20-%20Game%205.mp3</location>
+			<title>Game 5</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>17</trackNum>
+			<annotation>Amazon.com Song ID: 275747298</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>68236</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>41</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/18%20-%20Fenway.mp3</location>
+			<title>Fenway</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>18</trackNum>
+			<annotation>Amazon.com Song ID: 275747290</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>90466</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>42</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/19%20-%20The%20Offer.mp3</location>
+			<title>The Offer</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>19</trackNum>
+			<annotation>Amazon.com Song ID: 275747294</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>41669</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>43</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/20%20-%20Oakland.mp3</location>
+			<title>Oakland</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>20</trackNum>
+			<annotation>Amazon.com Song ID: 275747293</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>72859</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>44</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/21%20-%20On%20Its%20Head.mp3</location>
+			<title>On Its Head</title>
+			<creator>Mychael Danna</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>21</trackNum>
+			<annotation>Amazon.com Song ID: 275747301</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>95011</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>45</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/Mychael%20Danna/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/23%20-%20The%20Mighty%20Rio%20Grande.mp3</location>
+			<title>The Mighty Rio Grande</title>
+			<creator>This Will Destroy You</creator>
+			<album>Moneyball (Original Motion Picture Soundtrack)</album>
+			<trackNum>23</trackNum>
+			<annotation>Amazon.com Song ID: 275747288</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/This%20Will%20Destroy%20You/Moneyball%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>676812</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>46</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Compilations/The%20Man%20from%20U.N.C.L.E.%20%28Deluxe%20Version%29/03%20His%20Name%20Is%20Napoleon%20Solo.m4a</location>
+			<title>His Name Is Napoleon Solo</title>
+			<creator>Daniel Pemberton</creator>
+			<album>The Man from U.N.C.L.E. (Deluxe Version) [Original Motion Picture Soundtrack]</album>
+			<trackNum>3</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Daniel%20Pemberton/The%20Man%20from%20U.N.C.L.E.%20%28Deluxe%20Version%29%20%5BOriginal%20Motion%20Picture%20Soundtrack%5D/art.jpg</image>
+			<duration>158754</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>47</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Junkie%20XL/Mad%20Max_%20Fury%20Road%20%28Original%20Motion%20Pict/14%20Moving%20On%20%28Bonus%20Track%29.m4a</location>
+			<title>Moving On (Bonus Track)</title>
+			<creator>Junkie XL</creator>
+			<album>Mad Max: Fury Road (Original Motion Picture Soundtrack) [Deluxe Version]</album>
+			<trackNum>14</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Junkie%20XL/Mad%20Max_%20Fury%20Road%20%28Original%20Motion%20Picture%20Soundtrack%29%20%5BDeluxe%20Version%5D/art.jpg</image>
+			<duration>116564</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>48</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Pic/07%20The%20Dopeness.m4a</location>
+			<title>The Dopeness</title>
+			<creator>Nicholas Britell</creator>
+			<album>The Big Short (Music from the Motion Picture)</album>
+			<trackNum>7</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Picture%29/art.jpg</image>
+			<duration>71726</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>49</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Pic/10%20Truth%20Is%20Like%20Poetry.m4a</location>
+			<title>Truth Is Like Poetry</title>
+			<creator>Nicholas Britell</creator>
+			<album>The Big Short (Music from the Motion Picture)</album>
+			<trackNum>10</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Picture%29/art.jpg</image>
+			<duration>42562</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>50</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Pic/12%20Shorting%20the%20Aa.m4a</location>
+			<title>Shorting the Aa</title>
+			<creator>Nicholas Britell</creator>
+			<album>The Big Short (Music from the Motion Picture)</album>
+			<trackNum>12</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Picture%29/art.jpg</image>
+			<duration>62183</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>51</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Pic/15%20Redemption%20at%20the%20Roulette%20Table.m4a</location>
+			<title>Redemption at the Roulette Table</title>
+			<creator>Nicholas Britell</creator>
+			<album>The Big Short (Music from the Motion Picture)</album>
+			<trackNum>15</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Picture%29/art.jpg</image>
+			<duration>103282</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>52</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Pic/17%20Restricting%20Withdrawals.m4a</location>
+			<title>Restricting Withdrawals</title>
+			<creator>Nicholas Britell</creator>
+			<album>The Big Short (Music from the Motion Picture)</album>
+			<trackNum>17</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Picture%29/art.jpg</image>
+			<duration>43374</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>53</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Pic/19%20To%20Kathy%27s%20Office.m4a</location>
+			<title>To Kathy&#39;s Office</title>
+			<creator>Nicholas Britell</creator>
+			<album>The Big Short (Music from the Motion Picture)</album>
+			<trackNum>19</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Picture%29/art.jpg</image>
+			<duration>32693</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>54</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Pic/22%20Smells%20Like%20Sheep.m4a</location>
+			<title>Smells Like Sheep</title>
+			<creator>Nicholas Britell</creator>
+			<album>The Big Short (Music from the Motion Picture)</album>
+			<trackNum>22</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Nicholas%20Britell/The%20Big%20Short%20%28Music%20from%20the%20Motion%20Picture%29/art.jpg</image>
+			<duration>119350</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>55</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick-focus-playlist/updated_itunes_music-us/Thomas%20Newman/Spectre%20%28Original%20Motion%20Picture%20Soundtr/06%20Backfire.m4a</location>
+			<title>Backfire</title>
+			<creator>Thomas Newman</creator>
+			<album>Spectre (Original Motion Picture Soundtrack)</album>
+			<trackNum>6</trackNum>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Thomas%20Newman/Spectre%20%28Original%20Motion%20Picture%20Soundtrack%29/art.jpg</image>
+			<duration>294266</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>56</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Angel_Island_Zone_-_Sonic_Generations.mp3</location>
+			<duration>144576</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>57</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Casino_Night_-_Act_1_-_Sonic_Generations_3DS.mp3</location>
+			<duration>139102</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>58</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Casino_Night_-_Act_2_-_Sonic_Generations_3DS.mp3</location>
+			<duration>242040</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>59</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Chemical_Plant_-_Act_1_-_Sonic_Generations.mp3</location>
+			<duration>138168</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>60</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Chemical_Plant_Zone_-_Sonic_The_Hedgehog_2.mp3</location>
+			<duration>130344</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>61</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Collection_Room_-_Sonic_Generations.mp3</location>
+			<duration>162432</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>62</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Cutscene_2_-_Sonic_Generations.mp3</location>
+			<duration>60720</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>63</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Cutscene_3_-_Sonic_Generations.mp3</location>
+			<duration>76776</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>64</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Death_Egg_Zone_-_Sonic_Generations.mp3</location>
+			<duration>95064</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>65</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Diamond_Dust_Zone_-_Act_1_-_Sonic_Generations.mp3</location>
+			<duration>162096</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>66</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Door_Into_Summer_-_Sonic_Generations_3DS.mp3</location>
+			<duration>154560</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>67</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Emerald_Beach_~_Sonic_Stage_-_Sonic_Generations_3DS.mp3</location>
+			<duration>97619</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>68</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Green_Hill_-_Act_1_-_Sonic_Generations.mp3</location>
+			<duration>109080</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>69</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Green_Hill_Zone_-_Sonic_The_Hedgehog_1991.mp3</location>
+			<duration>158592</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>70</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Hydro_City_Zone_-_Sonic_Generations.mp3</location>
+			<duration>132101</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>71</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Kingdom_Valley_-_Sonic_The_Hedgehog_2006.mp3</location>
+			<duration>408888</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>72</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Mushroom_Hill_Zone_-_Sonic_Generations.mp3</location>
+			<duration>192048</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>73</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Route_99_-_Sonic_Generations.mp3</location>
+			<duration>177576</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>74</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Sky_Sanctuary_-_Act_1_-_Sonic_Generations.mp3</location>
+			<duration>137736</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>75</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Sky_Sanctuary_-_Act_2_~_Normal_-_Sonic_Generations.mp3</location>
+			<duration>136872</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>76</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Speed_Highway_-_Act_1_Run_Through_the_Speed_Highway_-_Cash_Cash_RMX_-_Sonic_Generations.mp3</location>
+			<duration>139704</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>77</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Speed_Highway_-_Act_2_Goin_Down_-_Cash_Cash_vs._Jun_Senoue_RMX_-_Sonic_Generations.mp3</location>
+			<duration>54576</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>78</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Star_Light_Zone_-_Sonic_The_Hedgehog_1991.mp3</location>
+			<duration>146472</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>79</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Sweet_Mountain_-_Act_1_-_Sonic_Colors.mp3</location>
+			<duration>231504</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>80</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Toxic_Caves_-_Sonic_Generations.mp3</location>
+			<duration>161097</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>81</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Water_Palace_-_Act_1_Back_2_Back_-_Digital_Remakin_Track_-_Sonic_Generations_3DS.mp3</location>
+			<duration>169056</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>82</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Water_Palace_-_Act_2_Back_2_Back_-_Cash_Cash_RMX_-_Sonic_Generations_3DS.mp3</location>
+			<duration>180048</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>83</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Wave_Ocean_~_The_Water_s_Edge_-_Sonic_The_Hedgehog_2006.mp3</location>
+			<duration>210648</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>84</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Angel_Island_Zone_-_Sonic_Generations.mp3</location>
+			<duration>144576</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>85</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Casino_Night_-_Act_1_-_Sonic_Generations_3DS.mp3</location>
+			<duration>139102</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>86</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Casino_Night_-_Act_2_-_Sonic_Generations_3DS.mp3</location>
+			<duration>242040</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>87</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Collection_Room_-_Sonic_Generations.mp3</location>
+			<duration>162432</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>88</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Cutscene_2_-_Sonic_Generations.mp3</location>
+			<duration>60720</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>89</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Cutscene_3_-_Sonic_Generations.mp3</location>
+			<duration>76776</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>90</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Door_Into_Summer_-_Sonic_Generations_3DS.mp3</location>
+			<duration>154560</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>91</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Green_Hill_-_Act_1_-_Sonic_Generations.mp3</location>
+			<duration>109080</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>92</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Green_Hill_Zone_-_Sonic_The_Hedgehog_1991.mp3</location>
+			<duration>158592</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>93</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Hydro_City_Zone_-_Sonic_Generations.mp3</location>
+			<duration>132101</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>94</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Kingdom_Valley_-_Sonic_The_Hedgehog_2006.mp3</location>
+			<duration>408888</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>95</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Mushroom_Hill_Zone_-_Sonic_Generations.mp3</location>
+			<duration>192048</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>96</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Route_99_-_Sonic_Generations.mp3</location>
+			<duration>177576</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>97</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Savannah_Citadel_-_Day_-_Sonic_Unleashed.mp3</location>
+			<duration>230784</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>98</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Speed_Highway_-_Act_1_Run_Through_the_Speed_Highway_-_Cash_Cash_RMX_-_Sonic_Generations.mp3</location>
+			<duration>139704</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>99</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Speed_Highway_-_Act_2_Goin_Down_-_Cash_Cash_vs._Jun_Senoue_RMX_-_Sonic_Generations.mp3</location>
+			<duration>54576</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>100</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Toxic_Caves_-_Sonic_Generations.mp3</location>
+			<duration>161097</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>101</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Water_Palace_-_Act_1_Back_2_Back_-_Digital_Remakin_Track_-_Sonic_Generations_3DS.mp3</location>
+			<duration>169056</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>102</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic_Generations_-_Full_OST/Water_Palace_-_Act_2_Back_2_Back_-_Cash_Cash_RMX_-_Sonic_Generations_3DS.mp3</location>
+			<duration>180048</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>103</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Adabat_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>140088</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>104</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Adabat_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>151800</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>105</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Always_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>37704</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>106</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Annihilation_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>21456</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>107</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Apotos_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>198792</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>108</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Apotos_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>181296</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>109</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Arid_Sands_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>240144</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>110</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Arid_Sands_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>226440</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>111</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Boss_Battle_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>288432</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>112</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Chun-nan_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>220272</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>113</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Cool_Edge_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>161472</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>114</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Dragon_Road_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>186672</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>115</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Dragon_Road_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>189408</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>116</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Gaia_Gate_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>112704</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>117</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Gaia_Manuscripts_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>83592</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>118</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Holoska_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>180120</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>119</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Holoska_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>196152</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>120</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Hour_of_Awakening_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>36264</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>121</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Jungle_Joyride_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>301297</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>122</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Jungle_Joyride_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>268104</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>123</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Mazuri_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>179112</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>124</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Mazuri_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>175944</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>125</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/No_Reason_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>104568</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>126</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Opening_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>334272</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>127</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Rooftop_Run_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>186144</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>128</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Same_as_Ever_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>62136</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>129</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Savannah_Citadel_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>227136</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>130</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Savannah_Citadel_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>177120</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>131</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Skyscraper_Scamper_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>161928</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>132</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Spagonia_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>159696</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>133</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Werehog_Battle_Theme_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>204840</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>134</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Windmill_Isle_Day_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>301104</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>135</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/youtube-dl/Sonic-Unleashed-OST/Windmill_Isle_Night_-_Sonic_Unleashed_OST.mp3</location>
+			<duration>173592</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>136</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/unknwnartst-8b/unknwnalbm-9b/mushrmhillzonact1-8y.mp3</location>
+			<title>Mushroom Hill Zone Act 1</title>
+			<duration>92238</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>137</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/amagi_ost/04%20Hitode%20ga%20Tarinai%21.flac</location>
+			<title>Hitode ga Tarinai!</title>
+			<creator>Mitsumune Shinkichi</creator>
+			<album>Amagi Brilliant Park Original Sound Track</album>
+			<trackNum>4</trackNum>
+			<annotation>Brought to you by ASL
+Come and visit us or say &quot;Hi&quot; in our IRC channel: #anime-sharing@irc.rizon.net</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mitsumune%20Shinkichi/Amagi%20Brilliant%20Park%20Original%20Sound%20Track/art.jpg</image>
+			<duration>93573</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>138</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/amagi_ost/11%20Sorcerer%27s%20Hill.flac</location>
+			<title>Sorcerer&#39;s Hill</title>
+			<creator>Mitsumune Shinkichi</creator>
+			<album>Amagi Brilliant Park Original Sound Track</album>
+			<trackNum>11</trackNum>
+			<annotation>Brought to you by ASL
+Come and visit us or say &quot;Hi&quot; in our IRC channel: #anime-sharing@irc.rizon.net</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mitsumune%20Shinkichi/Amagi%20Brilliant%20Park%20Original%20Sound%20Track/art.jpg</image>
+			<duration>89693</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>139</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/amagi_ost/24%20Bimyou%20na%20Nichijou.flac</location>
+			<title>Bimyou na Nichijou</title>
+			<creator>Mitsumune Shinkichi</creator>
+			<album>Amagi Brilliant Park Original Sound Track</album>
+			<trackNum>24</trackNum>
+			<annotation>Brought to you by ASL
+Come and visit us or say &quot;Hi&quot; in our IRC channel: #anime-sharing@irc.rizon.net</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mitsumune%20Shinkichi/Amagi%20Brilliant%20Park%20Original%20Sound%20Track/art.jpg</image>
+			<duration>91360</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>140</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/Cave_Story_Remix_Project/Disc%202/21.Rexy-SmoothieBrace.mp3</location>
+			<title>Smoothie Brace</title>
+			<creator>Rexy</creator>
+			<album>Cave Story Remix Project</album>
+			<trackNum>21</trackNum>
+			<annotation>Track 19 &#39;Geothermal&#39;</annotation>
+			<duration>296235</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>141</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/dr-8a.%20Dissonance/unknwnalbm-9b/nightshifttthcupckfactry-0y.mp3</location>
+			<title>Night Shift at the Cupcake Factory</title>
+			<creator>Dr. Dissonance</creator>
+			<annotation>                              </annotation>
+			<duration>200780</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>142</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/gekkan-shoujo-nozaki-kun-ost/04-kome-shiyo-.mp3</location>
+			<title>Kome Shiyo ♡</title>
+			<creator>Hashimoto Yukari</creator>
+			<album>Gekkan Shoujo Nozaki-kun Vol.4 Special CD: Complete Soundtrack Vol.2</album>
+			<trackNum>4</trackNum>
+			<annotation>Romanization by Morellet, Encoded by nONE</annotation>
+			<duration>110502</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>143</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/gekkan-shoujo-nozaki-kun-ost/08-itsumo-no-kuchibue-no-bgm.mp3</location>
+			<title>Itsumo no Kuchibue no BGM</title>
+			<creator>Hashimoto Yukari</creator>
+			<album>Gekkan Shoujo Nozaki-kun Vol.3 Special CD: Complete Soundtrack Vol.1</album>
+			<trackNum>8</trackNum>
+			<annotation>Romanization by Morellet, Encoded by nONE</annotation>
+			<duration>121160</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>144</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/gekkan-shoujo-nozaki-kun-ost/09-mangaka-nou-nozaki-kun.mp3</location>
+			<title>Mangaka Nou Nozaki-kun</title>
+			<creator>Hashimoto Yukari</creator>
+			<album>Gekkan Shoujo Nozaki-kun Vol.3 Special CD: Complete Soundtrack Vol.1</album>
+			<trackNum>9</trackNum>
+			<annotation>Romanization by Morellet, Encoded by nONE</annotation>
+			<duration>110790</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>145</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/gekkan-shoujo-nozaki-kun-ost/14-tanuki-ga-ippai.mp3</location>
+			<title>Tanuki ga Ippai</title>
+			<creator>Hashimoto Yukari</creator>
+			<album>Gekkan Shoujo Nozaki-kun Vol.4 Special CD: Complete Soundtrack Vol.2</album>
+			<trackNum>14</trackNum>
+			<annotation>Romanization by Morellet, Encoded by nONE</annotation>
+			<duration>88638</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>146</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/isshukan-friends-ost/12%20-%20Te%20to%20Te%20to%20Saki.mp3</location>
+			<title>Te to Te to Saki</title>
+			<creator>Toda Irone</creator>
+			<album>Isshuukan Friends. Original Soundtrack</album>
+			<trackNum>12</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>102011</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>147</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/isshukan-friends-ost/14%20-%20Yakimoki%20Hase-kun.mp3</location>
+			<title>Yakimoki Hase-kun</title>
+			<creator>Toda Irone</creator>
+			<album>Isshuukan Friends. Original Soundtrack</album>
+			<trackNum>14</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>74008</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>148</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kikytomk-9i/%E3%81%82%E3%81%9D%E3%81%B2%E3%82%99%E3%81%AB%E3%81%84%E3%81%8F%E3%83%A8%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-0j/07%E3%81%93%E3%82%99%E3%80%81%E8%AA%A4%E8%A7%A3%E3%81%A6%E3%82%99%E3%81%99%E3%81%85-8r.mp3</location>
+			<title>ご、誤解ですぅ</title>
+			<creator>Kikuya Tomoki</creator>
+			<album>あそびにいくヨ! オリジナルサウンドトラック</album>
+			<trackNum>7</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Kikuya%20Tomoki/%E3%81%82%E3%81%9D%E3%81%B3%E3%81%AB%E3%81%84%E3%81%8F%E3%83%A8%21%20%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.png</image>
+			<duration>81139</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>149</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kikytomk-9i/%E3%81%82%E3%81%9D%E3%81%B2%E3%82%99%E3%81%AB%E3%81%84%E3%81%8F%E3%83%A8%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-0j/36%E3%82%B5%E3%83%A8%E3%83%8A%E3%83%A9%E7%99%BA%E6%83%85%E6%9C%9F-8z.mp3</location>
+			<title>サヨナラ発情期</title>
+			<creator>Kikuya Tomoki</creator>
+			<album>あそびにいくヨ! オリジナルサウンドトラック</album>
+			<trackNum>36</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Kikuya%20Tomoki/%E3%81%82%E3%81%9D%E3%81%B3%E3%81%AB%E3%81%84%E3%81%8F%E3%83%A8%21%20%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.png</image>
+			<duration>93077</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>150</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/06%20-%20Itoshi%20no%20Kimito.mp3</location>
+			<title>Itoshi no Kimito</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>6</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>108097</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>151</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/06%20-%20Shinobu%20to%20Alice.mp3</location>
+			<title>Shinobu to Alice</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Hajimemashite Yoroshiku ne.</album>
+			<trackNum>6</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>115255</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>152</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/07%20-%20Moshika%20Shite.mp3</location>
+			<title>Moshika Shite</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>7</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>98876</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>153</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/11%20-%20Naze%20na%20no.mp3</location>
+			<title>Naze na no?</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Hajimemashite Yoroshiku ne.</album>
+			<trackNum>11</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>110031</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>154</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/12%20-%20Shonbori.mp3</location>
+			<title>Shonbori</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>12</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>90596</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>155</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/13%20-%20Arere%21.mp3</location>
+			<title>Arere!?</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>13</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>99791</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>156</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/19%20-%20A-ya-shi-i.mp3</location>
+			<title>A-ya-shi-i</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>19</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>96395</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>157</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/23%20-%20Chottoshita%20Itazura.mp3</location>
+			<title>Chottoshita Itazura</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>23</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>95010</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>158</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/25%20-%20Class%20Kae.mp3</location>
+			<title>Class Kae</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>25</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>90177</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>159</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BNipponsei%5D%20Non%20Non%20Biyori%20Original%20Soundtrack/CD1/05%20-%20Ii%20no%20kana.mp3</location>
+			<title>Ii no kana?</title>
+			<creator>Mizutani Hiromi</creator>
+			<album>Non Non Biyori Original Soundtrack - CD1</album>
+			<trackNum>5</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>90334</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>160</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BNipponsei%5D%20Non%20Non%20Biyori%20Original%20Soundtrack/CD1/09%20-%20Mezurashii%20Mono%20wo%20Mita.mp3</location>
+			<title>Mezurashii Mono wo Mita</title>
+			<creator>Mizutani Hiromi</creator>
+			<album>Non Non Biyori Original Soundtrack - CD1</album>
+			<trackNum>9</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>80303</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>161</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BNipponsei%5D%20Non%20Non%20Biyori%20Original%20Soundtrack/CD2/08%20-%20Asobou%21.mp3</location>
+			<title>Asobou!</title>
+			<creator>Mizutani Hiromi</creator>
+			<album>Non Non Biyori Original Soundtrack - CD2</album>
+			<trackNum>8</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>107210</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>162</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BNipponsei%5D%20Non%20Non%20Biyori%20Original%20Soundtrack/CD2/09%20-%20Yattaa%21.mp3</location>
+			<title>Yattaa!</title>
+			<creator>Mizutani Hiromi</creator>
+			<album>Non Non Biyori Original Soundtrack - CD2</album>
+			<trackNum>9</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>90726</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>163</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BNipponsei%5D%20Non%20Non%20Biyori%20Original%20Soundtrack/CD2/13%20-%20Fuan.mp3</location>
+			<title>Fuan</title>
+			<creator>Mizutani Hiromi</creator>
+			<album>Non Non Biyori Original Soundtrack - CD2</album>
+			<trackNum>13</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>92894</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>164</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BNipponsei%5D%20Non%20Non%20Biyori%20Original%20Soundtrack/CD2/15%20-%20Sessesse%20no%20Hoi.mp3</location>
+			<title>Sessesse no Hoi</title>
+			<creator>Mizutani Hiromi</creator>
+			<album>Non Non Biyori Original Soundtrack - CD2</album>
+			<trackNum>15</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>71474</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>165</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/03%20-%20Abunai%20Hito.mp3</location>
+			<trackNum>3</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/654dd476a5f746673e1502f51650c83f/art.jpg</image>
+			<duration>84561</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>166</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/06%20-%20Nano-san%21.mp3</location>
+			<trackNum>6</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/f38d1368d676880a88dcb081020a369b/art.jpg</image>
+			<duration>81583</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>167</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/07%20-%20Michikusa%20wo%2C%20Tanoshimu.mp3</location>
+			<trackNum>7</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/1f95ee726b41c7db12952f2339f5482f/art.jpg</image>
+			<duration>103343</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>168</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/08%20-%20Michikusa%20wa%20Bannou%20Yaku.mp3</location>
+			<trackNum>8</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/61e0b317e527cfa45f922ce30edeb356/art.jpg</image>
+			<duration>81792</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>169</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/23%20-%20Tsukeru.mp3</location>
+			<trackNum>23</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/549452968de86c626d05da5f916ab4da/art.jpg</image>
+			<duration>92816</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>170</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/24%20-%20Mitsukaru.mp3</location>
+			<trackNum>24</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/6f8237eb77bd788a1f0b009284cda19a/art.jpg</image>
+			<duration>81949</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>171</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/25%20-%20Nigeru.mp3</location>
+			<trackNum>25</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/2749be65c3b21d73fd476887fd4a5ae9/art.jpg</image>
+			<duration>84012</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>172</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/26%20-%20Chito-san.mp3</location>
+			<trackNum>26</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/404c9fcdc38dbd531b5631a87ce47242/art.jpg</image>
+			<duration>93704</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>173</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/31%20-%20Tohoho.mp3</location>
+			<trackNum>31</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/0065015d716b11e1b7076507f596729e/art.jpg</image>
+			<duration>101906</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>174</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/32%20-%20Hourou%20Majo.mp3</location>
+			<trackNum>32</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/55f3470f04993813b47161e1d112be9b/art.jpg</image>
+			<duration>162354</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>175</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/33%20-%20Ane%20Majo.mp3</location>
+			<trackNum>33</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/9ad371687fbba8b6eacd71d7e5f921d6/art.jpg</image>
+			<duration>114184</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>176</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/35%20-%20Inukai-san.mp3</location>
+			<trackNum>35</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/226cb7d300ef88a6c62f9ec99401b4b0/art.jpg</image>
+			<duration>92450</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>177</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%5BOST%5D%20Flying%20Witch%20%28Dewa%20Yoshiaki%29/39%20-%20Sakurairo%20no%20Fuukei.mp3</location>
+			<trackNum>39</trackNum>
+			<annotation>www.hikarinoakariost.info tsuba20</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/arturl/56bd7052f516b74684f55681da64c89e/art.jpg</image>
+			<duration>158697</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>178</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakurasou-no-pet-na-kanojo-ost/06%20-%20Pantsu%20wa.mp3</location>
+			<title>Pantsu wa?</title>
+			<creator>Hayashi Yuuzou</creator>
+			<album>Sakurasou no Pet na Kanojo Original Soundtrack 1</album>
+			<trackNum>6</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>90021</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>179</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakurasou-no-pet-na-kanojo-ost/12%20-%20Nenchuu%20Mukyuu%20Mashiro%20Touban.mp3</location>
+			<title>Nenchuu Mukyuu Mashiro Touban</title>
+			<creator>Hayashi Yuuzou</creator>
+			<album>Sakurasou no Pet na Kanojo Original Soundtrack 1</album>
+			<trackNum>12</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>93678</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>180</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakurasou-no-pet-na-kanojo-ost/20%20-%20Shitagokoro%20Mansai%20da%20yo%21.mp3</location>
+			<title>Shitagokoro Mansai da yo!</title>
+			<creator>Hayashi Yuuzou</creator>
+			<album>Sakurasou no Pet na Kanojo Original Soundtrack 1</album>
+			<trackNum>20</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>106008</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>181</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakurasou-no-pet-na-kanojo-ost/22%20-%20Chottomate%2C%20Shiina.mp3</location>
+			<title>Chottomate, Shiina</title>
+			<creator>Hayashi Yuuzou</creator>
+			<album>Sakurasou no Pet na Kanojo Original Soundtrack 1</album>
+			<trackNum>22</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>105511</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>182</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakurasou-no-pet-na-kanojo-ost/23%20-%20Asa%20wa%20mou%20Ko%20nai%20wa.mp3</location>
+			<title>Asa wa mou Ko nai wa</title>
+			<creator>Hayashi Yuuzou</creator>
+			<album>Sakurasou no Pet na Kanojo Original Soundtrack 1</album>
+			<trackNum>23</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>89890</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>183</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakurasou-no-pet-na-kanojo-ost/25%20-%20Shoutotsu.mp3</location>
+			<title>Shoutotsu</title>
+			<creator>Hayashi Yuuzou</creator>
+			<album>Sakurasou no Pet na Kanojo Original Soundtrack 1</album>
+			<trackNum>25</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>93991</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>184</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakura-trick-ost/06%20-%20Otoboke%20no%20Waltz.mp3</location>
+			<title>Otoboke no Waltz</title>
+			<creator>Nakanishi Ryousuke</creator>
+			<album>Sakura Trick Original Soundtrack</album>
+			<trackNum>6</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>105903</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>185</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakura-trick-ost/12%20-%20Kinchou.mp3</location>
+			<title>Kinchou</title>
+			<creator>Nakanishi Ryousuke</creator>
+			<album>Sakura Trick Original Soundtrack</album>
+			<trackNum>12</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>126044</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>186</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakura-trick-ost/15%20-%20Sakura-iro%20no%20Nichijou.mp3</location>
+			<title>Sakura-iro no Nichijou</title>
+			<creator>Nakanishi Ryousuke</creator>
+			<album>Sakura Trick Original Soundtrack</album>
+			<trackNum>15</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>125051</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>187</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakura-trick-ost/19%20-%20Kenaku.mp3</location>
+			<title>Kenaku</title>
+			<creator>Nakanishi Ryousuke</creator>
+			<album>Sakura Trick Original Soundtrack</album>
+			<trackNum>19</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>93861</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>188</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakura-trick-ost/22%20-%20Kokoro%20no%20Zawameki.mp3</location>
+			<title>Kokoro no Zawameki</title>
+			<creator>Nakanishi Ryousuke</creator>
+			<album>Sakura Trick Original Soundtrack</album>
+			<trackNum>22</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>78762</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>189</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/sakura-trick-ost/23%20-%20Suppai%20Dai%20Sakusen.mp3</location>
+			<title>Suppai Dai Sakusen</title>
+			<creator>Nakanishi Ryousuke</creator>
+			<album>Sakura Trick Original Soundtrack</album>
+			<trackNum>23</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>110188</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>190</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tatsykat-9a/theqwasrfstigmtorignlsoundtr-8r/07%E3%81%BE%E3%81%B5%E3%82%86%E3%81%A8%E7%87%88%E3%81%AE%E6%95%99%E5%AE%A4-9j.mp3</location>
+			<title>まふゆと燈の教室</title>
+			<creator>Tatsuya Katou</creator>
+			<album>The Qwaser of Stigmata Original Sound Track CD 1</album>
+			<trackNum>7</trackNum>
+			<duration>107389</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>191</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tatsykat-9a/theqwasrfstigmtorignlsoundtr-8r/10%E3%81%84%E3%81%9F%E3%81%99%E3%82%99%E3%82%89-9z.mp3</location>
+			<title>いたずら</title>
+			<creator>Tatsuya Katou</creator>
+			<album>The Qwaser of Stigmata Original Sound Track CD 1</album>
+			<trackNum>10</trackNum>
+			<duration>106971</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>192</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tatsykat-9a/theqwasrfstigmtorignlsoundtr-8r/10%E3%81%A4%E3%81%8B%E3%81%AE%E9%96%93%E3%81%AE%E4%BC%91%E6%81%AF-8j.mp3</location>
+			<title>つかの間の休息</title>
+			<creator>Tatsuya Katou</creator>
+			<album>The Qwaser of Stigmata Original Sound Track CD 2</album>
+			<trackNum>10</trackNum>
+			<duration>127321</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>193</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tatsykat-9a/theqwasrfstigmtorignlsoundtr-8r/11%E3%81%B2%E3%81%9D%E3%81%B2%E3%81%9D%E3%82%AB%E3%82%99%E3%83%BC%E3%83%AB%E3%82%B9%E3%82%99%E3%83%88%E3%83%BC%E3%82%AF-0j.mp3</location>
+			<title>ひそひそガールズトーク</title>
+			<creator>Tatsuya Katou</creator>
+			<album>The Qwaser of Stigmata Original Sound Track CD 2</album>
+			<trackNum>11</trackNum>
+			<duration>103837</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>194</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tatsykat-9a/theqwasrfstigmtorignlsoundtr-8r/12%E4%B8%96%E8%A9%B1%E3%81%8B%E3%82%99%E3%82%84%E3%81%91%E3%82%8B%E3%81%93%E3%81%A6%E3%82%99%E3%81%99%E3%81%AD-1b.mp3</location>
+			<title>世話がやけるこですね</title>
+			<creator>Tatsuya Katou</creator>
+			<album>The Qwaser of Stigmata Original Sound Track CD 1</album>
+			<trackNum>12</trackNum>
+			<duration>130090</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>195</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tatsykat-9a/theqwasrfstigmtorignlsoundtr-8r/14%E8%BE%BB%E5%A0%82%E7%BE%8E%E7%94%B1%E6%A2%A8%E3%81%AE%E4%B8%BB%E5%BC%B5-9z.mp3</location>
+			<title>辻堂美由梨の主張</title>
+			<creator>Tatsuya Katou</creator>
+			<album>The Qwaser of Stigmata Original Sound Track CD 1</album>
+			<trackNum>14</trackNum>
+			<duration>109453</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>196</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tatsykat-9a/theqwasrfstigmtorignlsoundtr-8r/15%E5%8B%95%E3%81%97%E3%82%99%E3%81%AA%E3%81%84%E3%82%B5%E3%83%BC%E3%82%B7%E3%83%A3-9j.mp3</location>
+			<title>動じないサーシャ</title>
+			<creator>Tatsuya Katou</creator>
+			<album>The Qwaser of Stigmata Original Sound Track CD 1</album>
+			<trackNum>15</trackNum>
+			<duration>104439</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>197</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/09%E4%BD%95%E3%81%8B%E8%A3%8F%E3%81%8B%E3%82%99%E3%81%82%E3%82%8B%E3%81%A6%E3%82%99%E3%81%99%E3%81%AD-0y.mp3</location>
+			<title>何か裏があるですね</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>9</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>108463</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>198</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/11%E3%81%B5%E3%81%81%E3%82%93%E3%81%8D%E3%83%BC%E3%81%82%E3%81%93%E3%83%BC%E3%81%99%E3%81%A6%E3%81%A3%E3%81%8F-1q.mp3</location>
+			<title>ふぁんきーあこーすてっく</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>11</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>167343</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>199</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/19%E9%87%8E%E7%94%9F%E3%81%AE%E5%A4%89%E6%8B%8D%E5%AD%90-9r.mp3</location>
+			<title>野生の変拍子</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>19</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>70063</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>200</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/27%E8%81%96%E3%82%AF%E3%83%AD%E3%83%8B%E3%82%AB%E5%AD%A6%E5%9C%92-8z.mp3</location>
+			<title>聖クロニカ学園</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>27</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>72832</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>201</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/32%E3%82%A8%E3%83%AD%E3%82%B1%E3%82%99%E3%81%AE%E6%9C%97%E8%AA%AD-9b.mp3</location>
+			<title>エロゲの朗読</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>32</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>78057</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>202</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/toshrmasd-8b/nartosti-8b/kakshsthem-1q.mp3</location>
+			<title>Kakashi&#39;s Theme</title>
+			<creator>Toshiro Masuda</creator>
+			<album>Naruto OST I</album>
+			<duration>89652</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>203</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/unknwnartst-8b/unknwnalbm-9b/mushrmhillzonact1-8y.mp3</location>
+			<title>Mushroom Hill Zone Act 1</title>
+			<duration>92238</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>204</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/amagi_ost/11%20Sorcerer%27s%20Hill.flac</location>
+			<title>Sorcerer&#39;s Hill</title>
+			<creator>Mitsumune Shinkichi</creator>
+			<album>Amagi Brilliant Park Original Sound Track</album>
+			<trackNum>11</trackNum>
+			<annotation>Brought to you by ASL
+Come and visit us or say &quot;Hi&quot; in our IRC channel: #anime-sharing@irc.rizon.net</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mitsumune%20Shinkichi/Amagi%20Brilliant%20Park%20Original%20Sound%20Track/art.jpg</image>
+			<duration>89693</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>205</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/amagi_ost/24%20Bimyou%20na%20Nichijou.flac</location>
+			<title>Bimyou na Nichijou</title>
+			<creator>Mitsumune Shinkichi</creator>
+			<album>Amagi Brilliant Park Original Sound Track</album>
+			<trackNum>24</trackNum>
+			<annotation>Brought to you by ASL
+Come and visit us or say &quot;Hi&quot; in our IRC channel: #anime-sharing@irc.rizon.net</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mitsumune%20Shinkichi/Amagi%20Brilliant%20Park%20Original%20Sound%20Track/art.jpg</image>
+			<duration>91360</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>206</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/isshukan-friends-ost/12%20-%20Te%20to%20Te%20to%20Saki.mp3</location>
+			<title>Te to Te to Saki</title>
+			<creator>Toda Irone</creator>
+			<album>Isshuukan Friends. Original Soundtrack</album>
+			<trackNum>12</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>102011</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>207</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/isshukan-friends-ost/14%20-%20Yakimoki%20Hase-kun.mp3</location>
+			<title>Yakimoki Hase-kun</title>
+			<creator>Toda Irone</creator>
+			<album>Isshuukan Friends. Original Soundtrack</album>
+			<trackNum>14</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>74008</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>208</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/19%20-%20A-ya-shi-i.mp3</location>
+			<title>A-ya-shi-i</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>19</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>96395</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>209</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/09%E4%BD%95%E3%81%8B%E8%A3%8F%E3%81%8B%E3%82%99%E3%81%82%E3%82%8B%E3%81%A6%E3%82%99%E3%81%99%E3%81%AD-0y.mp3</location>
+			<title>何か裏があるですね</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>9</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>108463</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>210</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/11%E3%81%B5%E3%81%81%E3%82%93%E3%81%8D%E3%83%BC%E3%81%82%E3%81%93%E3%83%BC%E3%81%99%E3%81%A6%E3%81%A3%E3%81%8F-1q.mp3</location>
+			<title>ふぁんきーあこーすてっく</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>11</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>167344</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>211</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/19%E9%87%8E%E7%94%9F%E3%81%AE%E5%A4%89%E6%8B%8D%E5%AD%90-9r.mp3</location>
+			<title>野生の変拍子</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>19</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>70064</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>212</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/27%E8%81%96%E3%82%AF%E3%83%AD%E3%83%8B%E3%82%AB%E5%AD%A6%E5%9C%92-8z.mp3</location>
+			<title>聖クロニカ学園</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>27</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>72832</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>213</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/32%E3%82%A8%E3%83%AD%E3%82%B1%E3%82%99%E3%81%AE%E6%9C%97%E8%AA%AD-9b.mp3</location>
+			<title>エロゲの朗読</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>32</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>78057</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>214</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/07%20-%20Yamada.mp3</location>
+			<title>Yamada</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>7</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>86729</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>215</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/09%20-%20Osewazuki.mp3</location>
+			<title>Osewazuki</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>9</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>86233</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>216</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%E5%A4%A7%E5%B6%8B%E5%95%93%E4%B9%8B-1y/%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%88%E3%82%99%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-0q/07whitair-0z.mp3</location>
+			<title>White Air</title>
+			<creator>大嶋 啓之</creator>
+			<album>アクセル・ワールドオリジナルサウンドトラック</album>
+			<trackNum>7</trackNum>
+			<duration>90569</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>217</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%E5%A4%A7%E5%B6%8B%E5%95%93%E4%B9%8B-1y/%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%88%E3%82%99%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-0q/15scarltprincss-1q.mp3</location>
+			<title>Scarlet Princess</title>
+			<creator>大嶋 啓之</creator>
+			<album>アクセル・ワールドオリジナルサウンドトラック</album>
+			<trackNum>15</trackNum>
+			<duration>150599</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>218</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/unknwnartst-8b/unknwnalbm-9b/mushrmhillzonact1-8y.mp3</location>
+			<title>Mushroom Hill Zone Act 1</title>
+			<duration>92238</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>219</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/usagi-drop-ost/08%20-%20Asa%20Gohan.mp3</location>
+			<title>Asa Gohan</title>
+			<creator>Matsutani Suguru</creator>
+			<album>Usagi Drop Original Soundtrack</album>
+			<trackNum>8</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>137982</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>220</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/usagi-drop-ost/11%20-%20Soudan.mp3</location>
+			<title>Soudan</title>
+			<creator>Matsutani Suguru</creator>
+			<album>Usagi Drop Original Soundtrack</album>
+			<trackNum>11</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>131556</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>221</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/usagi-drop-ost/17%20-%20Knight.mp3</location>
+			<title>Knight</title>
+			<creator>Matsutani Suguru</creator>
+			<album>Usagi Drop Original Soundtrack</album>
+			<trackNum>17</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>60267</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>222</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/usagi-drop-ost/18%20-%20Kouki%20no%20Theme.mp3</location>
+			<title>Kouki no Theme</title>
+			<creator>Matsutani Suguru</creator>
+			<album>Usagi Drop Original Soundtrack</album>
+			<trackNum>18</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>77221</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>223</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/usagi-drop-ost/24%20-%20Odekake.mp3</location>
+			<title>Odekake</title>
+			<creator>Matsutani Suguru</creator>
+			<album>Usagi Drop Original Soundtrack</album>
+			<trackNum>24</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>131712</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>224</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/01%20-%20Wagnaria%20Futatabi.mp3</location>
+			<title>Wagnaria Futatabi</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>1</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>95063</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>225</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/03%20-%20Honobono%20Recipe.mp3</location>
+			<title>Honobono Recipe</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>3</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>83307</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>226</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/06%20-%20Tensei%20no%20KY.mp3</location>
+			<title>Tensei no KY</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.2</album>
+			<trackNum>6</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>73381</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>227</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/07%20-%20Yamada.mp3</location>
+			<title>Yamada</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>7</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>86729</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>228</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/08%20-%20You.mp3</location>
+			<title>You</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>8</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>97048</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>229</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/09%20-%20Osewazuki.mp3</location>
+			<title>Osewazuki</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>9</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>86233</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>230</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/10%20-%20Shiro%20Ran.mp3</location>
+			<title>Shiro Ran</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.2</album>
+			<trackNum>10</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>79415</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>231</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/yuru-yuri-ost/07%20-%20Gorakubuu~.mp3</location>
+			<title>Gorakubuu~</title>
+			<creator>Misawa Yasuhiro</creator>
+			<album>Yuruyuri Original Soundtrack</album>
+			<trackNum>7</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>200441</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>232</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/yuru-yuri-ost/20%20-%20Mousou%20Paradox.mp3</location>
+			<title>Mousou Paradox</title>
+			<creator>Misawa Yasuhiro</creator>
+			<album>Yuruyuri Original Soundtrack</album>
+			<trackNum>20</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>189626</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>233</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%E5%A4%A7%E5%B6%8B%E5%95%93%E4%B9%8B-1y/%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%88%E3%82%99%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-0q/07whitair-0z.mp3</location>
+			<title>White Air</title>
+			<creator>大嶋 啓之</creator>
+			<album>アクセル・ワールドオリジナルサウンドトラック</album>
+			<trackNum>7</trackNum>
+			<duration>90569</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>234</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%E5%A4%A7%E5%B6%8B%E5%95%93%E4%B9%8B-1y/%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%88%E3%82%99%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-0q/15scarltprincss-1q.mp3</location>
+			<title>Scarlet Princess</title>
+			<creator>大嶋 啓之</creator>
+			<album>アクセル・ワールドオリジナルサウンドトラック</album>
+			<trackNum>15</trackNum>
+			<duration>150600</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>235</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/amagi_ost/11%20Sorcerer%27s%20Hill.flac</location>
+			<title>Sorcerer&#39;s Hill</title>
+			<creator>Mitsumune Shinkichi</creator>
+			<album>Amagi Brilliant Park Original Sound Track</album>
+			<trackNum>11</trackNum>
+			<annotation>Brought to you by ASL
+Come and visit us or say &quot;Hi&quot; in our IRC channel: #anime-sharing@irc.rizon.net</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mitsumune%20Shinkichi/Amagi%20Brilliant%20Park%20Original%20Sound%20Track/art.jpg</image>
+			<duration>89693</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>236</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/amagi_ost/24%20Bimyou%20na%20Nichijou.flac</location>
+			<title>Bimyou na Nichijou</title>
+			<creator>Mitsumune Shinkichi</creator>
+			<album>Amagi Brilliant Park Original Sound Track</album>
+			<trackNum>24</trackNum>
+			<annotation>Brought to you by ASL
+Come and visit us or say &quot;Hi&quot; in our IRC channel: #anime-sharing@irc.rizon.net</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Mitsumune%20Shinkichi/Amagi%20Brilliant%20Park%20Original%20Sound%20Track/art.jpg</image>
+			<duration>91360</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>237</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/isshukan-friends-ost/12%20-%20Te%20to%20Te%20to%20Saki.mp3</location>
+			<title>Te to Te to Saki</title>
+			<creator>Toda Irone</creator>
+			<album>Isshuukan Friends. Original Soundtrack</album>
+			<trackNum>12</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>102011</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>238</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/isshukan-friends-ost/14%20-%20Yakimoki%20Hase-kun.mp3</location>
+			<title>Yakimoki Hase-kun</title>
+			<creator>Toda Irone</creator>
+			<album>Isshuukan Friends. Original Soundtrack</album>
+			<trackNum>14</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>74008</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>239</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/kiniro-mosaic-ost/19%20-%20A-ya-shi-i.mp3</location>
+			<title>A-ya-shi-i</title>
+			<creator>Kawada Ruka</creator>
+			<album>Kiniro Mosaic Sound Book - Itsumade mo Issho da yo</album>
+			<trackNum>19</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>96395</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>240</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/09%E4%BD%95%E3%81%8B%E8%A3%8F%E3%81%8B%E3%82%99%E3%81%82%E3%82%8B%E3%81%A6%E3%82%99%E3%81%99%E3%81%AD-0y.mp3</location>
+			<title>何か裏があるですね</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>9</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>108463</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>241</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/11%E3%81%B5%E3%81%81%E3%82%93%E3%81%8D%E3%83%BC%E3%81%82%E3%81%93%E3%83%BC%E3%81%99%E3%81%A6%E3%81%A3%E3%81%8F-1q.mp3</location>
+			<title>ふぁんきーあこーすてっく</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>11</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>167344</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>242</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/19%E9%87%8E%E7%94%9F%E3%81%AE%E5%A4%89%E6%8B%8D%E5%AD%90-9r.mp3</location>
+			<title>野生の変拍子</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>19</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>70063</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>243</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/27%E8%81%96%E3%82%AF%E3%83%AD%E3%83%8B%E3%82%AB%E5%AD%A6%E5%9C%92-8z.mp3</location>
+			<title>聖クロニカ学園</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>27</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>72832</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>244</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/tomhck-8b/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8B%E3%82%99%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-1y/32%E3%82%A8%E3%83%AD%E3%82%B1%E3%82%99%E3%81%AE%E6%9C%97%E8%AA%AD-9b.mp3</location>
+			<title>エロゲの朗読</title>
+			<creator>Tom-H@ck</creator>
+			<album>僕は友達が少ないオリジナルサウンドトラック</album>
+			<trackNum>32</trackNum>
+			<annotation>Visit animeost.info to find more!</annotation>
+			<image>file:///home/cameron/.cache/vlc/art/artistalbum/Tom-H%40ck/%E5%83%95%E3%81%AF%E5%8F%8B%E9%81%94%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF/art.jpg</image>
+			<duration>78057</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>245</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/07%20-%20Yamada.mp3</location>
+			<title>Yamada</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>7</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>86729</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>246</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/working_ost/09%20-%20Osewazuki.mp3</location>
+			<title>Osewazuki</title>
+			<creator>MONACA</creator>
+			<album>Working&#39;!! Original Soundtrack Vol.1</album>
+			<trackNum>9</trackNum>
+			<annotation>#NIPPONSEI @ IRC.RIZON.NET</annotation>
+			<duration>86233</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>247</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%E5%A4%A7%E5%B6%8B%E5%95%93%E4%B9%8B-1y/%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%88%E3%82%99%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-0q/07whitair-0z.mp3</location>
+			<title>White Air</title>
+			<creator>大嶋 啓之</creator>
+			<album>アクセル・ワールドオリジナルサウンドトラック</album>
+			<trackNum>7</trackNum>
+			<duration>90569</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>248</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/nick%20anime%20playlist/%E5%A4%A7%E5%B6%8B%E5%95%93%E4%B9%8B-1y/%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%88%E3%82%99%E3%82%AA%E3%83%AA%E3%82%B7%E3%82%99%E3%83%8A%E3%83%AB%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%88%E3%82%99%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF-0q/15scarltprincss-1q.mp3</location>
+			<title>Scarlet Princess</title>
+			<creator>大嶋 啓之</creator>
+			<album>アクセル・ワールドオリジナルサウンドトラック</album>
+			<trackNum>15</trackNum>
+			<duration>150599</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>249</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/KissXSis/Kissxsis%20OST%20Gaman%20Genkai%20Meganekko%20Mikuni.mp3</location>
+			<duration>112222</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>250</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/KissXSis/Kissxsis%20OST%20Abnormal%20ga%20Normal.mp3</location>
+			<duration>102791</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>251</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/cameron/Music/KissXSis/Kissxsis%20OST%20Nui%20da%20Bakari%20no.mp3</location>
+			<duration>100440</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>252</vlc:id>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+		<vlc:item tid="0"/>
+		<vlc:item tid="1"/>
+		<vlc:item tid="2"/>
+		<vlc:item tid="3"/>
+		<vlc:item tid="4"/>
+		<vlc:item tid="5"/>
+		<vlc:item tid="6"/>
+		<vlc:item tid="7"/>
+		<vlc:item tid="8"/>
+		<vlc:item tid="9"/>
+		<vlc:item tid="10"/>
+		<vlc:item tid="11"/>
+		<vlc:item tid="12"/>
+		<vlc:item tid="13"/>
+		<vlc:item tid="14"/>
+		<vlc:item tid="15"/>
+		<vlc:item tid="16"/>
+		<vlc:item tid="17"/>
+		<vlc:item tid="18"/>
+		<vlc:item tid="19"/>
+		<vlc:item tid="20"/>
+		<vlc:item tid="21"/>
+		<vlc:item tid="22"/>
+		<vlc:item tid="23"/>
+		<vlc:item tid="24"/>
+		<vlc:item tid="25"/>
+		<vlc:item tid="26"/>
+		<vlc:item tid="27"/>
+		<vlc:item tid="28"/>
+		<vlc:item tid="29"/>
+		<vlc:item tid="30"/>
+		<vlc:item tid="31"/>
+		<vlc:item tid="32"/>
+		<vlc:item tid="33"/>
+		<vlc:item tid="34"/>
+		<vlc:item tid="35"/>
+		<vlc:item tid="36"/>
+		<vlc:item tid="37"/>
+		<vlc:item tid="38"/>
+		<vlc:item tid="39"/>
+		<vlc:item tid="40"/>
+		<vlc:item tid="41"/>
+		<vlc:item tid="42"/>
+		<vlc:item tid="43"/>
+		<vlc:item tid="44"/>
+		<vlc:item tid="45"/>
+		<vlc:item tid="46"/>
+		<vlc:item tid="47"/>
+		<vlc:item tid="48"/>
+		<vlc:item tid="49"/>
+		<vlc:item tid="50"/>
+		<vlc:item tid="51"/>
+		<vlc:item tid="52"/>
+		<vlc:item tid="53"/>
+		<vlc:item tid="54"/>
+		<vlc:item tid="55"/>
+		<vlc:item tid="56"/>
+		<vlc:item tid="57"/>
+		<vlc:item tid="58"/>
+		<vlc:item tid="59"/>
+		<vlc:item tid="60"/>
+		<vlc:item tid="61"/>
+		<vlc:item tid="62"/>
+		<vlc:item tid="63"/>
+		<vlc:item tid="64"/>
+		<vlc:item tid="65"/>
+		<vlc:item tid="66"/>
+		<vlc:item tid="67"/>
+		<vlc:item tid="68"/>
+		<vlc:item tid="69"/>
+		<vlc:item tid="70"/>
+		<vlc:item tid="71"/>
+		<vlc:item tid="72"/>
+		<vlc:item tid="73"/>
+		<vlc:item tid="74"/>
+		<vlc:item tid="75"/>
+		<vlc:item tid="76"/>
+		<vlc:item tid="77"/>
+		<vlc:item tid="78"/>
+		<vlc:item tid="79"/>
+		<vlc:item tid="80"/>
+		<vlc:item tid="81"/>
+		<vlc:item tid="82"/>
+		<vlc:item tid="83"/>
+		<vlc:item tid="84"/>
+		<vlc:item tid="85"/>
+		<vlc:item tid="86"/>
+		<vlc:item tid="87"/>
+		<vlc:item tid="88"/>
+		<vlc:item tid="89"/>
+		<vlc:item tid="90"/>
+		<vlc:item tid="91"/>
+		<vlc:item tid="92"/>
+		<vlc:item tid="93"/>
+		<vlc:item tid="94"/>
+		<vlc:item tid="95"/>
+		<vlc:item tid="96"/>
+		<vlc:item tid="97"/>
+		<vlc:item tid="98"/>
+		<vlc:item tid="99"/>
+		<vlc:item tid="100"/>
+		<vlc:item tid="101"/>
+		<vlc:item tid="102"/>
+		<vlc:item tid="103"/>
+		<vlc:item tid="104"/>
+		<vlc:item tid="105"/>
+		<vlc:item tid="106"/>
+		<vlc:item tid="107"/>
+		<vlc:item tid="108"/>
+		<vlc:item tid="109"/>
+		<vlc:item tid="110"/>
+		<vlc:item tid="111"/>
+		<vlc:item tid="112"/>
+		<vlc:item tid="113"/>
+		<vlc:item tid="114"/>
+		<vlc:item tid="115"/>
+		<vlc:item tid="116"/>
+		<vlc:item tid="117"/>
+		<vlc:item tid="118"/>
+		<vlc:item tid="119"/>
+		<vlc:item tid="120"/>
+		<vlc:item tid="121"/>
+		<vlc:item tid="122"/>
+		<vlc:item tid="123"/>
+		<vlc:item tid="124"/>
+		<vlc:item tid="125"/>
+		<vlc:item tid="126"/>
+		<vlc:item tid="127"/>
+		<vlc:item tid="128"/>
+		<vlc:item tid="129"/>
+		<vlc:item tid="130"/>
+		<vlc:item tid="131"/>
+		<vlc:item tid="132"/>
+		<vlc:item tid="133"/>
+		<vlc:item tid="134"/>
+		<vlc:item tid="135"/>
+		<vlc:item tid="136"/>
+		<vlc:item tid="137"/>
+		<vlc:item tid="138"/>
+		<vlc:item tid="139"/>
+		<vlc:item tid="140"/>
+		<vlc:item tid="141"/>
+		<vlc:item tid="142"/>
+		<vlc:item tid="143"/>
+		<vlc:item tid="144"/>
+		<vlc:item tid="145"/>
+		<vlc:item tid="146"/>
+		<vlc:item tid="147"/>
+		<vlc:item tid="148"/>
+		<vlc:item tid="149"/>
+		<vlc:item tid="150"/>
+		<vlc:item tid="151"/>
+		<vlc:item tid="152"/>
+		<vlc:item tid="153"/>
+		<vlc:item tid="154"/>
+		<vlc:item tid="155"/>
+		<vlc:item tid="156"/>
+		<vlc:item tid="157"/>
+		<vlc:item tid="158"/>
+		<vlc:item tid="159"/>
+		<vlc:item tid="160"/>
+		<vlc:item tid="161"/>
+		<vlc:item tid="162"/>
+		<vlc:item tid="163"/>
+		<vlc:item tid="164"/>
+		<vlc:item tid="165"/>
+		<vlc:item tid="166"/>
+		<vlc:item tid="167"/>
+		<vlc:item tid="168"/>
+		<vlc:item tid="169"/>
+		<vlc:item tid="170"/>
+		<vlc:item tid="171"/>
+		<vlc:item tid="172"/>
+		<vlc:item tid="173"/>
+		<vlc:item tid="174"/>
+		<vlc:item tid="175"/>
+		<vlc:item tid="176"/>
+		<vlc:item tid="177"/>
+		<vlc:item tid="178"/>
+		<vlc:item tid="179"/>
+		<vlc:item tid="180"/>
+		<vlc:item tid="181"/>
+		<vlc:item tid="182"/>
+		<vlc:item tid="183"/>
+		<vlc:item tid="184"/>
+		<vlc:item tid="185"/>
+		<vlc:item tid="186"/>
+		<vlc:item tid="187"/>
+		<vlc:item tid="188"/>
+		<vlc:item tid="189"/>
+		<vlc:item tid="190"/>
+		<vlc:item tid="191"/>
+		<vlc:item tid="192"/>
+		<vlc:item tid="193"/>
+		<vlc:item tid="194"/>
+		<vlc:item tid="195"/>
+		<vlc:item tid="196"/>
+		<vlc:item tid="197"/>
+		<vlc:item tid="198"/>
+		<vlc:item tid="199"/>
+		<vlc:item tid="200"/>
+		<vlc:item tid="201"/>
+		<vlc:item tid="202"/>
+		<vlc:item tid="203"/>
+		<vlc:item tid="204"/>
+		<vlc:item tid="205"/>
+		<vlc:item tid="206"/>
+		<vlc:item tid="207"/>
+		<vlc:item tid="208"/>
+		<vlc:item tid="209"/>
+		<vlc:item tid="210"/>
+		<vlc:item tid="211"/>
+		<vlc:item tid="212"/>
+		<vlc:item tid="213"/>
+		<vlc:item tid="214"/>
+		<vlc:item tid="215"/>
+		<vlc:item tid="216"/>
+		<vlc:item tid="217"/>
+		<vlc:item tid="218"/>
+		<vlc:item tid="219"/>
+		<vlc:item tid="220"/>
+		<vlc:item tid="221"/>
+		<vlc:item tid="222"/>
+		<vlc:item tid="223"/>
+		<vlc:item tid="224"/>
+		<vlc:item tid="225"/>
+		<vlc:item tid="226"/>
+		<vlc:item tid="227"/>
+		<vlc:item tid="228"/>
+		<vlc:item tid="229"/>
+		<vlc:item tid="230"/>
+		<vlc:item tid="231"/>
+		<vlc:item tid="232"/>
+		<vlc:item tid="233"/>
+		<vlc:item tid="234"/>
+		<vlc:item tid="235"/>
+		<vlc:item tid="236"/>
+		<vlc:item tid="237"/>
+		<vlc:item tid="238"/>
+		<vlc:item tid="239"/>
+		<vlc:item tid="240"/>
+		<vlc:item tid="241"/>
+		<vlc:item tid="242"/>
+		<vlc:item tid="243"/>
+		<vlc:item tid="244"/>
+		<vlc:item tid="245"/>
+		<vlc:item tid="246"/>
+		<vlc:item tid="247"/>
+		<vlc:item tid="248"/>
+		<vlc:item tid="249"/>
+		<vlc:item tid="250"/>
+		<vlc:item tid="251"/>
+		<vlc:item tid="252"/>
+	</extension>
+</playlist>
