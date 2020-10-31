@@ -9,7 +9,7 @@
 [freetype] # Freetype2 font renderer
 
 # Font (string)
-freetype-font=Noto Sans Mono
+freetype-font=Liberation Sans
 
 # Monospace Font (string)
 #freetype-monofont=Monospace
@@ -3795,13 +3795,13 @@ global-key-play-pause=Ctrl+Shift+p
 #key-rate-slower-fine=[
 
 # Next (string)
-global-key-next=Ctrl+n
+global-key-next=Ctrl+.
 
 # Next (string)
 #key-next=n	Media Next Track
 
 # Previous (string)
-global-key-prev=Ctrl+p
+global-key-prev=Ctrl+,
 
 # Previous (string)
 #key-prev=p	Media Prev Track
@@ -4197,13 +4197,13 @@ key-aspect-ratio=
 #key-uncrop-right=Alt+Shift+f
 
 # Random (string)
-global-key-random=Ctrl+r
+global-key-random=Ctrl+y
 
 # Random (string)
 #key-random=r
 
 # Normal/Loop/Repeat (string)
-global-key-loop=Ctrl+Shift+i
+global-key-loop=Ctrl+i
 
 # Normal/Loop/Repeat (string)
 key-loop=Ctrl+i
