@@ -585,10 +585,8 @@
 	["none" "none "]
 	["in" "member "]
 	["mem" "member "]
-	["fm" "¨∘⊇ "] ; filter-map
-	["mf" "⊇∘¨ "] ; map-filter
-	;; ["fm" "filter-map "] ; filter-map
-	;; ["mf" "map-filter "] ; map-filter
+	["fm" "filter-map "] ; filter-map
+	["mf" "map-filter "] ; map-filter
 	["flr" "exact-floor "] ; result is Integer
 	["cei" "exact-ceiling "] ; result is Integer
 	["flrr" "floor "] ; result is Real

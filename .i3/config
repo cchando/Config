@@ -55,8 +55,7 @@ exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.j
     client.background       #ffffff
 
 
-# font Hasklig 11
-# bindsym $mod+v nop   # testing purposes for font errors
+# font -ADBO-Hasklig-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
 
 
 ### Variables
@@ -404,8 +403,8 @@ set $ibrowser google-chrome-stable
     no_focus [window_role="pop-up"]
 
 # Assign google-chrome-stable to workspace 7
-    assign [class="^Google-chrome$"] → 1
-    assign [class="^Emacs$"] → 6
+    # assign [class="^Google-chrome$"] → 1
+    # assign [class="^Emacs$"] → 6
 # assign [instance="^google-chrome" class="^Google-chrome$"] → 1
 
 # - To get the class and instance, you can use    "xprop | grep 'CLASS'".
@@ -495,12 +494,12 @@ bar {
     position top
     strip_workspace_numbers yes    # only yes|no
     separator_symbol "   "  
-    # # mode dock|hide|invisible
-    # # hidden_state hide|show
-    # # modifier <Modifier>|none
-		mode dock
+# # mode dock|hide|invisible
+# # hidden_state hide|show
+# # modifier 
+		mode hide
 		hidden_state hide
-		modifier $mod
+		modifier Ctrl
     # bindsym button1 nop    # disable clicking on workspace buttons
     # status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
     status_command i3status #--config ~/.i3status.conf
