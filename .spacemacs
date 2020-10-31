@@ -1093,6 +1093,7 @@ you should place your code here."
 (spacemacs/set-leader-keys (kbd "ic") 'insert-char)
 (spacemacs/set-leader-keys (kbd "ts") 'prettify-symbols-mode)
 (spacemacs/set-leader-keys (kbd "kw") 'evil-window-up) ; shadow evil-lisp-state-wrap binding
+(spacemacs/set-leader-keys (kbd "jw") 'evil-window-down) ; shadow evil-avy-goto-word-or-subword-1
 (spacemacs/set-leader-keys (kbd "hw") 'helm-man-woman)
 (spacemacs/set-leader-keys (kbd "bH") 'spacemacs/home)
 (spacemacs/set-leader-keys (kbd "'") 'spacemacs/shell-pop-ansi-term)
