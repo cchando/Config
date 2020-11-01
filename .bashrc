@@ -88,7 +88,7 @@ alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(playlist)s/
 # # alias emacs-cac='mv -f home/cameron/tmp/.spacemacs  /home/cameron/ && mv -f /home/cameron/spacemacs-default /home/cameron/.spacemacs && emacs -mm'
 
 alias uvi='mv -f /home/cameron/Downloads/vimium-options.json  /home/cameron/.vimium-options.json'
-alias name='echo -e "Instance, Class, Title:\n" && xprop | grep "WM_CLASS|^WM_NAME"' # get [instance, class, title] of whatever window we click on next
+alias name='echo -e "NAME = Title, CLASS = (Instance, Class):\n" && xprop | grep "WM_CLASS|^WM_NAME|WM_WINDOW_ROLE"' # get [instance, class, title] of whatever window we click on next
 alias getkey='xev'
 alias key='xev'
 alias wifioff='sudo rfkill block all'
