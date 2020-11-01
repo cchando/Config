@@ -87,6 +87,7 @@ alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(playlist)s/
 # alias emacs-cac='git stash pop'
 # # alias emacs-cac='mv -f home/cameron/tmp/.spacemacs  /home/cameron/ && mv -f /home/cameron/spacemacs-default /home/cameron/.spacemacs && emacs -mm'
 
+alias uni='command cp /etc/nixos/configuration.nix  /home/cameron/.configuration.nix'
 alias uvi='mv -f /home/cameron/Downloads/vimium-options.json  /home/cameron/.vimium-options.json'
 alias name='echo -e "NAME = Title, CLASS = (Instance, Class):\n" && xprop | grep "WM_CLASS|^WM_NAME|WM_WINDOW_ROLE"' # get [instance, class, title] of whatever window we click on next
 alias getkey='xev'

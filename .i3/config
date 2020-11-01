@@ -389,29 +389,11 @@ set $ibrowser google-chrome-stable
 # Prevent popup windows from stealing the focus
     no_focus [window_role="pop-up"]
 
-# for_window [class="^vlc$"] floating_minimum_size 75 x 50
-# for_window [class="^vlc$"] floating_maximum_size 76 x 51
+for_window [class="^vlc$"] floating_minimum_size 150 x 100
+for_window [class="^vlc$"] floating_maximum_size 151 x 101
 
 for_window [class="^vlc$" window_role="vlc-main"] floating enable , move position center, move scratchpad
 
-
-# for_window [class="^vlc$" \
-#             title="!(Simple Preferences|Select one or more files to open|Save playlist as\.\.\.)"] \
-# 						floating enable, move position center, move scratchpad
-
-
-# for_window [class="^vlc$" \
-#             title="^?!(Simple Preferences|Select one or more files to open|Save playlist as\.\.\.)"] \
-# 						floating enable, move position center, move scratchpad
-
-# for_window [class="^vlc$" \
-#             title="([^\bSimple Preferences])([^Select one or more files to open])([^Save playlist as...])([a-z0-9]+)$"] \
-# 						floating enable, move position center, move scratchpad
-
-# for_window [class="^vlc$" title="([^Simple Preferences])([^Save playlist as...])([a-z0-9]+)$"] floating enable, move position center, move scratchpad
-
-##### TODO: bizzare case for testing. hides "Select one or more files to open" dialog box & "Simple Preferences" box, but not "Save playlist as..." box
-# for_window [class="^vlc$" title="([^nces])([a-z0-9]+)$"] floating enable, move position center, move scratchpad
 
 # # # unconstrained floating window size unless otherwise specified for individual apps
 # floating_maximum_size -1 x -1

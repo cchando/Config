@@ -37,6 +37,12 @@
   # Set your time zone.
     time.timeZone = "America/Chicago";
 
+
+      # nixpkgs.config.permittedInsecurePackages = [
+      #   "google-chrome-81.0.4044.138"
+      # ];
+
+
   # Load fonts
   fonts.fonts = with pkgs; [
     inconsolata fira-code hasklig hanazono lmmath xits-math stix-two libertinus tex-gyre-bonum-math tex-gyre-schola-math
@@ -121,7 +127,7 @@
 #     iptraf #see also iptraf-ng, a fork of iptraf
 #     bro #monitor for vulnerable or malicious software
 #     #cytoscape: for "complex networks" and "visualization"
-#     bmon #bandwidth monitor. see too bwm_ng 
+#     bmon #bandwidth monitor. see too bwm_ng
 #     iftop #display bandwidth for a given device
 #     dnstop #libpcap program that displays DNS traffic
 #     mtr #monitor. traceroute + ping. monitors for overloaded links [connections]
@@ -161,7 +167,7 @@
 #     iwd
 
       # admin tools
-      lsof nix-index 
+      lsof nix-index
 
       # utilities
       youtube-dl
@@ -169,7 +175,7 @@
       tmux tmuxinator
       file
       wl-clipboard # wayland version of xclip
-      pulseaudio pavucontrol
+      pulseaudio pavucontrol pulseaudio-ctl
       fcitx-configtool
       youtube-dl
       htop gotop p7zip
@@ -197,6 +203,8 @@
 
       # window
       xwayland
+      compton # enable window transparency
+      xbanish unclutter
       glib # provides gsettings, which is needed for GNOME icons
       gnome3.gsettings-desktop-schemas
       # vwm wtftw ly
