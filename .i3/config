@@ -170,7 +170,7 @@ set $ibrowser google-chrome-stable
     
     # start vlc w/ playlist
 		bindsym $mod+Shift+v exec vlc
-    bindsym $mod+7 exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.m3
+    bindsym $mod+7 exec vlc file:///home/cameron/Music/1-Playlists/all-playlist.m3u
 		bindsym $mod+8 exec vlc file:///home/cameron/Music/1-Playlists/focus-playlist.m3u
 		bindsym $mod+9 exec vlc file:///home/cameron/Music/1-Playlists/sonic-playlist.m3u
 		bindsym $mod+0 exec vlc file:///home/cameron/Music/1-Playlists/classical-playlist.m3u
