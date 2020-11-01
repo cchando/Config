@@ -391,9 +391,22 @@ set $ibrowser google-chrome-stable
 
 # for_window [class="^vlc$"] floating_minimum_size 75 x 50
 # for_window [class="^vlc$"] floating_maximum_size 76 x 51
-for_window [class="^vlc$" \
-            title="([^Simple Preferences])([^Select one or more files to open])([^Save playlist as...])([a-z0-9]+)$"] \
-						floating enable, move position center, move scratchpad
+
+for_window [class="^vlc$" window_role="vlc-main"] floating enable , move position center, move scratchpad
+
+
+# for_window [class="^vlc$" \
+#             title="!(Simple Preferences|Select one or more files to open|Save playlist as\.\.\.)"] \
+# 						floating enable, move position center, move scratchpad
+
+
+# for_window [class="^vlc$" \
+#             title="^?!(Simple Preferences|Select one or more files to open|Save playlist as\.\.\.)"] \
+# 						floating enable, move position center, move scratchpad
+
+# for_window [class="^vlc$" \
+#             title="([^\bSimple Preferences])([^Select one or more files to open])([^Save playlist as...])([a-z0-9]+)$"] \
+# 						floating enable, move position center, move scratchpad
 
 # for_window [class="^vlc$" title="([^Simple Preferences])([^Save playlist as...])([a-z0-9]+)$"] floating enable, move position center, move scratchpad
 
