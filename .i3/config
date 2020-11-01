@@ -6,10 +6,11 @@
 
 
 # exec redshift -l 32.96:-96.67 -t 6500:2500
-
-exec xbanish  # banish mouse cursor when not in use
-exec compton  # enable window transparency
 # exec stretchly
+
+exec xbanish  # banish mouse cursor upon any key press
+exec unclutter -idle 1 -reset -root -jitter 30 # banish mouse cursor when not in use
+exec compton  # enable window transparency
 
 # disable touchpad:
 exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
@@ -23,7 +24,12 @@ exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:di
 
 #bindsym $mod+n exec i3-msg move workspace 1 ; i3-msg workspace 1
 
-exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+
+exec nitrogen --set-zoom-fill ~/Pictures/Neptunia-etc/Nep-sleepover.jpg
+# exec nitrogen --set-zoom-fill ~/Pictures/Neptunia-etc/Nep-white-HD.jpg
+# exec nitrogen --set-zoom-fill ~/Pictures/Neptunia-etc/woona_by_rikose.png
+# exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/5684679-beach-hd-wallpaper.jpg
+# exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/vlad-squares-green.jpg
 
 # exec nitrogen --set-zoom-fill ~/Pictures/Wallpapers/vlad\ diving.jpg
 # exec nitrogen --head=-1 --set-zoom-fill ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg    &&   nitrogen --head=0 --set-scaled ~/Pictures/Wallpapers/Egg-Carrier-Bridge-Sonic.jpg
