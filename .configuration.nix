@@ -279,6 +279,7 @@
 
       # browsers / viewers
       mpd vimpc
+      volctl # individual slider bars for each app for pulseaudio
       vlc mcomix gpicview cmus qpdfview
       haxor-news newsboat
       gtk2fontsel gucharmap

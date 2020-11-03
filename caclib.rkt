@@ -398,7 +398,7 @@
 
 
 ;; extract a list of vals from list of hashes, given a single key
-(: select (∀ (a b) (case→
+(: select (∀ (a b) (case->
                  ((Listof (HashTable a b)) a -> (Listof b))
                  ((Listof (HashTable a b)) a False -> (Listof (Option b))))))
 (define select (case-λ

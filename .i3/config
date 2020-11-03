@@ -9,7 +9,7 @@
 # exec stretchly
 
 exec xbanish  # banish mouse cursor upon any key press
-exec unclutter -idle 1 -reset -root -jitter 30 # banish mouse cursor when not in use
+exec unclutter -idle 1 -root  # banish mouse cursor when not in use
 exec compton  # enable window transparency
 
 # disable touchpad:
@@ -443,7 +443,7 @@ for_window [class="^vlc$" window_role="vlc-main"] floating enable , move positio
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+f floating toggle
 
-    # Hold the Alt key and click on a floating window to drag it
+    # Hold the Ctrl key and click on a floating window to drag it
     floating_modifier Ctrl
 
     # Swap focus between the tiling area and the floating area
