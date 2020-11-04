@@ -89,7 +89,7 @@ alias ydlpv='youtube-dl -ci --yes-playlist -o "~/Videos/youtube-dl/%(playlist)s/
 
 alias uni='command cp /etc/nixos/configuration.nix  /home/cameron/.configuration.nix'
 alias uvi='mv -f ~/Downloads/vimium-options.json  ~/.vimium-options.json'
-alias uvc='mv -f ~/Downloads/vimium_c-20201103_161726.json  ~/.vimium_c.json'
+alias uvc='mv -f ~/Downloads/vimium_c*.json  ~/.vimium_c.json'
 alias name='echo -e "NAME = Title, CLASS = (Instance, Class):\n" && xprop | grep "WM_CLASS|^WM_NAME|WM_WINDOW_ROLE"' # get [instance, class, title] of whatever window we click on next
 alias getkey='xev'
 alias key='xev'
