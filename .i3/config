@@ -95,8 +95,9 @@ set $ibrowser google-chrome-stable
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-    bindsym $mod+d exec xrandr --output eDP-1 --off
-    bindsym $mod+Shift+d exec xrandr --output eDP-1 --auto
+    bindsym $mod+Shift+d exec xrandr --output eDP-1 --off
+    bindsym $mod+Shift+u exec xrandr --output eDP-1 --auto
+    bindsym $mod+Shift+o exec xrandr --output eDP-1 --auto
 
 
 
@@ -224,6 +225,11 @@ set $ibrowser google-chrome-stable
     bindsym $mod+4 exec redshift -x && redshift -O 4500
     bindsym $mod+5 exec redshift -x && redshift -O 4000
     bindsym $mod+6 exec redshift -x && redshift -O 3500
+
+
+    # # # adjust brightness
+		# bindsym $mod+u brightnessctl set +10%
+		# bindsym $mod+d brightnessctl set -10%
 
     # suspend system
     bindsym Mod1+Shift+s exec systemctl suspend
@@ -395,8 +401,10 @@ set $ibrowser google-chrome-stable
 # Prevent popup windows from stealing the focus
     no_focus [window_role="pop-up"]
 
-for_window [class="^vlc$"] floating_minimum_size 150 x 100
-for_window [class="^vlc$"] floating_maximum_size 151 x 101
+# for_window [class="^vlc$"] floating_minimum_size 150 x 100
+# for_window [class="^vlc$"] floating_maximum_size 151 x 101
+
+# floating_minimum_size 1200 x 500
 
 for_window [class="^vlc$" window_role="vlc-main"] floating enable , move position center, move scratchpad
 
@@ -500,9 +508,9 @@ bar {
 # # mode dock|hide|invisible
 # # hidden_state hide|show
 # # modifier 
-		mode hide
+		mode dock
 		hidden_state hide
-		modifier Ctrl
+		modifier $mod
     # bindsym button1 nop    # disable clicking on workspace buttons
     # status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
     status_command i3status #--config ~/.i3status.conf

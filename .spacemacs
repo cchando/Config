@@ -1081,10 +1081,10 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
-(define-key magit-log-mode-map (kbd "C-k") 'magit-file-untrack)
-(define-key magit-log-mode-map (kbd "K") 'vile-scroll-up)
-(define-key magit-diff-mode-map (kbd "C-k") 'magit-file-untrack)
-(define-key magit-diff-mode-map (kbd "K") 'vile-scroll-up)
+;; (define-key magit-diff-mode-map (kbd "C-k") 'magit-file-untrack) ; binding map not loaded until magit is called
+;; (define-key magit-diff-mode-map (kbd "K") 'vile-scroll-up) ; binding map not loaded until magit is called
+;; (define-key magit-log-mode-map (kbd "C-k") 'magit-file-untrack) ; binding map not loaded until magit is called
+;; (define-key magit-log-mode-map (kbd "K") 'vile-scroll-up) ; binding map not loaded until magit is called
 
 
 (spacemacs/set-leader-keys (kbd "tp") 'smartparens-mode)
