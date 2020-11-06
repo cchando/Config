@@ -1,0 +1,48 @@
+{
+    "findHistory": [
+        "Shift",
+        "add",
+        "100",
+        "shift",
+        "printing",
+        "Service"
+    ],
+    "lastKeys": [
+        "yj"
+    ],
+    "localPath": "",
+    "marks": {
+        "f": {
+            "scrollLeft": 0,
+            "scrollTop": 0,
+            "url": "chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/frontend.html"
+        },
+        "⚡": {
+            "scrollLeft": 0,
+            "scrollTop": 0,
+            "url": "chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/frontend.html"
+        },
+        "⛑": {
+            "scrollLeft": 0,
+            "scrollTop": 0,
+            "url": "chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/frontend.html"
+        }
+    },
+    "savedAt": 1604701066717,
+    "sessions": {
+        "LAST": {
+            "tabs": [
+                [
+                    "https://www.irs.gov/filing/texas-where-to-file-addresses-for-taxpayers-and-tax-professionals",
+                    "chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/pdf_viewer.html?r=https://www.irs.gov/pub/irs-pdf/i8962.pdf",
+                    "https://to-do.live.com/tasks/id/AQMkADAwATY3ZmYAZS1jOTFjLTBhNjItMDACLTAwCgBGAAADL9rmUzldIkOAN6u6mBS63QcAY5L1CdQMBEKPGgGDHysmOQAExIaxQgAAAGOS9QnUDARCjxoBgx8rJjkABOu5irIAAAA=/details",
+                    "chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/pdf_viewer.html?r=https://www.irs.gov/pub/irs-pdf/i1040gi.pdf",
+                    "chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/options.html#",
+                    "https://github.com/brookhong/Surfingkeys#vim-editor-and-emacs-editor"
+                ]
+            ]
+        }
+    },
+    "showAdvanced": true,
+    "snippets": "// an example to create a new mapping `ctrl-y`\n/*mapkey('<Ctrl-y>', 'Show me the money', function() {\n    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');\n});*/\n\n// an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.\n//map('gt', 'T');\n\n//mapkey('J', '<PageDown>');\n//mapkey('J', '<Ctrl-d>');\n//mapkey('K', '<PageUp>');\n//mapkey('K', '<Ctrl-u>');\n//map('J', '10j'); // prefixes not yet supported in keybindings\n//map('K', '10k'); // prefixes not yet supported in keybindings\n//map('D', '99>>'); // prefixes not yet supported in keybindings\n//map('U', '99<<'); // prefixes not yet supported in keybindings\n//map('gh', 'g#');\n//map(':D', 'ab');\nmap('fd', '<Esc>');\nimap('fd', '<Esc>');\nvmap('fd', '<Esc>');\ncmap('fd', '<Esc>');\nmapkey('<Ctrl-m>', '<Esc>');\ncmap('<Ctrl-j>', '<Tab>');\ncmap('<Ctrl-k>', '<Shift-Tab>');\nmap('H', 'S');\nmap('L', 'D');\nmap('J', '10j');\nmap('K', '10k');\nmap(';', '<Ctrl-6>');\nmap('T', 't');\nmap('ma', 'm');\nmap('ql', 'gx$');\nmap('qh', 'gx0');\nmap('qL', 'gxT');\nmap('qH', 'gxt');\nmap('ga', 'gT');\nmap('gl', 'gt');\nmap('gj', 'gd');\nmapkey('gE', '#12Open Chrome Settings', function() {\n    tabOpenLink(\"chrome://extensions/shortcuts\");\n});\nmapkey('gS', '#12Open Chrome Settings', function() {\n    tabOpenLink(\"chrome://settings\");\n});\nmap('fa', 'af');\nmap('fi', 'gf');\nmap('F', 'cf');\nmap('P', 'yg');\n//map('<', '<<');\n//map('>', '>>');\nmap('u', '<<');\nmap('d', '>>');\naceVimMap('fd', '<Esc>', 'insert');\naceVimMap('gl', '$', 'normal');\naceVimMap('gh', '^', 'normal');\naceVimMap('a', '^', 'normal');\naceVimMap('ga', '0', 'normal');\naceVimMap('e', 'E', 'normal');\naceVimMap('b', 'B', 'normal');\n\nsettings.scrollStepSize = 210;\n\n// set theme\nsettings.theme = `\n.sk_theme {\n    font-family: Input Sans Condensed, Charcoal, sans-serif;\n    font-size: 10pt;\n    background: #24272e;\n    color: #abb2bf;\n}\n.sk_theme tbody {\n    color: #fff;\n}\n.sk_theme input {\n    color: #d0d0d0;\n}\n.sk_theme .url {\n    color: #61afef;\n}\n.sk_theme .annotation {\n    color: #56b6c2;\n}\n.sk_theme .omnibar_highlight {\n    color: #528bff;\n}\n.sk_theme .omnibar_timestamp {\n    color: #e5c07b;\n}\n.sk_theme .omnibar_visitcount {\n    color: #98c379;\n}\n.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {\n    background: #303030;\n}\n.sk_theme #sk_omnibarSearchResult ul li.focused {\n    background: #3e4452;\n}\n#sk_status, #sk_find {\n    font-size: 20pt;\n}`;\n\n// an example to remove mapkey `Ctrl-i`\n//unmap('<Ctrl-i>');\n\nunmap('cc');\nunmap('p');\nunmap(';');\nunmap('w');\nunmap('t');\nunmap('f');\nunmap('R');\nunmap('h');\nunmap('l');\nunmap('.');\n\n//unmapAllExcept(['f', '/', '?']);\n//unmapAllExcept(['<Esc>', '<Ctrl-i>', 'i', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', '<<', '>>']);\n\n\n// click `Save` button to make above settings to take effect."
+}
