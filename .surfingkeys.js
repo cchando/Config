@@ -71,7 +71,7 @@ settings.theme = `
     background: #3e4452;
 }
 #sk_status, #sk_find {
-    font-size: 20pt;
+    font-size: 11pt;
 }`;
 
 
@@ -97,12 +97,15 @@ settings.theme = `
 map('fd', '<Esc>');
 imap('fd', '<Esc>');
 vmap('fd', '<Esc>');
+cmap('fd', '<Esc>');
 cmap('<Ctrl-m>', '<Esc>');
+cmap('<Ctrl-g>', '<Esc>');
 // ctrl apparently cannot be used for vim visual mode (not documented!)
 aceVimMap('fd', '<Esc>', 'insert');
 aceVimMap('fd', '<Esc>', 'visual');
 // ctrl has to be used for vim normal mode (not documented!)
 aceVimMap('<Ctrl-m>', '<Esc>', 'normal');
+aceVimMap('<Ctrl-g>', '<Esc>', 'normal');
 aceVimMap('<C-h>','<Esc>h','insert');
 aceVimMap('<C-j>','<Esc>j','insert');
 aceVimMap('<C-k>','<Esc>k','insert');
@@ -115,6 +118,7 @@ imap('<Alt-l>', '<Esc>');
 // Exiting visual / find mode (also seems to require the binding to include Ctrl, or at least some modifier key)
 map('<Ctrl-]>', '<Esc>');
 map('<Ctrl-m>', '<Esc>');
+map('<Ctrl-g>', '<Esc>');
 
 // escape keys for vim-map insert mode
 /*
@@ -134,9 +138,10 @@ imap('<Alt-l>', '<Esc>');
 // Misc 1
 map('P', 'p'); // enter PassThrough mode to temporarily suppress SurfingKeys
 iunmap(':'); // disable emoji suggestions
-map('c', ';j'); // close Downloads shelf
+map('c', ';j'); // close Downloads bar
 map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
 map('gH', 'g#'); // open current url without the hash fragment
+map('W', 'oh'); // open from history
 // map('mu', '<Alt-m>'); // mute current tab
 
 
@@ -179,6 +184,7 @@ map('ma', 'm'); // create mark
 // closing tabs:
 map('qh', 'gx0'); // close tabs to left
 map('ql', 'gx$'); // close tabs to right
+map('qo', 'gxx'); // close all tabs except current one
 map('qH', 'gxt'); // close tab to left
 map('qL', 'gxT'); // close tab to right
 
@@ -197,7 +203,7 @@ mapkey('<Ctrl-/>', '#12Open SurfingKeys Settings', function() {
 map('g/', '<Ctrl-/>'); // also open SurfingKeys Settings
 
 
-// move tab left/right
+/* move tab left/right */
 map('u', '<<');
 map('d', '>>');
 mapkey('U', '#3Move current tab to leftmost', function() {
@@ -212,21 +218,23 @@ mapkey('D', '#3Move current tab to rightmost', function() {
 });
 
 
-// open links
-map('F', 'gf');
+/* open links */
+map('F', 'cf'); // open multiple links in a new tab
+// map('F', 'gf'); // open link in an unfocused new tab
+// map('C', 'cf'); // open multiple links in a new tab
 map(',', '[[');
 map('.', ']]');
 map('<', '[[');
 map('>', ']]');
 
 
-// visual mode mappings
+/* visual mode mappings */
 vmap('mm', 'zz'); // center the display
 vmap('J', '<Ctrl-d>'); // scroll 20 lines down
 vmap('K', '<Ctrl-u>'); // scroll 20 lines up
 
 
-// ACE-Vim-Map bindings
+/* ACE-Vim-Map bindings */
 // move to beginning/end of line
 aceVimMap('gl', '$', 'normal'); // line end
 aceVimMap('gh', '^', 'normal'); // first non-whitespace on line
@@ -244,52 +252,61 @@ aceVimMap('b', 'B', 'normal');
 
 /* Search aliases */
 
-mapkey('sw', '#8Open Search with Wikipedia', function() {
+mapkey('sw', '#8Search Wikipedia for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "wi"});
 });
 
+// map('sg', 'og')
 mapkey('sg', '#8Open Search with Google', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "go"});
 });
 
-mapkey('sy', '#8Open Search with Youtube', function() {
+mapkey('sy', '#8Search Youtube for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "yo"});
 });
 
-mapkey('sa', '#8Open Search with Amazon', function() {
+mapkey('sa', '#8Search Amazon for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "az"});
 });
 
-mapkey('sm', '#8Open Search with MELPA', function() {
+mapkey('sm', '#8Open Search MELPA for given package', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "mel"});
 });
 
-mapkey('sh', '#8Open Search with Hoogle', function() {
+mapkey('sh', '#8Search Hoogle for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "ha"});
 });
 
-mapkey('sp', '#8Open Search with Pursuit', function() {
+mapkey('sp', '#8Open Search Pursuit for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "pur"});
 });
 
-mapkey('sn', '#8Open Search with Nixpkgs Search', function() {
+mapkey('ss', '#8Search Stack Overflow', function() {
+  Front.openOmnibar({type: "SearchEngine", extra: "so"});
+});
+
+mapkey('sz', '#8Open Search with StartPage', function() {
+  Front.openOmnibar({type: "SearchEngine", extra: "sp"});
+});
+
+mapkey('sn', '#8Open Search Nixpkgs', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "nix"});
 });
 
-mapkey('st', '#8Open Search with Typed Racket Docs', function() {
+mapkey('st', '#8Open Search with Typed Racket Docs for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "tr"});
 });
 
-mapkey('sr', '#8Open Search with Racket Docs', function() {
+mapkey('sr', '#8Open Search with Racket Docs for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "ra"});
 });
 
-mapkey('sl', '#8Open Search with Nix Revision Search', function() {
+mapkey('sl', '#8Open Find Nix revision for given package', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "laz"});
 });
 
-mapkey('su', '#8Open Search with Stack Overflow', function() {
-  Front.openOmnibar({type: "SearchEngine", extra: "sta"});
+mapkey('su', '#8Search Stack Overflow', function() {
+  Front.openOmnibar({type: "SearchEngine", extra: "hub"});
 });
 
 // ------------------------------------------------------------------------
@@ -316,7 +333,7 @@ addSearchAliasX('sp', 'StartPage', 'https://startpage.com/sp/search/?q=');
 
 addSearchAliasX('gm', 'Google Maps', 'https://www.google.com/maps?q=');
 
-addSearchAliasX('s', 'Stackoverflow', 'http://stackoverflow.com/search?q=');
+addSearchAliasX('so', 'Stackoverflow', 'http://stackoverflow.com/search?q=');
 
 addSearchAliasX('wi', 'Wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=40&search=', function(response) {
   return JSON.parse(response.text)[1];
@@ -389,7 +406,7 @@ Hints.style(
 // Visual.style('cursor', 'background-color: #9065b7;');
 // settings.theme = `
 //     #sk_status, #sk_find {
-//         font-size: 20pt;
+//         font-size: 11pt;
 //     }
 // }`;
 
@@ -397,14 +414,48 @@ Hints.style(
 
 
 /* unmap unused bindings */
-unmap('cc');
-unmap('E');
-unmap('R');
+unmap('d');
 unmap('e');
+unmap('S'); // go backward in history
+/*
+  unmap('D'); // go forward in history
+	reserved as alias for ab (addBookmark)
+*/
+unmap('on');
+unmap('g0');
+unmap('g$');
+unmap('@'); // Vimium_C toggleMuteTab all
+unmap('$'); // Vimium_C toggleMuteTab other
+unmap('yf'); // copy form data in JSON on current page
+unmap('E'); // go one tab left
+unmap('R'); // Vimium_C reload hard; was "go one tab right"
+unmap('ya'); // copy a link url to the clipboard
+unmap('B'); // go one tab history back
+/*
+	unmap('F'); // go one tab history forward
+	reserved for linksActivateInNewTab
+ */
+unmap('om'); // open url from marks
+unmap('oh'); // shadowed by 'o'; open from history -- already has alias 'W'
+unmap('cc'); // shadowed by c (close downlaod bar); open selected link, or link from clipboard
+unmap('cf'); // shadowed by c (close download bar); replaced by F
+unmap('gf'); // redundant since <Shift> after 'f' does the same thing
+unmap('C'); // same as 'gf' above
+unmap('go');
 unmap('m'); // so we can use 'ma' for 'mark'
-unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
+unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
+unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
+unmap('A'); // not sure if mapped; Vimium_C joinTabs
+unmap('M'); // not sure if mapped before; Vimium_C toggleMuteTab
+// unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
 // unmap('J'); // for overriding from Vimium
 // unmap('K'); // for overriding from Vimium
 // unmapAllExcept(['<Ctrl-m>', '<Ctrl-i>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab']);
 
+
+
+/*
+  NOTES:
+  - w -- open from history
+*/
 
