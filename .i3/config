@@ -1,4 +1,4 @@
-# C file for i3 window manager
+# Config file for i3 window manager
 #   
 # Read `man i3` for a complete reference.
 
@@ -10,7 +10,7 @@
 
 exec xbanish  # banish mouse cursor upon any key press
 exec unclutter -idle 1 -root  # banish mouse cursor when not in use
-exec compton  # enable window transparency
+exec compton  # compositor to enable window transparency
 
 # disable touchpad:
 exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0 
@@ -62,7 +62,14 @@ exec nitrogen --set-zoom-fill ~/Pictures/Neptunia-etc/Nep-sleepover.jpg
     client.background       #ffffff
 
 
+# Hide the window bars
+new_window none
+new_float none
+
+
 # font -ADBO-Hasklig-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
+# font pango: Hasklig 12
+# font pango: Fira Code 12
 
 
 ### Variables
@@ -246,7 +253,7 @@ set $ibrowser google-chrome-stable
     # disable touchpad 
     bindsym Mod1+Ctrl+m exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0
 
-    # # TODO: install similar screenshot program. "import" not in Nix repo
+    # # TODO: install similar screenshot program... "import" not in Nix repo
     # # Take a screenshot upon pressing $mod+x (select an area)
     # bindsym --release $mod+x exec --no-startup-id import /home/cameron/tmp/latest-screenshot.png
 
@@ -258,7 +265,6 @@ set $ibrowser google-chrome-stable
 # [con_mark="identifier"] focus
 # unmark <identifier>
 # 
-
     show_marks no
 
     # read 1 char and mark the current window with this char
@@ -394,6 +400,9 @@ set $ibrowser google-chrome-stable
     focus_on_window_activation none
     force_display_urgency_hint 500 ms
 
+# # Don't focus on a window by hovering the mouse over it
+    # focus_follows_mouse no
+
 
     # # testing purposes
     # bindsym $mod+q "workspace 3; exec $term; exec i3-msg border none; workspace 10"
@@ -404,11 +413,12 @@ set $ibrowser google-chrome-stable
 # for_window [class="^vlc$"] floating_minimum_size 150 x 100
 # for_window [class="^vlc$"] floating_maximum_size 151 x 101
 
+
+for_window [window_role="vlc-main"] floating enable , \
+    resize set 1200 700, move position center, move scratchpad 
+
+
 # floating_minimum_size 1200 x 500
-
-for_window [class="^vlc$" window_role="vlc-main"] floating enable , move position center, move scratchpad
-
-
 # # # unconstrained floating window size unless otherwise specified for individual apps
 # floating_maximum_size -1 x -1
 
