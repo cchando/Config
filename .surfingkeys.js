@@ -16,6 +16,8 @@ that P denotes (since most built-in functions are anonymous).
 	      	them (double yikes).
 	  - Errors can potentially be hard to track, since assignment is chained, e.g. p=P,e=p,j=e.
 		  So avoid chained assignment. Instead do e.g. p=P,e=P,j=P.
+		- Disabling settings.digitForRepeat will break any keys mapped to e.g. g0, g$, etc.,
+		  if the mapping is done before the setting is disabled! (still a mystery)
 
 ---- WARNING ----
 */
@@ -86,7 +88,6 @@ settings.theme = `
 //map('K', '10k'); // prefixes not yet supported in keybindings
 //map('D', '99>>'); // prefixes not yet supported in keybindings
 //map('U', '99<<'); // prefixes not yet supported in keybindings
-//map('gh', 'g#');
 //map(':D', 'ab');
 //map('<', '<<');
 //map('>', '>>');
@@ -105,7 +106,7 @@ aceVimMap('<Ctrl-m>', '<Esc>', 'normal');
 aceVimMap('<C-h>','<Esc>h','insert');
 aceVimMap('<C-j>','<Esc>j','insert');
 aceVimMap('<C-k>','<Esc>k','insert');
-aceVimMap('<C-l>','<Esc>l','insert'); 
+aceVimMap('<C-l>','<Esc>l','insert');
 // Alt can be used in regular field boxes to exit the input box
 imap('<Alt-h>', '<Esc>');
 imap('<Alt-j>', '<Esc>');
@@ -133,6 +134,10 @@ imap('<Alt-l>', '<Esc>');
 // Misc 1
 map('P', 'p'); // enter PassThrough mode to temporarily suppress SurfingKeys
 iunmap(':'); // disable emoji suggestions
+map('c', ';j'); // close Downloads shelf
+map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
+map('gH', 'g#'); // open current url without the hash fragment
+// map('mu', '<Alt-m>'); // mute current tab
 
 
 // omnibar controls
@@ -141,41 +146,30 @@ cmap('<Ctrl-k>', '<Shift-Tab>'); // down
 
 
 // scrolling
-map('(', 'h');
-map(')', 'l');
-map('J', 'd');
-map('K', 'u');
+map('(', 'h'); // scroll left
+map(')', 'l'); // scroll right
+map('zh', '0'); // scroll all the way left
+map('zl', '$'); // scroll all the way right
+map('J', 'd'); // scroll half-page down
+map('K', 'u'); // scroll half-page down
 // map('J', '<Ctrl-d>');
 // map('K', '<Ctrl-u>');
-mapkey('J', '#3Move current tab to left', function() {
-    RUNTIME('moveTab', {
-        step: 99
-    });
-});
 
 
 // navigate tabs
+map('o', 'go'); // open omnibar
+map('tt', 'on'); // open new tab
+map('td', 'W'); // detach tab (new window w/ current tab)
 map('h', 'E'); // tab left
 map('l', 'R'); // tab right
 map('p', '<Alt-P>'); // pin this tab
-
-// mapkey('ga', '#3Focus leftmost tab', function() {
-//     RUNTIME('prevTab', {
-//         step: 99
-//     });
-// });
-
-// mapkey('gl', '#3Focus rightmost tab', function() {
-//     RUNTIME('nextTab', {
-//         step: 99
-//     });
-// });
-
+map('ga', 'g0'); // focus leftmost tab
+map('gl', 'g$'); // focus rightmost tab
 
 // navigate history
 map('H', 'S'); // back
 map('L', 'D'); // forward
-//map(';', '<Ctrl-6>'); // toggle prev tab (?)
+map(';', '<Ctrl-6>'); // toggle prev tab (?) ("go to last-used tab" -- not clear whether it toggles)
 
 
 // marks
@@ -203,28 +197,27 @@ mapkey('<Ctrl-/>', '#12Open SurfingKeys Settings', function() {
 map('g/', '<Ctrl-/>'); // also open SurfingKeys Settings
 
 
-// open links
-map('F', 'f');
-map('f', 'gf');
-map(',', '[[');
-map('.', ']]');
-map('<', '[[');
-map('>', ']]');
-
-
 // move tab left/right
 map('u', '<<');
 map('d', '>>');
-mapkey('U', '#3Move current tab to left', function() {
+mapkey('U', '#3Move current tab to leftmost', function() {
     RUNTIME('moveTab', {
         step: -99
     });
 });
-mapkey('D', '#3Move current tab to left', function() {
+mapkey('D', '#3Move current tab to rightmost', function() {
     RUNTIME('moveTab', {
         step: 99
     });
 });
+
+
+// open links
+map('F', 'gf');
+map(',', '[[');
+map('.', ']]');
+map('<', '[[');
+map('>', ']]');
 
 
 // visual mode mappings
@@ -239,6 +232,8 @@ aceVimMap('gl', '$', 'normal'); // line end
 aceVimMap('gh', '^', 'normal'); // first non-whitespace on line
 aceVimMap('a', '^', 'normal'); // first non-whitespace on line
 aceVimMap('ga', '0', 'normal'); // line beginning
+aceVimMap('ygh', 'y0', 'normal'); // yank to first char on line
+aceVimMap('ygl', 'y$', 'normal'); // yank to line end
 // word boundaries
 aceVimMap('e', 'E', 'normal');
 aceVimMap('w', 'W', 'normal');
@@ -294,7 +289,7 @@ mapkey('sl', '#8Open Search with Nix Revision Search', function() {
 });
 
 mapkey('su', '#8Open Search with Stack Overflow', function() {
-  Front.openOmnibar({type: "SearchEngine", extra: "laz"});
+  Front.openOmnibar({type: "SearchEngine", extra: "sta"});
 });
 
 // ------------------------------------------------------------------------
@@ -327,7 +322,7 @@ addSearchAliasX('wi', 'Wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https
   return JSON.parse(response.text)[1];
 });
 
-addSearchAliasX('u', 'Github', 'https://github.com/search?q=', 's', 'https://api.github.com/search/repositories?order=desc&q=', function(response) {
+addSearchAliasX('hub', 'Github', 'https://github.com/search?q=', 's', 'https://api.github.com/search/repositories?order=desc&q=', function(response) {
   var res = JSON.parse(response.text)['items'];
   return res ? res.map(function(r){
     return {
@@ -337,7 +332,12 @@ addSearchAliasX('u', 'Github', 'https://github.com/search?q=', 's', 'https://api
   }) : [];
 });
 
-addSearchAliasX('y', 'Youtube', 'https://www.youtube.com/results?search_query=', 's',
+addSearchAliasX('go', 'google', 'https://www.google.com/search?q=', 's', 'https://www.google.com/complete/search?client=chrome-omni&gs_ri=chrome-ext&oit=1&cp=1&pgcl=7&q=', function(response) {
+  var res = JSON.parse(response.text);
+  return res[1];
+});
+
+addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query=', 's',
 								'https://clients1.google.com/complete/search?client=youtube&ds=yt&callback=cb&q=', function(response) {
 									var res = JSON.parse(response.text.substr(9, response.text.length-10));
 									return res[1].map(function(d) {
@@ -350,9 +350,8 @@ addSearchAliasX('y', 'Youtube', 'https://www.youtube.com/results?search_query=',
 
 /* Settings */
 
-settings.scrollStepSize = 210;
+settings.scrollStepSize = 140;
 settings.focusAfterClosed = "last"; // "right"|"left"|"last"
-settings.digitForRepeat = false;
 settings.prevLinkRegex = '/((back|older|<|‹|←|«|≪|<<|prev(ious)?)+)/i';
 settings.nextLinkRegex = '/((more|newer|>|›|→|»|≫|>>|next)+)/i';
 settings.hintShiftNonActive	= true;
