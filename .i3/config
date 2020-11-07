@@ -278,16 +278,16 @@ set $ibrowser google-chrome-stable
 # Moving around:
 #
     # Move your focus around
-    bindsym Ctrl+Shift+$left focus left
-    bindsym Ctrl+Shift+$down focus down
-    bindsym Ctrl+Shift+$up focus up
-    bindsym Ctrl+Shift+$right focus right
+    bindsym Ctrl+$left focus left
+    bindsym Ctrl+$down focus down
+    bindsym Ctrl+$up focus up
+    bindsym Ctrl+$right focus right
 
     # _move_ the focused window 
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    bindsym $mod+$left move left
+    bindsym $mod+$down move down
+    bindsym $mod+$up move up
+    bindsym $mod+$right move right
 
     # move your focus using arrow keys
     # bindsym $mod+left focus left
@@ -296,10 +296,10 @@ set $ibrowser google-chrome-stable
     # bindsym $mod+right focus right
 
     # _move_ the focused window with arrow keys
-    # bindsym Ctrl+Shift+Left move left
-    # bindsym Ctrl+Shift+Down move down
-    # bindsym Ctrl+Shift+Up move up
-    # bindsym Ctrl+Shift+Right move right
+    # bindsym Ctrl+Left move left
+    # bindsym Ctrl+Down move down
+    # bindsym Ctrl+Up move up
+    # bindsym Ctrl+Right move right
 #
 # Workspaces:
 #
@@ -329,8 +329,8 @@ set $ibrowser google-chrome-stable
 
     # workspace_auto_back_and_forth yes
 
-    bindsym Ctrl+$left workspace prev_on_output
-    bindsym Ctrl+$right workspace next_on_output
+    bindsym Ctrl+Shift+$left workspace prev_on_output
+    bindsym Ctrl+Shift+$right workspace next_on_output
     bindsym Ctrl+apostrophe workspace back_and_forth
     bindsym Ctrl+semicolon workspace back_and_forth 
 
