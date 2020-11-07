@@ -91,6 +91,7 @@ alias uni='command cp /etc/nixos/configuration.nix  /home/cameron/.configuration
 alias uvi='mv -f ~/Downloads/vimium-options.json  ~/.vimium-options.json'
 alias uvc='mv -f ~/Downloads/vimium_c*.json  ~/.vimium_c.json'
 alias name='echo -e "NAME = Title, CLASS = (Instance, Class):\n" && xprop | grep "WM_CLASS|^WM_NAME|WM_WINDOW_ROLE"' # get [instance, class, title] of whatever window we click on next
+alias uxm='xmodmap ~/.Xmodmap'  # update xmodmap
 alias getkey='xev'
 alias key='xev'
 alias wifioff='sudo rfkill block all'
@@ -117,7 +118,7 @@ alias bhi='sudo brightnessctl set 100%'
 alias bmhi='sudo brightnessctl set 75%'
 alias bmed='sudo brightnessctl set 50%'
 alias bmlo='sudo brightnessctl set 25%'
-alias blo='sudo brightnessctl set 10%'
+alias blo='sudo brightnessctl set 15%'
 alias br3='sudo brightnessctl set 3%'
 alias br2='sudo brightnessctl set 2%'
 alias br1='sudo brightnessctl set 1%'
