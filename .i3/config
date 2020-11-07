@@ -8,6 +8,7 @@
 # exec redshift -l 32.96:-96.67 -t 6500:2500
 # exec stretchly
 
+# exec xmodmap ~/.Xmodmap
 exec xbanish  # banish mouse cursor upon any key press
 exec unclutter -idle 1 -root  # banish mouse cursor when not in use
 exec compton  # compositor to enable window transparency
