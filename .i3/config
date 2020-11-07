@@ -279,8 +279,8 @@ set $ibrowser google-chrome-stable
 #
     # Move your focus around
     bindsym Ctrl+$left focus left
-    bindsym Ctrl+$down focus down
-    bindsym Ctrl+$up focus up
+    bindsym Ctrl+Shift+$down focus down
+    bindsym Ctrl+Shift+$up focus up
     bindsym Ctrl+$right focus right
 
     # _move_ the focused window 
