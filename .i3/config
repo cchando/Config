@@ -400,6 +400,10 @@ set $ibrowser google-chrome-stable
     focus_on_window_activation none
     force_display_urgency_hint 500 ms
 
+#focus_wrapping yes|no|force|workspace
+    focus_wrapping no
+
+
 # # Don't focus on a window by hovering the mouse over it
     # focus_follows_mouse no
 
