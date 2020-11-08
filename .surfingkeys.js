@@ -94,7 +94,7 @@ map('tt', 'on'); // open new tab
 map('td', 'W'); // detach tab (new window w/ current tab)
 map('h', 'E'); // tab left
 map('l', 'R'); // tab right
-map('p', '<Alt-P>'); // pin this tab
+map('p', '<Alt-Shift-P>'); // pin this tab
 map('ga', 'g0'); // focus leftmost tab
 map('gl', 'g$'); // focus rightmost tab
 
