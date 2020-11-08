@@ -157,7 +157,7 @@ unmap('S'); // go backward in history
   unmap('D'); // go forward in history
 	reserved as alias for ab (addBookmark)
 */
-unmap('on');
+// unmap('on');
 unmap('g0');
 unmap('g$');
 unmap('@'); // Vimium_C toggleMuteTab all
@@ -172,17 +172,17 @@ unmap('B'); // go one tab history back
 	reserved for linksActivateInNewTab
  */
 unmap('om'); // open url from marks
-unmap('oh'); // shadowed by 'o'; open from history -- already has alias 'W'
+// unmap('oh'); // shadowed by 'o'; open from history -- already has alias 'W'
 unmap('cc'); // shadowed by c (close downlaod bar); open selected link, or link from clipboard
 unmap('cf'); // shadowed by c (close download bar); replaced by F
 unmap('gf'); // redundant since <Shift> after 'f' does the same thing
 unmap('C'); // same as 'gf' above
-unmap('go'); // replaced by 'o'
+// unmap('go'); // replaced by 'o'
 unmap('m'); // so we can use 'ma' for 'mark'
-unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
-unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
+// unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
+// unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
 unmap('A'); // not sure if mapped; Vimium_C joinTabs
-unmap('M'); // not sure if mapped before; Vimium_C toggleMuteTab all
+unmap('M'); // not sure if mapped; Vimium_C toggleMuteTab all
 unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 // unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
 // unmap('J'); // for overriding from Vimium
@@ -203,8 +203,84 @@ unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 	----------------------------------------------------------------------
 */
 
+// NOTE: if a binding isn't working, it's probably b/c it was already
+//   unmapped before this point.
+unmapAllExcept(['n', 'N', 'ox', 'b', ';j', 'g#', 'g?', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>',
+								'<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ',
+								'ab', 'v', 'zz', '<Esc>', '?', 'f', 'cf', 'og', 'zr', 'zi',
+								'zo', ';dh', 'i', 'T', 'w', '/']);
 
-unmapAllExcept([';j', 'g#', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>', '<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'zz', '<Esc>', '?', 'f', 'cf', 'og', 'b', 'gg', 'gS', 'ge', 'gE', 'gj', 'gh', 'gb', 'zr', 'zi', 'zo', 'g?', ';dh', '/']);
+// Misc 1
+iunmap(':'); // disable emoji suggestions
+map('c', ';j'); // close Downloads bar
+map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
+// map('gH', 'g#'); // open current url without the hash fragment
+map('<Alt-p>', ';s'); // toggle pdf viewer
+map('<Alt-/>', '?'); // show command list
+map('g/', ';e'); // open SurfingKeys settings
+map('z#', 'g#'); // reopen current url without the hash fragment
+map('zH', 'g#'); // reopen current url without the hash fragment
+map('z?', 'g?'); // reopen current url without the query
+map('F', 'cf'); // open multiple links in new tabs
+map(':dH', ';dh'); // delete history older than 30 days
+map('c', ';j'); // close Downloads bar
+// map('I', 'i'); // enter insert mode
+map('O', 'ox'); // open recently-closed url  // TODO: not working somewhy. replaced by below
+mapkey('O', '#8Open recently closed URL', function() {
+  Front.openOmnibar({type: "URLs", extra: "getRecentlyClosed"});
+});
+// map('W', 'w'); // switch frames   // internal function seems to be broken
+
+// map('w', 'oh'); // open from history  // TODO: not working somewhy. replaced by below
+mapkey('w', '#8Open URL from history', function() {
+  Front.openOmnibar({type: "History"});
+});
+// map('o', 'go'); // open omnibar  // TODO: not working somewhy. replaced by below
+mapkey('o', '#8Open a URL in current tab', function() {
+  Front.openOmnibar({type: "URLs", extra: "getAllSites", tabbed: false});
+});
+mapkey(':dho', '#14Delete history newer than 1 hour', function() {
+  RUNTIME('deleteHistoryNewerThan', {
+    hours: 1
+  });
+});
+mapkey(':dht', '#14Delete history newer than 2 hours', function() {
+  RUNTIME('deleteHistoryNewerThan', {
+    hours: 2
+  });
+});
+
+unmap('F');
+unmap('cf');
+unmap('f');
+unmap(';s');
+unmap(';j');
+unmap(';e');
+unmap(';dh');
+unmap('oh');
+unmap('go');
+unmap('?');
+unmap('g#');
+unmap('g?');
+unmap('g/');
+unmap('<Ctrl-d>');
+unmap('<Ctrl-d>');
+unmap('<Ctrl-u>');
+unmap('<Shift-Tab>');
+unmap('<Tab>');
+
+
+// omnibar controls
+cmap('<Ctrl-j>', '<Tab>'); // up
+cmap('<Ctrl-k>', '<Shift-Tab>'); // down
+
+
+
+/* visual mode mappings */
+vmap('mm', 'zz'); // center the display
+vmap('J', '<Ctrl-d>'); // scroll 20 lines down
+vmap('K', '<Ctrl-u>'); // scroll 20 lines up
+
 
 // map keys for setting escape
 map('fd', '<Esc>');
@@ -232,7 +308,6 @@ imap('<Alt-l>', '<Esc>');
 map('<Ctrl-]>', '<Esc>');
 map('<Ctrl-m>', '<Esc>');
 map('<Ctrl-g>', '<Esc>');
-
 // escape keys for vim-map insert mode
 /*
 	aceVimMap('<C-h>','<Esc>h','insert');
@@ -241,65 +316,6 @@ map('<Ctrl-g>', '<Esc>');
 	aceVimMap('<C-l>','<Esc>l','insert');
 */
 
-// Misc 1
-iunmap(':'); // disable emoji suggestions
-map('c', ';j'); // close Downloads bar
-map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
-map('gH', 'g#'); // open current url without the hash fragment
-map('<Alt-p>', ';s'); // toggle pdf viewer
-map('<Alt-/>', '?'); // show command list
-map('g/', ';e'); // open SurfingKeys settings
-map('F', 'cf'); // open multiple links in new tabs
-// map('W', 'oh'); // open from history  // TODO: not working somewhy. replaced by below
-mapkey('W', '#8Open URL from history', function() {
-  Front.openOmnibar({type: "History"});
-});
-map('o', 'go'); // open omnibar  // TODO: not working somewhy. replaced by below
-mapkey('o', '#8Open a URL in current tab', function() {
-  Front.openOmnibar({type: "URLs", extra: "getAllSites", tabbed: false});
-});
-mapkey(':dho', '#14Delete history newer than 1 hour', function() {
-  RUNTIME('deleteHistoryNewerThan', {
-    hours: 1
-  });
-});
-mapkey(':dht', '#14Delete history newer than 2 hours', function() {
-  RUNTIME('deleteHistoryNewerThan', {
-    hours: 2
-  });
-});
-map('gq', 'g?'); // reload current page without query string
-map(':dH', ';dh'); // delete history older than 30 days
-
-unmap('F');
-unmap('cf');
-unmap('f');
-unmap('zz');
-unmap(';s');
-unmap(';j');
-unmap(';e');
-unmap(';dh');
-unmap('oh');
-unmap('go');
-unmap('?');
-unmap('<Ctrl-d>');
-unmap('<Ctrl-d>');
-unmap('<Ctrl-u>');
-unmap('<Shift-Tab>');
-unmap('<Tab>');
-
-
-// omnibar controls
-cmap('<Ctrl-j>', '<Tab>'); // up
-cmap('<Ctrl-k>', '<Shift-Tab>'); // down
-
-
-
-/* visual mode mappings */
-vmap('mm', 'zz'); // center the display
-vmap('J', '<Ctrl-d>'); // scroll 20 lines down
-vmap('K', '<Ctrl-u>'); // scroll 20 lines up
-
 
 /* ACE-Vim-Map bindings */
 // move to beginning/end of line
@@ -307,9 +323,9 @@ aceVimMap('gl', '$', 'normal'); // line end
 aceVimMap('gh', '^', 'normal'); // first non-whitespace on line
 aceVimMap('a', '^', 'normal'); // first non-whitespace on line
 aceVimMap('ga', '0', 'normal'); // line beginning
-aceVimMap('ygh', 'y0', 'normal'); // yank to first char on line
-aceVimMap('ygl', 'y$', 'normal'); // yank to line end
-// word boundaries
+// aceVimMap('ygh', 'y0', 'normal'); // yank to first char on line
+// aceVimMap('ygl', 'y$', 'normal'); // yank to line end
+/* word boundaries */
 aceVimMap('e', 'E', 'normal');
 aceVimMap('w', 'W', 'normal');
 aceVimMap('b', 'B', 'normal');
@@ -455,23 +471,74 @@ addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query='
 */
 
 
-
 settings.scrollStepSize = 200;
 settings.focusAfterClosed = "last"; // "right"|"left"|"last"
 settings.prevLinkRegex = '/((back|older|<|‹|←|«|≪|<<|prev(ious)?)+)/i';
 settings.nextLinkRegex = '/((more|newer|>|›|→|»|≫|>>|next)+)/i';
 settings.hintShiftNonActive	= true;
 settings.hintExplicit = true;
-settings.omnibarPosition = "middle";
+settings.omnibarPosition = "middle";  // "middle"|"bottom"
 settings.focusOnSaved = false; // do not focus the text input after quitting from vim editor
+settings.tabsThreshold = 0; // threshold at/above which to show tabs in omnibar instead of in overlay
 
-Hints.characters = "asdfgwhjklertomncvb";
+Hints.characters = "adfjhklertncvb";
+// Hints.characters = "asdfgwhjklertomncvb";
 // Hints.characters = "asdfgwjhlertncvb";
 // Hints.characters = "asdfgqwertzxcvb"; // default value
 Hints.scrollKeys = "0G$";
 
 // Vimium-style link hints
+/* best so far */
 Hints.style(
+  `
+  position: left;
+  display: block;
+  top: -1px;
+  left: -1px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 1px 3px 0px 3px;
+  background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
+  border: solid 1px #C38A22;
+  border-radius: 3px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+	`
+);
+
+// // Vimium-style link hints
+// /* directly from Vimium */
+// Hints.style(
+//   `
+//   position: absolute;
+//   display: block;
+//   top: -1px;
+//   left: -1px;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   font-size: 11px;
+//   padding: 1px 3px 0px 3px;
+//   background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
+//   border: solid 1px #C38A22;
+//   border-radius: 3px;
+//   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+//   color: #302505;
+//   font-family: Helvetica, Arial, sans-serif;
+//   font-weight: bold;
+//   font-size: 11px;
+//   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+// `
+// );
+
+
+// Vimium-style visual-mode hints
+// the visual-mode CSS seems to have no effect for some reason
+Visual.style(
+	'marks',
   `
   position: absolute;
   display: block;
@@ -479,33 +546,41 @@ Hints.style(
   left: -1px;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  font-size: 12px;
   padding: 1px 3px 0px 3px;
   background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
   border: solid 1px #C38A22;
   border-radius: 3px;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-  "text"
 	`
 );
 
-/* To change style for link hints: */
-// Hints.style('border: solid 3px #552a48; color:#efe1eb; background: initial; background-color: #552a48;');
-/* To change style for link hints: */
-// Hints.style("border: solid 8px #C38A22;padding: 1px;background: #e39913", "text");
-// Visual.style('marks', 'background-color: #89a1e2;');
-// Visual.style('cursor', 'background-color: #9065b7;');
-// settings.theme = `
-//     #sk_status, #sk_find {
-//         font-size: 11pt;
-//     }
-// }`;
+
+
+/*
+  To change style for link hints:
+  Hints.style('border: solid 3px #552a48; color:#efe1eb; background: initial; background-color: #552a48;');
+
+  To change style for link hints:
+  Hints.style("border: solid 8px #C38A22;padding: 1px;background: #e39913", "text");
+  Visual.style('marks', 'background-color: #89a1e2;');
+  Visual.style('cursor', 'background-color: #9065b7;');
+  settings.theme = `
+      #sk_status, #sk_find {
+          font-size: 11pt;
+      }
+  }`;
+*/
 
 
 // set theme
 settings.theme = `
 .sk_theme {
-    font-family: Input Sans Condensed, Charcoal, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 11pt;
     background: #24272e;
     color: #abb2bf;
@@ -541,4 +616,7 @@ settings.theme = `
     font-size: 11pt;
 }`;
 
+
+// font-family: Input Sans Condensed, Charcoal, sans-serif;
+// font-family: Helvetica, Arial, sans-serif;
 
