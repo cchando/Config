@@ -17,9 +17,9 @@ that P denotes (since most built-in functions are anonymous).
 	  - Errors can potentially be hard to track, since assignment is chained, e.g. p=P,e=p,j=e.
 		  So avoid chained assignment. Instead do e.g. p=P,e=P,j=P.
 		- Disabling settings.digitForRepeat will break any keys mapped to e.g. g0, g$, etc.,
-		  if the mapping is done before the setting is disabled! (still a mystery)
+		  if the mapping is done before the setting is disabled.
 
-- Since most of Vimium C's config interface is FAR superior (easier to configure, no infinite loops, get to use function names so it's easy to keep track of what the binding is doing without comments, MUCH briefer (no quotes nor braces needed for mappings, no boilerplate for search aliases), etc., it makes infinitely more sense to use Vimium_C for everything except those very few things that are unique to SurfingKeys. I have this huge config file (or did in previous versions) (and most the config is there to create the exact same functionality as in Vimium C) only because I'm a fool who realized this too late. Don't make my mistake.
+- Since most of Vimium C's config interface is FAR superior (easier to configure, no infinite loops, get to use function names so it's easy to keep track of what the binding is doing without comments, MUCH briefer (no quotes nor braces needed for mappings, no boilerplate for search aliases), etc., it makes infinitely more sense to use Vimium_C for everything except those very few things that are unique to SurfingKeys. I have this huge config file (or did in previous versions) (and most the config is there to create the exact same functionality as in Vimium C) only because I realized this too late.
 - The following are unique to SurfingKeys:
    - any bindings you assign to your own custom js functions -- this is where SurfingKeys is really powerful
    - pdf viewer (automatic, no key binding needed, except ';s' if you want to toggle it off on occasion)
@@ -53,13 +53,6 @@ that P denotes (since most built-in functions are anonymous).
    -----------------------------------------------------------------
    -----------------------------------------------------------------
 */
-
-
-// Alt can be used in regular vield boxes to exit the input box
-imap('<Alt-h>', '<Esc>');
-imap('<Alt-j>', '<Esc>');
-imap('<Alt-k>', '<Esc>');
-imap('<Alt-l>', '<Esc>');
 
 
 // Misc 1
@@ -124,6 +117,9 @@ mapkey('gE', '#12Open Chrome Extension Shortcuts', function() {
 mapkey('gS', '#12Open Chrome Settings', function() {
     tabOpenLink("chrome://settings");
 });
+mapkey('gb', '#12Open Chrome Settings', function() {
+  tabOpenLink("chrome://bookmarks");
+});
 map('g/', ';e'); // open SurfingKeys settings
 // mapkey('g/', '#12Open SurfingKeys Settings', function() {
 //     tabOpenLink("chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/options.html#");
@@ -146,9 +142,7 @@ mapkey('D', '#3Move current tab to rightmost', function() {
 
 
 /* open links */
-map('F', 'cf'); // open multiple links in a new tab
-// map('F', 'gf'); // open link in an unfocused new tab
-// map('C', 'cf'); // open multiple links in a new tab
+map('F', 'cf'); // open multiple links in new tabs
 map(',', '[[');
 map('.', ']]');
 map('<', '[[');
@@ -210,7 +204,8 @@ unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 */
 
 
-unmapAllExcept([';j', 'g#', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>', '<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'zz', '<Esc>', '?']);
+unmapAllExcept([';j', 'g#', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>', '<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'zz', '<Esc>', '?', 'f', 'cf', 'og', 'b', 'gg', 'gS', 'ge', 'gE', 'gj', 'gh', 'gb', 'zr', 'zi', 'zo', 'g?', ';dh', '/']);
+
 // map keys for setting escape
 map('fd', '<Esc>');
 imap('fd', '<Esc>');
@@ -251,23 +246,47 @@ iunmap(':'); // disable emoji suggestions
 map('c', ';j'); // close Downloads bar
 map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
 map('gH', 'g#'); // open current url without the hash fragment
-map('W', 'oh'); // open from history
-map('o', 'go'); // open omnibar
 map('<Alt-p>', ';s'); // toggle pdf viewer
-map('<Alt-/>', '?'); // command list (showHelp)
+map('<Alt-/>', '?'); // show command list
+map('g/', ';e'); // open SurfingKeys settings
+map('F', 'cf'); // open multiple links in new tabs
+// map('W', 'oh'); // open from history  // TODO: not working somewhy. replaced by below
+mapkey('W', '#8Open URL from history', function() {
+  Front.openOmnibar({type: "History"});
+});
+map('o', 'go'); // open omnibar  // TODO: not working somewhy. replaced by below
+mapkey('o', '#8Open a URL in current tab', function() {
+  Front.openOmnibar({type: "URLs", extra: "getAllSites", tabbed: false});
+});
+mapkey(':dho', '#14Delete history newer than 1 hour', function() {
+  RUNTIME('deleteHistoryNewerThan', {
+    hours: 1
+  });
+});
+mapkey(':dht', '#14Delete history newer than 2 hours', function() {
+  RUNTIME('deleteHistoryNewerThan', {
+    hours: 2
+  });
+});
+map('gq', 'g?'); // reload current page without query string
+map(':dH', ';dh'); // delete history older than 30 days
 
+unmap('F');
+unmap('cf');
+unmap('f');
+unmap('zz');
+unmap(';s');
+unmap(';j');
+unmap(';e');
+unmap(';dh');
+unmap('oh');
+unmap('go');
+unmap('?');
 unmap('<Ctrl-d>');
 unmap('<Ctrl-d>');
 unmap('<Ctrl-u>');
 unmap('<Shift-Tab>');
 unmap('<Tab>');
-unmap('zz');
-unmap(';s');
-unmap(';j');
-unmap(';e');
-unmap('oh');
-unmap('go');
-unmap('?');
 
 
 // omnibar controls
@@ -310,7 +329,8 @@ mapkey('sw', '#8Search Wikipedia for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "wi"});
 });
 
-// map('sg', 'og')
+// map('sg', 'og');
+unmap('og');
 mapkey('sg', '#8Open Search with Google', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "go"});
 });
@@ -335,7 +355,7 @@ mapkey('sp', '#8Open Search Pursuit for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "pur"});
 });
 
-mapkey('ss', '#8Search Stack Overflow', function() {
+mapkey('so', '#8Search Stack Overflow', function() {
   Front.openOmnibar({type: "SearchEngine", extra: "so"});
 });
 
@@ -347,11 +367,11 @@ mapkey('sn', '#8Open Search Nixpkgs', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "nix"});
 });
 
-mapkey('st', '#8Open Search with Typed Racket Docs for given term', function() {
+mapkey('st', '#8Open Search Typed Racket Docs for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "tr"});
 });
 
-mapkey('sr', '#8Open Search with Racket Docs for given term', function() {
+mapkey('sr', '#8Open Search Racket Docs for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "ra"});
 });
 
@@ -359,7 +379,7 @@ mapkey('sl', '#8Open Find Nix revision for given package', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "laz"});
 });
 
-mapkey('su', '#8Search Stack Overflow', function() {
+mapkey('su', '#8Search GitHub', function() {
   Front.openOmnibar({type: "SearchEngine", extra: "hub"});
 });
 
@@ -393,7 +413,7 @@ addSearchAliasX('sp', 'StartPage', 'https://startpage.com/sp/search/?q=');
 
 addSearchAliasX('gm', 'Google Maps', 'https://www.google.com/maps?q=');
 
-addSearchAliasX('so', 'Stackoverflow', 'http://stackoverflow.com/search?q=');
+addSearchAliasX('so', 'Stack Overflow', 'http://stackoverflow.com/search?q=');
 
 addSearchAliasX('wi', 'Wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=40&search=', function(response) {
   return JSON.parse(response.text)[1];
@@ -409,7 +429,7 @@ addSearchAliasX('hub', 'Github', 'https://github.com/search?q=', 's', 'https://a
   }) : [];
 });
 
-addSearchAliasX('go', 'google', 'https://www.google.com/search?q=', 's', 'https://www.google.com/complete/search?client=chrome-omni&gs_ri=chrome-ext&oit=1&cp=1&pgcl=7&q=', function(response) {
+addSearchAliasX('go', 'Google', 'https://www.google.com/search?q=', 's', 'https://www.google.com/complete/search?client=chrome-omni&gs_ri=chrome-ext&oit=1&cp=1&pgcl=7&q=', function(response) {
   var res = JSON.parse(response.text);
   return res[1];
 });
@@ -436,7 +456,7 @@ addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query='
 
 
 
-settings.scrollStepSize = 140;
+settings.scrollStepSize = 200;
 settings.focusAfterClosed = "last"; // "right"|"left"|"last"
 settings.prevLinkRegex = '/((back|older|<|‹|←|«|≪|<<|prev(ious)?)+)/i';
 settings.nextLinkRegex = '/((more|newer|>|›|→|»|≫|>>|next)+)/i';
@@ -445,7 +465,9 @@ settings.hintExplicit = true;
 settings.omnibarPosition = "middle";
 settings.focusOnSaved = false; // do not focus the text input after quitting from vim editor
 
-Hints.characters = "asdfjhletowcmrnv";
+Hints.characters = "asdfgwhjklertomncvb";
+// Hints.characters = "asdfgwjhlertncvb";
+// Hints.characters = "asdfgqwertzxcvb"; // default value
 Hints.scrollKeys = "0G$";
 
 // Vimium-style link hints
@@ -457,7 +479,7 @@ Hints.style(
   left: -1px;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 11px;
+  font-size: 10px;
   padding: 1px 3px 0px 3px;
   background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
   border: solid 1px #C38A22;

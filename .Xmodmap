@@ -3,7 +3,7 @@
 ! make caps lock do escape
 ! from http://xahlee.info/
 
-! here's the default setting on special keys
+! here's the default setting on special keys:
 !  xmodmap -pke | grep -P '(Control|Super|Alt|Menu)'
 
 ! keycode  37 = Control_L NoSymbol Control_L

@@ -8,7 +8,7 @@
 # exec redshift -l 32.96:-96.67 -t 6500:2500
 # exec stretchly
 
-# exec xmodmap ~/.Xmodmap
+exec xmodmap ~/.Xmodmap   # map <Ctrl> to <Esc>
 exec xbanish  # banish mouse cursor upon any key press
 exec unclutter -idle 1 -root  # banish mouse cursor when not in use
 exec compton  # compositor to enable window transparency
@@ -219,7 +219,7 @@ set $ibrowser google-chrome-stable
     # bindsym $mod+Shift+s exec emacs -fs -q -l ~/.spacemacs-default-mod
 
     # toggle-mute pulseaudio
-    # bindsym Ctrl+Return exec pulseaudio-ctl mute
+    bindsym Ctrl+Return exec pulseaudio-ctl mute
     bindsym Ctrl+Shift+Return exec pulseaudio-ctl mute
     # vol up
     bindsym Ctrl+Shift+u exec pulseaudio-ctl up
