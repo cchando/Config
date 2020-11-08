@@ -294,7 +294,7 @@ unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 */
 
 
-unmapAllExcept([';j', 'g#', 'oh', ';e', 'go']);
+unmapAllExcept([';j', 'g#', 'oh', ';e', 'go', ';s']);
 // map keys for setting escape
 map('fd', '<Esc>');
 imap('fd', '<Esc>');
@@ -337,6 +337,8 @@ map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
 map('gH', 'g#'); // open current url without the hash fragment
 map('W', 'oh'); // open from history
 map('o', 'go'); // open omnibar
+map('<Alt-p>', ';s'); // toggle pdf viewer
+unmap(';s'); // toggle pdf viewer
 
 
 // omnibar controls
