@@ -19,6 +19,26 @@ that P denotes (since most built-in functions are anonymous).
 		- Disabling settings.digitForRepeat will break any keys mapped to e.g. g0, g$, etc.,
 		  if the mapping is done before the setting is disabled! (still a mystery)
 
+- Since most of Vimium C's config interface is FAR superior (easier to configure, no infinite loops, get to use function names so it's easy to keep track of what the binding is doing without comments, MUCH briefer (no quotes nor braces needed for mappings, no boilerplate for search aliases), etc., it makes infinitely more sense to use Vimium_C for everything except those very few things that are unique to SurfingKeys. I have this huge config file (or did in previous versions) (and most the config is there to create the exact same functionality as in Vimium C) only because I'm a fool who realized this too late. Don't make my mistake.
+- The following are unique to SurfingKeys:
+   - any bindings you assign to your own custom js functions -- this is where SurfingKeys is really powerful... if you have a use for writing your own functions.
+   - pdf viewer (automatic, no key binding needed, except ';s' if you want to toggle it off on occasion)
+   - 'v' visual mode (superior to Vimium C's since it has visual caret)
+   - '/'' for find mode (potentially superior to Vimium C's (depending on your use) since it puts you in visual mode upon searching)
+   - '<Ctrl-i>'' for entering ACE-Vim-Mode when in a text box
+   - '_f', 'f', 'o_', 'go': if, like me, you prefer the dark-theme CSS styling of the omnibar and find bar and figure you may
+        as well use the theme from SurfingKeys rather than configure the same sort of CSS yourself in Vimium_C.
+	 - 'ZZ', 'ZR', 'ZQ' for session management
+   - 's_' for searching a term from the clipboard
+   - 'oh' for opening a url from your history
+   - 'g_', 'y_': shortcuts to all kinds of things like JSON form data, etc.
+   - 'yg' in particular for screen capture
+   - 't' in particular for translating text
+   - 'c' to close the downloads bar (much nicer than the same function from Vimium C, which causes the whole screen to be repainted)
+	 - '.' for repeating commands (hard to imagine using this much in a web browser, though)
+	 - ':' for executing js commands
+	 - ':_' additional shortcuts
+   - I may have left out a couple minor ones...
 ---- WARNING ----
 */
 
@@ -250,6 +270,51 @@ aceVimMap('b', 'B', 'normal');
 
 
 
+/* unmap unused bindings */
+unmap('d');
+unmap('e');
+unmap('S'); // go backward in history
+/*
+  unmap('D'); // go forward in history
+	reserved as alias for ab (addBookmark)
+*/
+unmap('on');
+unmap('g0');
+unmap('g$');
+unmap('@'); // Vimium_C toggleMuteTab all
+unmap('$'); // Vimium_C toggleMuteTab other
+// unmap('yf'); // copy form data in JSON on current page
+unmap('E'); // go one tab left
+unmap('R'); // Vimium_C reload hard; was "go one tab right"
+unmap('ya'); // copy a link url to the clipboard
+unmap('B'); // go one tab history back
+/*
+	unmap('F'); // go one tab history forward
+	reserved for linksActivateInNewTab
+ */
+unmap('om'); // open url from marks
+unmap('oh'); // shadowed by 'o'; open from history -- already has alias 'W'
+unmap('cc'); // shadowed by c (close downlaod bar); open selected link, or link from clipboard
+unmap('cf'); // shadowed by c (close download bar); replaced by F
+unmap('gf'); // redundant since <Shift> after 'f' does the same thing
+unmap('C'); // same as 'gf' above
+unmap('go'); // replaced by 'o'
+unmap('m'); // so we can use 'ma' for 'mark'
+unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
+unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
+unmap('A'); // not sure if mapped; Vimium_C joinTabs
+unmap('M'); // not sure if mapped before; Vimium_C toggleMuteTab all
+unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
+// unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
+// unmap('J'); // for overriding from Vimium
+// unmap('K'); // for overriding from Vimium
+// unmapAllExcept(['<Ctrl-m>', '<Ctrl-i>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'mm', 'c', 'sa', 'sg', 'sh', 'sl', 'sm', 'sn', 'sp', 'sr', 'ss', 'st', 'su', 'sw', 'sy', 'sz', 'W', 'o', '<Ctrl-j>', '<Ctrl-k>', 'fd', 'J', 'K']);
+
+
+
+
+
+
 /* Search aliases */
 
 mapkey('sw', '#8Search Wikipedia for given term', function() {
@@ -410,47 +475,6 @@ Hints.style(
 //     }
 // }`;
 
-
-
-
-/* unmap unused bindings */
-unmap('d');
-unmap('e');
-unmap('S'); // go backward in history
-/*
-  unmap('D'); // go forward in history
-	reserved as alias for ab (addBookmark)
-*/
-unmap('on');
-unmap('g0');
-unmap('g$');
-unmap('@'); // Vimium_C toggleMuteTab all
-unmap('$'); // Vimium_C toggleMuteTab other
-unmap('yf'); // copy form data in JSON on current page
-unmap('E'); // go one tab left
-unmap('R'); // Vimium_C reload hard; was "go one tab right"
-unmap('ya'); // copy a link url to the clipboard
-unmap('B'); // go one tab history back
-/*
-	unmap('F'); // go one tab history forward
-	reserved for linksActivateInNewTab
- */
-unmap('om'); // open url from marks
-unmap('oh'); // shadowed by 'o'; open from history -- already has alias 'W'
-unmap('cc'); // shadowed by c (close downlaod bar); open selected link, or link from clipboard
-unmap('cf'); // shadowed by c (close download bar); replaced by F
-unmap('gf'); // redundant since <Shift> after 'f' does the same thing
-unmap('C'); // same as 'gf' above
-unmap('go');
-unmap('m'); // so we can use 'ma' for 'mark'
-unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
-unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
-unmap('A'); // not sure if mapped; Vimium_C joinTabs
-unmap('M'); // not sure if mapped before; Vimium_C toggleMuteTab
-// unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
-// unmap('J'); // for overriding from Vimium
-// unmap('K'); // for overriding from Vimium
-// unmapAllExcept(['<Ctrl-m>', '<Ctrl-i>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab']);
 
 
 
