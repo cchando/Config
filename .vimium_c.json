@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "11/7/2020, 8:04:30 PM",
-	"time": 1604801070259,
+	"@time": "11/7/2020, 8:07:49 PM",
+	"time": 1604801269930,
 	"environment": {
 		"extension": "1.86.2",
 		"platform": "linux",
@@ -28,6 +28,7 @@
 		"# map gE Vomnibar.activateEditUrl",
 		"# map [ addBookmark folder:/Bookmarks bar/Other bookmarks/Emacs",
 		"# mapKey <c-l> <s-anyoldjunk>",
+		"unmap <a-p>",
 		"map p togglePinTab",
 		"map yl copyCurrentTitle",
 		"map A joinTabs",
