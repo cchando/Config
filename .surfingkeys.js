@@ -94,14 +94,14 @@ map('tt', 'on'); // open new tab
 map('td', 'W'); // detach tab (new window w/ current tab)
 map('h', 'E'); // tab left
 map('l', 'R'); // tab right
-map('p', '<Alt-Shift-P>'); // pin this tab
+map('p', '<Alt-P>'); // pin this tab
 map('ga', 'g0'); // focus leftmost tab
 map('gl', 'g$'); // focus rightmost tab
 
 // navigate history
 map('H', 'S'); // back
 map('L', 'D'); // forward
-map(';', '<Ctrl-6>'); // toggle prev tab (?) ("go to last-used tab" -- not clear whether it toggles)
+// map(';', '<Ctrl-6>'); // toggle prev tab (?) ("go to last-used tab" -- not clear whether it toggles)
 
 
 // marks
@@ -210,7 +210,7 @@ unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 */
 
 
-unmapAllExcept([';j', 'g#', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>', '<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'zz', '<Esc>']);
+unmapAllExcept([';j', 'g#', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>', '<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'zz', '<Esc>', '?']);
 // map keys for setting escape
 map('fd', '<Esc>');
 imap('fd', '<Esc>');
@@ -254,17 +254,20 @@ map('gH', 'g#'); // open current url without the hash fragment
 map('W', 'oh'); // open from history
 map('o', 'go'); // open omnibar
 map('<Alt-p>', ';s'); // toggle pdf viewer
+map('<Alt-/>', '?'); // command list (showHelp)
+
 unmap('<Ctrl-d>');
 unmap('<Ctrl-d>');
 unmap('<Ctrl-u>');
 unmap('<Shift-Tab>');
 unmap('<Tab>');
 unmap('zz');
-unmap(';j');
 unmap(';s');
+unmap(';j');
 unmap(';e');
 unmap('oh');
 unmap('go');
+unmap('?');
 
 
 // omnibar controls
