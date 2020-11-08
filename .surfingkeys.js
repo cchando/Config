@@ -43,21 +43,6 @@ that P denotes (since most built-in functions are anonymous).
 */
 
 
-// an example to create a new mapping `ctrl-y`
-/*mapkey('<Ctrl-y>', 'Show me the money', function() {
-    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
-});*/
-
-// an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
-//map('gt', 'T');
-
-// an example to remove mapkey `Ctrl-i`
-//unmap('<Ctrl-i>');
-
-
-
-
-
 
 /*
    -----------------------------------------------------------------
@@ -69,50 +54,6 @@ that P denotes (since most built-in functions are anonymous).
    -----------------------------------------------------------------
 */
 
-
-//map('J', '10j'); // prefixes not yet supported in keybindings
-//map('K', '10k'); // prefixes not yet supported in keybindings
-//map('D', '99>>'); // prefixes not yet supported in keybindings
-//map('U', '99<<'); // prefixes not yet supported in keybindings
-//map(':D', 'ab');
-//map('<', '<<');
-//map('>', '>>');
-
-
-// map keys for setting escape
-map('fd', '<Esc>');
-imap('fd', '<Esc>');
-vmap('fd', '<Esc>');
-cmap('fd', '<Esc>');
-cmap('<Ctrl-m>', '<Esc>');
-cmap('<Ctrl-g>', '<Esc>');
-// ctrl apparently cannot be used for vim visual mode (not documented!)
-aceVimMap('fd', '<Esc>', 'insert');
-aceVimMap('fd', '<Esc>', 'visual');
-// ctrl has to be used for vim normal mode (not documented!)
-aceVimMap('<Ctrl-m>', '<Esc>', 'normal');
-aceVimMap('<Ctrl-g>', '<Esc>', 'normal');
-aceVimMap('<C-h>','<Esc>h','insert');
-aceVimMap('<C-j>','<Esc>j','insert');
-aceVimMap('<C-k>','<Esc>k','insert');
-aceVimMap('<C-l>','<Esc>l','insert');
-// Alt can be used in regular field boxes to exit the input box
-imap('<Alt-h>', '<Esc>');
-imap('<Alt-j>', '<Esc>');
-imap('<Alt-k>', '<Esc>');
-imap('<Alt-l>', '<Esc>');
-// Exiting visual / find mode (also seems to require the binding to include Ctrl, or at least some modifier key)
-map('<Ctrl-]>', '<Esc>');
-map('<Ctrl-m>', '<Esc>');
-map('<Ctrl-g>', '<Esc>');
-
-// escape keys for vim-map insert mode
-/*
-aceVimMap('<C-h>','<Esc>h','insert');
-aceVimMap('<C-j>','<Esc>j','insert');
-aceVimMap('<C-k>','<Esc>k','insert');
-aceVimMap('<C-l>','<Esc>l','insert');
-*/
 
 // Alt can be used in regular vield boxes to exit the input box
 imap('<Alt-h>', '<Esc>');
@@ -214,28 +155,6 @@ map('<', '[[');
 map('>', ']]');
 
 
-/* visual mode mappings */
-vmap('mm', 'zz'); // center the display
-vmap('J', '<Ctrl-d>'); // scroll 20 lines down
-vmap('K', '<Ctrl-u>'); // scroll 20 lines up
-
-
-/* ACE-Vim-Map bindings */
-// move to beginning/end of line
-aceVimMap('gl', '$', 'normal'); // line end
-aceVimMap('gh', '^', 'normal'); // first non-whitespace on line
-aceVimMap('a', '^', 'normal'); // first non-whitespace on line
-aceVimMap('ga', '0', 'normal'); // line beginning
-aceVimMap('ygh', 'y0', 'normal'); // yank to first char on line
-aceVimMap('ygl', 'y$', 'normal'); // yank to line end
-// word boundaries
-aceVimMap('e', 'E', 'normal');
-aceVimMap('w', 'W', 'normal');
-aceVimMap('b', 'B', 'normal');
-
-
-
-
 /* unmap unused bindings */
 unmap('d');
 unmap('e');
@@ -275,8 +194,6 @@ unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 // unmap('J'); // for overriding from Vimium
 // unmap('K'); // for overriding from Vimium
 
-// unmapAllExcept(['<Ctrl-m>', '<Ctrl-i>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'mm', 'c', 'sa', 'sg', 'sh', 'sl', 'sm', 'sn', 'sp', 'sr', 'ss', 'st', 'su', 'sw', 'sy', 'sz', 'W', 'o', '<Ctrl-j>', '<Ctrl-k>', 'fd', 'J', 'K']);
-
 
 
 
@@ -290,11 +207,10 @@ unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 	----------------------------------------------------------------------
 	----------------------------------------------------------------------
 	----------------------------------------------------------------------
-	----------------------------------------------------------------------
 */
 
 
-unmapAllExcept([';j', 'g#', 'oh', ';e', 'go', ';s']);
+unmapAllExcept([';j', 'g#', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>', '<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'zz', '<Esc>']);
 // map keys for setting escape
 map('fd', '<Esc>');
 imap('fd', '<Esc>');
@@ -322,13 +238,13 @@ map('<Ctrl-]>', '<Esc>');
 map('<Ctrl-m>', '<Esc>');
 map('<Ctrl-g>', '<Esc>');
 
-
-// Alt can be used in regular vield boxes to exit the input box
-imap('<Alt-h>', '<Esc>');
-imap('<Alt-j>', '<Esc>');
-imap('<Alt-k>', '<Esc>');
-imap('<Alt-l>', '<Esc>');
-
+// escape keys for vim-map insert mode
+/*
+	aceVimMap('<C-h>','<Esc>h','insert');
+	aceVimMap('<C-j>','<Esc>j','insert');
+	aceVimMap('<C-k>','<Esc>k','insert');
+	aceVimMap('<C-l>','<Esc>l','insert');
+*/
 
 // Misc 1
 iunmap(':'); // disable emoji suggestions
@@ -338,7 +254,17 @@ map('gH', 'g#'); // open current url without the hash fragment
 map('W', 'oh'); // open from history
 map('o', 'go'); // open omnibar
 map('<Alt-p>', ';s'); // toggle pdf viewer
-unmap(';s'); // toggle pdf viewer
+unmap('<Ctrl-d>');
+unmap('<Ctrl-d>');
+unmap('<Ctrl-u>');
+unmap('<Shift-Tab>');
+unmap('<Tab>');
+unmap('zz');
+unmap(';j');
+unmap(';s');
+unmap(';e');
+unmap('oh');
+unmap('go');
 
 
 // omnibar controls
@@ -590,12 +516,4 @@ settings.theme = `
     font-size: 11pt;
 }`;
 
-
-
-
-
-/*
-  NOTES:
-  - w -- open from history
-*/
 
