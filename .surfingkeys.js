@@ -21,7 +21,7 @@ that P denotes (since most built-in functions are anonymous).
 
 - Since most of Vimium C's config interface is FAR superior (easier to configure, no infinite loops, get to use function names so it's easy to keep track of what the binding is doing without comments, MUCH briefer (no quotes nor braces needed for mappings, no boilerplate for search aliases), etc., it makes infinitely more sense to use Vimium_C for everything except those very few things that are unique to SurfingKeys. I have this huge config file (or did in previous versions) (and most the config is there to create the exact same functionality as in Vimium C) only because I'm a fool who realized this too late. Don't make my mistake.
 - The following are unique to SurfingKeys:
-   - any bindings you assign to your own custom js functions -- this is where SurfingKeys is really powerful... if you have a use for writing your own functions.
+   - any bindings you assign to your own custom js functions -- this is where SurfingKeys is really powerful
    - pdf viewer (automatic, no key binding needed, except ';s' if you want to toggle it off on occasion)
    - 'v' visual mode (superior to Vimium C's since it has visual caret)
    - '/'' for find mode (potentially superior to Vimium C's (depending on your use) since it puts you in visual mode upon searching)
@@ -55,52 +55,18 @@ that P denotes (since most built-in functions are anonymous).
 //unmap('<Ctrl-i>');
 
 
-// set theme
-settings.theme = `
-.sk_theme {
-    font-family: Input Sans Condensed, Charcoal, sans-serif;
-    font-size: 11pt;
-    background: #24272e;
-    color: #abb2bf;
-}
-.sk_theme tbody {
-    color: #fff;
-}
-.sk_theme input {
-    color: #d0d0d0;
-}
-.sk_theme .url {
-    color: #61afef;
-}
-.sk_theme .annotation {
-    color: #56b6c2;
-}
-.sk_theme .omnibar_highlight {
-    color: #528bff;
-}
-.sk_theme .omnibar_timestamp {
-    color: #e5c07b;
-}
-.sk_theme .omnibar_visitcount {
-    color: #98c379;
-}
-.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
-    background: #303030;
-}
-.sk_theme #sk_omnibarSearchResult ul li.focused {
-    background: #3e4452;
-}
-#sk_status, #sk_find {
-    font-size: 11pt;
-}`;
 
 
 
 
 /*
------------------------------------------------------------------
------------ start my settings -----------------------------------
------------------------------------------------------------------
+   -----------------------------------------------------------------
+   -----------------------------------------------------------------
+   -----------------------------------------------------------------
+   Start my settings:
+   -----------------------------------------------------------------
+   -----------------------------------------------------------------
+   -----------------------------------------------------------------
 */
 
 
@@ -217,10 +183,10 @@ mapkey('gE', '#12Open Chrome Extension Shortcuts', function() {
 mapkey('gS', '#12Open Chrome Settings', function() {
     tabOpenLink("chrome://settings");
 });
-mapkey('<Ctrl-/>', '#12Open SurfingKeys Settings', function() {
-    tabOpenLink("chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/options.html#");
-});
-map('g/', '<Ctrl-/>'); // also open SurfingKeys Settings
+map('g/', ';e'); // open SurfingKeys settings
+// mapkey('g/', '#12Open SurfingKeys Settings', function() {
+//     tabOpenLink("chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/options.html#");
+// });
 
 
 /* move tab left/right */
@@ -308,6 +274,7 @@ unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 // unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
 // unmap('J'); // for overriding from Vimium
 // unmap('K'); // for overriding from Vimium
+
 // unmapAllExcept(['<Ctrl-m>', '<Ctrl-i>', 'yg', 'ZZ', 'ZR', 'ZQ', 'ab', 'v', 'mm', 'c', 'sa', 'sg', 'sh', 'sl', 'sm', 'sn', 'sp', 'sr', 'ss', 'st', 'su', 'sw', 'sy', 'sz', 'W', 'o', '<Ctrl-j>', '<Ctrl-k>', 'fd', 'J', 'K']);
 
 
@@ -315,7 +282,98 @@ unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
 
 
 
-/* Search aliases */
+/*
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+	RESET BINDINGS:
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+*/
+
+
+unmapAllExcept([';j', 'g#', 'oh', ';e', 'go']);
+// map keys for setting escape
+map('fd', '<Esc>');
+imap('fd', '<Esc>');
+vmap('fd', '<Esc>');
+cmap('fd', '<Esc>');
+cmap('<Ctrl-m>', '<Esc>');
+cmap('<Ctrl-g>', '<Esc>');
+// ctrl apparently cannot be used for vim visual mode (not documented!)
+aceVimMap('fd', '<Esc>', 'insert');
+aceVimMap('fd', '<Esc>', 'visual');
+// ctrl has to be used for vim normal mode (not documented!)
+aceVimMap('<Ctrl-m>', '<Esc>', 'normal');
+aceVimMap('<Ctrl-g>', '<Esc>', 'normal');
+aceVimMap('<C-h>','<Esc>h','insert');
+aceVimMap('<C-j>','<Esc>j','insert');
+aceVimMap('<C-k>','<Esc>k','insert');
+aceVimMap('<C-l>','<Esc>l','insert');
+// Alt can be used in regular field boxes to exit the input box
+imap('<Alt-h>', '<Esc>');
+imap('<Alt-j>', '<Esc>');
+imap('<Alt-k>', '<Esc>');
+imap('<Alt-l>', '<Esc>');
+// Exiting visual / find mode (also seems to require the binding to include Ctrl, or at least some modifier key)
+map('<Ctrl-]>', '<Esc>');
+map('<Ctrl-m>', '<Esc>');
+map('<Ctrl-g>', '<Esc>');
+
+
+// Alt can be used in regular vield boxes to exit the input box
+imap('<Alt-h>', '<Esc>');
+imap('<Alt-j>', '<Esc>');
+imap('<Alt-k>', '<Esc>');
+imap('<Alt-l>', '<Esc>');
+
+
+// Misc 1
+iunmap(':'); // disable emoji suggestions
+map('c', ';j'); // close Downloads bar
+map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
+map('gH', 'g#'); // open current url without the hash fragment
+map('W', 'oh'); // open from history
+map('o', 'go'); // open omnibar
+
+
+// omnibar controls
+cmap('<Ctrl-j>', '<Tab>'); // up
+cmap('<Ctrl-k>', '<Shift-Tab>'); // down
+
+
+
+/* visual mode mappings */
+vmap('mm', 'zz'); // center the display
+vmap('J', '<Ctrl-d>'); // scroll 20 lines down
+vmap('K', '<Ctrl-u>'); // scroll 20 lines up
+
+
+/* ACE-Vim-Map bindings */
+// move to beginning/end of line
+aceVimMap('gl', '$', 'normal'); // line end
+aceVimMap('gh', '^', 'normal'); // first non-whitespace on line
+aceVimMap('a', '^', 'normal'); // first non-whitespace on line
+aceVimMap('ga', '0', 'normal'); // line beginning
+aceVimMap('ygh', 'y0', 'normal'); // yank to first char on line
+aceVimMap('ygl', 'y$', 'normal'); // yank to line end
+// word boundaries
+aceVimMap('e', 'E', 'normal');
+aceVimMap('w', 'W', 'normal');
+aceVimMap('b', 'B', 'normal');
+
+
+
+/*
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+	Search alias keybindings:
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+*/
+
 
 mapkey('sw', '#8Search Wikipedia for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "wi"});
@@ -374,10 +432,16 @@ mapkey('su', '#8Search Stack Overflow', function() {
   Front.openOmnibar({type: "SearchEngine", extra: "hub"});
 });
 
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
+
+/*
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+	Search alias definitions:
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+*/
+
 
 
 addSearchAliasX('laz', 'Nix Revision', 'https://lazamar.co.uk/nix-versions/?channel=nixos-unstable&package=');
@@ -430,7 +494,16 @@ addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query='
 
 
 
-/* Settings */
+
+/*
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+	Settings:
+	----------------------------------------------------------------------
+	----------------------------------------------------------------------
+*/
+
+
 
 settings.scrollStepSize = 140;
 settings.focusAfterClosed = "last"; // "right"|"left"|"last"
@@ -474,6 +547,47 @@ Hints.style(
 //         font-size: 11pt;
 //     }
 // }`;
+
+
+// set theme
+settings.theme = `
+.sk_theme {
+    font-family: Input Sans Condensed, Charcoal, sans-serif;
+    font-size: 11pt;
+    background: #24272e;
+    color: #abb2bf;
+}
+.sk_theme tbody {
+    color: #fff;
+}
+.sk_theme input {
+    color: #d0d0d0;
+}
+.sk_theme .url {
+    color: #61afef;
+}
+.sk_theme .annotation {
+    color: #56b6c2;
+}
+.sk_theme .omnibar_highlight {
+    color: #528bff;
+}
+.sk_theme .omnibar_timestamp {
+    color: #e5c07b;
+}
+.sk_theme .omnibar_visitcount {
+    color: #98c379;
+}
+.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
+    background: #303030;
+}
+.sk_theme #sk_omnibarSearchResult ul li.focused {
+    background: #3e4452;
+}
+#sk_status, #sk_find {
+    font-size: 11pt;
+}`;
+
 
 
 
