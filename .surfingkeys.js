@@ -22,12 +22,10 @@ that P denotes (since most built-in functions are anonymous).
 		- Furthermore, if you first map e.g. ';' to '<Ctrl-6>' and then map 'c' to ';j', the 2nd
 		      mapping will be null because the default binding ';j' was nullified when its prefix
 					';' was remapped. This is the case for any prefix, so you really have to be on your
-					toes.
+					toes. I would definitely call this a bug, although technically you could argue that
+					it's just really poor design. It blurs the line between both.
 
-		- This means shorter-keystroke bindings must always come before longer ones. I
- 	  		would definitely call this a bug, although technically you could argue that it's
-		  	just really poor design. It blurs the line between both.
-
+		- This means longer-keystroke bindings must always come before shorter ones.
 		- A best-practice for dealing with the imperativeness:
         // save default key `t` to temp key `>_t`
    	  	map('>_t', 't');
@@ -68,7 +66,7 @@ map('tt', 'on'); // open new tab
 map('td', 'W'); // detach tab (new window w/ current tab)
 map('h', 'E'); // tab left
 map('l', 'R'); // tab right
-map('p', '<Alt-P>'); // pin this tab
+map('p', '<Alt-P>'); // pin current tab
 map('ga', 'g0'); // focus leftmost tab
 map('gl', 'g$'); // focus rightmost tab
 
@@ -79,7 +77,7 @@ map('L', 'D'); // forward
 
 
 // // marks
-// map('ma', 'm'); // create mark
+// map('ma', 'm'); // create mark -- replace with Vimium's marks
 
 
 // closing tabs:
@@ -139,6 +137,7 @@ map('>', ']]');
 // map('mu', '<Alt-m>'); // mute current tab  -- use Vimium C's muteTab variants
 map('P', 'p'); // enter PassThrough mode (refined version of Vimium's insert mode)
 iunmap(':'); // disable emoji suggestions
+map('s', 'cs'); // change scroll target
 map('c', ';j'); // close Downloads bar
 map(';', '<Ctrl-6>'); // toggle prev tab (must map AFTER any "map blah to ;_")
 map('W', 'oh'); // open from history
@@ -147,7 +146,6 @@ map('<Alt-p>', ';s'); // toggle pdf viewer
 map('g/', ';e'); // open SurfingKeys settings
 map('gH', 'g#'); // open current url without the hash fragment
 map('D', 'ab'); // add bookmark
-map('s', 'cs'); // change scroll target
 map(':m', ';m'); // mouse-out last element
 map('F', 'cf'); // open multiple links in new tabs
 // map('I', 'i'); // enter insert mode
@@ -591,5 +589,5 @@ settings.theme = `
 
 
 // font-family: Input Sans Condensed, Charcoal, sans-serif;
-// font-family: Helvetica, Arial, sans-serif;
+// font-family: Helvetica, Arial, sans-serif;  // Vimium style
 
