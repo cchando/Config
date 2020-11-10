@@ -19,26 +19,6 @@ that P denotes (since most built-in functions are anonymous).
 		- Disabling settings.digitForRepeat will break any keys mapped to e.g. g0, g$, etc.,
 		  if the mapping is done before the setting is disabled.
 
-- Since most of Vimium C's config interface is FAR superior (easier to configure, no infinite loops, get to use function names so it's easy to keep track of what the binding is doing without comments, MUCH briefer (no quotes nor braces needed for mappings, no boilerplate for search aliases), etc., it makes infinitely more sense to use Vimium_C for everything except those very few things that are unique to SurfingKeys. I have this huge config file (or did in previous versions) (and most the config is there to create the exact same functionality as in Vimium C) only because I realized this too late.
-- The following are unique to SurfingKeys:
-   - any bindings you assign to your own custom js functions -- this is where SurfingKeys is really powerful
-   - pdf viewer (automatic, no key binding needed, except ';s' if you want to toggle it off on occasion)
-   - 'v' visual mode (superior to Vimium C's since it has visual caret)
-   - '/'' for find mode (potentially superior to Vimium C's (depending on your use) since it puts you in visual mode upon searching)
-   - '<Ctrl-i>'' for entering ACE-Vim-Mode when in a text box
-   - '_f', 'f', 'o_', 'go': if, like me, you prefer the dark-theme CSS styling of the omnibar and find bar and figure you may
-        as well use the theme from SurfingKeys rather than configure the same sort of CSS yourself in Vimium_C.
-	 - 'ZZ', 'ZR', 'ZQ' for session management
-   - 's_' for searching a term from the clipboard
-   - 'oh' for opening a url from your history
-   - 'g_', 'y_': shortcuts to all kinds of things like JSON form data, etc.
-   - 'yg' in particular for screen capture
-   - 't' in particular for translating text
-   - 'c' to close the downloads bar (much nicer than the same function from Vimium C, which causes the whole screen to be repainted)
-	 - '.' for repeating commands (hard to imagine using this much in a web browser, though)
-	 - ':' for executing js commands
-	 - ':_' additional shortcuts
-   - I may have left out a couple minor ones...
 ---- WARNING ----
 */
 
@@ -55,20 +35,6 @@ that P denotes (since most built-in functions are anonymous).
 */
 
 
-// Misc 1
-map('P', 'p'); // enter PassThrough mode to temporarily suppress SurfingKeys
-iunmap(':'); // disable emoji suggestions
-map('c', ';j'); // close Downloads bar
-map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
-map('gH', 'g#'); // open current url without the hash fragment
-map('W', 'oh'); // open from history
-// map('mu', '<Alt-m>'); // mute current tab
-
-
-// omnibar controls
-cmap('<Ctrl-j>', '<Tab>'); // up
-cmap('<Ctrl-k>', '<Shift-Tab>'); // down
-
 
 // scrolling
 map('(', 'h'); // scroll left
@@ -77,8 +43,6 @@ map('zh', '0'); // scroll all the way left
 map('zl', '$'); // scroll all the way right
 map('J', 'd'); // scroll half-page down
 map('K', 'u'); // scroll half-page down
-// map('J', '<Ctrl-d>');
-// map('K', '<Ctrl-u>');
 
 
 // navigate tabs
@@ -90,6 +54,7 @@ map('l', 'R'); // tab right
 map('p', '<Alt-P>'); // pin this tab
 map('ga', 'g0'); // focus leftmost tab
 map('gl', 'g$'); // focus rightmost tab
+
 
 // navigate history
 map('H', 'S'); // back
@@ -149,7 +114,60 @@ map('<', '[[');
 map('>', ']]');
 
 
+/*
+  -----------------------------------------------------------------
+  Misc 1
+  -----------------------------------------------------------------
+*/
+
+// map('mu', '<Alt-m>'); // mute current tab  -- use Vimium C's muteTab variants
+map('P', 'p'); // enter PassThrough mode to temporarily suppress SurfingKeys
+iunmap(':'); // disable emoji suggestions
+map('c', ';j'); // close Downloads bar
+map('W', 'oh'); // open from history
+// map('gH', 'g#'); // open current url without the hash fragment
+map('<Alt-p>', ';s'); // toggle pdf viewer
+map('g/', ';e'); // open SurfingKeys settings
+map('gH', 'g#'); // open current url without the hash fragment
+map('D', 'ab'); // add bookmark
+map('s', 'cs'); // change scroll target
+map(':m', ';m'); // mouse-out last element
+map('F', 'cf'); // open multiple links in new tabs
+map('c', ';j'); // close Downloads bar
+// map('I', 'i'); // enter insert mode
+// map('O', 'ox'); // open recently-closed url  // TODO: not working somewhy. replaced by below
+mapkey('O', '#8Open recently closed URL', function() {
+  Front.openOmnibar({type: "URLs", extra: "getRecentlyClosed"});
+});
+// map('W', 'w'); // switch frames   // internal function seems to be broken
+
+// map('w', 'oh'); // open from history  // TODO: not working somewhy. replaced by below
+mapkey('w', '#8Open URL from history', function() {
+  Front.openOmnibar({type: "History"});
+});
+// map('o', 'go'); // open omnibar  // TODO: not working somewhy. replaced by below
+mapkey('o', '#8Open a URL in current tab', function() {
+  Front.openOmnibar({type: "URLs", extra: "getAllSites", tabbed: false});
+});
+
+
+
+
+
 /* unmap unused bindings */
+unmap('\''); // replaced by Vimium C's since it can use '' to toggle prev mark
+unmap('ab');
+unmap('cf');
+unmap('gr');
+unmap(';s');
+unmap(';j');
+unmap(';e');
+unmap(';dh');
+unmap('oh');
+unmap('go');
+unmap('sb');
+unmap('sd');
+unmap('se');
 unmap('d');
 unmap('e');
 unmap('S'); // go backward in history
@@ -179,95 +197,19 @@ unmap('gf'); // redundant since <Shift> after 'f' does the same thing
 unmap('C'); // same as 'gf' above
 // unmap('go'); // replaced by 'o'
 unmap('m'); // so we can use 'ma' for 'mark'
-// unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
-// unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
+unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
+unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
 unmap('A'); // not sure if mapped; Vimium_C joinTabs
 unmap('M'); // not sure if mapped; Vimium_C toggleMuteTab all
-unmap('O'); // not sure if mapped; Vimium_C toggleMuteTab other
-// unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
-// unmap('J'); // for overriding from Vimium
-// unmap('K'); // for overriding from Vimium
-
-
-
-
-
-
-/*
-	----------------------------------------------------------------------
-	----------------------------------------------------------------------
-	----------------------------------------------------------------------
-	RESET BINDINGS:
-	----------------------------------------------------------------------
-	----------------------------------------------------------------------
-	----------------------------------------------------------------------
-*/
-
-// NOTE: if a binding isn't working, it's probably b/c it was already
-//   unmapped before this point.
-unmapAllExcept(['n', 'N', 'ox', 'b', ';j', 'g#', 'g?', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>',
-								'<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ',
-								'ab', 'v', 'zz', '<Esc>', '?', 'f', 'cf', 'og', 'zr', 'zi',
-								'zo', ';dh', 'i', 'T', 'w', '/']);
-
-// Misc 1
-iunmap(':'); // disable emoji suggestions
-map('c', ';j'); // close Downloads bar
-map('\'', ';'); // use 'e, 'j, etc -- not tested -- likely have wrong syntax
-// map('gH', 'g#'); // open current url without the hash fragment
-map('<Alt-p>', ';s'); // toggle pdf viewer
-map('<Alt-/>', '?'); // show command list
-map('g/', ';e'); // open SurfingKeys settings
-map('z#', 'g#'); // reopen current url without the hash fragment
-map('zH', 'g#'); // reopen current url without the hash fragment
-map('z?', 'g?'); // reopen current url without the query
-map('F', 'cf'); // open multiple links in new tabs
-map(':dH', ';dh'); // delete history older than 30 days
-map('c', ';j'); // close Downloads bar
-// map('I', 'i'); // enter insert mode
-map('O', 'ox'); // open recently-closed url  // TODO: not working somewhy. replaced by below
-mapkey('O', '#8Open recently closed URL', function() {
-  Front.openOmnibar({type: "URLs", extra: "getRecentlyClosed"});
-});
-// map('W', 'w'); // switch frames   // internal function seems to be broken
-
-// map('w', 'oh'); // open from history  // TODO: not working somewhy. replaced by below
-mapkey('w', '#8Open URL from history', function() {
-  Front.openOmnibar({type: "History"});
-});
-// map('o', 'go'); // open omnibar  // TODO: not working somewhy. replaced by below
-mapkey('o', '#8Open a URL in current tab', function() {
-  Front.openOmnibar({type: "URLs", extra: "getAllSites", tabbed: false});
-});
-mapkey(':dho', '#14Delete history newer than 1 hour', function() {
-  RUNTIME('deleteHistoryNewerThan', {
-    hours: 1
-  });
-});
-mapkey(':dht', '#14Delete history newer than 2 hours', function() {
-  RUNTIME('deleteHistoryNewerThan', {
-    hours: 2
-  });
-});
-
-unmap('F');
-unmap('cf');
-unmap('f');
-unmap(';s');
-unmap(';j');
-unmap(';e');
-unmap(';dh');
-unmap('oh');
-unmap('go');
-unmap('?');
-unmap('g#');
-unmap('g?');
-unmap('g/');
-unmap('<Ctrl-d>');
+unmap('O'); // not sure if mapped
+unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
 unmap('<Ctrl-d>');
 unmap('<Ctrl-u>');
 unmap('<Shift-Tab>');
 unmap('<Tab>');
+
+
+
 
 
 // omnibar controls
@@ -464,6 +406,17 @@ addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query='
 
 
 
+
+
+/* the line-breaks in the below command are untested: */
+// unmapAllExcept(['n', 'N', 'ox', 'b', ';j', 'g#', 'g?', 'oh', ';e', 'go', ';s', '<Tab>', '<Shift-Tab>',
+// 								'<Ctrl-u>', '<Ctrl-d>', '<Ctrl-m>', 'yg', 'ZZ', 'ZR', 'ZQ',
+// 								'ab', 'v', 'zz', '<Esc>', '?', 'f', 'cf', 'og', 'zr', 'zi',
+// 								'zo', ';dh', 'i', 'T', 'w', '/']);
+
+
+
+
 /*
 	----------------------------------------------------------------------
 	----------------------------------------------------------------------
@@ -474,7 +427,8 @@ addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query='
 
 
 settings.scrollStepSize = 200;
-settings.focusAfterClosed = "last"; // "right"|"left"|"last"
+settings.hintAlign = "left";
+settings.focusAfterClosed = "left"; // "right"|"left"|"last"
 settings.prevLinkRegex = '/((back|older|<|‹|←|«|≪|<<|prev(ious)?)+)/i';
 settings.nextLinkRegex = '/((more|newer|>|›|→|»|≫|>>|next)+)/i';
 settings.hintShiftNonActive	= true;
@@ -483,9 +437,10 @@ settings.omnibarPosition = "middle";  // "middle"|"bottom"
 settings.focusOnSaved = false; // do not focus the text input after quitting from vim editor
 settings.tabsThreshold = 0; // threshold at/above which to show tabs in omnibar instead of in overlay
 
-Hints.characters = "adfjhklertncvb";
-// Hints.characters = "asdfgwhjklertomncvb";
-// Hints.characters = "asdfgwjhlertncvb";
+// Vimium C bindings: (A, join tabs) (M, mute all tabs) (ma, create mark) (R, reload hard)
+Hints.characters = "sdfghjkletncvbw";
+// Hints.characters = "sdfgwhjkletncvb";
+// Hints.characters = "sdfgwjhletncvb";
 // Hints.characters = "asdfgqwertzxcvb"; // default value
 Hints.scrollKeys = "0G$";
 
@@ -493,7 +448,6 @@ Hints.scrollKeys = "0G$";
 /* best so far */
 Hints.style(
   `
-  position: left;
   display: block;
   top: -1px;
   left: -1px;
@@ -516,7 +470,6 @@ Hints.style(
 // /* directly from Vimium */
 // Hints.style(
 //   `
-//   position: absolute;
 //   display: block;
 //   top: -1px;
 //   left: -1px;
@@ -537,29 +490,28 @@ Hints.style(
 // );
 
 
-// Vimium-style visual-mode hints
-// the visual-mode CSS seems to have no effect for some reason
-Visual.style(
-	'marks',
-  `
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: Helvetica, Arial, sans-serif;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  font-size: 12px;
-  padding: 1px 3px 0px 3px;
-  background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
-  border: solid 1px #C38A22;
-  border-radius: 3px;
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-	`
-);
+// // Vimium-style visual-mode hints
+// // the visual-mode CSS seems to have no effect for some reason
+// Visual.style(
+// 	'marks',
+//   `
+//   display: block;
+//   top: -1px;
+//   left: -1px;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   font-family: Helvetica, Arial, sans-serif;
+//   font-style: normal;
+//   font-variant: normal;
+//   font-weight: bold;
+//   font-size: 12px;
+//   padding: 1px 3px 0px 3px;
+//   background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
+//   border: solid 1px #C38A22;
+//   border-radius: 3px;
+//   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+// 	`
+// );
 
 
 
