@@ -553,8 +553,8 @@ Hints.style(
 // set theme
 settings.theme = `
 .sk_theme {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 11pt;
+    font-family: Input Sans Condensed, Charcoal, sans-serif;
+		font-size: 11pt;
     background: #24272e;
     color: #abb2bf;
 }
