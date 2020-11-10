@@ -11,15 +11,32 @@ that P denotes (since most built-in functions are anonymous).
 - Remapping is automatic and not even optional: there is no "noremap" command (yikes).
     - E.g. we must set P=p before setting p=k if we want P to be the original p.
 		- This means all 'unmap' commands should be done after all the 'map' commands.
-		  E.g. if you first unmap k and then try to map p to k, the p binding will be invalid.
+    		  E.g. if you first unmap k and then try to map p to k, the p binding will be invalid.
     - Also, setting e.g. both e=E and E=e will cause a logic loop rather than swapping
 	      	them (double yikes).
 	  - Errors can potentially be hard to track, since assignment is chained, e.g. p=P,e=p,j=e.
 		  So avoid chained assignment. Instead do e.g. p=P,e=P,j=P.
 		- Disabling settings.digitForRepeat will break any keys mapped to e.g. g0, g$, etc.,
 		  if the mapping is done before the setting is disabled.
+		- There is a bug where unmapping e.g. 'm' will also unmap any bindings for 'ma', 'mb', etc.
+		- Furthermore, if you first map e.g. ';' to '<Ctrl-6>' and then map 'c' to ';j', the 2nd
+		      mapping will be null because the default binding ';j' was nullified when its prefix
+					';' was remapped. This is the case for any prefix, so you really have to be on your
+					toes.
 
----- WARNING ----
+		- This means shorter-keystroke bindings must always come before longer ones. I
+ 	  		would definitely call this a bug, although technically you could argue that it's
+		  	just really poor design. It blurs the line between both.
+
+		- A best-practice for dealing with the imperativeness:
+        // save default key `t` to temp key `>_t`
+   	  	map('>_t', 't');
+				// create a new key `t` for default key `on`
+				map('t', 'on');
+				// create a new key `o` for saved temp key `>_t`
+  		  map('o', '>_t');
+
+---- END OF WARNING ----
 */
 
 
@@ -46,7 +63,7 @@ map('K', 'u'); // scroll half-page down
 
 
 // navigate tabs
-map('o', 'go'); // open omnibar
+map('o', 't'); // open omnibar  // 't', 'go'
 map('tt', 'on'); // open new tab
 map('td', 'W'); // detach tab (new window w/ current tab)
 map('h', 'E'); // tab left
@@ -59,19 +76,18 @@ map('gl', 'g$'); // focus rightmost tab
 // navigate history
 map('H', 'S'); // back
 map('L', 'D'); // forward
-// map(';', '<Ctrl-6>'); // toggle prev tab (?) ("go to last-used tab" -- not clear whether it toggles)
 
 
-// marks
-map('ma', 'm'); // create mark
+// // marks
+// map('ma', 'm'); // create mark
 
 
 // closing tabs:
-map('qh', 'gx0'); // close tabs to left
-map('ql', 'gx$'); // close tabs to right
-map('qo', 'gxx'); // close all tabs except current one
-map('qH', 'gxt'); // close tab to left
-map('qL', 'gxT'); // close tab to right
+map('qH', 'gx0'); // close all tabs to left
+map('qL', 'gx$'); // close all tabs to right
+map('qO', 'gxx'); // close all tabs except current one
+map('qh', 'gxt'); // close tab to left
+map('ql', 'gxT'); // close tab to right
 
 
 // open particular tabs
@@ -86,9 +102,9 @@ mapkey('gb', '#12Open Chrome Settings', function() {
   tabOpenLink("chrome://bookmarks");
 });
 map('g/', ';e'); // open SurfingKeys settings
-// mapkey('g/', '#12Open SurfingKeys Settings', function() {
-//     tabOpenLink("chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/options.html#");
-// });
+mapkey('<Ctrl-/>', '#12Open Vimium C Settings', function() {
+  tabOpenLink("chrome-extension://hfjbmagddngcpeloejdejnfgbamkjaeg/pages/options.html");
+});
 
 
 /* move tab left/right */
@@ -121,11 +137,12 @@ map('>', ']]');
 */
 
 // map('mu', '<Alt-m>'); // mute current tab  -- use Vimium C's muteTab variants
-map('P', 'p'); // enter PassThrough mode to temporarily suppress SurfingKeys
+map('P', 'p'); // enter PassThrough mode (refined version of Vimium's insert mode)
 iunmap(':'); // disable emoji suggestions
 map('c', ';j'); // close Downloads bar
+map(';', '<Ctrl-6>'); // toggle prev tab (must map AFTER any "map blah to ;_")
 map('W', 'oh'); // open from history
-// map('gH', 'g#'); // open current url without the hash fragment
+map('gh', 'g#'); // open current url without the hash fragment
 map('<Alt-p>', ';s'); // toggle pdf viewer
 map('g/', ';e'); // open SurfingKeys settings
 map('gH', 'g#'); // open current url without the hash fragment
@@ -133,7 +150,6 @@ map('D', 'ab'); // add bookmark
 map('s', 'cs'); // change scroll target
 map(':m', ';m'); // mouse-out last element
 map('F', 'cf'); // open multiple links in new tabs
-map('c', ';j'); // close Downloads bar
 // map('I', 'i'); // enter insert mode
 // map('O', 'ox'); // open recently-closed url  // TODO: not working somewhy. replaced by below
 mapkey('O', '#8Open recently closed URL', function() {
@@ -155,8 +171,10 @@ mapkey('o', '#8Open a URL in current tab', function() {
 
 
 /* unmap unused bindings */
-unmap('\''); // replaced by Vimium C's since it can use '' to toggle prev mark
+unmap("'"); // replaced by Vimium C's since it can use '' to toggle prev mark
+unmap("m"); // replaced by Vimium C's since the popup looks better and we can use '' with it
 unmap('ab');
+unmap('af');
 unmap('cf');
 unmap('gr');
 unmap(';s');
@@ -196,13 +214,11 @@ unmap('cf'); // shadowed by c (close download bar); replaced by F
 unmap('gf'); // redundant since <Shift> after 'f' does the same thing
 unmap('C'); // same as 'gf' above
 // unmap('go'); // replaced by 'o'
-unmap('m'); // so we can use 'ma' for 'mark'
 unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
 unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
 unmap('A'); // not sure if mapped; Vimium_C joinTabs
 unmap('M'); // not sure if mapped; Vimium_C toggleMuteTab all
-unmap('O'); // not sure if mapped
-unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
+// unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
 unmap('<Ctrl-d>');
 unmap('<Ctrl-u>');
 unmap('<Shift-Tab>');
@@ -428,14 +444,15 @@ addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query='
 
 settings.scrollStepSize = 200;
 settings.hintAlign = "left";
-settings.focusAfterClosed = "left"; // "right"|"left"|"last"
+settings.focusAfterClosed = "left";
 settings.prevLinkRegex = '/((back|older|<|‹|←|«|≪|<<|prev(ious)?)+)/i';
 settings.nextLinkRegex = '/((more|newer|>|›|→|»|≫|>>|next)+)/i';
 settings.hintShiftNonActive	= true;
 settings.hintExplicit = true;
-settings.omnibarPosition = "middle";  // "middle"|"bottom"
+settings.omnibarPosition = "middle";
 settings.focusOnSaved = false; // do not focus the text input after quitting from vim editor
 settings.tabsThreshold = 0; // threshold at/above which to show tabs in omnibar instead of in overlay
+settings.interceptedErrors = ["*"]; // allow SurfingKeys on all error pages
 
 // Vimium C bindings: (A, join tabs) (M, mute all tabs) (ma, create mark) (R, reload hard)
 Hints.characters = "sdfghjkletncvbw";
@@ -485,6 +502,7 @@ Hints.style(
 //   font-family: Helvetica, Arial, sans-serif;
 //   font-weight: bold;
 //   font-size: 11px;
+
 //   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 // `
 // );

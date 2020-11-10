@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "11/10/2020, 1:53:56 AM",
-	"time": 1604994836157,
+	"@time": "11/10/2020, 5:30:04 AM",
+	"time": 1605007804020,
 	"environment": {
 		"extension": "1.86.2",
 		"platform": "linux",
@@ -109,11 +109,11 @@
 		"map A joinTabs",
 		"map M toggleMuteTab all",
 		"map <a-m> toggleMuteTab other",
+		"map <c-s-a> toggleMuteTab",
 		"##################",
 		"##################",
-		"map ; visitPreviousTab",
 		"map <c-?> showHelp",
-		"map <c-/> createTab url=\"chrome-extension://hfjbmagddngcpeloejdejnfgbamkjaeg/pages/options.html\"",
+		"# map <c-/> createTab url=\"chrome-extension://hfjbmagddngcpeloejdejnfgbamkjaeg/pages/options.html\"",
 		"shortcut userCustomized1 command=\"joinTabs\"",
 		"shortcut userCustomized2 command=\"restoreTab\"",
 		"shortcut userCustomized3 command=\"moveTabLeft\"",
