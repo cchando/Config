@@ -3831,13 +3831,13 @@ global-key-prev=Ctrl+,
 #key-jump+extrashort=Shift+Right
 
 # Short backwards jump (string)
-global-key-jump-short=Ctrl+Left
+global-key-jump-short=Ctrl+Shift+<
 
 # Short backwards jump (string)
 key-jump-short=
 
 # Short forward jump (string)
-global-key-jump+short=Ctrl+Right
+global-key-jump+short=Ctrl+Shift+>
 
 # Short forward jump (string)
 key-jump+short=
@@ -3939,13 +3939,13 @@ key-jump+medium=
 #key-quit=Ctrl+q
 
 # Volume up (string)
-global-key-vol-up=Ctrl+u
+global-key-vol-up=Ctrl+Shift+u
 
 # Volume up (string)
 key-vol-up=
 
 # Volume down (string)
-global-key-vol-down=Ctrl+d
+global-key-vol-down=Ctrl+Shift+d
 
 # Volume down (string)
 key-vol-down=
