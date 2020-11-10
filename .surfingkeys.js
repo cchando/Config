@@ -183,6 +183,7 @@ unmap(';e');
 unmap(';dh');
 unmap('oh');
 unmap('go');
+unmap('ss');
 unmap('sb');
 unmap('sd');
 unmap('se');
