@@ -431,6 +431,8 @@ addSearchAliasX('gm', 'Google Maps', 'https://www.google.com/maps?q=');
 
 addSearchAliasX('so', 'Stack Overflow', 'http://stackoverflow.com/search?q=');
 
+addSearchAliasX('az', 'amazon', 'https://www.amazon.com/s/?field-keywords=');
+
 addSearchAliasX('wi', 'Wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=40&search=', function(response) {
   return JSON.parse(response.text)[1];
 });
