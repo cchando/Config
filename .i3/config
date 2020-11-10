@@ -164,6 +164,7 @@ set $ibrowser google-chrome-stable
 
     # kill focused window
     bindsym Ctrl+Shift+q kill
+    bindsym Ctrl+Shift+w kill
     
     # start program launcher
     bindsym $mod+o exec $menu
