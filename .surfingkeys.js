@@ -461,7 +461,6 @@ Hints.characters = "sdfghjkletncvbw";
 Hints.scrollKeys = "0G$";
 
 // Vimium-style link hints
-/* best so far */
 Hints.style(
   `
   display: block;
@@ -482,25 +481,6 @@ Hints.style(
 	`
 );
 
-// // Vimium-style link hints
-// /* directly from Vimium */
-// Hints.style(
-//   `
-//   display: block;
-//   top: -1px;
-//   left: -1px;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   font-size: 11px;
-//   padding: 1px 3px 0px 3px;
-//   background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
-//   border: solid 1px #C38A22;
-//   border-radius: 3px;
-//   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-//   color: #302505;
-//   font-family: Helvetica, Arial, sans-serif;
-//   font-weight: bold;
-//   font-size: 11px;
 
 //   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 // `
