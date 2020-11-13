@@ -24,6 +24,8 @@ that P denotes (since most built-in functions are anonymous).
 					';' was remapped. This is the case for any prefix, so you really have to be on your
 					toes. I would definitely call this a bug, although technically you could argue that
 					it's just really poor design. It blurs the line between both.
+		- If you want to map e.g. "ma" to "d" and also unmap "m", you must unmap "m" first, since
+		  unmapping "m" will also unmap any bindings prefixed by "m".
 
 		- This means longer-keystroke bindings must always come before shorter ones.
 		- A best-practice for dealing with the imperativeness:
@@ -50,6 +52,18 @@ that P denotes (since most built-in functions are anonymous).
 */
 
 
+/* set temp keys*/
+map('~t`', 't');
+map('~q`', 'q');
+map(':i`', 'q');
+map('*', '.');
+unmap('t');
+unmap('q');
+unmap(':');
+
+
+
+
 
 // scrolling
 map('(', 'h'); // scroll left
@@ -57,16 +71,17 @@ map(')', 'l'); // scroll right
 map('zh', '0'); // scroll all the way left
 map('zl', '$'); // scroll all the way right
 map('J', 'd'); // scroll half-page down
+
 map('K', 'u'); // scroll half-page down
 
 
 // navigate tabs
-map('o', 't'); // open omnibar  // 't', 'go'
+map('o', '~t'); // open omnibar  // 't', 'go'
 map('tt', 'on'); // open new tab
 map('td', 'W'); // detach tab (new window w/ current tab)
 map('h', 'E'); // tab left
 map('l', 'R'); // tab right
-map('p', '<Alt-P>'); // pin current tab
+map('p', '<Alt-p>'); // pin current tab
 map('ga', 'g0'); // focus leftmost tab
 map('gl', 'g$'); // focus rightmost tab
 
@@ -137,16 +152,16 @@ map('>', ']]');
 // map('mu', '<Alt-m>'); // mute current tab  -- use Vimium C's muteTab variants
 map('P', 'p'); // enter PassThrough mode (refined version of Vimium's insert mode)
 iunmap(':'); // disable emoji suggestions
-map('s', 'cs'); // change scroll target
+map('e', 'cs'); // change scroll target
 map('c', ';j'); // close Downloads bar
+map(':m', ';m'); // mouse-out last element
 map(';', '<Ctrl-6>'); // toggle prev tab (must map AFTER any "map blah to ;_")
 map('W', 'oh'); // open from history
 map('gh', 'g#'); // open current url without the hash fragment
 map('<Alt-p>', ';s'); // toggle pdf viewer
 map('g/', ';e'); // open SurfingKeys settings
 map('gH', 'g#'); // open current url without the hash fragment
-map('D', 'ab'); // add bookmark
-map(':m', ';m'); // mouse-out last element
+map(':D', 'ab'); // add bookmark
 map('F', 'cf'); // open multiple links in new tabs
 // map('I', 'i'); // enter insert mode
 // map('O', 'ox'); // open recently-closed url  // TODO: not working somewhy. replaced by below
@@ -185,14 +200,17 @@ unmap('ss');
 unmap('sb');
 unmap('sd');
 unmap('se');
-unmap('d');
-unmap('e');
+unmap('gx$');
+unmap('gx0');
+unmap('gxT');
+unmap('gxt');
+unmap('gxx');
 unmap('S'); // go backward in history
 /*
   unmap('D'); // go forward in history
 	reserved as alias for ab (addBookmark)
 */
-// unmap('on');
+unmap('on');
 unmap('g0');
 unmap('g$');
 unmap('@'); // Vimium_C toggleMuteTab all
@@ -230,6 +248,9 @@ unmap('<Tab>');
 // omnibar controls
 cmap('<Ctrl-j>', '<Tab>'); // up
 cmap('<Ctrl-k>', '<Shift-Tab>'); // down
+cmap('<Ctrl-[>', '<Shift-p>'); // page up
+cmap('<Ctrl-]>', '<Shift-n>'); // page down
+cmap('<Ctrl-q>', '<Ctrl-d>'); // remove selected item from bookmarks
 
 
 
@@ -239,29 +260,25 @@ vmap('J', '<Ctrl-d>'); // scroll 20 lines down
 vmap('K', '<Ctrl-u>'); // scroll 20 lines up
 
 
-// map keys for setting escape
-map('fd', '<Esc>');
-imap('fd', '<Esc>');
-vmap('fd', '<Esc>');
-cmap('fd', '<Esc>');
+/* map keys for setting escape */
 cmap('<Ctrl-m>', '<Esc>');
 cmap('<Ctrl-g>', '<Esc>');
-// ctrl apparently cannot be used for vim visual mode (not documented!)
-aceVimMap('fd', '<Esc>', 'insert');
-aceVimMap('fd', '<Esc>', 'visual');
-// ctrl has to be used for vim normal mode (not documented!)
+/* ctrl apparently cannot be used for vim visual mode (not documented!) */
+// aceVimMap('fd', '<Esc>', 'insert');
+// aceVimMap('fd', '<Esc>', 'visual');
+/* ctrl has to be used for vim normal mode (not documented!) */
 aceVimMap('<Ctrl-m>', '<Esc>', 'normal');
 aceVimMap('<Ctrl-g>', '<Esc>', 'normal');
 aceVimMap('<C-h>','<Esc>h','insert');
 aceVimMap('<C-j>','<Esc>j','insert');
 aceVimMap('<C-k>','<Esc>k','insert');
 aceVimMap('<C-l>','<Esc>l','insert');
-// Alt can be used in regular field boxes to exit the input box
+/* Alt can be used in regular field boxes to exit the input box */
 imap('<Alt-h>', '<Esc>');
 imap('<Alt-j>', '<Esc>');
 imap('<Alt-k>', '<Esc>');
 imap('<Alt-l>', '<Esc>');
-// Exiting visual / find mode (also seems to require the binding to include Ctrl, or at least some modifier key)
+/* Exiting visual / find mode (also seems to require the binding to include Ctrl, or at least some modifier key) */
 map('<Ctrl-]>', '<Esc>');
 map('<Ctrl-m>', '<Esc>');
 map('<Ctrl-g>', '<Esc>');
@@ -283,7 +300,7 @@ aceVimMap('ga', '0', 'normal'); // line beginning
 // aceVimMap('ygh', 'y0', 'normal'); // yank to first char on line
 // aceVimMap('ygl', 'y$', 'normal'); // yank to line end
 /* word boundaries */
-aceVimMap('e', 'E', 'normal');
+aceVimMap('e', 'ea', 'normal');
 aceVimMap('w', 'W', 'normal');
 aceVimMap('b', 'B', 'normal');
 

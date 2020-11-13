@@ -1017,6 +1017,12 @@ you should place your code here."
 	(evil-previous-line))
 
 
+(evil-define-motion vile-append-word ()
+  "Jump to end of the word under the cursor and switch to insert mode"
+	(evil-forward-word-end)
+	(evil-append))
+
+
 
 ;; TODO: write vile motion-command similar to "ds(" that, when executed inside a set of parenthesis, deletes everything
 ;;     in the immediately-surrounding set of parentheses. Just like with evil-surround, have two options,
@@ -1078,6 +1084,7 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "b") 'evil-backward-WORD-begin)
 (define-key evil-normal-state-map (kbd "W") 'evil-forward-word-begin)
 (define-key evil-normal-state-map (kbd "B") 'evil-backward-word-begin)
+(define-key evil-normal-state-map (kbd "e") 'vile-append-word)
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
