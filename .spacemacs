@@ -1097,7 +1097,7 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "b") 'evil-backward-WORD-begin)
 (define-key evil-normal-state-map (kbd "W") 'evil-forward-word-begin)
 (define-key evil-normal-state-map (kbd "B") 'evil-backward-word-begin)
-(define-key evil-normal-state-map (kbd "e") (cmd (evil-forward-WORD-end) (evil-append 1)))
+;; (define-key evil-normal-state-map (kbd "e") (cmd (evil-forward-WORD-end) (evil-append 1)))
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines

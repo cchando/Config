@@ -484,7 +484,7 @@ settings.focusFirstCandidate = true; // for omnibar
 settings.focusOnSaved = false; // do not focus the text input after quitting from vim editor
 settings.tabsThreshold = 0; // threshold at/above which to show tabs in omnibar instead of in overlay
 settings.interceptedErrors = ["*"]; // allow SurfingKeys on all error pages
-Hints.numericHints = true; // type text to filter hints
+Hints.numericHints = false; // type text to filter hints
 
 // Vimium C bindings: (A, join tabs) (M, mute all tabs) (ma, create mark) (R, reload hard)
 Hints.characters = "sdfghjkletncvbw";
