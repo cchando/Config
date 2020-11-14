@@ -262,7 +262,6 @@ unmap('<Tab>');
 cmap('<Ctrl-j>', '<Tab>'); // up
 cmap('<Ctrl-k>', '<Shift-Tab>'); // down
 cmap('<Ctrl-q>', '<Ctrl-d>'); // remove selected item from bookmarks
-cmap('<Ctrl-h>', '<Backspace>'); // probably won't work since <Backspace> isn't explicitly mapped...
 // cmap('<Ctrl-[>', '<Shift-,>'); // page up
 // cmap('<Ctrl-]>', '<Shift-.>'); // page down
 
@@ -605,3 +604,28 @@ settings.theme = `
 // font-family: Input Sans Condensed, Charcoal, sans-serif;
 // font-family: Helvetica, Arial, sans-serif;  // Vimium style
 
+
+
+/* Vimium C Settings */
+/*
+	unmapAll
+	map ma Marks.activateCreateMode swap
+	map ' Marks.activate swap
+	mapkey <c-m> <c-[>
+	map R reload hard
+	map A joinTabs
+	map M toggleMuteTab all
+	map <a-m> toggleMuteTab other
+	map <c-s-a> toggleMuteTab
+	##################
+	##################
+	map <c-?> showHelp
+	shortcut userCustomized1 command="joinTabs"
+	shortcut userCustomized2 command="restoreTab"
+	shortcut userCustomized3 command="moveTabLeft"
+	shortcut userCustomized4 command="moveTabRight"
+	shortcut userCustomized5 command="closeDownloadBar"
+	#shortcut userCustomized6 command=
+	#shortcut userCustomized7 command=
+	#shortcut userCustomized8 command=
+ */
