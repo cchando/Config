@@ -101,6 +101,16 @@ map('qL', 'gx$'); // close all tabs to right
 map('qO', 'gxx'); // close all tabs except current one
 map('qh', 'gxt'); // close tab to left
 map('ql', 'gxT'); // close tab to right
+map('gxH', 'gx0'); // close all tabs to left
+map('gxL', 'gx$'); // close all tabs to right
+map('gxO', 'gxx'); // close all tabs except current one
+map('gxh', 'gxt'); // close tab to left
+map('gxl', 'gxT'); // close tab to right
+map('cH', 'gx0'); // close all tabs to left
+map('cL', 'gx$'); // close all tabs to right
+map('cO', 'gxx'); // close all tabs except current one
+map('ch', 'gxt'); // close tab to left
+map('cl', 'gxT'); // close tab to right
 
 
 // open particular tabs
@@ -133,6 +143,8 @@ mapkey('D', '#3Move current tab to rightmost', function() {
         step: 99
     });
 });
+map('gH', 'U'); // from above
+map('gL', 'D'); // from above
 
 
 /* open links */
@@ -153,14 +165,13 @@ map('>', ']]');
 map('P', 'p'); // enter PassThrough mode (refined version of Vimium's insert mode)
 iunmap(':'); // disable emoji suggestions
 map('e', 'cs'); // change scroll target
-map('c', ';j'); // close Downloads bar
+map('cd', ';j'); // close Downloads bar
 map(':m', ';m'); // mouse-out last element
 map(';', '<Ctrl-6>'); // toggle prev tab (must map AFTER any "map blah to ;_")
 map('W', 'oh'); // open from history
 map('gh', 'g#'); // open current url without the hash fragment
 map('<Alt-p>', ';s'); // toggle pdf viewer
 map('g/', ';e'); // open SurfingKeys settings
-map('gH', 'g#'); // open current url without the hash fragment
 map(':D', 'ab'); // add bookmark
 map('F', 'cf'); // open multiple links in new tabs
 // map('I', 'i'); // enter insert mode
@@ -205,6 +216,8 @@ unmap('gx0');
 unmap('gxT');
 unmap('gxt');
 unmap('gxx');
+unmap('sso');
+unmap('ssp');
 unmap('S'); // go backward in history
 /*
   unmap('D'); // go forward in history
@@ -248,9 +261,10 @@ unmap('<Tab>');
 // omnibar controls
 cmap('<Ctrl-j>', '<Tab>'); // up
 cmap('<Ctrl-k>', '<Shift-Tab>'); // down
-cmap('<Ctrl-[>', '<Shift-p>'); // page up
-cmap('<Ctrl-]>', '<Shift-n>'); // page down
 cmap('<Ctrl-q>', '<Ctrl-d>'); // remove selected item from bookmarks
+cmap('<Ctrl-h>', '<Backspace>'); // probably won't work since <Backspace> isn't explicitly mapped...
+// cmap('<Ctrl-[>', '<Shift-,>'); // page up
+// cmap('<Ctrl-]>', '<Shift-.>'); // page down
 
 
 
@@ -465,10 +479,13 @@ settings.prevLinkRegex = '/((back|older|<|‹|←|«|≪|<<|prev(ious)?)+)/i';
 settings.nextLinkRegex = '/((more|newer|>|›|→|»|≫|>>|next)+)/i';
 settings.hintShiftNonActive	= true;
 settings.hintExplicit = true;
+settings.omnibarMaxResults = 15;
 settings.omnibarPosition = "middle";
+settings.focusFirstCandidate = true; // for omnibar
 settings.focusOnSaved = false; // do not focus the text input after quitting from vim editor
 settings.tabsThreshold = 0; // threshold at/above which to show tabs in omnibar instead of in overlay
 settings.interceptedErrors = ["*"]; // allow SurfingKeys on all error pages
+Hints.numericHints = true; // type text to filter hints
 
 // Vimium C bindings: (A, join tabs) (M, mute all tabs) (ma, create mark) (R, reload hard)
 Hints.characters = "sdfghjkletncvbw";
@@ -489,7 +506,7 @@ Hints.style(
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 11px;
   padding: 1px 3px 0px 3px;
   background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
   border: solid 1px #C38A22;

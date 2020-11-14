@@ -717,8 +717,8 @@ you should place your code here."
 						 ("flip" .      "⍨")
 						 ("equal?" .      "≡")
 						 ("not-equal?" .      "≢")
-						 ("map" .    "¨") ; ↦ ⮕ ⍈ ¨
-						 ("fmap" .    "↥")
+						 ("map" .    "↦") ; ↦ ⮕ ⍈ ¨
+						 ("fmap" .    "↦") ; ↥ ↦
 						 ("maximum" .    "⌈")
 						 ("minimum" .    "⌊")
 						 ("max" .    "⌈")
@@ -726,6 +726,8 @@ you should place your code here."
 						 ("length" .      "⍴")
 						 ("reverse" .      "⌽")
 						 ("build-list" .      "⍳")
+						 ("exact-floor" .    "⌊")
+						 ("exact-ceiling" .    "⌈")
 						 ("ceiling" .     "⌉")
 						 ("floor" .     "⌋")
 						 ("foldl" .  "⮢")
@@ -737,11 +739,7 @@ you should place your code here."
 						 ("eval" .    "⍎")
 						 ("head" .    "↑")
 						 ("tail" .    "↓")
-						 ("exact-floor" .    "⌊")
-						 ("exact-ceiling" .    "⌈")
-						 ("floor" .    "⌋")
-						 ("ceiling" .    "⌉")
-						 ("sort" .    "⍋")
+						 ("list-ref" .  "⊃")
 						 ("filter" .      "⊇")
 						 ("filter-not" .      "⊉")
 						 ("concat" .    "⧺")
@@ -845,8 +843,8 @@ you should place your code here."
 						 ("Left"  .  "𝐿")
 						 ;; --- Equality ---
 						 ;; ("!=" .     "≠") ;
-						 ("<=" .      "⩽") ;≤ ⩽
-						 (">=" .      "⩾") ;≥ ⩾
+						 ;; ("<=" .      "⩽") ;≤ ⩽
+						 ;; (">=" .      "⩾") ;≥ ⩾
 						 ("≤" .      "⩽") ;≤ ⩽
 						 ("≥" .      "⩾") ;≥ ⩾
 						 ;; ("not equal" . "≠")
@@ -1017,10 +1015,25 @@ you should place your code here."
 	(evil-previous-line))
 
 
-(evil-define-motion vile-append-word ()
-  "Jump to end of the word under the cursor and switch to insert mode"
-	(evil-forward-word-end)
-	(evil-append))
+;; (evil-define-motion vile-append-word ()
+;;   "Jump to end of the word under the cursor and switch to insert mode"
+;; 	(evil-forward-word-end)
+;; 	(evil-append))
+
+
+;; ;; TODO: bind some key to swiper-thing-at-point
+;;   ;;; keybinds
+;; (defun keymap+ (&rest bindings)
+;;   (if (stringp (car bindings))
+;;       (progn (setq k (pop bindings) f (pop bindings))
+;;              (while k
+;;                (global-set-key (kbd k) f)
+;;                (setq k (pop bindings) f (pop bindings))))
+;;     (let ((m (pop bindings)))
+;;       (setq k (pop bindings) f (pop bindings))
+;;       (while k
+;;         (define-key m (kbd k) f)
+;;         (setq k (pop bindings) f (pop bindings))))))
 
 
 
@@ -1084,7 +1097,7 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "b") 'evil-backward-WORD-begin)
 (define-key evil-normal-state-map (kbd "W") 'evil-forward-word-begin)
 (define-key evil-normal-state-map (kbd "B") 'evil-backward-word-begin)
-(define-key evil-normal-state-map (kbd "e") 'vile-append-word)
+(define-key evil-normal-state-map (kbd "e") (cmd (evil-forward-WORD-end) (evil-append 1)))
 (define-key evil-normal-state-map (kbd "zm") nil) ;; disable close-folds function
 (define-key evil-normal-state-map (kbd "zr") nil) ;; disable open-folds function
 (define-key evil-normal-state-map (kbd "gy") nil) ;; disable spacemacs/copy-and-comment-lines
