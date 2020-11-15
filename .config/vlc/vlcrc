@@ -3951,7 +3951,7 @@ global-key-vol-down=Ctrl+Shift+d
 key-vol-down=
 
 # Mute (string)
-global-key-vol-mute=Ctrl+Shift+Enter
+global-key-vol-mute=Ctrl+Shift+m
 
 # Mute (string)
 key-vol-mute=m

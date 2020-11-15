@@ -53,14 +53,16 @@ that P denotes (since most built-in functions are anonymous).
 
 
 /* set temp keys*/
-map('~t`', 't');
-map('~q`', 'q');
-map(':i`', 'q');
-map('*', '.');
+map('_t', 't');
+map('_q', 'q');
+map('_oh', 'oh');
+map('_ox', 'ox');
+map('_og', 'og');
 unmap('t');
 unmap('q');
-unmap(':');
-
+unmap('oh');
+unmap('ox');
+unmap('og');
 
 
 
@@ -71,13 +73,12 @@ map(')', 'l'); // scroll right
 map('zh', '0'); // scroll all the way left
 map('zl', '$'); // scroll all the way right
 map('J', 'd'); // scroll half-page down
-
 map('K', 'u'); // scroll half-page down
 
 
 // navigate tabs
-map('o', '~t'); // open omnibar  // 't', 'go'
 map('tt', 'on'); // open new tab
+map('o', '_t'); // open omnibar  // 't', 'go'
 map('td', 'W'); // detach tab (new window w/ current tab)
 map('h', 'E'); // tab left
 map('l', 'R'); // tab right
@@ -96,21 +97,16 @@ map('L', 'D'); // forward
 
 
 // closing tabs:
-map('qH', 'gx0'); // close all tabs to left
-map('qL', 'gx$'); // close all tabs to right
-map('qO', 'gxx'); // close all tabs except current one
-map('qh', 'gxt'); // close tab to left
-map('ql', 'gxT'); // close tab to right
-map('gxH', 'gx0'); // close all tabs to left
-map('gxL', 'gx$'); // close all tabs to right
-map('gxO', 'gxx'); // close all tabs except current one
-map('gxh', 'gxt'); // close tab to left
-map('gxl', 'gxT'); // close tab to right
 map('cH', 'gx0'); // close all tabs to left
 map('cL', 'gx$'); // close all tabs to right
 map('cO', 'gxx'); // close all tabs except current one
 map('ch', 'gxt'); // close tab to left
 map('cl', 'gxT'); // close tab to right
+unmap('gx$');
+unmap('gx0');
+unmap('gxT');
+unmap('gxt');
+unmap('gxx');
 
 
 // open particular tabs
@@ -162,33 +158,29 @@ map('>', ']]');
 */
 
 // map('mu', '<Alt-m>'); // mute current tab  -- use Vimium C's muteTab variants
+map('*', '.'); // repeat last command
+unmap(':');
+map(':dh', ';dh'); // delete history older than 30 days
 map('P', 'p'); // enter PassThrough mode (refined version of Vimium's insert mode)
 iunmap(':'); // disable emoji suggestions
 map('e', 'cs'); // change scroll target
 map('cd', ';j'); // close Downloads bar
 map(':m', ';m'); // mouse-out last element
 map(';', '<Ctrl-6>'); // toggle prev tab (must map AFTER any "map blah to ;_")
-map('W', 'oh'); // open from history
+map('w', '_oh'); // open from history  // TODO: not working somewhy. replaced by below
 map('gh', 'g#'); // open current url without the hash fragment
 map('<Alt-p>', ';s'); // toggle pdf viewer
 map('g/', ';e'); // open SurfingKeys settings
 map(':D', 'ab'); // add bookmark
 map('F', 'cf'); // open multiple links in new tabs
 // map('I', 'i'); // enter insert mode
-// map('O', 'ox'); // open recently-closed url  // TODO: not working somewhy. replaced by below
-mapkey('O', '#8Open recently closed URL', function() {
-  Front.openOmnibar({type: "URLs", extra: "getRecentlyClosed"});
-});
-// map('W', 'w'); // switch frames   // internal function seems to be broken
-
-// map('w', 'oh'); // open from history  // TODO: not working somewhy. replaced by below
-mapkey('w', '#8Open URL from history', function() {
-  Front.openOmnibar({type: "History"});
-});
-// map('o', 'go'); // open omnibar  // TODO: not working somewhy. replaced by below
-mapkey('o', '#8Open a URL in current tab', function() {
-  Front.openOmnibar({type: "URLs", extra: "getAllSites", tabbed: false});
-});
+map('O', '_ox'); // open recently-closed url  // TODO: not working somewhy. replaced by below
+// mapkey('O', '#8Open recently closed URL', function() {
+//   Front.openOmnibar({type: "URLs", extra: "getRecentlyClosed"});
+// });
+// mapkey('w', '#8Open URL from history', function() {
+//   Front.openOmnibar({type: "History"});
+// });
 
 
 
@@ -201,23 +193,16 @@ unmap('ab');
 unmap('af');
 unmap('cf');
 unmap('gr');
-unmap(';s');
-unmap(';j');
-unmap(';e');
-unmap(';dh');
-unmap('oh');
+// unmap(';s');
+// unmap(';j');
+// unmap(';e');
+// unmap(';dh');
+unmap(";");
 unmap('go');
 unmap('ss');
 unmap('sb');
 unmap('sd');
 unmap('se');
-unmap('gx$');
-unmap('gx0');
-unmap('gxT');
-unmap('gxt');
-unmap('gxx');
-unmap('sso');
-unmap('ssp');
 unmap('S'); // go backward in history
 /*
   unmap('D'); // go forward in history
@@ -276,6 +261,8 @@ vmap('K', '<Ctrl-u>'); // scroll 20 lines up
 /* map keys for setting escape */
 cmap('<Ctrl-m>', '<Esc>');
 cmap('<Ctrl-g>', '<Esc>');
+cmap('<Ctrl-u>', '<Ctrl-,>');
+cmap('<Ctrl-i>', '<Ctrl-.>');
 /* ctrl apparently cannot be used for vim visual mode (not documented!) */
 // aceVimMap('fd', '<Esc>', 'insert');
 // aceVimMap('fd', '<Esc>', 'visual');
@@ -332,11 +319,10 @@ mapkey('sw', '#8Search Wikipedia for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "wi"});
 });
 
-// map('sg', 'og');
-unmap('og');
-mapkey('sg', '#8Open Search with Google', function() {
-   Front.openOmnibar({type: "SearchEngine", extra: "go"});
-});
+map('sg', '_og');
+// mapkey('sg', '#8Search with Google', function() {
+//    Front.openOmnibar({type: "SearchEngine", extra: "go"});
+// });
 
 mapkey('sy', '#8Search Youtube for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "yo"});
@@ -346,7 +332,7 @@ mapkey('sa', '#8Search Amazon for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "az"});
 });
 
-mapkey('sm', '#8Open Search MELPA for given package', function() {
+mapkey('sm', '#8Search MELPA for given package', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "mel"});
 });
 
@@ -354,7 +340,7 @@ mapkey('sh', '#8Search Hoogle for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "ha"});
 });
 
-mapkey('sp', '#8Open Search Pursuit for given term', function() {
+mapkey('sp', '#8Search Pursuit for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "pur"});
 });
 
@@ -362,23 +348,23 @@ mapkey('so', '#8Search Stack Overflow', function() {
   Front.openOmnibar({type: "SearchEngine", extra: "so"});
 });
 
-mapkey('sz', '#8Open Search with StartPage', function() {
+mapkey('ss', '#8Search with StartPage', function() {
   Front.openOmnibar({type: "SearchEngine", extra: "sp"});
 });
 
-mapkey('sn', '#8Open Search Nixpkgs', function() {
+mapkey('sn', '#8Search Nixpkgs', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "nix"});
 });
 
-mapkey('st', '#8Open Search Typed Racket Docs for given term', function() {
+mapkey('st', '#8Search Typed Racket Docs for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "tr"});
 });
 
-mapkey('sr', '#8Open Search Racket Docs for given term', function() {
+mapkey('sr', '#8Search Racket Docs for given term', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "ra"});
 });
 
-mapkey('sl', '#8Open Find Nix revision for given package', function() {
+mapkey('sl', '#8Find Nix revision for given package', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "laz"});
 });
 
@@ -398,33 +384,33 @@ mapkey('su', '#8Search GitHub', function() {
 
 
 
-addSearchAliasX('laz', 'Nix Revision', 'https://lazamar.co.uk/nix-versions/?channel=nixos-unstable&package=');
+addSearchAliasX('laz', 'nix revision', 'https://lazamar.co.uk/nix-versions/?channel=nixos-unstable&package=');
 
-addSearchAliasX('nix', 'NixPkgs', 'https://search.nixos.org/packages?from=0&size=60&sort=relevance&channel=unstable&query=');
+addSearchAliasX('nix', 'nixpkgs', 'https://search.nixos.org/packages?from=0&size=60&sort=relevance&channel=unstable&query=');
 
-addSearchAliasX('mel', 'MELPA', 'https://melpa.org/#/?q=');
+addSearchAliasX('mel', 'melpa', 'https://melpa.org/#/?q=');
 
-addSearchAliasX('ra', 'Racket Docs', 'https://docs.racket-lang.org/search/index.html?q=');
+addSearchAliasX('ra', 'racket docs', 'https://docs.racket-lang.org/search/index.html?q=');
 
-addSearchAliasX('tr', 'Typed-Racket Docs', 'https://docs.racket-lang.org/search/index.html?q=L%3Atyped%2Fracket%2Fbase%20');
+addSearchAliasX('tr', 'typed-racket docs', 'https://docs.racket-lang.org/search/index.html?q=L%3Atyped%2Fracket%2Fbase%20');
 
-addSearchAliasX('ha', 'Hoogle', 'https://hoogle.haskell.org/?hoogle=');
+addSearchAliasX('ha', 'hoogle', 'https://hoogle.haskell.org/?hoogle=');
 
-addSearchAliasX('pur', 'Pursuit', 'https://pursuit.purescript.org/search?q=');
+addSearchAliasX('pur', 'pursuit', 'https://pursuit.purescript.org/search?q=');
 
-addSearchAliasX('sp', 'StartPage', 'https://startpage.com/sp/search/?q=');
+addSearchAliasX('sp', 'startpage', 'https://startpage.com/sp/search/?q=');
 
-addSearchAliasX('gm', 'Google Maps', 'https://www.google.com/maps?q=');
+addSearchAliasX('gm', 'google maps', 'https://www.google.com/maps?q=');
 
-addSearchAliasX('so', 'Stack Overflow', 'http://stackoverflow.com/search?q=');
+addSearchAliasX('so', 'stack overflow', 'http://stackoverflow.com/search?q=');
 
 addSearchAliasX('az', 'amazon', 'https://www.amazon.com/s/?field-keywords=');
 
-addSearchAliasX('wi', 'Wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=40&search=', function(response) {
+addSearchAliasX('wi', 'wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=40&search=', function(response) {
   return JSON.parse(response.text)[1];
 });
 
-addSearchAliasX('hub', 'Github', 'https://github.com/search?q=', 's', 'https://api.github.com/search/repositories?order=desc&q=', function(response) {
+addSearchAliasX('hub', 'github', 'https://github.com/search?q=', 's', 'https://api.github.com/search/repositories?order=desc&q=', function(response) {
   var res = JSON.parse(response.text)['items'];
   return res ? res.map(function(r){
     return {
@@ -434,12 +420,12 @@ addSearchAliasX('hub', 'Github', 'https://github.com/search?q=', 's', 'https://a
   }) : [];
 });
 
-addSearchAliasX('go', 'Google', 'https://www.google.com/search?q=', 's', 'https://www.google.com/complete/search?client=chrome-omni&gs_ri=chrome-ext&oit=1&cp=1&pgcl=7&q=', function(response) {
+addSearchAliasX('go', 'google', 'https://www.google.com/search?q=', 's', 'https://www.google.com/complete/search?client=chrome-omni&gs_ri=chrome-ext&oit=1&cp=1&pgcl=7&q=', function(response) {
   var res = JSON.parse(response.text);
   return res[1];
 });
 
-addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query=', 's',
+addSearchAliasX('yo', 'youtube', 'https://www.youtube.com/results?search_query=', 's',
 								'https://clients1.google.com/complete/search?client=youtube&ds=yt&callback=cb&q=', function(response) {
 									var res = JSON.parse(response.text.substr(9, response.text.length-10));
 									return res[1].map(function(d) {
@@ -447,6 +433,9 @@ addSearchAliasX('yo', 'Youtube', 'https://www.youtube.com/results?search_query='
 									});
 								});
 
+
+unmap('sso');
+unmap('ssp');
 
 
 
@@ -505,7 +494,7 @@ Hints.style(
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 12px;
   padding: 1px 3px 0px 3px;
   background: linear-gradient(to bottom, #FFF785 0%,#FFC542 100%);
   border: solid 1px #C38A22;
@@ -598,7 +587,8 @@ settings.theme = `
 }
 #sk_status, #sk_find {
     font-size: 11pt;
-}`;
+}
+`;
 
 
 // font-family: Input Sans Condensed, Charcoal, sans-serif;
@@ -629,3 +619,36 @@ settings.theme = `
 	#shortcut userCustomized7 command=
 	#shortcut userCustomized8 command=
  */
+
+
+
+/* Vimium C Custom CSS */
+/*
+	div > .vimiumHintMarker {
+	// linkhint boxes
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),
+														   color-stop(100%,#FFC542));
+border: 1px solid #E3BE23;
+}
+
+div > .vimiumHintMarker span {
+	// linkhint text
+	color: black;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+div > .vimiumHintMarker > .matchingCharacter {
+}
+// #find
+	.r{background:#999}
+
+// #ui
+	.HUD:after{
+		background:#999; 
+		// background:#24272e; 
+		color:#d0d0d0; // trying to change text color...
+}
+// HUD.D{color:#d0d0d0;}
+*/
+

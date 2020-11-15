@@ -1068,7 +1068,6 @@ you should place your code here."
 (define-key evil-normal-state-map (kbd "C-p") 'evil-paste-pop-next)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-join)
 (define-key evil-normal-state-map (kbd "C-n") 'electric-newline-and-maybe-indent) ;; split-line
-;; (define-key evil-normal-state-map (kbd "C-n") nil)
 (define-key evil-normal-state-map (kbd "C-k") 'spacemacs/evil-smart-doc-lookup)
 (define-key evil-normal-state-map (kbd "C-,") 'evil-indent)
 (define-key evil-normal-state-map (kbd "(") 'evil-backward-paragraph)

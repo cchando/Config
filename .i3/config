@@ -220,7 +220,7 @@ set $ibrowser google-chrome-stable
     # bindsym $mod+Shift+s exec emacs -fs -q -l ~/.spacemacs-default-mod
 
     # toggle-mute pulseaudio
-    bindsym Ctrl+Shift+m exec pulseaudio-ctl mute
+    # bindsym Ctrl+Shift+Return exec pulseaudio-ctl mute
     # vol up
     bindsym Ctrl+u exec pulseaudio-ctl up
     # vol down
