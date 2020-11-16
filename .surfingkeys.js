@@ -165,7 +165,8 @@ map('P', '<Alt-i>'); // enter PassThrough mode (refined version of Vimium's inse
 iunmap(':'); // disable emoji suggestions
 map('e', 'cs'); // change scroll target
 map('cd', ';j'); // close Downloads bar
-map(':m', ';m'); // mouse-out last element
+map(':m', ';m'); // mouse-out last element (?)
+unmap(";"); // unmap bindings prefixed with ";"
 map(';', '<Ctrl-6>'); // toggle prev tab (must map AFTER any "map blah to ;_")
 map('w', '_oh'); // open from history  // TODO: not working somewhy. replaced by below
 map('gh', 'g#'); // open current url without the hash fragment
@@ -197,7 +198,6 @@ unmap('gr');
 // unmap(';j');
 // unmap(';e');
 // unmap(';dh');
-unmap(";");
 unmap('go');
 unmap('ss');
 unmap('sb');
@@ -233,7 +233,6 @@ unmap('i'); // override with Vimium_C insertMode; go to edit box -- doesn't work
 unmap('I'); // override with Vimium_C insertMode; go to edit box -- doesn't work well yet
 unmap('A'); // not sure if mapped; Vimium_C joinTabs
 unmap('M'); // not sure if mapped; Vimium_C toggleMuteTab all
-// unmap(';'); // for overriding from Vimium 'toggle-prev-tab'
 unmap('<Ctrl-d>');
 unmap('<Ctrl-u>');
 unmap('<Shift-Tab>');
