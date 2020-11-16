@@ -21,12 +21,13 @@
 (require cond-strict)
 (require (only-in typed-map [map map] [foldl infer:foldl] [foldr infer:foldr]))
 ;; (require
-;;     srfi/87 ;; "=>" in case clauses
-;;   srfi/71 ;; extended 'let' syntax for defining multiple names
-;;   srfi/61 ;; more general cond clause
-;;   srfi/26 ;; pseudo-curry
-;;   srfi/31 ;; rec
-;;   srfi/2 ;; and-let*
+;;   typed/srfi/87 ;; "=>" in case clauses
+;;   typed/srfi/71 ;; extended 'let' syntax for defining multiple names
+;;   typed/srfi/61 ;; more general cond clause
+;;   typed/srfi/26 ;; pseudo-curry
+;;   typed/srfi/31 ;; rec
+;;   typed/srfi/19 ;; time datatypes & functions
+;;   typed/srfi/2 ;; and-let*
 ;;   )
 ;; (require/typed (only-in srfi/1) ) ;; list library
 

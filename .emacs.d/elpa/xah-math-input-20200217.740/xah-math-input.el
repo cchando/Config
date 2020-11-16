@@ -227,8 +227,9 @@
 (xah-math-input--add-to-hash
  [
 
-	["def" "define"]
-	["fn" "define"]
+	["def" "define "]
+	["deft" "define-type "]
+	["fn" "define "]
 
 ])
 
@@ -760,7 +761,7 @@
 
 	;; overrides
 	["O" "Option "]
-	["M" "Maybe "]
+	["M" "Option "]
 	["JU" "Just "]
 	["NO" "Nothing "]
 	["EI" "Either "]

@@ -161,7 +161,7 @@ map('>', ']]');
 map('*', '.'); // repeat last command
 unmap(':');
 map(':dh', ';dh'); // delete history older than 30 days
-map('P', 'p'); // enter PassThrough mode (refined version of Vimium's insert mode)
+map('P', '<Alt-i>'); // enter PassThrough mode (refined version of Vimium's insert mode)
 iunmap(':'); // disable emoji suggestions
 map('e', 'cs'); // change scroll target
 map('cd', ';j'); // close Downloads bar
@@ -467,7 +467,7 @@ settings.prevLinkRegex = '/((back|older|<|‹|←|«|≪|<<|prev(ious)?)+)/i';
 settings.nextLinkRegex = '/((more|newer|>|›|→|»|≫|>>|next)+)/i';
 settings.hintShiftNonActive	= true;
 settings.hintExplicit = true;
-settings.omnibarMaxResults = 15;
+settings.omnibarMaxResults = 30;
 settings.omnibarPosition = "middle";
 settings.focusFirstCandidate = true; // for omnibar
 settings.focusOnSaved = false; // do not focus the text input after quitting from vim editor

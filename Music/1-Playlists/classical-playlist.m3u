@@ -1,22 +1,4 @@
 #EXTM3U
-#EXTINF:460,Antonio Vivaldi, Concerto for 2 Flutes in C major, RV 533.mp3
-file:///home/cameron/Music/Classical/Antonio%20Vivaldi%2C%20Concerto%20for%202%20Flutes%20in%20C%20major%2C%20RV%20533.mp3
-#EXTINF:625,Antonio Vivaldi, Concerto in C major, RV 443, I. Allegro - II. Largo - III. Allegro molto.mp3
-file:///home/cameron/Music/Classical/Antonio%20Vivaldi%2C%20Concerto%20in%20C%20major%2C%20RV%20443%2C%20I.%20Allegro%20-%20II.%20Largo%20-%20III.%20Allegro%20molto.mp3
-#EXTINF:825,Antonio Vivaldi, Violin Concerto in G minor, Op. 12, No. 1, RV 317.mp3
-file:///home/cameron/Music/Classical/Antonio%20Vivaldi%2C%20Violin%20Concerto%20in%20G%20minor%2C%20Op.%2012%2C%20No.%201%2C%20RV%20317.mp3
-#EXTINF:192,Cello Sonata Vivaldi No. 6 in B Flat Major II. Allegro.mp3
-file:///home/cameron/Music/Classical/Cello%20Sonata%20Vivaldi%20No.%206%20in%20B%20Flat%20Major%20II.%20Allegro.mp3
-#EXTINF:264,Concerto for 2 Violins in B-Flat Major, RV 524 I. Allegro.mp3
-file:///home/cameron/Music/Classical/Concerto%20for%202%20Violins%20in%20B-Flat%20Major%2C%20RV%20524%20I.%20Allegro.mp3
-#EXTINF:180,Concerto for 2 Violins in B-Flat Major, RV 524 III. Allegro.mp3
-file:///home/cameron/Music/Classical/Concerto%20for%202%20Violins%20in%20B-Flat%20Major%2C%20RV%20524%20III.%20Allegro.mp3
-#EXTINF:133,Concerto for Strings in D Major, RV 124 I. Allegro.mp3
-file:///home/cameron/Music/Classical/Concerto%20for%20Strings%20in%20D%20Major%2C%20RV%20124%20I.%20Allegro.mp3
-#EXTINF:403,Concerto for Strings in D Major, RV 124.mp3
-file:///home/cameron/Music/Classical/Concerto%20for%20Strings%20in%20D%20Major%2C%20RV%20124.mp3
-#EXTINF:175,Flute Sonata in E-Minor, BWV 1034 II. Allegro.mp3
-file:///home/cameron/Music/Classical/Flute%20Sonata%20in%20E-Minor%2C%20BWV%201034%20II.%20Allegro.mp3
 #EXTINF:196,La Primavera (Spring) Op. 8 No. 1 in D major I. Allegro.mp3
 file:///home/cameron/Music/Classical/La%20Primavera%20%28Spring%29%20Op.%208%20No.%201%20in%20D%20major%20I.%20Allegro.mp3
 #EXTINF:220,La Primavera (Spring) Op. 8 No. 1 in D major III. Allegro.mp3
@@ -27,49 +9,67 @@ file:///home/cameron/Music/Classical/L%27Autunno%20%28Autumn%29%20Op.%208%20No.%
 file:///home/cameron/Music/Classical/L%27Autunno%20%28Autumn%29%20Op.%208%20No.%203%20in%20F%20major%20III.%20Allegro.mp3
 #EXTINF:185,L'Inverno (Winter) Op. 8 No. 4 in F minor III. Allegro.mp3
 file:///home/cameron/Music/Classical/L%27Inverno%20%28Winter%29%20Op.%208%20No.%204%20in%20F%20minor%20III.%20Allegro.mp3
-#EXTINF:186,Manchester Sonata No. 2 in D Minor, RV 12 II. Corrente.mp3
+#EXTINF:460,Antonio Vivaldi -  Concerto for 2 Flutes in C major, RV 533.mp3
+file:///home/cameron/Music/Classical/Antonio%20Vivaldi%2C%20Concerto%20for%202%20Flutes%20in%20C%20major%2C%20RV%20533.mp3
+#EXTINF:625,Antonio Vivaldi, Concerto in C major, RV 443, I. Allegro - II. Largo - III. Allegro molto.mp3
+file:///home/cameron/Music/Classical/Antonio%20Vivaldi%2C%20Concerto%20in%20C%20major%2C%20RV%20443%2C%20I.%20Allegro%20-%20II.%20Largo%20-%20III.%20Allegro%20molto.mp3
+#EXTINF:825,Antonio Vivaldi -  Violin Concerto in G minor, Op. 12, No. 1, RV 317.mp3
+file:///home/cameron/Music/Classical/Antonio%20Vivaldi%2C%20Violin%20Concerto%20in%20G%20minor%2C%20Op.%2012%2C%20No.%201%2C%20RV%20317.mp3
+#EXTINF:192,Cello Sonata Vivaldi No. 6 in B Flat Major II. Allegro.mp3
+file:///home/cameron/Music/Classical/Cello%20Sonata%20Vivaldi%20No.%206%20in%20B%20Flat%20Major%20II.%20Allegro.mp3
+#EXTINF:264,Concerto for 2 Violins in B-Flat Major -  RV 524 I. Allegro.mp3
+file:///home/cameron/Music/Classical/Concerto%20for%202%20Violins%20in%20B-Flat%20Major%2C%20RV%20524%20I.%20Allegro.mp3
+#EXTINF:180,Concerto for 2 Violins in B-Flat Major -  RV 524 III. Allegro.mp3
+file:///home/cameron/Music/Classical/Concerto%20for%202%20Violins%20in%20B-Flat%20Major%2C%20RV%20524%20III.%20Allegro.mp3
+#EXTINF:133,Concerto for Strings in D Major -  RV 124 I. Allegro.mp3
+file:///home/cameron/Music/Classical/Concerto%20for%20Strings%20in%20D%20Major%2C%20RV%20124%20I.%20Allegro.mp3
+#EXTINF:403,Concerto for Strings in D Major -  RV 124.mp3
+file:///home/cameron/Music/Classical/Concerto%20for%20Strings%20in%20D%20Major%2C%20RV%20124.mp3
+#EXTINF:175,Flute Sonata in E-Minor -  BWV 1034 II. Allegro.mp3
+file:///home/cameron/Music/Classical/Flute%20Sonata%20in%20E-Minor%2C%20BWV%201034%20II.%20Allegro.mp3
+#EXTINF:186,Manchester Sonata No. 2 in D Minor -  RV 12 II. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%202%20in%20D%20Minor%2C%20RV%2012%20II.%20Corrente.mp3
-#EXTINF:190,Manchester Sonata No. 2 in D Minor, RV 12 III. Giga.mp3
+#EXTINF:190,Manchester Sonata No. 2 in D Minor -  RV 12 III. Giga.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%202%20in%20D%20Minor%2C%20RV%2012%20III.%20Giga.mp3
-#EXTINF:164,Manchester Sonata No. 3 in G Minor, RV 757 IV. Corrente.mp3
+#EXTINF:164,Manchester Sonata No. 3 in G Minor -  RV 757 IV. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%203%20in%20G%20Minor%2C%20RV%20757%20IV.%20Corrente.mp3
-#EXTINF:147,Manchester Sonata No. 4 in D Major, RV 755 II. Corrente.mp3
+#EXTINF:147,Manchester Sonata No. 4 in D Major -  RV 755 II. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%204%20in%20D%20Major%2C%20RV%20755%20II.%20Corrente.mp3
-#EXTINF:125,Manchester Sonata No. 4 in D Major, RV 755 IV. Corrente.mp3
+#EXTINF:125,Manchester Sonata No. 4 in D Major -  RV 755 IV. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%204%20in%20D%20Major%2C%20RV%20755%20IV.%20Corrente.mp3
-#EXTINF:202,Manchester Sonata No. 5 in B-Flat major, RV 759 II. Allemanda.mp3
+#EXTINF:202,Manchester Sonata No. 5 in B-Flat major -  RV 759 II. Allemanda.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%205%20in%20B-Flat%20major%2C%20RV%20759%20II.%20Allemanda.mp3
-#EXTINF:218,Manchester Sonata No. 5 in B-Flat major, RV 759 IV. Corrente.mp3
+#EXTINF:218,Manchester Sonata No. 5 in B-Flat major -  RV 759 IV. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%205%20in%20B-Flat%20major%2C%20RV%20759%20IV.%20Corrente.mp3
-#EXTINF:156,Manchester Sonata No. 6 in A Major, RV 758 III. Andante.mp3
+#EXTINF:156,Manchester Sonata No. 6 in A Major -  RV 758 III. Andante.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%206%20in%20A%20Major%2C%20RV%20758%20III.%20Andante.mp3
-#EXTINF:145,Manchester Sonata No. 6 in A Major, RV 758 IV. Corrente.mp3
+#EXTINF:145,Manchester Sonata No. 6 in A Major -  RV 758 IV. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%206%20in%20A%20Major%2C%20RV%20758%20IV.%20Corrente.mp3
-#EXTINF:204,Manchester Sonata No. 8 in G Major, RV 22 II. Allemanda.mp3
+#EXTINF:204,Manchester Sonata No. 8 in G Major -  RV 22 II. Allemanda.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%208%20in%20G%20Major%2C%20RV%2022%20II.%20Allemanda.mp3
-#EXTINF:174,Manchester Sonata No. 8 in G Major, RV 22 IV. Corrente.mp3
+#EXTINF:174,Manchester Sonata No. 8 in G Major -  RV 22 IV. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%208%20in%20G%20Major%2C%20RV%2022%20IV.%20Corrente.mp3
-#EXTINF:180,Manchester Sonata No. 10 in B Minor, RV 760 II. Corrente.mp3
+#EXTINF:180,Manchester Sonata No. 10 in B Minor -  RV 760 II. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%2010%20in%20B%20Minor%2C%20RV%20760%20II.%20Corrente.mp3
-#EXTINF:115,Manchester Sonata No. 10 in B Minor, RV 760 IV. Giga.mp3
+#EXTINF:115,Manchester Sonata No. 10 in B Minor -  RV 760 IV. Giga.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%2010%20in%20B%20Minor%2C%20RV%20760%20IV.%20Giga.mp3
-#EXTINF:168,Manchester Sonata No. 11 in E-Flat Major, RV 756 II. Allemanda.mp3
+#EXTINF:168,Manchester Sonata No. 11 in E-Flat Major -  RV 756 II. Allemanda.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%2011%20in%20E-Flat%20Major%2C%20RV%20756%20II.%20Allemanda.mp3
-#EXTINF:153,Manchester Sonata No. 11 in E-Flat Major, RV 756 IV. Giga.mp3
+#EXTINF:153,Manchester Sonata No. 11 in E-Flat Major -  RV 756 IV. Giga.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%2011%20in%20E-Flat%20Major%2C%20RV%20756%20IV.%20Giga.mp3
-#EXTINF:154,Manchester Sonata No. 12 in C Major, RV 754 IV. Corrente.mp3
+#EXTINF:154,Manchester Sonata No. 12 in C Major -  RV 754 IV. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%2012%20in%20C%20Major%2C%20RV%20754%20IV.%20Corrente.mp3
-#EXTINF:174,Manchester Sonata No. 1 in C Major, RV 3 II. Corrente.mp3
+#EXTINF:174,Manchester Sonata No. 1 in C Major -  RV 3 II. Corrente.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%201%20in%20C%20Major%2C%20RV%203%20II.%20Corrente.mp3
-#EXTINF:170,Manchester Sonata No. 9 in E Minor, RV 17a IV. Allemanda.mp3
+#EXTINF:170,Manchester Sonata No. 9 in E Minor -  RV 17a IV. Allemanda.mp3
 file:///home/cameron/Music/Classical/Manchester%20Sonata%20No.%209%20in%20E%20Minor%2C%20RV%2017a%20IV.%20Allemanda.mp3
-#EXTINF:175,Mandolin Concerto in C Major, RV 425 I. Allegro.mp3
+#EXTINF:175,Mandolin Concerto in C Major -  RV 425 I. Allegro.mp3
 file:///home/cameron/Music/Classical/Mandolin%20Concerto%20in%20C%20Major%2C%20RV%20425%20I.%20Allegro.mp3
-#EXTINF:165,Sinfonia in C Major for Strings, RV 116 I. Allegro.mp3
+#EXTINF:165,Sinfonia in C Major for Strings -  RV 116 I. Allegro.mp3
 file:///home/cameron/Music/Classical/Sinfonia%20in%20C%20Major%20for%20Strings%2C%20RV%20116%20I.%20Allegro.mp3
-#EXTINF:72,Sinfonia in C Major, RV 116 III. Allegro.mp3
+#EXTINF:72,Sinfonia in C Major -  RV 116 III. Allegro.mp3
 file:///home/cameron/Music/Classical/Sinfonia%20in%20C%20Major%2C%20RV%20116%20III.%20Allegro.mp3
-#EXTINF:251,Violin Concerto in E-Flat Major, RV 256 Il ritiro III. Presto.mp3
+#EXTINF:251,Violin Concerto in E-Flat Major -  RV 256 Il ritiro III. Presto.mp3
 file:///home/cameron/Music/Classical/Violin%20Concerto%20in%20E-Flat%20Major%2C%20RV%20256%20Il%20ritiro%20III.%20Presto.mp3
 #EXTINF:134,Vivaldi Mandolin Concerto In C, RV 425 - 3. (Allegro).mp3
 file:///home/cameron/Music/Classical/Vivaldi%20Mandolin%20Concerto%20In%20C%2C%20RV%20425%20-%203.%20%28Allegro%29.mp3
