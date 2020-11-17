@@ -152,6 +152,11 @@ map(',', '[[');
 map('.', ']]');
 map('<', '[[');
 map('>', ']]');
+/* replace w/ Vimium's goPrevious / goNext */
+unmap(',');
+unmap('.');
+unmap('<');
+unmap('>');
 
 
 /*
