@@ -408,6 +408,10 @@ addSearchAliasX('so', 'stack overflow', 'http://stackoverflow.com/search?q=');
 
 addSearchAliasX('az', 'amazon', 'https://www.amazon.com/s/?field-keywords=');
 
+addSearchAliasX('go', 'google', 'https://www.google.com/search?q=');
+
+addSearchAliasX('yo', 'youtube', 'https://www.youtube.com/results?search_query=');
+
 addSearchAliasX('wi', 'wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=40&search=', function(response) {
   return JSON.parse(response.text)[1];
 });
@@ -421,19 +425,6 @@ addSearchAliasX('hub', 'github', 'https://github.com/search?q=', 's', 'https://a
     };
   }) : [];
 });
-
-addSearchAliasX('go', 'google', 'https://www.google.com/search?q=', 's', 'https://www.google.com/complete/search?client=chrome-omni&gs_ri=chrome-ext&oit=1&cp=1&pgcl=7&q=', function(response) {
-  var res = JSON.parse(response.text);
-  return res[1];
-});
-
-addSearchAliasX('yo', 'youtube', 'https://www.youtube.com/results?search_query=', 's',
-								'https://clients1.google.com/complete/search?client=youtube&ds=yt&callback=cb&q=', function(response) {
-									var res = JSON.parse(response.text.substr(9, response.text.length-10));
-									return res[1].map(function(d) {
-										return d[0];
-									});
-								});
 
 
 unmap('sso');
