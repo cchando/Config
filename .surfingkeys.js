@@ -120,6 +120,9 @@ mapkey('gS', '#12Open Chrome Settings', function() {
 mapkey('gb', '#12Open Chrome Settings', function() {
   tabOpenLink("chrome://bookmarks");
 });
+mapkey('gh', '#12Open Chrome Settings', function() {
+  tabOpenLink("chrome://history");
+});
 map('g/', ';e'); // open SurfingKeys settings
 mapkey('<Ctrl-/>', '#12Open Vimium C Settings', function() {
   tabOpenLink("chrome-extension://hfjbmagddngcpeloejdejnfgbamkjaeg/pages/options.html");
@@ -169,7 +172,7 @@ map(':m', ';m'); // mouse-out last element (?)
 unmap(";"); // unmap bindings prefixed with ";"
 map(';', '<Ctrl-6>'); // toggle prev tab (must map AFTER any "map blah to ;_")
 map('w', '_oh'); // open from history  // TODO: not working somewhy. replaced by below
-map('gh', 'g#'); // open current url without the hash fragment
+// map('gh', 'g#'); // open current url without the hash fragment  // shadows "go to history"
 map('<Alt-p>', ';s'); // toggle pdf viewer
 map('g/', ';e'); // open SurfingKeys settings
 map(':D', 'ab'); // add bookmark
