@@ -217,6 +217,7 @@ unmap('S'); // go backward in history
 	reserved as alias for ab (addBookmark)
 */
 unmap('on');
+unmap('og');
 unmap('g0');
 unmap('g$');
 unmap('@'); // Vimium_C toggleMuteTab all
@@ -322,32 +323,31 @@ aceVimMap('b', 'B', 'normal');
 */
 
 
-mapkey('sw', '#8Search Wikipedia for given term', function() {
+mapkey('sw', '#8Search Wikipedia', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "wi"});
 });
 
-map('sg', '_og');
-// mapkey('sg', '#8Search with Google', function() {
-//    Front.openOmnibar({type: "SearchEngine", extra: "go"});
-// });
+mapkey('sg', '#8Search with Google', function() {
+   Front.openOmnibar({type: "SearchEngine", extra: "go"});
+});
 
-mapkey('sy', '#8Search Youtube for given term', function() {
+mapkey('sy', '#8Search Youtube', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "yo"});
 });
 
-mapkey('sa', '#8Search Amazon for given term', function() {
+mapkey('sa', '#8Search Amazon', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "az"});
 });
 
-mapkey('sm', '#8Search MELPA for given package', function() {
+mapkey('sm', '#8Search MELPA', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "mel"});
 });
 
-mapkey('sh', '#8Search Hoogle for given term', function() {
+mapkey('sh', '#8Search Hoogle', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "ha"});
 });
 
-mapkey('sp', '#8Search Pursuit for given term', function() {
+mapkey('sp', '#8Search Pursuit', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "pur"});
 });
 
@@ -363,11 +363,11 @@ mapkey('sn', '#8Search Nixpkgs', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "nix"});
 });
 
-mapkey('st', '#8Search Typed Racket Docs for given term', function() {
+mapkey('st', '#8Search Typed-Racket Docs', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "tr"});
 });
 
-mapkey('sr', '#8Search Racket Docs for given term', function() {
+mapkey('sr', '#8Search Racket Docs', function() {
    Front.openOmnibar({type: "SearchEngine", extra: "ra"});
 });
 
@@ -417,19 +417,23 @@ addSearchAliasX('go', 'google', 'https://www.google.com/search?q=');
 
 addSearchAliasX('yo', 'youtube', 'https://www.youtube.com/results?search_query=');
 
-addSearchAliasX('wi', 'wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=40&search=', function(response) {
-  return JSON.parse(response.text)[1];
-});
+addSearchAliasX('wi', 'wikipedia', 'https://en.wikipedia.org/wiki/');
 
-addSearchAliasX('hub', 'github', 'https://github.com/search?q=', 's', 'https://api.github.com/search/repositories?order=desc&q=', function(response) {
-  var res = JSON.parse(response.text)['items'];
-  return res ? res.map(function(r){
-    return {
-      title: r.description,
-      url: r.html_url
-    };
-  }) : [];
-});
+addSearchAliasX('hub', 'github', 'https://github.com/search?q=');
+
+// addSearchAliasX('wi', 'wikipedia', 'https://en.wikipedia.org/wiki/', 's', 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=40&search=', function(response) {
+//   return JSON.parse(response.text)[1];
+// });
+
+// addSearchAliasX('hub', 'github', 'https://github.com/search?q=', 's', 'https://api.github.com/search/repositories?order=desc&q=', function(response) {
+//   var res = JSON.parse(response.text)['items'];
+//   return res ? res.map(function(r){
+//     return {
+//       title: r.description,
+//       url: r.html_url
+//     };
+//   }) : [];
+// });
 
 
 unmap('sso');

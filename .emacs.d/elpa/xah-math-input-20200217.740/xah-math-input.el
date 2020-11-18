@@ -767,6 +767,7 @@
 	["EI" "Either "]
 	["RI" "Right "]
 	["LE" "Left "]
+	["A" "Any "]
 	["T" "True "]
 	["F" "False "]
 	["B" "Boolean "]

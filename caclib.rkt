@@ -19,46 +19,23 @@
                   [for/product ∀:∏] [for*/product ∀*:∏] [for/first ∀:1st] [for*/first ∀*:1st]
                   [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:fold] [for*/fold ∀*:fold]))
 (require cond-strict)
+
 (require (only-in typed-map [map map] [foldl infer:foldl] [foldr infer:foldr]))
-;; (require
-;;   typed/srfi/87 ;; "=>" in case clauses
-;;   typed/srfi/71 ;; extended 'let' syntax for defining multiple names
-;;   typed/srfi/61 ;; more general cond clause
-;;   typed/srfi/26 ;; pseudo-curry
-;;   typed/srfi/31 ;; rec
-;;   typed/srfi/19 ;; time datatypes & functions
-;;   typed/srfi/2 ;; and-let*
-;;   )
-;; (require/typed (only-in srfi/1) ) ;; list library
 
+;; (require/typed srfi/1 [...]) ;; list datatypes & functions
 
-;; (require (only-in typed/racket
-;;                   [filter-map orig:filter-map]
-;;                   [U ⋃] [∩ ⋂] [Symbol 𝑺] [HashTable 𝑯] [Any 𝔸] [Boolean 𝔹] [Option 𝑴]
-;;                   [Listof 𝑳] [List 𝗟] [True 𝑻] [False 𝑭] [Vectorof 𝑽] [Vector 𝗩] [String 𝕊]
-;;                   [Natural ℕ] [Number ℂ] [Index 𝕀] [Negative-Integer ℤ⁰⁻] [Nonpositive-Integer ℤ⁻] [Integer ℤ] [Nonnegative-Integer ℤ⁰⁺] [Positive-Integer ℤ⁺]
-;;                   [Negative-Float Fl⁻] [Nonpositive-Float Fl⁰⁻] [Float Fl] [Nonnegative-Float Fl⁰⁺] [Positive-Float Fl⁺]
-;;                   [Negative-Exact-Rational ℚ⁻] [Nonnegative-Exact-Rational ℚ⁰⁻] [Negative-Exact-Rational ℚ]
-;;                   [Nonnegative-Exact-Rational ℚ⁰⁺] [Negative-Exact-Rational ℚ⁺]
-;;                   [Negative-Real ℝ⁻] [Nonpositive-Float ℝ⁰⁻] [Real ℝ] [Nonnegative-Real ℝ⁰⁺] [Positive-Real ℝ⁺]
-;;                   [let* ∴] [if ?] [case-lambda case-λ] [and ∧] [or ∨] [nor ⊽] [nand ⊼]
-;;                   [list-ref ‼] [first head] [rest tail] [cons :] [empty ∅] [length ρ] [build-list ι]
-;;                   [sort ⍋] [reverse ⌽] [and ∧] [or ∨] [not ¬] [negate ⌙] [xor ⊻] [nor ⊽] [nand ⊼]
-;;                   [append <>] [append* <>^] [string-append ++] [string-append* ++^] [append* concat]
-;;                   [map <$>] [foldl /.] [foldr /:] [map →] [filter ⊇] [filter-not ⊉]
-;;                   [curry ⫶] [compose1 ∘] [compose1 <<<] [compose ∘^] [identity id]
-;;                   [+ ∑] [* ∏] [/ ÷] [sqrt √] [modulo %] [<= ≤] [>= ≥]
-;;                   [member ∈] [findf ∃] [take ↑] [drop ↓] [make-list replicate]
-;;                   [append-map concat-map] [remove rem-1st] [remove* \\]
-;;                   [for ∀:] [for* ∀*:] [for/list ∀:l] [for*/list ∀*:l] [for/hash ∀:h] [for*/hash ∀*:h]
-;;                   [for/vector ∀:v] [for*/vector ∀*:v] [for/sum ∀:∑] [for*/sum ∀*:∑]
-;;                   [for/last ∀:last] [for*/last ∀*:last] [for/set ∀:s] [for*/set ∀*:s]
-;;                   [for/hasheq ∀:hq] [for*/hasheq ∀*:hq] [for/hasheqv ∀:hv] [for*/hasheqv ∀*:hv]
-;;                   [for/or ∀:or] [for*/or ∀*:or] [for/and ∀:and] [for*/and ∀*:and]
-;;                   [for/product ∀:∏] [for*/product ∀*:∏] [for/first ∀:1st] [for*/first ∀*:1st]
-;;                   [for/lists ∀:lists] [for*/lists ∀*:lists] [for/fold ∀:fold] [for*/fold ∀*:fold]
-;;                   [first 1st] [second 2nd] [third 3rd] [fourth 4th] [fifth 5th]
-;;                   [sixth 6th] [seventh 7th] [eighth 8th] [ninth 9th] [tenth 10th]))
+(require
+  srfi/87 ;; "=>" in case clauses
+  srfi/71 ;; extended 'let' syntax for defining multiple names
+  srfi/61 ;; more general cond clause
+  srfi/26 ;; pseudo-curry
+  srfi/31 ;; rec
+  typed/srfi/19 ;; time datatypes & functions
+  srfi/2 ;; and-let*
+  compact-annotations ;; Haskell-inspired syntax for writing polymorphic and curried functions
+  overeasy ;; test engine
+  test-engine/racket-tests ;; test engine
+  )
 
 
 (define-type (Non-Empty-List a) (Pairof a (Listof a)))

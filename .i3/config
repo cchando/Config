@@ -185,14 +185,14 @@ set $ibrowser google-chrome-stable
     bindsym $mod+n exec nitrogen 
     
     # start vlc w/ playlist
-		bindsym $mod+Shift+v exec vlc --loop  --random
+		bindsym $mod+v exec vlc --loop  --random
     bindsym $mod+7 exec vlc -L -Z file:///home/cameron/Music/1-Playlists/all-playlist.m3u
 		bindsym $mod+8 exec vlc -L -Z file:///home/cameron/Music/1-Playlists/focus-playlist.m3u
 		bindsym $mod+9 exec vlc -L -Z file:///home/cameron/Music/1-Playlists/sonic-playlist.m3u
 		bindsym $mod+0 exec vlc -L file:///home/cameron/Music/1-Playlists/classical-playlist.m3u
 
     # volume control
-    bindsym $mod+v exec pavucontrol #pavucontrol-qt
+    bindsym $mod+Shift+v exec pavucontrol #pavucontrol-qt
     
     # start kcolorchooser
     bindsym $mod+z exec kcolorchooser
@@ -420,7 +420,7 @@ set $ibrowser google-chrome-stable
 
 
 for_window [window_role="vlc-main"] floating enable , \
-    resize set 1200 700, move position center, move scratchpad 
+    resize set 1070 700, move position center, move scratchpad 
 
 
 # floating_minimum_size 1200 x 500
