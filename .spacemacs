@@ -1451,16 +1451,9 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
- ;; '(font-lock-builtin-face ((t (:foreground "#3f86dc"))))
- ;; '(font-lock-comment-face ((t (:inherit italic :foreground "#A7ABB2" :underline nil))))
- ;; '(font-lock-constant-face ((t (:inherit italic :foreground "#f17a5a" :underline nil))))
- ;; '(font-lock-doc-face ((t (:foreground "#aabcce"))))
- ;; '(font-lock-keyword-face ((t (:inherit italic :foreground "#c792ea" :underline nil :weight normal))))
- ;; '(font-lock-negation-char-face ((t (:foreground "#d3423e" :weight bold))))
- ;; '(font-lock-string-face ((t (:foreground "#56bf8b"))))
- ;; '(font-lock-type-face ((t (:foreground "#8bbf56" :slant normal))))
- ;; '(font-lock-variable-name-face ((t (:foreground "#bf8b56"))))
- ;; '(font-lock-warning-face ((t (:foreground "#bf8b56" :slant italic))))
+ '(font-lock-comment-face ((t (:inherit italic :underline nil))))
+ '(font-lock-constant-face ((t (:inherit italic :underline nil))))
+ '(font-lock-keyword-face ((t (:inherit italic :underline nil :weight normal))))
  ;; ;; '(line-number ((t (:inherit default :background "#011627" :foreground "#4b6479"))))
  ;; ----------------------------Colorful----------------------------------------------
  ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#b0b1a3"))))
