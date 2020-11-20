@@ -523,9 +523,9 @@ bar {
 # # mode dock|hide|invisible
 # # hidden_state hide|show
 # # modifier 
-		mode dock
+		mode hide
 		hidden_state hide
-		modifier $mod
+		modifier Ctrl
     # bindsym button1 nop    # disable clicking on workspace buttons
     # status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
     status_command i3status #--config ~/.i3status.conf
