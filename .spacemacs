@@ -5,6 +5,7 @@
 ;; /= ->> *** <<< <*> >>> >>- -<< ==> .. ... <$> <+> <* *> |> <| <-> >- -< :: :::
 ;; <=> =<< >>= <=< >=> <> ++ || !! && -> => \\ +++ <|> != !==
 
+;; spacemacs-dark: font-lock-comment-face:   fg: #2aa1ae   bg: #292e34
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
