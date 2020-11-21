@@ -167,7 +167,7 @@ set $ibrowser google-chrome-stable
     bindsym Ctrl+Shift+w kill
     
     # start program launcher
-    bindsym $mod+o exec $menu
+    # bindsym $mod+o exec $menu
 
     # start file browser
     bindsym Ctrl+b exec $fbrowser
@@ -190,6 +190,9 @@ set $ibrowser google-chrome-stable
 		bindsym $mod+8 exec vlc -L -Z file:///home/cameron/Music/1-Playlists/focus-playlist.m3u
 		bindsym $mod+9 exec vlc -L -Z file:///home/cameron/Music/1-Playlists/sonic-playlist.m3u
 		bindsym $mod+0 exec vlc -L file:///home/cameron/Music/1-Playlists/classical-playlist.m3u
+
+    # kill vlc
+		bindsym Ctrl+Shift+semicolon exec kill "$(ps -A | grep vlc | grep -oE '[[:digit:]]+' | cut -d$'\n' -f 1)"
 
     # volume control
     bindsym $mod+Shift+v exec pavucontrol #pavucontrol-qt
