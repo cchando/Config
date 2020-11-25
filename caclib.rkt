@@ -34,7 +34,7 @@
   srfi/2 ;; and-let*
   compact-annotations ;; Haskell-inspired syntax for writing polymorphic and curried functions
   overeasy ;; test engine
-  test-engine/racket-tests ;; test engine
+  ;; test-engine/racket-tests ;; test engine
   )
 
 
@@ -162,8 +162,13 @@
 (define (all pred xs) (andmap (λ ([x : a]) (pred x)) xs))
 
 
-(: flip : ∀ (a b c) (a b -> c) -> (b a -> c))
-(define (flip f) (λ (b a) (f a b)))
+;; (: flip : ∀ (a b c) (a b -> c) -> (b a -> c))
+;; (define (flip f) (λ (b a) (f a b)))
+;; (define ⍨ flip)
+
+
+(:: flip a b c => (a b -> c) -> b -> a -> c)
+(define (((flip f) b) a) (f a b))
 (define ⍨ flip)
 
 

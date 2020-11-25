@@ -159,7 +159,7 @@ values."
 												 ;; misterioso ;; light-blue bar, gray bg
 												 ;; tango-dark ;; yellow bar, gray bg
 												 ;; outrun-dark ;; very dark purple-blue w/ bright contrasts
-												 ;; harmonic-dark-cac ;; like night-owl but a bit lighter
+												 harmonic-dark-cac ;; like night-owl but a bit lighter
 												 ;; harmonic-dark ;; like night-owl but a bit lighter
 												 ;; night-owl ;; midnight blue
 												 ;; heetch ;; deep purple w/ magenta, red
@@ -707,9 +707,9 @@ you should place your code here."
 						 ("drop" .     "↓") ;
 						 ("modulo" .      "%")
 						 ("abs" .      "∣")
-						 ("+" .    "∑")
+						 ;; ("+" .    "∑")
 						 ("sum" .   "∑")
-						 ("*" .    "∏")
+						 ;; ("*" .    "∏")
 						 ("/" .    "÷")
 						 ("sqrt" .    "√")
 						 ;; --- decent-readability-to-others separater ---
@@ -719,7 +719,9 @@ you should place your code here."
 						 ("where" .     "∵")
 						 ("cons" .     "⧺")
 						 ("head" .     "↑")
-						 ("tail" .     "↓")
+						 ("tail" .    "↓")
+						 ("first" .     "↑")
+						 ("rest" .     "↓")
 						 ("take" .      "↑")
 						 ("drop" .      "↓")
 						 ("compose1" .  "∘")
@@ -749,8 +751,6 @@ you should place your code here."
 						 ("apply" .   "↥")
 						 ("format" .    "⍕")
 						 ("eval" .    "⍎")
-						 ("head" .    "↑")
-						 ("tail" .    "↓")
 						 ("list-ref" .  "⊃")
 						 ("filter" .      "⊇")
 						 ("filter-not" .      "⊉")
@@ -1456,24 +1456,4 @@ you should place your code here."
  '(font-lock-constant-face ((t (:inherit italic :underline nil))))
  '(font-lock-keyword-face ((t (:inherit italic :underline nil :weight normal))))
  ;; ;; '(line-number ((t (:inherit default :background "#011627" :foreground "#4b6479"))))
- ;; ----------------------------Colorful----------------------------------------------
- ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#b0b1a3"))))
- ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#c690e7"))))
- ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "#82aaff"))))
- ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "#addb67"))))
- ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "#7fdbca"))))
- ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "#d3423e"))))
- ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#7e57c2"))))
- ;; '(rainbow-delimiters-depth-8-face ((t (:foreground "#ffeb95"))))
- ;; '(rainbow-delimiters-depth-9-face ((t (:foreground "#b0b1a3"))))
- ;; -----------------------------------------------------------------------------------
- ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#b0b1a3"))))
- ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#c690e7"))))
- ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "#82aaff"))))
- ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "#addb67"))))
- ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "#7fdbca"))))
- ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "#d3423e"))))
- ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#7e57c2"))))
- ;; '(rainbow-delimiters-depth-8-face ((t (:foreground "#ffeb95"))))
- ;; '(rainbow-delimiters-depth-9-face ((t (:foreground "#b0b1a3"))))
  '(sp-show-pair-match-content-face ((t (:underline nil))) t))

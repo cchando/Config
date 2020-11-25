@@ -176,20 +176,14 @@ map('cd', ';j'); // close Downloads bar
 map(':m', ';m'); // mouse-out last element (?)
 unmap(";"); // unmap bindings prefixed with ";"
 map(';', '<Ctrl-6>'); // toggle prev tab (must map AFTER any "map blah to ;_")
-map('w', '_oh'); // open from history  // TODO: not working somewhy. replaced by below
+map('w', '_oh'); // open from history
 // map('gh', 'g#'); // open current url without the hash fragment  // shadows "go to history"
 map('<Alt-p>', ';s'); // toggle pdf viewer
 map('g/', ';e'); // open SurfingKeys settings
 map(':D', 'ab'); // add bookmark
 map('F', 'cf'); // open multiple links in new tabs
 // map('I', 'i'); // enter insert mode
-map('O', '_ox'); // open recently-closed url  // TODO: not working somewhy. replaced by below
-// mapkey('O', '#8Open recently closed URL', function() {
-//   Front.openOmnibar({type: "URLs", extra: "getRecentlyClosed"});
-// });
-// mapkey('w', '#8Open URL from history', function() {
-//   Front.openOmnibar({type: "History"});
-// });
+map('O', '_ox'); // open recently-closed url
 
 
 
@@ -399,7 +393,7 @@ addSearchAliasX('mel', 'melpa', 'https://melpa.org/#/?q=');
 
 addSearchAliasX('ra', 'racket docs', 'https://docs.racket-lang.org/search/index.html?q=');
 
-addSearchAliasX('tr', 'typed-racket docs', 'https://docs.racket-lang.org/search/index.html?q=L%3Atyped%2Fracket%2Fbase%20');
+addSearchAliasX('tr', 'typed-racket docs', 'https://docs.racket-lang.org/search/index.html?q=L%3Atyped%2Fracket%20');
 
 addSearchAliasX('ha', 'hoogle', 'https://hoogle.haskell.org/?hoogle=');
 
