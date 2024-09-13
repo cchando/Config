@@ -1,0 +1,37 @@
+# mostly the actual palette as described in the css,
+# but with missing colors suggested by pastel [rust program]
+
+foreground   #d8dee9
+background   #2e3440
+
+# black
+color0       #434c5e
+color8       #4c566a
+
+# red
+color1       #bf616a
+color9       #d08770
+
+# green
+color2       #a3be8c
+color10      #66cdaa
+
+# yellow
+color3       #ebcb8b
+color11      #ffdead
+
+# blue
+color4       #5e81ac
+color12      #81a1c1
+
+# magenta
+color5       #b48ead
+color13      #dda0dd
+
+# cyan
+color6       #8fbcbb
+color14      #88c0d0
+
+# white
+color7       #d8dee9
+color15      #eceff4

@@ -1,0 +1,67 @@
+! -*- coding: utf-8 -*-
+
+! use xev(1) to get both the keycode and keysym (i.e., name) for given key press (interactive)
+! To export the entire explicit key xmodmap mapping, do "xmodmap -pke > "~/.Xmodmap-fallback"
+
+! NOTE: Before assignment, the relevant modifier keys need to be cleared. This applies to both modifiers you intend to assign AND modifiers on keys that you intend to use. For example, if you intend to assign Caps_Lock to your A key and B to your NumLock key, you need to first clear the modifiers for both Caps_Lock and Num_Lock, then assign the keysyms, and finally add back the modifiers.
+
+! NOTE: All "clear" commands should happen first! (personal heuristic; I'm unclear about how this actually works since the manpage seems wrong)
+! NOTE: All "add" commands should happen last! (personal heuristic; I'm unclear about how this actually works since the manpage seems wrong)
+
+! here's the default setting on special keys:
+!  xmodmap -pke | grep '(Control|Super|Alt|Menu)'
+! The modifier names are: Shift, Lock (Caps Lock), Control, Mod1 (Alt), Mod2, Mod3, Mod4 (Logo key), Mod5
+
+! keycode   9 = Escape NoSymbol Escape
+! keycode  37 = Control_L NoSymbol Control_L  -- left Control key
+! keycode  50 = Shift_L NoSymbol Shift_L      -- left Shift key
+! keycode  62 = Shift_R NoSymbol Shift_R      -- right Shift key
+! keycode  64 = Alt_L Meta_L Alt_L Meta_L     -- left Alt key
+! keycode  66 = Caps_Lock NoSymbol Caps_Lock  -- Caps Lock key
+! keycode 105 = Control_R NoSymbol Control_R  -- right Control key
+! keycode 108 = Alt_R Meta_R Alt_R Meta_R     -- right Alt key
+! keycode 133 = Super_L NoSymbol Super_L      -- left Meta (logo) key
+! keycode 134 = Super_R NoSymbol Super_R      -- right Meta (logo) key
+! keycode 135 = Menu NoSymbol Menu
+! keycode 147 = XF86MenuKB NoSymbol XF86MenuKB
+! keycode 204 = NoSymbol Alt_L NoSymbol Alt_L
+! keycode 206 = NoSymbol Super_L NoSymbol Super_L
+
+! clear relevant modifier maps:
+clear Lock
+clear Control
+clear Mod4
+clear Shift
+
+
+
+
+! CapsLock ← Escape (CapsLock physical key gets Escape keycode):
+keycode 66 = Escape NoSymbol Escape
+
+! Esc ← CapsLock:
+! keycode 9 = Caps_Lock NoSymbol Caps_Lock
+
+! Ctrl_R ← Logo Key (Ctrl_R physical key gets Logo Key keycode)
+keycode 105 = Super_R NoSymbol Super_R
+
+! ! Shift_R ← Shift_L (just an experiment) -- not working somewhy
+! keycode 62 = Shift_L NoSymbol Shift_L
+
+
+! update relevant modifier maps:
+add Lock = Caps_Lock
+add Control = Control_L Control_R
+add Mod4 = Super_L Super_R
+add Shift = Shift_L Shift_R
+
+
+
+! ------- Tutorial / More Notes-------
+
+! I'm not yet clear on when we need to do "add"/"remove" vs. just setting "keycode n = KeySym NoSymbol KeySym". If we map ⍺ to ⍵, where the key that gave keysym ⍵ in xev was ⍴, in what circumstances do we first need to clear the label that ⍴ had (if any), e.g., "Lock" or "Mod4"? In what circumstances do we need to do "remove"? Manpage says "clear" or "remove" is always needed when we're going to assign either e.g., "keycode n = Caps_Lock" or "<keycode-for-caps-lock> = Escape", but it seems we can reassign these (at least sometimes) without doing so.
+
+! Using "keysym ⍺ = keysym ⍵" assigns ⍵ to the key CURRENTLY BOUND TO ⍺ -- not to the key originally bound to ⍺
+
+! Doing the below line makes Caps_Lock activate Caps_Lock mode **while still doing Escape (from the above mapping)**, because the "Escape" keysym (i.e., name, symantic) IS CURRENTLY MAPPED TO the Caps_Lock key on the keyboard. So the mappings are transitive when it comes to {"add", "remove", "clear"}.
+   ! add Lock = Escape

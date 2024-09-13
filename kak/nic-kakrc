@@ -1,0 +1,186 @@
+## TODO
+# add command to select all in selection (or if selection is length 1, then whole buffer) #[a-f0-9]{6} then use those hex values to color the hex strings.
+# keep graph of named selections, and press `return` to navigate to them, e.g. a node may be palette dialog @ ht/htpal.cc:232:1-232:57. this may have a directed edge to dependency htdialog, which may be a file, which defaults to <file>:1:1-1:1
+# what's with the colors in kitty? i set kitty's color scheme, then run kak. kak uses the scheme correctly. however, if i ^Z (or quit,) reset scheme, then fg (or re-open kak,) then kitty's default scheme (i.e. as specified in its config file) are used, as reflected in kak and `colors`. the same thing happens (with kitty's default scheme) if i don't set any colors in kitty's config. i also see kitty using whatever the configuration specifies even when i launch a window, open some tabs, change the config file, then eventually i later find that the color scheme has changed to the config-specified one! i didn't even change state of programs running in kitty tabs!
+
+## plug
+
+# ensure that plug is installed
+evaluate-commands %sh{
+    plugins="$KAKOUNE_CONFIG_DIR/plugins"
+    mkdir -p "$plugins"
+    [ ! -e "$plugins/plug.kak" ] && git clone -q https://github.com/andreyorst/plug.kak.git "$plugins/plug.kak"
+    printf "%s\n" "source '$plugins/plug.kak/rc/plug.kak'"
+}
+plug "andreyorst/plug.kak" noload # plug loads itself but plug-clean won't delete plug itself
+
+# load plugins
+plug "andreyorst/fzf.kak"
+plug 'alexherbo2/lib.kak' # required for the surround module
+plug "alexherbo2/surround.kak" # surround selection with delimiters
+# :rainbow to highlight buffer once. :rainbow-enable to do it continuously (may lag). threre's :rainbow-disable.
+plug 'jjk96/kakoune-rainbow' # set-option global rainbow_faces "rgb:ff0000" "rgb:00ff00" "rgb:0000ff"
+plug 'occivink/kakoune-vertical-selection' # vim visual block mode. TODO: how is this better than C?
+plug "alexherbo2/auto-pairs.kak" # i.e. smartparens. enable via enable-auto-pairs
+
+set-option global auto_pairs ( ) { } [ ] '"' '"' # specify auto-pairs delimitation pairs, notably not including single quotes nor backticks
+
+# racket. NB. LSP does not support racket.
+plug "KJ_Duncan/kakoune-racket.kak" domain "bitbucket.org" # syntax highlighting (and nothing more?)
+
+## general configuration follows
+
+# hook global WinSetOption filetype=asciidoc "colorscheme solarized-dark"
+
+# blank new scratch buffer.
+hook -group remove-scratch-message global BufCreate '\*scratch\*' %{
+  execute-keys '%d'
+  hook -always -once buffer NormalIdle '' %{
+    rename-buffer /dev/null
+    evaluate-commands -no-hooks -- edit -scratch '*scratch*'
+    delete-buffer /dev/null
+  }
+}
+
+define-command adoc-insert-source-block %{
+    execute-keys "i[source,]<ret>----<ret><ret>----<esc>kkkgl"
+}
+
+map -docstring 'case insensitive search' global user '/' /(?i)
+map -docstring 'case insensitive backward search' global user '<a-/>' <a-/>(?i)
+map -docstring 'case insensitive extend search' global user '?' ?(?i)
+map -docstring 'case insensitive backward extend-search' global user '<a-?>' <a-?>(?i)
+
+# hook buffer BufOpenFile "" %{
+#     evaluate-commands %sh{
+#         flock %val{bufname}
+#     }
+# }
+
+# interesting point to study: the above hook works for all buffers called *scratch*. however,
+# the following define-command wrapper makes the hook run only on new scratch buffers;
+# starting kak without args still shows the default scratch message.
+# define-command -override remove-scratch-message -docstring 'remove scratch message' %{
+#   remove-hooks global remove-scratch-message
+#   # <above hook here>
+# }
+
+map global normal + "': surround<ret>" # caret is not bound to anything by default
+map global normal D "hd"
+
+define-command wdb -docstring "write then delete buffer" "w;db"
+
+# display
+add-highlighter global/ wrap -word
+add-highlighter global/ number-lines -relative
+
+set-option global tabstop 2
+set-option global indentwidth 2
+
+# TODO: should this be buffer-specific rather than window?
+hook global WinSetOption filetype=(asciidoc) %{
+    map global insert <a-s> "<esc>':adoc-insert-source-block<ret>i"
+}
+
+define-command -docstring "format selected sexp" sexpfmt %{
+    execute-keys "<a-:> <a-;> |sexpfmt %val{cursor_display_column}<ret>"
+}
+
+define-command swap -docstring "swap" %{ execute-keys "S <ret><a-(><space>" }
+
+# toggle visible whitespace
+define-command -docstring "show whitespace characters as more visible characters" whitespace-toggle %{
+  try %{
+    add-highlighter global/ show-whitespaces
+  } catch %{
+    remove-highlighter global/show-whitespaces
+  }
+}
+
+map global user w ": whitespace-toggle<ret>" -docstring "toggle whitespace"
+map global user t ":w<ret>" -docstring "write" # easier than :w b/c doesn't require shift nor ret
+map global user s ": swiper " -docstring "swiper"
+
+# TODO: make these colors override filetype-specified comment highlighters
+add-highlighter global/ regex "TODO" 0:yellow
+add-highlighter global/ regex "DONE" 0:green
+add-highlighter global/ regex "NEXT" 0:blue
+add-highlighter global/ regex "BUG" 0:red
+add-highlighter global/ regex "NOTE" 0:blue
+# add-highlighter global/ line '%val{cursor_line}' default,black # note the quotes! without them the expression would evaluate to a constant [value], and only that one line would be highlighted (i.e. the current one at the time of evaluation, instead of the current line each time the line changes (what we want))
+
+define-command mgi -params 2 %{ map global insert %arg{1} %arg{2}}
+mgi <a-\> λ
+mgi <a-a> ∀
+
+hook global WinSetOption filetype=(racket|scheme|lisp|fnl) %{
+  enable-auto-pairs
+  # rainbow # takes too much time on large files. do manually as needed.
+  map -docstring "update rainbow" window user r "':rainbow<ret>"
+}
+
+hook global WinSetOption filetype=racket %{
+# NEXT: open bug report: selection, though still highlighted in kak's buffer/gui, %val{selection} is '#' and %val{selection_length} is 1
+#  map buffer insert <a-\> %sh{if test $kak_selection_length -eq 1; then printf "λ"; else printf "\"λ (<esc>;a <esc>hi\""; fi}
+# map buffer insert <a-\> %{<esc>"lyi}%sh{printf $kak_reg_l} # also, how to put two strings together like this without a space? furthermore, how to contat strings, since map accepts only one string?
+  map buffer insert <a-o> "(only-in "
+}
+
+# TODO: learn LSP, then use.
+# Language Server Protocol integration.
+# Requires cargo
+# See ~/.config/kak-lsp/kak-lsp.toml for further dependencies
+# plug "ul/kak-lsp" do %{
+# cargo install --locked --force --path .
+# } config %{
+	# Cool unicode indicators
+	# set-option global lsp_diagnostic_line_error_sign "✖"
+	# set-option global lsp_diagnostic_line_warning_sign "➤"
+
+	# # Only show errors and warnings
+	# set-option global lsp_show_hover_format 'printf %s "${lsp_diagnostics}"'
+
+	# Search for errors as well as warnings
+	# map global lsp n ": lsp-find-error --include-warnings<ret>" -docstring "find next error"
+	# map global lsp p ": lsp-find-error --previous --include-warnings<ret>" -docstring "find previous error"
+	
+	# hook global WinSetOption filetype=(c|haskell|lua|python) %{
+		# Highlight errors in code
+		# lsp-inline-diagnostics-enable window
+
+		# lsp user mode
+		# map window user l ": enter-user-mode lsp<ret>" -docstring "LSP"
+
+		# alias default formatting commands
+		# alias buffer format lsp-formatting
+		# alias buffer format-selections lsp-range-formatting
+	# }
+
+	# Enable lsp
+	# hook -once global WinSetOption filetype=(c|haskell|lua|python) %{
+		# lsp-enable
+	# }
+# }
+
+# auto indent does bizarre things at unpredictable times; rely instead on filetype-specific formatter(s)
+# enable-auto-indent
+
+# align columns
+map global user a "<a-s><S>\h<ret><a-;><&>" -docstring "align columns in selection"
+map global user <a-a> "<percent><a-s><S>\h<ret><a-;><&>" -docstring "align columns in buffer"
+
+# additionally yank to clipboard upon normal kak yank
+# disabled because it leaves spawned xclip processes open (wtf?) which is problematic when using kak with flock
+# hook global NormalKey '[ydc]' %{
+#   nop %sh{
+#     (printf '%s' "$kak_main_reg_dquote" | xclip -filter | xclip -selection clipboard) < /dev/null > /dev/null 2>&1 &
+#   }
+# }
+
+# clipboard
+# TODO: sometimes wl-copy (or wl-paste, too?) is open after quitting kak. this messes with flock (and generally shouldn't be the case anyway.)
+map global user y -docstring 'yank to clipboard' '<a-|>wl-copy<ret>'
+map global user p -docstring 'paste after' '<a-!>wl-paste<ret>'
+map global user P -docstring 'paste before' '!wl-paste<ret>'
+map global user R -docstring 'replace selection by clipboard contents' '|wl-paste<ret>'
+

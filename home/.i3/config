@@ -1,0 +1,969 @@
+
+# Config file for i3 window manager
+
+
+#
+# Read `man i3` for a complete reference.
+
+# i3 config file (v4)     # ensure that this file is read using the i3 v4.0+ format
+
+# other programs that use global keybinds (may compete with i3):
+  # vlc:
+     # (NOTE: seems to only recognize Meta when mapped along with Alt). Confirmed to not be due to i3 keybind shadowings.
+     # <A-M-,>, <A-M-.>, <A-M-p>, <A-M-y>, <A-M-d>,  <A-M-u>, <A-M-m>, <C-S-,>, <C-S-.>
+
+
+### Variables
+#
+# Logo key is Mod4. <Alt> is Mod1. For complete list of such keysyms, use xev(1).
+set $mod Mod4
+set $alt Mod1
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term kitty  #konsole  #termite  #konsole  #kitty
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to i3-msg
+set $menu dmenu_path | dmenu | xargs i3-msg exec
+# Your preferred file browser
+# set $fbrowser dolphin
+set $fbrowser nautilus
+# Your preferred internet browser
+set $ibrowser google-chrome-stable
+## outputs
+set $HDMI HDMI-1
+set $VGA DP-1-3
+set $LAP eDP-1
+# current wallpaper
+set $bg ~/Pictures/wallpapers/new1/117491.jpg
+
+
+
+# set $bg ~/Pictures/wallpapers/vlad/vlad-rainy-text.jpg
+# set $bg ~/Pictures/wallpapers/new1/3346135.jpg
+# set $bg ~/Pictures/Florida/RV Parks/IMG_1790.jpg
+# set $bg ~/Pictures/Florida/RV Parks/riptide-rv-marina-36.jpg
+# set $bg ~/Pictures/Florida/RV Parks/riptide-rv-marina-4.jpg
+# set $bg ~/Pictures/Welcome\ to\ Florida/florida-state-01_BEST.jpg
+# set $bg ~/Pictures/Florida/RV\ Parks/banner-lodging-campsites-1.jpg
+# set $bg ~/Pictures/Florida/homes_condos_townhouses/modern-house-202.jpg
+# set $bg ~/Pictures/neptunia/tavern.jpeg
+# set $bg ~/Pictures/neptunia/backgrounds/nep-mk2-bg/datacenter-2.png
+# set $bg ~/Pictures/neptunia/backgrounds/nep-mk2-bg/planeptune-square.png
+# set $bg ~/Pictures/neptunia/backgrounds/nep-mk2-bg/basilicom.png
+# set $bg ~/Pictures/neptunia/Nep-sleepover.jpg
+# set $bg ~/Pictures/wallpapers/rainy-birds.jpg
+# set $bg ~/Pictures/wallpapers/WallpaperStudio10-176516-1280x800.jpg
+# set $bg ~/Pictures/wallpapers/vlad-squares-green.jpg
+# set $bg ~/Pictures/Florida/homes_condos_townhouses/image-27.png
+# set $bg ~/Pictures/wallpapers/5684679-beach-hd-wallpaper.jpg
+
+
+## Autostart
+
+
+exec_always "systemctl --user enable --now wireplumber; systemctl --user restart pipewire" # fix a bug (in Fedora? Gnome?) relating to the soundcard
+exec_always batsignal -b -c 0 -d 15 -D 'systemctl suspend' -f 100 -W "plug in" # sleep upon draining to 15% battery
+exec xmodmap ~/.Xmodmap   # set keyboard layout (swap Ctrl w/ Escape, etc.)
+exec_always xbanish  # banish mouse cursor upon any key press
+exec_always unclutter -idle 1 -root  # banish mouse cursor when not in use
+exec_always compton  # compositor to enable window transparency
+exec redshift -l 32.96:-96.67 -t 6500:3500
+# disable touchpad:
+exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0
+# disable mouse stick:
+exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0
+# set wallpaper:
+exec_always nitrogen --set-zoom-fill $bg
+# exec pulseaudio-ctl mute no
+# exec pulseaudio-ctl set 35
+# exec vlc --loop --no-repeat file:///home/cameron/Music/1-Playlists/doki.m3u; mode "default"
+# exec mplayer -loop 0 -softvol -volume 60 /home/cameron/Music/sleeprain.ogg; mode "default"
+# exec_always kitty --listen-on=unix:@kitty, move scratchpad && kitty @ --to unix:@kitty "pamix"
+
+# --- Syntax: ---
+# default_border normal|none|pixel   # pixel eliminates title bars
+# default_border normal|pixel <px>
+# default_floating_border normal|none|pixel
+# default_floating_border normal|pixel <px>
+# hide_edge_borders none|vertical|horizontal|both|smart
+
+    default_border none
+    # default_border pixel 3
+    hide_edge_borders smart
+    # hide_edge_borders none|vertical|horizontal|both|smart
+
+		# smart_gaps on
+		gaps inner 15
+		gaps outer 1
+
+    # class                 border  backgr. text    indicator child_border
+    client.focused          #4c7899 #285577 #ffffff #2e9ef4   #757e82
+    client.focused_inactive #000000 #5f676a #ffffff #484e50   #000000
+    client.unfocused        #000000 #222222 #888888 #292d2e   #000000
+    client.urgent           #2f343a #900000 #ffffff #900000   #900000
+    client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+    client.background       #ffffff
+
+
+# Hide the window title bars
+default_border none
+default_floating_border none
+
+    # class                 border  backgr. text    indicator child_border
+    client.focused          #4c7899 #285577 #ffffff #2e9ef4   #757e82
+    client.focused_inactive #000000 #5f676a #ffffff #484e50   #000000
+    client.unfocused        #000000 #222222 #888888 #292d2e   #000000
+    client.urgent           #2f343a #900000 #ffffff #900000   #900000
+    client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+    client.background       #ffffff
+
+
+# Hide the window bars
+new_window none
+new_float none
+
+
+# font -ADBO-Hasklig-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
+# font pango: Hasklig 12
+# font pango: Fira Code 12
+
+
+
+
+### Output configuration
+#
+# Default wallpaper
+#output * bg ~/.config/sway/backgrounds/Sway_Wallpaper_Blue_1920x1080.png fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+## need to put "*" in quotes? unclear from manpage
+# You can get the names of your outputs by running: swaymsg -t get_outputs, output * bg $bg
+
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' \
+#               resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+
+### Key bindings:
+
+    ## adjust gaps between windows
+		bindsym $alt+g mode "gaps"
+    mode "gaps" {
+        bindsym o      mode "gaps outer"
+        # "gaps inner" basically means "all gaps"
+        bindsym i      mode "gaps inner" 
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+				bindsym space mode "default"
+    }
+    mode "gaps outer" {
+        # "gaps outer" basically means "additional outer padding on top of [all symmetric gapping]"
+        bindsym h gaps outer all set 0
+        bindsym n gaps outer all set 0
+        bindsym z gaps outer all set 0
+        bindsym j gaps outer all minus 5
+        bindsym d gaps outer all minus 5
+        bindsym k gaps outer all plus 5
+        bindsym u gaps outer all plus 5
+        bindsym t gaps outer all toggle 10
+        bindsym i      mode "gaps inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+				bindsym space mode "default"
+    }
+    mode "gaps inner" {
+        # "gaps inner" basically means "all gaps"
+        bindsym h gaps inner all set 0
+        bindsym n gaps inner all set 0
+        bindsym z gaps inner all set 0
+        bindsym j gaps inner all minus 5
+        bindsym d gaps inner all minus 5
+        bindsym k gaps inner all plus 5
+        bindsym u gaps inner all plus 5
+        bindsym t gaps inner all toggle 10
+        bindsym o      mode "gaps outer"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+				bindsym space mode "default"
+    }
+
+    # set wallpaper
+		bindsym $mod+w mode "wallpaper"
+		mode "wallpaper" {
+		    bindsym g exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/7371738.jpg"; mode "default"
+		    bindsym r exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/vlad/vlad-rainy-text.jpg"; mode "default"
+		    bindsym Shift+f exec "nitrogen --set-zoom-fill ~/Pictures/Welcome\ to\ Florida/florida-state-01_BEST.jpg"; mode "default"
+		    bindsym Shift+r exec "nitrogen --set-zoom-fill ~/Pictures/Florida/RV Parks/riptide-rv-marina-36.jpg"; mode "default"
+		    bindsym u exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/3venus-June-Update-cc.-LRj-LOGO.jpg"; mode "default"
+		    bindsym y exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/Research_centre_of_The_Venus_Project\ \(1\).jpg"; mode "default"
+		    bindsym i exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/master-frame-26-FINAL-LOGO.jpg"; mode "default"
+        # Irish rainy countryside
+		    bindsym Shift+i exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/117491.jpg"; mode "default"
+		    bindsym o exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/d29d22bff42ca805b208faa3df88df57.jpg"; mode "default"
+		    bindsym p exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/75c2e9dbc0496847cb71a98fb814c4e7.jpg"; mode "default"
+		    bindsym Shift+g exec "nitrogen --set-zoom-fill ~/Pictures/Florida/homes_condos_townhouses/image-27.png"; mode "default"
+		    bindsym f exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/3346135.jpg"; mode "default"
+		    bindsym Shift+s exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/3275.jpg"; mode "default"
+		    bindsym q exec "nitrogen --set-zoom-fill ~/Pictures/Florida/RV\ Parks/banner-lodging-campsites-1.jpg"; mode "default"
+		    bindsym t exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/5684679-beach-hd-wallpaper.jpg"; mode "default"
+		    bindsym b exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/rainy-birds.jpg"; mode "default"
+        # Singapore
+		    bindsym s exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/3275.jpg"; mode "default"
+        # Singapore
+		    bindsym Shift+s exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/3275.jpg"; mode "default"
+
+        ###########
+		    bindsym $mod+g exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/7371738.jpg"; mode "default"
+		    bindsym $mod+r exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/vlad/vlad-rainy-text.jpg"; mode "default"
+		    bindsym $mod+Shift+f exec "nitrogen --set-zoom-fill ~/Pictures/Welcome\ to\ Florida/florida-state-01_BEST.jpg"; mode "default"
+		    bindsym $mod+Shift+r exec "nitrogen --set-zoom-fill ~/Pictures/Florida/RV Parks/riptide-rv-marina-36.jpg"; mode "default"
+		    bindsym $mod+y exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/Research_centre_of_The_Venus_Project\ \(1\).jpg"; mode "default"
+		    bindsym $mod+u exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/3venus-June-Update-cc.-LRj-LOGO.jpg"; mode "default"
+		    bindsym $mod+i exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/master-frame-26-FINAL-LOGO.jpg"; mode "default"
+        # Irish rainy countryside
+		    bindsym $mod+Shift+i exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/117491.jpg"; mode "default"
+		    bindsym $mod+o exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/d29d22bff42ca805b208faa3df88df57.jpg"; mode "default"
+		    bindsym $mod+p exec "nitrogen --set-zoom-fill ~/Pictures/Venus\ Project/75c2e9dbc0496847cb71a98fb814c4e7.jpg"; mode "default"
+		    bindsym $mod+Shift+g exec "nitrogen --set-zoom-fill ~/Pictures/Florida/homes_condos_townhouses/image-27.png"; mode "default"
+		    bindsym $mod+f exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/3346135.jpg"; mode "default"
+		    bindsym $mod+Shift+s exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/3275.jpg"; mode "default"
+		    bindsym $mod+q exec "nitrogen --set-zoom-fill ~/Pictures/Florida/RV\ Parks/banner-lodging-campsites-1.jpg"; mode "default"
+		    bindsym $mod+b exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/rainy-birds.jpg"; mode "default"
+        # Singapore
+		    bindsym $mod+s exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/3275.jpg"; mode "default"
+        # Singapore
+		    bindsym $mod+Shift+s exec "nitrogen --set-zoom-fill ~/Pictures/wallpapers/new1/3275.jpg"; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+    }
+
+
+    # # start vlc or mplayer w/ playlist
+		# bindsym $mod+p mode "playlist"
+		# mode "playlist" {
+		# 		bindsym v exec vlc --loop --random --no-repeat; mode "default"
+    #     # kill vlc
+		# 		bindsym k exec killall .vlc-wrapped; mode "default"
+		#     bindsym a exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/anime.m3u"; mode "default"
+		#     bindsym Shift+a exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/all.m3u"; mode "default"
+		#     bindsym c exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/classical.m3u"; mode "default"
+		#     bindsym d exec "killall .vlc-wrapped; vlc --loop --no-repeat ~/Music/1-Playlists/doki.m3u"; mode "default"
+		#     bindsym f exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/focus.m3u"; mode "default"
+		#     bindsym Shift+f exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/focus2.m3u"; mode "default"
+		#     bindsym g exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/games.m3u"; mode "default"
+		#     bindsym Shift+g exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/focus3.m3u"; mode "default"
+		#     bindsym l exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/level.m3u"; mode "default"
+		#     bindsym n exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/noir.m3u"; mode "default"
+		#     bindsym p exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/playful-tech.m3u"; mode "default"
+		#     bindsym s exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/spyro.m3u"; mode "default"
+		#     bindsym Shift+s exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/sonic.m3u"; mode "default"
+		#     bindsym t exec "killall .vlc-wrapped; vlc --loop --random --no-repeat ~/Music/1-Playlists/takagi.m3u"; mode "default"
+		#     bindsym r exec "killall mplayer; mplayer -loop 0 -softvol -volume 60 ~/Music/sleeprain.ogg"; mode "default"
+		#     bindsym Shift+r exec "killall mplayer; mplayer -loop 0 -softvol -volume 160 ~/Music/sleeprain.ogg"; mode "default"
+		#     bindsym Shift+m exec "mplayer -loop 0 -softvol -volume 160 ~/Music/sleeprain.ogg"; mode "default"
+		#     bindsym e exec killall mplayer; mode "default"
+		#     bindsym 9 exec killall mplayer .vlc-wrapped; mode "default"
+		# 		bindsym Escape mode "default"
+		# 		bindsym Return mode "default"
+		# 		bindsym space mode "default"
+		# }
+
+
+    # start vlc or mplayer w/ playlist
+		bindsym $mod+p mode "playlist"
+		mode "playlist" {
+				bindsym v exec vlc --loop --random --no-repeat; mode "default"
+        # kill vlc
+		    bindsym a exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/anime.m3u"; mode "default"
+		    bindsym Shift+a exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/all.m3u"; mode "default"
+		    bindsym c exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/classical.m3u"; mode "default"
+		    bindsym d exec "killall vlc; vlc --loop --no-repeat ~/Music/1-Playlists/doki.m3u"; mode "default"
+		    bindsym Shift+e exec "killall vlc; vlc --loop --no-repeat ~/Music/1-Playlists/eggman.m3u"; mode "default"
+		    bindsym Shift+t exec "killall vlc; vlc --loop --random --repeat ~/Music/1-Playlists/focus-tech-extended.m3u"; mode "default"
+		    bindsym f exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/focus.m3u"; mode "default"
+		    bindsym Shift+f exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/focus2.m3u"; mode "default"
+		    bindsym g exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/games.m3u"; mode "default"
+		    bindsym Shift+g exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/focus3.m3u"; mode "default"
+		    bindsym h exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/helltaker.m3u"; mode "default"
+		    bindsym j exec "killall vlc; vlc --loop --random --no-repeat ~/Music/relaxing/4K_Cozy_Coffee_Shop_with_Smooth_Piano_Jazz_Music_for_Relaxing_Studying_and_Working.mp3"; mode "default"
+		    bindsym Shift+j exec "killall vlc; vlc --loop --random --no-repeat ~/Music/relaxing/Rainy_Day_at_the_Coffee_Shop_Ambiance_-_8_Hours_of_Rain_background_chatter_and_Jazz_Music.mp3"; mode "default"
+		    bindsym l exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/level.m3u"; mode "default"
+		    bindsym m exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/mixed-short.m3u"; mode "default"
+		    bindsym n exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/noir.m3u"; mode "default"
+		    bindsym p exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/playful-tech.m3u"; mode "default"
+		    bindsym Shift+p exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/panzer.m3u"; mode "default"
+		    bindsym s exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/spyro.m3u"; mode "default"
+		    bindsym Shift+s exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/sonic.m3u"; mode "default"
+		    bindsym t exec "killall vlc; vlc --loop --random --no-repeat ~/Music/1-Playlists/takagi.m3u"; mode "default"
+		    bindsym Shift+m exec "mplayer -loop 0 -softvol -volume 160 ~/Music/sleeprain.ogg"; mode "default"
+		    bindsym e exec killall mplayer; mode "default"
+				bindsym k exec killall vlc; mode "default"
+		    bindsym 9 exec killall mplayer vlc; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+    # background SFX mode
+		bindsym $mod+$alt+p mode "bg SFX"
+		mode "bg SFX" {
+		    bindsym r exec "killall mplayer; mplayer -loop 0 -softvol -volume 40 ~/Music/relaxing/sleeprain.ogg"; mode "default"
+		    bindsym Shift+r exec "killall mplayer; mplayer -loop 0 -softvol -volume 100 ~/Music/relaxing/sleeprain.ogg"; mode "default"
+		    bindsym c exec "killall mplayer; mplayer -loop 0 -softvol -volume 40 ~/Music/relaxing/It_s_raining._I_ll_sleep_in_the_car_-_Car_Camping.mp3"; mode "default"
+		    bindsym Shift+c exec "killall mplayer; mplayer -loop 0 -softvol -volume 100 ~/Music/relaxing/It_s_raining._I_ll_sleep_in_the_car_-_Car_Camping.mp3"; mode "default"
+		    bindsym v exec "killall mplayer; mplayer -loop 0 -softvol -volume 150 ~/Music/relaxing/It_s_raining._I_ll_sleep_in_the_car_-_Car_Camping.mp3"; mode "default"
+		    bindsym Shift+v exec "killall mplayer; mplayer -loop 0 -softvol -volume 200 ~/Music/relaxing/It_s_raining._I_ll_sleep_in_the_car_-_Car_Camping.mp3"; mode "default"
+		    bindsym e exec killall mplayer; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # screen setup commands
+		bindsym $alt+$mod+o mode "outputs"
+		mode "outputs" {
+				# laptop screen on
+				bindsym d mode "dual screens"
+				bindsym l mode "laptop screen"
+				bindsym a mode "all screens"
+        bindsym s exec "xrandr --output $LAP --off --output $VGA --rotate left --output $HDMI --rotate right --right-of $VGA; sleep 4"; exec nitrogen --set-zoom-fill $bg; mode "default"
+        bindsym Shift+s exec "xrandr --output $LAP --off --output $VGA --rotate left --output $HDMI --right-of $VGA; sleep 4"; exec nitrogen --set-zoom-fill $bg; mode "default"
+        # bindsym s exec "xrandr --output $LAP --off --output $VGA --rotate left --output $HDMI --rotate right --right-of $VGA; sleep 4"; exec nitrogen --set-tiled $bg; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # setup commands for all screens at once
+		# only reachable from "outputs" mode
+		mode "all screens" {
+        # dual monitors on, laptop screen off; TODO: sometimes works, sometimes doesn't. keybind works but xrandr command is flaky. results vary depending on order in which we tell it to turn the screens on.
+        bindsym e exec xrandr --output $HDMI --auto --output $VGA --auto --output $LAP --off; mode "default"
+        bindsym u exec xrandr --output $HDMI --auto --output $VGA --auto --output $LAP --off; mode "default"
+        # laptop screen on, dual monitors off
+        bindsym d exec xrandr --output $VGA --off --output $HDMI --off --output $LAP --auto; mode "default"
+        # set up dual screens correctly
+        bindsym s exec "xrandr --output $LAP --off --output $VGA --rotate left --output $HDMI --rotate right --right-of $VGA; sleep 4"; exec nitrogen --set-zoom-fill $bg; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # dual monitors setup commands
+		# only reachable from "outputs" mode
+        # dual monitors on, laptop screen off; TODO: sometimes works, sometimes doesn't. keybind works but xrandr command is flaky. results vary depending on order in which we tell it to turn the screens on.
+		mode "dual screens" {
+				# both monitors on
+        bindsym e exec xrandr --output $HDMI --auto --output $VGA --auto; mode "default"
+        bindsym u exec xrandr --output $HDMI --auto --output $VGA --auto; mode "default"
+				# turn on left monitor
+        bindsym $left exec xrandr --output $VGA --auto
+				# turn on right monitor
+        bindsym $right exec xrandr --output $HDMI --auto
+				# usual setup
+        bindsym s exec "xrandr --output $VGA --rotate left --output $HDMI --rotate right --right-of $VGA; sleep 4"; exec nitrogen --set-zoom-fill $bg; mode "default"
+				# both monitors off
+        bindsym d exec xrandr --output $VGA --off --output $HDMI --off; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # laptop screen setup commands
+		# only reachable from "outputs" mode
+		mode "laptop screen" {
+		    # laptop screen on
+        bindsym e exec xrandr --output $LAP --auto; mode "default"
+        bindsym u exec xrandr --output $LAP --auto; mode "default"
+		    # laptop screen off
+        bindsym d exec xrandr --output $LAP --off; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # i3 commands
+		bindsym $alt+$mod+i mode "i3"
+		mode "i3" {
+        # reload the config file
+				bindsym c reload
+				# restart i3
+				# bindsym r restart
+				# exit i3 (logs you out of your X session)
+				bindsym $mod+Shift+e exit
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # systemctl commands
+		bindsym $alt+$mod+s mode "system"
+		mode "system" {
+        bindsym $alt+Shift+s exec systemctl suspend; mode "default"
+        bindsym $alt+Shift+h exec systemctl hybrid-sleep; mode "default"
+				bindsym $alt+Shift+r exec systemctl reboot
+				bindsym $alt+Shift+u exec shutdown now
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # device commands
+		bindsym $mod+slash mode "devices"
+		mode "devices" {
+		    bindsym p mode "touchpad"
+		    bindsym m mode "mouse stick"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # touchpad commands
+		# only reachable from "devices" mode
+		mode "touchpad" {
+        # enable touchpad
+        bindsym e exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1; mode "default"
+        bindsym u exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1; mode "default"
+				# disable touchpad
+				bindsym d exec xinput set-prop "$(xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # mouse stick commands
+		# only reachable from "devices" mode
+		mode "mouse stick" {
+        # enable mouse dot
+				# enable mouse stick:
+				bindsym e exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1; mode "default"
+				bindsym u exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 1; mode "default"
+				# disable mouse stick:
+				bindsym d exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+    # redshift commands
+		bindsym $mod+y mode "redshift"
+		mode "redshift" {
+        bindsym t exec redshift -l 32.96:-96.67 -Prt 6500:3500; mode "default"
+        bindsym a exec "killall redshift .redshift-wrapp; redshift -x"
+        bindsym s exec "killall redshift .redshift-wrapp; redshift -PO 5000"
+        bindsym d exec "killall redshift .redshift-wrapp; redshift -PO 4500"
+        bindsym f exec "killall redshift .redshift-wrapp; redshift -PO 4000"
+        bindsym g exec "killall redshift .redshift-wrapp; redshift -PO 3500"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+	  # restart sound (pipewire)
+	  bindsym $mod+equal exec systemctl --user enable --now wireplumber && systemctl --user restart pipewire
+
+	  # right monitor rotate tall
+	  bindsym $mod+bracketleft exec xrandr --output $HDMI --rotate right
+	  # right monitor rotate wide
+  	bindsym $mod+bracketright exec xrandr --output $HDMI --rotate normal
+	  # left monitor rotate tall
+	  bindsym $mod+$alt+bracketleft exec xrandr --output $VGA --rotate left
+	  # left monitor rotate wide
+		bindsym $mod+$alt+bracketright exec xrandr --output $VGA --rotate normal
+
+    ## start a terminal (#$term  #kitty  #konsole --hide-menubar)
+    bindsym $mod+t exec $term
+    # bindsym $mod+t exec kitty -1 --listen-on unix:/tmp/kitty
+
+    ## start alacritty terminal (allows variable-spaced fonts, unlike kitty term)
+    bindsym $alt+$mod+t exec alacritty
+
+    ## kill focused window
+    bindsym Ctrl+Shift+q kill
+    ## right hand
+    # bindsym $mod+backslash kill
+
+    # start program launcher
+    bindsym $mod+o exec $menu
+
+    ## start file browser
+    bindsym $mod+b exec $fbrowser
+
+    ## start blueman-manager
+    bindsym $alt+$mod+b exec blueman-manager
+
+    ## start internet browser
+    bindsym $mod+i exec $ibrowser
+
+    # start firefox
+    bindsym $mod+Shift+i exec firefox
+
+    # # screenshot using shotgun (replace w/ maim)
+    # bindsym $mod+s exec shotgun
+    # bindsym $mod+Shift+s exec ksnip
+    bindsym $mod+s exec shutter -s -e -C -n -o "/home/cameron/Pictures/screenshots/%Y-%m-%d-%T.png"
+
+    # close all google-chrome-stable windows
+    bindsym $alt+$mod+g [class="^Google-chrome$"] kill
+
+    # start password manager
+    # bindsym $mod+Shift+p exec encryptr
+
+    ## start wallpaper manager
+    bindsym Shift+$mod+w exec nitrogen
+
+		## start emacs (full-height, full-width)
+    bindsym $mod+e exec emacs -mm
+
+		## open Quantified Self spreadsheet with libreoffice
+    bindsym $mod+q exec libreoffice -o "/home/cameron/Documents/quantified-self.ods"
+
+		## open schedule spreadsheet with libreoffice
+    bindsym $mod+Shift+s exec libreoffice -o "/home/cameron/Documents/schedule.ods"
+
+    ## start spacemacs w/ (modded) default config
+		# TODO: find out how to do this correctly
+    # bindsym $mod+Shift+s exec emacs -fs -q -l ~/.spacemacs-default-mod
+
+    ## pulseaudio (volume control)
+    ## toggle mute
+    bindsym $mod+Return exec pulseaudio-ctl mute
+    bindsym F7 exec pulseaudio-ctl mute
+    ## vol down
+    # bindsym $mod+9 exec pulseaudio-ctl down
+    bindsym $mod+3 exec pulseaudio-ctl down
+    bindsym $mod+9 exec pulseaudio-ctl down
+    bindsym $mod+d exec pulseaudio-ctl down
+    bindsym F8 exec pulseaudio-ctl down
+    ## vol up
+    # bindsym $mod+0 exec pulseaudio-ctl up
+    bindsym $mod+4 exec pulseaudio-ctl up
+    bindsym $mod+0 exec pulseaudio-ctl up
+    bindsym $mod+u exec pulseaudio-ctl up
+    bindsym F9 exec pulseaudio-ctl up
+
+    # # system volume control
+    bindsym $mod+$alt+v exec pavucontrol #pavucontrol-qt
+
+    # # start kcolorchooser
+    # bindsym $mod+c exec kcolorchooser
+
+    # # start charmap
+    bindsym $alt+$mod+c exec gucharmap
+
+    # # start stretchly
+    # bindsym $alt+$mod+b exec stretchly
+
+    # # adjust brightness -- need sudo permission
+		# bindsym $mod+u brightnessctl set +10%
+		# bindsym $mod+d brightnessctl set 10%-
+
+
+
+    # # TODO: install similar screenshot program... "import" not in Nix repo
+    # # Take a screenshot upon pressing $mod+x (select an area)
+    # bindsym --release $mod+x exec --no-startup-id import /home/cameron/tmp/latest-screenshot.png
+
+
+
+#
+# Marks:
+# mark [--add|--replace] [--toggle] <identifier>
+# [con_mark="identifier"] focus
+# unmark <identifier>
+#
+    show_marks no
+
+    ## read 1 char and mark the current window with this char
+    bindsym $alt+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+
+    ## read 1 char and go to the window with the char
+    ## buggy; will sometimes jump to designated mark, sometimes not.
+    bindsym $mod+apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+
+
+
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    # Focus different outputs (screens)
+    # bindsym Ctrl+Shift+$left focus output left
+    # bindsym Ctrl+Shift+$right focus output right
+
+    # _move_ the focused window
+    bindsym $alt+$mod+$left move left
+    bindsym $alt+$mod+$down move down
+    bindsym $alt+$mod+$up move up
+    bindsym $alt+$mod+$right move right
+
+# Assign given workspace to given screen. 1st screen is tried first, etc.
+    workspace 1 output $VGA $HDMI $LAP
+    workspace 2 output $VGA $HDMI $LAP
+    workspace 3 output $VGA $HDMI $LAP
+    workspace 4 output $VGA $HDMI $LAP
+    workspace 5 output $VGA $HDMI $LAP
+    workspace 6 output $HDMI $VGA $LAP
+    workspace 7 output $HDMI $VGA $LAP
+    workspace 8 output $HDMI $VGA $LAP
+    workspace 9 output $HDMI $VGA $LAP
+    workspace 10 output $HDMI $VGA $LAP
+    workspace 11 output $LAP $HDMI $VGA
+
+    # workspace_auto_back_and_forth yes
+
+    bindsym $mod+comma workspace prev_on_output
+    bindsym $mod+period workspace next_on_output
+		# $mod+semicolon taken by emacs for buffer-back-and-forth; much more deserving of the better keybind
+    bindsym $mod+8 workspace back_and_forth
+    bindsym $mod+backslash workspace back_and_forth
+
+    # switch to workspace
+		bindsym $mod+g mode "go"
+		mode "go" {
+		    bindsym a workspace 1; mode "default"
+				bindsym s workspace 2; mode "default"
+				bindsym d workspace 3; mode "default"
+				bindsym f workspace 4; mode "default"
+				bindsym g workspace 5; mode "default"
+				bindsym h workspace 6; mode "default"
+				bindsym j workspace 7; mode "default"
+				bindsym k workspace 8; mode "default"
+				bindsym l workspace 9; mode "default"
+				bindsym semicolon workspace 10; mode "default"
+				bindsym minus workspace 11; mode "default"
+        ###########
+		    bindsym $mod+a workspace 1; mode "default"
+				bindsym $mod+s workspace 2; mode "default"
+				bindsym $mod+d workspace 3; mode "default"
+				bindsym $mod+f workspace 4; mode "default"
+				bindsym $mod+g workspace 5; mode "default"
+				bindsym $mod+h workspace 6; mode "default"
+				bindsym $mod+j workspace 7; mode "default"
+				bindsym $mod+k workspace 8; mode "default"
+				bindsym $mod+l workspace 9; mode "default"
+				bindsym $mod+semicolon workspace 10; mode "default"
+				bindsym $mod+minus workspace 11; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+    # move focused container to workspace
+		bindsym $mod+m mode "move"
+		mode "move" {
+        bindsym a move container to workspace 1; mode "default"
+				bindsym s move container to workspace 2; mode "default"
+				bindsym d move container to workspace 3; mode "default"
+				bindsym f move container to workspace 4; mode "default"
+				bindsym g move container to workspace 5; mode "default"
+				bindsym h move container to workspace 6; mode "default"
+				bindsym j move container to workspace 7; mode "default"
+				bindsym k move container to workspace 8; mode "default"
+				bindsym l move container to workspace 9; mode "default"
+				bindsym semicolon move container to workspace 10; mode "default"
+				bindsym minus move container to workspace 11; mode "default"
+        ###########
+        bindsym $mod+a move container to workspace 1; mode "default"
+				bindsym $mod+s move container to workspace 2; mode "default"
+				bindsym $mod+d move container to workspace 3; mode "default"
+				bindsym $mod+f move container to workspace 4; mode "default"
+				bindsym $mod+g move container to workspace 5; mode "default"
+				bindsym $mod+h move container to workspace 6; mode "default"
+				bindsym $mod+j move container to workspace 7; mode "default"
+				bindsym $mod+k move container to workspace 8; mode "default"
+				bindsym $mod+l move container to workspace 9; mode "default"
+				bindsym $mod+semicolon move container to workspace 10; mode "default"
+				bindsym $mod+minus move container to workspace 11; mode "default"
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+    # move focused container to workspace and switch to it
+		bindsym $mod+n mode "move/go"
+		mode "move/go" {
+        bindsym a move container to workspace 1; mode "default"; workspace 1
+				bindsym s move container to workspace 2; mode "default"; workspace 2
+				bindsym d move container to workspace 3; mode "default"; workspace 3
+				bindsym f move container to workspace 4; mode "default"; workspace 4
+				bindsym g move container to workspace 5; mode "default"; workspace 5
+				bindsym h move container to workspace 6; mode "default"; workspace 6
+				bindsym j move container to workspace 7; mode "default"; workspace 7
+				bindsym k move container to workspace 8; mode "default"; workspace 8
+				bindsym l move container to workspace 9; mode "default"; workspace 9
+				bindsym semicolon move container to workspace 10; mode "default"; workspace 10
+				bindsym minus move container to workspace 11; mode "default"; workspace 11
+        ###########
+        bindsym $mod+a move container to workspace 1; mode "default"; workspace 1
+				bindsym $mod+s move container to workspace 2; mode "default"; workspace 2
+				bindsym $mod+d move container to workspace 3; mode "default"; workspace 3
+				bindsym $mod+f move container to workspace 4; mode "default"; workspace 4
+				bindsym $mod+g move container to workspace 5; mode "default"; workspace 5
+				bindsym $mod+h move container to workspace 6; mode "default"; workspace 6
+				bindsym $mod+j move container to workspace 7; mode "default"; workspace 7
+				bindsym $mod+k move container to workspace 8; mode "default"; workspace 8
+				bindsym $mod+l move container to workspace 9; mode "default"; workspace 9
+				bindsym $mod+semicolon move container to workspace 10; mode "default"; workspace 10
+				bindsym $mod+minus move container to workspace 11; mode "default"; workspace 11
+				bindsym Escape mode "default"
+				bindsym Return mode "default"
+				bindsym space mode "default"
+		}
+
+
+
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default. Non-number names must be quoted as strings.
+    # bindsym Ctrl+1 workspace 1: mail
+
+
+#
+# Window focus
+# focus_on_window_activation smart|urgent|focus|none
+#
+    focus_on_window_activation none
+    force_display_urgency_hint 500 ms
+
+#focus_wrapping yes|no|force|workspace
+    focus_wrapping no
+
+
+# # Don't focus on a window by hovering the mouse over it
+    focus_follows_mouse no
+
+
+    # # testing purposes
+    # bindsym $mod+q "workspace 3; exec $term; exec i3-msg border none; workspace 10"
+
+# Prevent popup windows from stealing the focus
+    no_focus [window_role="pop-up"]
+
+# for_window [class="^vlc$"] floating_minimum_size 150 x 100
+
+
+# center vlc at a certain size and move to scratchpad
+for_window [window_role="vlc-main"] floating enable , \
+    resize set 1070 700, move position center, move scratchpad
+
+
+# floating_minimum_size 1200 x 500
+# # # unconstrained floating window size unless otherwise specified for individual apps
+# floating_maximum_size -1 x -1
+
+
+# Assign google-chrome-stable to workspace 7
+    # assign [class="^Google-chrome$"] → 1
+    # assign [class="^Emacs$"] → 6
+# assign [instance="^google-chrome" class="^Google-chrome$"] → 1
+
+# - To get the class and instance, you can use    "xprop | grep 'CLASS'".
+# - After clicking on the window, you will see the following output:
+#     xprop:
+#     WM_CLASS(STRING) = "irssi", "URxvt"
+# - The first part of the WM_CLASS is the instance ("irssi" in this example), the second part is the class ("URxvt" in this example).
+# - Should you have any problems with assignments, make sure to check the i3 logfile first (see https://i3wm.org/docs/debugging.html). It includes more details about the matching process and the window’s actual class, instance and title when starting up.
+
+
+
+
+
+
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    # bindsym $mod+b splith
+    # bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    # bindsym $mod+s layout stacking
+    # bindsym $mod+w layout tabbed
+    # bindsym $mod+x layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+space fullscreen
+    bindsym $alt+$mod+space fullscreen
+
+    # Toggle sticky window
+    bindsym Shift+$mod+f sticky toggle
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $alt+$mod+f floating toggle
+
+    # Hold the mod key and click on a floating window to drag it
+    floating_modifier $mod
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+f focus mode_toggle
+
+    # # move focus to the parent container
+    # bindsym $mod+a focus parent
+
+    # # move focus to the child container
+    # bindsym $mod+d focus child
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+v move scratchpad
+    bindsym $mod+c scratchpad show
+
+#
+# Resizing containers:
+#
+bindsym $mod+r mode "resize"
+mode "resize" {
+		bindsym $left resize shrink width 20px
+    bindsym $down resize shrink height 20px
+    bindsym $up resize grow height 20px
+    bindsym $right resize grow width 20px
+    # for vlc after restarting i3
+    bindsym e resize set 1050 700, move position center; mode "default"
+    bindsym $mod+e resize set 1050 700, move position center; mode "default"
+    # for stopwatch; can use "xdotool getwindowfocus getwindowgeometry" to get geometry of given window
+    # top
+    bindsym s resize set 1050 50, move position 15 px 39 px; mode "default"
+    bindsym $mod+s resize set 1050 50, move position 15 px 39 px; mode "default"
+    # bottom
+    bindsym Shift+s resize set 1050 50, move position 15 px 1855 px; mode "default"
+    # for stopwatch; can use "xdotool getwindowfocus getwindowgeometry" to get geometry of given window
+    # top
+    bindsym m resize set 1050 166, move position 15 px 39 px; mode "default"
+    bindsym $mod+m resize set 1050 166, move position 15 px 39 px; mode "default"
+    # bottom
+    bindsym Shift+m resize set 1050 166, move position 15 px 1739 px; mode "default"
+    bindsym $mod+r mode "default"
+    bindsym space mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# whether to warp mouse cursor to center of active screen after shifting focus
+mouse_warping none
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+## tray_output none|primary|<output>
+  ## whether to display icons, e.g., for instances of vlc
+	## outputs: $VGA, $HDMI
+    # tray_output none
+## position top|bottom
+    position top
+# only yes|no  # when using e.g., "1:mail"
+    strip_workspace_numbers no
+    separator_symbol "   "
+    ## height in pixels
+    height 24
+# # mode dock|hide|invisible
+# # hidden_state hide|show
+		mode dock
+		hidden_state hide
+		modifier $mod
+    # bindsym button1 nop    # disable clicking on workspace buttons
+    # status_command while date +'%Y-%m-%d %l:%M %p  '; do sleep 1; done
+    status_command i3status #--config ~/.i3status.conf
+    # status_command .config/i3/weather.sh
+    # status_command i3blocks # -c ~/.i3status.conf
+
+    colors {
+        #
+        # # Syntax:
+        # # <colorclass> <border> <background> <text>
+        #
+
+        #---- night-owl ----
+        statusline #888888   ###text   ###addb67 --green
+        background #011627
+        inactive_workspace #32323200 #32323200 #5c5c5c
+
+        # #---- default ----
+        # statusline #ffffff
+        # background #323232
+        # inactive_workspace #32323200 #32323200 #5c5c5c
+
+        #
+				# Supported configurable colors:
+
+        ## focused_background
+        ## Background color of the bar on the currently focused monitor output. If not used, the color will be taken from background.
+
+        ## focused_statusline
+        ## Text color to be used for the statusline on the currently focused monitor output. If not used, the color will be taken from statusline.
+
+        ## focused_separator
+        ## Text color to be used for the separator on the currently focused monitor output. If not used, the color will be taken from separator.
+
+        ## focused_workspace
+        ## Border, background and text color for a workspace button when the workspace has focus.
+
+        ## active_workspace
+        ## Border, background and text color for a workspace button when the workspace is active (visible) on some output, but the focus is on another one. You can only tell this apart from the focused workspace when you are using multiple monitors.
+
+        ## inactive_workspace
+        ## Border, background and text color for a workspace button when the workspace does not have focus and is not active (visible) on any output. This will be the case for most workspaces.
+
+        ## urgent_workspace
+        ## Border, background and text color for a workspace button when the workspace contains a window with the urgency hint set.
+
+        ## binding_mode
+        ## Border, background and text color for the binding mode indicator. If not used, the colors will be taken from urgent_workspace.
+
+    }
+}
+

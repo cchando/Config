@@ -1,0 +1,30 @@
+{
+  "settingsVersion": "1.66",
+  "exclusionRules": [
+    {
+      "pattern": "https?://mail.google.com/*",
+      "passKeys": "<"
+    },
+    {
+      "pattern": "https?://docs.google.com/*",
+      "passKeys": "<"
+    }
+  ],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "map sW Vomnibar.activate keyword=w\nmap sw Vomnibar.activateInNewTab keyword=w\nmap sG Vomnibar.activate keyword=go\nmap sg Vomnibar.activateInNewTab keyword=go\nmap sY Vomnibar.activate keyword=yo\nmap sy Vomnibar.activateInNewTab keyword=yo\nmap sA Vomnibar.activate keyword=am\nmap sa Vomnibar.activateInNewTab keyword=am\nmap sM Vomnibar.activate keyword=mel\nmap sm Vomnibar.activateInNewTab keyword=mel\nmap sR Vomnibar.activate keyword=ra\nmap sr Vomnibar.activateInNewTab keyword=ra\nmap sT Vomnibar.activate keyword=tr\nmap st Vomnibar.activateInNewTab keyword=tr\nmap sH Vomnibar.activate keyword=ha\nmap sh Vomnibar.activateInNewTab keyword=ha\nmap sP Vomnibar.activate keyword=pr\nmap sp Vomnibar.activateInNewTab keyword=pur\nmap sZ Vomnibar.activate keyword=sp\nmap sz Vomnibar.activateInNewTab keyword=sp\nmap sN Vomnibar.activate keyword=nix\nmap sn Vomnibar.activateInNewTab keyword=nix\nmap sS Vomnibar.activate keyword=sta\nmap ss Vomnibar.activateInNewTab keyword=sta\nmap sU Vomnibar.activate keyword=gh\nmap su Vomnibar.activateInNewTab keyword=gh\nmap sL Vomnibar.activate keyword=laz\nmap sl Vomnibar.activateInNewTab keyword=laz\nunmapAll\n#mapkey <c-m> <c-[>",
+  "linkHintCharacters": "sadfjklewcmphrnv",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "pages/blank.html",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 100,
+  "smoothScroll": true,
+  "grabBackFocus": true,
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\nlaz: https://lazamar.co.uk/nix-versions/?channel=nixos-unstable&package=%s Find Nix Revision\nnix: https://search.nixos.org/packages?query=%s&from=0&size=60&sort=relevance&channel=unstable Nix Packages\nmel: jj%s MELPA\ngh: https://github.com/search?q=%s GitHub\nra: https://docs.racket-lang.org/search/index.html?q=%s Racket Docs\ntr: https://docs.racket-lang.org/search/index.html?q=L%3Atyped%2Fracket%2Fbase%20%s Typed-Racket Docs\nha: https://hoogle.haskell.org/?hoogle=%s Hoogle\npur: https://pursuit.purescript.org/search?q=%s Pursuit\nsta: https://http://stackoverflow.com/search?q=%s Stack Overflow\nsp: https://startpage.com/sp/search/?q=%s StartPage\ngo: https://www.google.com/search?q=%s Google\nyo: https://www.youtube.com/results?search_query=%s Youtube\ngm: https://www.google.com/maps?q=%s Google Maps\nam: https://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant",
+  "searchUrl": "https://www.google.com/search?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}

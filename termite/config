@@ -1,0 +1,40 @@
+
+
+
+[colors]
+cursor = #d8dee9
+cursor_foreground = #2e3440
+
+foreground = #d6deeb
+foreground_bold = #d6deeb
+background = #011627
+
+highlight = #4c566a
+
+color0  = #011627
+color1  = #ff5874
+color2  = #97c25f
+color3  = #f78c6c
+color4  = #82aaff
+color5  = #c792ea
+color6  = #7fdbca
+color7  = #aaaaaa
+color8  = #637777
+color9 = #97c25f
+color10 = #97c25f
+color11 = #364f62
+color12 = #82aaff
+color13 = #c792ea
+color14 = #7fdbca
+color15 = #eeeeee
+
+
+[options]
+mouse_autohide = true
+scrollbar = off
+browser = google-chrome-stable
+cursor_blink = off
+size_hints = false
+modify_other_keys = false
+scrollback_lines = 10000
+audible_bell = false

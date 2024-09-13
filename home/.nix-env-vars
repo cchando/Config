@@ -1,0 +1,10 @@
+NIX_PATH=/home/cameron/.nix-defexpr/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels
+
+nix-channels --list
+    nixos https://nixos.org/channels/nixos-21.11
+    nixpkgs https://nixos.org/channels/nixpkgs-unstable
+
+[cameron@nixos ~]$ nix-env -iA nixos.gh
+error: attribute 'nixos' in selection path 'nixos.gh' not found
+[cameron@nixos ~]$ nix-env -iA nixpkgs.gh
+error: attribute 'nixpkgs' in selection path 'nixpkgs.gh' not found

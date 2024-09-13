@@ -1,0 +1,106 @@
+[cursor]
+style = { shape = "Beam" , blinking = "Never" }
+
+## Background opacity
+[window]
+padding = { x = 5, y = 5 }
+opacity = 0.7
+
+## monokai_classic color scheme
+[colors.bright]
+black="#6e7066"
+blue="#fc961f"
+cyan="#66d9ee"
+green="#a6e12d"
+magenta="#ae81ff"
+red="#f82570"
+white="#fdfff1"
+yellow="#e4db73"
+
+[colors.normal]
+black="#3b3c35"
+blue="#fc961f"
+cyan="#66d9ee"
+green="#a6e12d"
+magenta="#ae81ff"
+red="#f82570"
+white="#fdfff1"
+yellow="#e4db73"
+
+[colors.primary]
+background="#3b3c35"
+foreground="#fdfff1"
+
+[colors.selection]
+text="#3b3c35"
+background="#fdfff1"
+
+[colors.cursor]
+text="#000000"
+cursor="#fdfff1"
+
+
+
+
+## noctis-lux color scheme
+#[colors.bright]
+#black="#004d57"
+#blue="#0fa3ff"
+#cyan="#00cbe6"
+#green="#00d17a"
+#magenta="#ff6b9f"
+#red="#ff4000"
+#white="#bbc3c4"
+#yellow="#ff8c00"
+
+#[colors.normal]
+#black="#003b42"
+#blue="#0094f0"
+#cyan="#00bdd6"
+#green="#00b368"
+#magenta="#ff5792"
+#red="#e34e1c"
+#white="#8ca6a6"
+#yellow="#f49725"
+
+#[colors.primary]
+#background="#fef8ec"
+#foreground="#005661"
+
+## solarized (dark) theme
+#[colors.bright]
+#black="#657b83"
+#blue="#268bd2"
+#cyan="#2aa198"
+#green="#859900"
+#magenta="#6c71c4"
+#red="#dc322f"
+#white="#fdf6e3"
+#yellow="#b58900"
+#[colors.normal]
+#black="#002b36"
+#blue="#268bd2"
+#cyan="#2aa198"
+#green="#859900"
+#magenta="#6c71c4"
+#red="#dc322f"
+#white="#93a1a1"
+#yellow="#b58900"
+#[colors.primary]
+#background="#002b36"
+#foreground="#93a1a1"
+#[colors.cursor]
+#cursor="#93a1a1"
+
+
+[font]
+size = 9
+[font.normal]
+#family = "Menlo"
+#family = "FreeMono"
+family = "SF Mono"
+#family = "Code New Roman"
+
+
+[keyboard]
+bindings = [{ key = "N", mods = "Control|Shift", action = "createNewWindow" }]
