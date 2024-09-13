@@ -454,6 +454,7 @@ export stocks="$HOME/Projects/stocks"
 export wall="$HOME/Pictures/wallpapers"
 export KAKOUNE_CONFIG_DIR="$HOME/.config/kak"
 export GRIM_DEFAULT_DIR="$HOME/Pictures/screenshots"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # PS1='[\u@\h \W]\$ '
 PS1='[\u \W]-> '

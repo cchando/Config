@@ -1,0 +1,14 @@
+echo $XDG_CONFIG_HOME should be set to $HOME/.config for vimpc to find this config file
+
+
+echo Keybinds:
+map K 20k
+map J 20j
+map L gt
+map H gT
+
+echo Set the default tab
+set window playlist
+
+echo Stop playingmusic when we quit:
+set stoponquit
