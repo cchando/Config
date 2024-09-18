@@ -27,4 +27,3 @@ export PROGRAMS="$HOME/Programs"
 export VIDEOS="$HOME/Videos"
 
 # source /home/cam/.config/broot/launcher/bash/br
-

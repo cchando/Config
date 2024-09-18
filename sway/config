@@ -102,8 +102,8 @@ exec gammastep -l 32.96:-96.67 -t 6500:3500
 # exec xinput set-prop "$(xinput list | grep -i stick | cut -f 2 | grep -oE '[[:digit:]]+')" 'Device Enabled' 0
 # set wallpaper:
 exec_always nitrogen --set-zoom-fill $bg
-exec pulseaudio-ctl mute no
-exec pulseaudio-ctl set 35
+exec pactl mute no
+exec pactl set 35
 # exec vlc --loop --random --no-repeat file:///home/cameron/Music/1-Playlists/noir.m3u; mode "default"
 # exec mplayer -loop 0 -softvol -volume 60 /home/cameron/Music/sleeprain.ogg; mode "default"
 # exec_always ~/.config/waybar/waybar.sh
@@ -536,7 +536,7 @@ mode "system" {
     bindsym $mod+o exec $menu
 
     ## start file browser
-    bindsym $mod+Return exec $fbrowser
+    bindsym $mod+b exec $fbrowser
 
     ## start internet browser
     # on Arch Linux, run 'chromium --enable-features=UseOzonePlatform --ozone-platform=wayland' from cmdline, then go to chrome://flags/ and set "Preferred Ozone Platform" to Wayland.
@@ -570,16 +570,14 @@ mode "system" {
     # bindsym $mod+Shift+s exec emacs -fs -q -l ~/.spacemacs-default-mod
 
     # ## toggle-mute pulseaudio
-    # bindsym $mod+Return exec pulseaudio-ctl mute
-    # ## vol up
-    # bindsym $mod+4 exec pulseaudio-ctl up
-    # bindsym $mod+0 exec pulseaudio-ctl up
-    # ## vol down
-    # bindsym $mod+3 exec pulseaudio-ctl down
-    # bindsym $mod+9 exec pulseaudio-ctl down
+    bindsym $mod+Return exec pulseaudio-ctl mute
+    ## vol up
+    bindsym $mod+u exec pulseaudio-ctl up
+    ## vol down
+    bindsym $mod+d exec pulseaudio-ctl down
 
-    # # system volume control
-    bindsym $mod+Shift+v exec pavucontrol #pavucontrol-qt
+    # # system volume control  #pavucontrol-qt
+    bindsym $mod+Shift+v exec pavucontrol
 
     # # start kcolorchooser
     # bindsym $mod+c exec kcolorchooser
@@ -591,8 +589,8 @@ mode "system" {
     # bindsym $alt+$mod+b exec stretchly
 
     # adjust brightness -- need sudo permission
-		bindsym $mod+u brightnessctl set +10%
-		bindsym $mod+d brightnessctl set 10%-
+		#bindsym $mod+u brightnessctl set +10%
+		#bindsym $mod+d brightnessctl set 10%-
 
 
 

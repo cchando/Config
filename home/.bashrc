@@ -166,7 +166,7 @@ alias won='wpaon'
 #alias wpaoff='systemctl stop wpa_supplicant'
 alias rw='systemctl restart wpa_supplicant'
 alias wpast='systemctl status wpa_supplicant'
-alias stw='wpastatus'
+alias stw='wpast'
 alias std='systemctl status dhcpcd'
 alias wpabg='sudo wpa_supplicant -i wlp58s0 -c f -B'  # (-d for debugging, -B for background/daemon)
 conn () {
